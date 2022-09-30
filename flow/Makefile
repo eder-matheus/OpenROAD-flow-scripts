@@ -549,14 +549,9 @@ cts: $(RESULTS_DIR)/4_cts.odb \
 $(RESULTS_DIR)/4_1_cts.odb: $(RESULTS_DIR)/3_place.odb $(RESULTS_DIR)/3_place.sdc
 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/cts.tcl -metrics $(LOG_DIR)/4_1_cts.json) 2>&1 | tee $(LOG_DIR)/4_1_cts.log
 
-# Filler cell insertion
-# ------------------------------------------------------------------------------
-$(RESULTS_DIR)/4_2_cts_fillcell.odb: $(RESULTS_DIR)/4_1_cts.odb
-	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/fillcell.tcl -metrics $(LOG_DIR)/4_2_cts_fillcell.json) 2>&1 | tee $(LOG_DIR)/4_2_cts_fillcell.log
-
 $(RESULTS_DIR)/4_cts.sdc: $(RESULTS_DIR)/4_cts.odb
 
-$(RESULTS_DIR)/4_cts.odb: $(RESULTS_DIR)/4_2_cts_fillcell.odb
+$(RESULTS_DIR)/4_cts.odb: $(RESULTS_DIR)/4_1_cts.odb
 	cp $< $@
 
 clean_cts:
@@ -582,11 +577,16 @@ route: $(RESULTS_DIR)/5_route.odb \
 $(RESULTS_DIR)/5_1_grt.odb: $(RESULTS_DIR)/4_cts.odb $(FASTROUTE_TCL) $(PRE_GLOBAL_ROUTE)
 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/global_route.tcl -metrics $(LOG_DIR)/5_1_fastroute.json) 2>&1 | tee $(LOG_DIR)/5_1_fastroute.log
 
+# Filler cell insertion
+# ------------------------------------------------------------------------------
+$(RESULTS_DIR)/5_2_grt_fillcell.odb: $(RESULTS_DIR)/5_1_grt.odb
+	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/fillcell.tcl -metrics $(LOG_DIR)/5_2_grt_fillcell.json) 2>&1 | tee $(LOG_DIR)/5_2_grt_fillcell.log
+
 
 # STEP 2: Run detailed route
 #-------------------------------------------------------------------------------
 ifeq ($(USE_WXL),)
-$(RESULTS_DIR)/5_2_route.odb: $(RESULTS_DIR)/5_1_grt.odb
+$(RESULTS_DIR)/5_2_route.odb: $(RESULTS_DIR)/5_2_grt_fillcell.odb
 else
 $(RESULTS_DIR)/5_2_route.odb: $(RESULTS_DIR)/4_cts.odb
 endif
