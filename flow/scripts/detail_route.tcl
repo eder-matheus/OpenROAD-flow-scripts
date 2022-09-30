@@ -3,7 +3,7 @@ source $::env(SCRIPTS_DIR)/load.tcl
 if { [info exists ::env(USE_WXL)]} {
   set db_file 4_cts.odb
 } else {
-  set db_file 5_1_grt.odb
+  set db_file 5_2_grt_fillcell.odb
 }
 load_design $db_file 4_cts.sdc "Starting detailed routing"
 set_propagated_clock [all_clocks]
