@@ -38,4 +38,5 @@ do
   done
   mv *.tar.gz "adjust_${adjust}"
   make nuke
+  rm run-me-* vars-*
 done
