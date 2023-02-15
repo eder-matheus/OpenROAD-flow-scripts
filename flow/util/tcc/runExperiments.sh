@@ -11,6 +11,7 @@ sky130hsDesigns=("aes" "coyote_tc" "ibex" "jpeg" "riscv32i")
 for adjust in 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8
 do
   mkdir "adjust_${adjust}"
+  export RESOURCES_ADJUSTMENT="${adjust}"
   for tech in "${techs[@]}"
   do
     designs=("${asap7Designs[@]}")
