@@ -8,7 +8,7 @@ if { [info exists ::env(USE_WXL)]} {
 load_design $db_file 4_cts.sdc "Starting detailed routing"
 set_propagated_clock [all_clocks]
 
-set_thread_count $::env(NUM_CORES)
+set_thread_count 6
 
 set additional_args ""
 if { [info exists ::env(dbProcessNode)]} {
