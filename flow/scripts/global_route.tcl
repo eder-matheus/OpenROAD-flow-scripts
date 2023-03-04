@@ -13,6 +13,10 @@ global_route -guide_file $env(RESULTS_DIR)/route.guide \
                -congestion_report_file $env(REPORTS_DIR)/congestion.rpt \
                {*}[expr {[info exists ::env(GLOBAL_ROUTE_ARGS)] ? $::env(GLOBAL_ROUTE_ARGS) : {-congestion_iterations 100 -verbose}}]
 
+if  {[info exist env(REPAIR_ANTENNAS)]} {
+  repair_antennas -iterations 3 -ratio_margin $::env(REPAIR_ANTENNAS_MARGIN)
+}
+
 set_propagated_clock [all_clocks]
 estimate_parasitics -global_routing
 
