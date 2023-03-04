@@ -9,6 +9,10 @@ if {[info exist env(PRE_GLOBAL_ROUTE)]} {
 set_global_routing_layer_adjustment $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER) $env(RESOURCES_ADJUSTMENT)
 set_routing_layers -signal $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER)
 
+if {[info exists env(CLOCK_LAYERS)]} {
+  set_routing_layers -clock $env(MIN_ROUTING_LAYER_CLOCK)-$env(MAX_ROUTING_LAYER_CLOCK)
+}
+
 global_route -guide_file $env(RESULTS_DIR)/route.guide \
                -congestion_report_file $env(REPORTS_DIR)/congestion.rpt \
                {*}[expr {[info exists ::env(GLOBAL_ROUTE_ARGS)] ? $::env(GLOBAL_ROUTE_ARGS) : {-congestion_iterations 100 -verbose}}]
