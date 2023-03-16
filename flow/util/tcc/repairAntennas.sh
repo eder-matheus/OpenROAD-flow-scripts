@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-techs=("asap7" "gf180" "nangate45" "sky130hd" "sky130hs")
+techs=("gf180" "sky130hd" "sky130hs")
 
 asap7Designs=("aes" "ethmac" "ibex" "jpeg" "sha3")
 gf180Designs=("aes")
