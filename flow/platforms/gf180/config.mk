@@ -119,6 +119,7 @@ export MAX_ROUTING_LAYER                     ?= Metal5
 export VIA_IN_PIN_MIN_LAYER                  ?= Metal1
 export VIA_IN_PIN_MAX_LAYER                  ?= Metal1
 export DISABLE_VIA_GEN                       ?= 1
+export RESOURCES_ADJUSTMENT		=		0.4
 
 # KLayout layer properties
 export KLAYOUT_TECH_FILE                      = $(PLATFORM_DIR)/KLayout/gf180mcu_$(METAL_OPTION)_$(KVALUE)K_$(TRACK_OPTION).lyt
