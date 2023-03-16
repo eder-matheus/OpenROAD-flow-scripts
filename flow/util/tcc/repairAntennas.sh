@@ -8,8 +8,9 @@ nangate45Designs=("aes" "black_parrot" "bp_be_top" "bp_fe_top" "bp_multi_top" "i
 sky130hdDesigns=("aes" "chameleon" "coyote_tc" "ibex" "jpeg" "microwatt" "riscv32i")
 sky130hsDesigns=("aes" "coyote_tc" "ibex" "jpeg" "riscv32i")
 
+export REPAIR_ANTENNAS=1
+for tech in "${techs[@]}"
 do
-  export REPAIR_ANTENNAS=1
   designs=("${asap7Designs[@]}")
 
   case $tech in
