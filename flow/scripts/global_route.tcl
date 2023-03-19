@@ -19,7 +19,7 @@ global_route -guide_file $env(RESULTS_DIR)/route.guide \
                {*}[expr {[info exists ::env(GLOBAL_ROUTE_ARGS)] ? $::env(GLOBAL_ROUTE_ARGS) : {-congestion_iterations 100 -verbose}}]
 
 if  {[info exist env(REPAIR_ANTENNAS)]} {
-  repair_antennas -iterations 3
+  repair_antennas -iterations 3 -ratio_margin 30
 }
 
 set_propagated_clock [all_clocks]
