@@ -120,6 +120,9 @@ export MIN_ROUTING_LAYER       = M2
 #export MIN_CLOCK_ROUTING_LAYER = M4
 export MAX_ROUTING_LAYER       = M7
 
+export MIN_ROUTING_LAYER_CLOCK = M4
+export MAX_ROUTING_LAYER_CLOCK = M7
+
 export RESOURCES_ADJUSTMENT	=	0.6
 
 # KLayout technology file

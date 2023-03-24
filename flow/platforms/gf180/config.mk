@@ -116,6 +116,8 @@ export CTS_BUF_DISTANCE                       = 100
 # FastRoute options
 export MIN_ROUTING_LAYER                     ?= Metal2
 export MAX_ROUTING_LAYER                     ?= Metal5
+export MIN_ROUTING_LAYER_CLOCK								= Metal3
+export MAX_ROUTING_LAYER_CLOCK 								= Metal5
 export VIA_IN_PIN_MIN_LAYER                  ?= Metal1
 export VIA_IN_PIN_MAX_LAYER                  ?= Metal1
 export DISABLE_VIA_GEN                       ?= 1
