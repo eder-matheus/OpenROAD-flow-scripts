@@ -67,17 +67,46 @@ log_cmd detailed_route {*}$all_args
 set_global_routing_layer_adjustment $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER) 0.5
 set_routing_layers -signal $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER)
 
-while {[check_antennas]} {
-  remove_fillers
-  foreach inst [[ord::get_db_block] getInsts] {
-    $inst setPlacementStatus "FIRM"
-  }
-  repair_antennas
-  detailed_route {*}$all_args
-}
+if { [info exists ::env(DRT_INCREMENTAL_REPAIR)] } {
+  # Run extraction and STA
+  if {[info exist ::env(RCX_RULES)]} {
 
-if { [info exists ::env(POST_DETAIL_ROUTE_TCL)] } {
-  source $::env(POST_DETAIL_ROUTE_TCL)
+    # Set RC corner for RCX
+    # Set in config.mk
+    if {[info exist ::env(RCX_RC_CORNER)]} {
+      set rc_corner $::env(RCX_RC_CORNER)
+    }
+
+    # RCX section
+    define_process_corner -ext_model_index 0 X
+    extract_parasitics -ext_model_file $::env(RCX_RULES)
+
+    # Write Spef
+    write_spef $::env(RESULTS_DIR)/5_drt.spef
+    file delete $::env(DESIGN_NAME).totCap
+
+    # Read Spef for OpenSTA
+    read_spef $::env(RESULTS_DIR)/5_drt.spef
+
+    # Repair timing using detailed route parasitics from RCX
+    # process user settings
+    set additional_args "-verbose"
+    append_env_var additional_args SKIP_PIN_SWAP -skip_pin_swap 0
+    append_env_var additional_args SKIP_GATE_CLONING -skip_gate_cloning 0
+    puts "repair_timing [join $additional_args " "]"
+    repair_timing {*}$additional_args
+
+    if {[info exist ::env(DETAILED_METRICS)]} {
+      report_metrics 5 "detailed route post repair timing"
+    }
+
+    # Running DPL to fix overlapped instances
+    # Run to get modified net by DPL
+    global_route -start_incremental
+    detailed_placement
+    # Route only the modified net by DPL
+    global_route -end_incremental  -congestion_report_file $::env(REPORTS_DIR)/congestion_post_drt_repair_timing.rpt
+  }
 }
 
 check_antennas -report_file $env(REPORTS_DIR)/drt_antennas.log
