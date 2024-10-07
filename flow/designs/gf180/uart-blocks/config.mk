@@ -7,7 +7,6 @@ export VERILOG_FILES = ./designs/src/uart-no-param/*.v
 export SDC_FILE      = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
 export SYNTH_HIERARCHICAL = 1
-export RTLMP_FLOW = 1
 export BLOCKS = uart_rx
 
 export DIE_AREA = 0 0 430 430
@@ -21,6 +20,6 @@ export MACRO_PLACE_CHANNEL = 20 20
 export PDN_TCL = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/BLOCKS_grid_strategy.tcl
 export PLACE_DENSITY          = 0.60
 
-export TAPCELL_TCL = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/tapcell.tcl
+export TAPCELL_TCL ?= ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/tapcell.tcl
 export MACRO_HALO_X = 14
 export MACRO_HALO_Y = 14

@@ -72,6 +72,7 @@ Note:
 | `PDN_TCL`                            | ?=           | ?=           | ?=            | ?=        | ?=        |
 | `IO_PLACER_H`                        | =            | =            | =             | =         | ?=        |
 | `IO_PLACER_V`                        | =            | =            | =             | =         | ?=        |
+| `FILL_CELLS`                         | =            | =            | =             | =         | =         |
 | Placement                            |              |              |               |           |           |
 | `CELL_PAD_IN_SITES_GLOBAL_PLACEMENT` | ?=           | ?=           | ?=            | ?=        | ?=        |
 | `CELL_PAD_IN_SITES_DETAIL_PLACEMENT` | ?=           | ?=           | ?=            | ?=        | ?=        |
@@ -85,7 +86,6 @@ Note:
 | `EQUIVALENCE_CHECK`                  | ?=           | ?=           | ?=            | ?=        | ?=        |
 | `REMOVE_CELLS_FOR_EQY`               | ?=           | ?=           | ?=            | ?=        | ?=        |
 | Routing                              |              |              |               |           |           |
-| `FILL_CELLS`                         | =            | =            | =             | =         | =         |
 | `KLAYOUT_TECH_FILE`                  | =            | =            | =             | =         | =         |
 | `MAX_ROUTING_LAYER`                  | =            | =            | =             | =         | ?=        |
 | `MIN_ROUTING_LAYER`                  | =            | =            | =             | =         | ?=        |
@@ -134,7 +134,6 @@ Note:
 | `PLACE_SITE`          | Placement site for core cells defined in the technology LEF file.                                                                                                                |
 | `TAPCELL_TCL`         | Path to Endcap and Welltie cells file.                                                                                                                                           |
 | `RTLMP_FLOW`          | 1 to enable the Hierarchical RTLMP flow, default empty |
-| `MACRO_HALO`          | Specifies keep out distance from macro, in X and Y, to standard cell row.                                                                                                        |
 | `MACRO_PLACEMENT`     | Specifies the path of a file on how to place certain macros manually using read_macro_placement.                                                                                 |
 | `MACRO_PLACEMENT_TCL` | Specifies the path of a TCL file on how to place certain macros manually.                                                                                                        |
 | `MACRO_PLACE_HALO`    | horizontal/vertical halo around macros (microns). Used by automatic macro placement.                                                                               |
@@ -145,9 +144,8 @@ Note:
 | `IO_PLACER_H`         | The metal layer on which to place the I/O pins horizontally (top and bottom of the die).                                                                                         |
 | `IO_PLACER_V`         | The metal layer on which to place the I/O pins vertically (sides of the die).                                                                                                    |
 | `GUI_NO_TIMING`       | Skip loading timing for a faster GUI load.                                                                                                                                       |
-| `GUI_SOURCE` | Source the script. |
-| `GUI_ARGS` | OpenROAD command line options for gui_ and open_ targets, typically set tup `-exit` in combination with GUI_SOURCE to run a script and exit. |
-
+| `FILL_CELLS`          | Fill cells are used to fill empty sites. If not set or empty, fill cell insertion is skipped.	    |
+| `TAP_CELL_NAME`       | Name of the cell to use in tap cell insertion. |
 
 ### Placement
 
@@ -160,7 +158,7 @@ Note:
 | `PLACE_DENSITY`                      | The desired placement density of cells. It reflects how spread the cells would be on the core area. 1.0 = closely dense. 0.0 = widely spread. |
 | `PLACE_DENSITY_LB_ADDON`             | Check the lower boundary of the PLACE_DENSITY and add PLACE_DENSITY_LB_ADDON if it exists.                                                    |
 | `REPAIR_PDN_VIA_LAYER`               | Remove power grid vias which generate DRC violations after detailed routing.                                                                  |
-| `GLOBAL_PLACEMENT_ARGS`              | Use additional tuning parameters during global placement other than default args defined in gloabl_place.tcl.                                 |
+| `GLOBAL_PLACEMENT_ARGS`              | Use additional tuning parameters during global placement other than default args defined in global_place.tcl.                                 |
 | `ENABLE_DPO`                         | Enable detail placement with improve_placement feature.                                                                                       |
 | `DPO_MAX_DISPLACEMENT`               | Specifies how far an instance can be moved when optimizing.                                                                                   |
 | `GPL_TIMING_DRIVEN`                  | Specifies whether the placer should use timing driven placement.                                                                              |
@@ -189,12 +187,12 @@ Note:
 
 | Variable              | Description                                                             |
 |-----------------------|---------------------------------------------------------------------------------------------------|
-| `FILL_CELLS`          | Fill cells are used to fill empty sites.    							    |
 | `MIN_ROUTING_LAYER`   | The lowest metal layer name to be used in routing.                                                |
 | `MAX_ROUTING_LAYER`   | The highest metal layer name to be used in routing.                                               |
 | `DETAILED_ROUTE_ARGS` | Add additional arguments for debugging purpose during detail route.                               |
 | `MACRO_EXTENSION`     | Sets the number of GCells added to the blockages boundaries from macros.                          |
 | `RECOVER_POWER`       | Specifies how many percent of paths with positive slacks can be slowed for power savings [0-100]. |
+| `DETAILED_ROUTE_END_ITERATION` | Maximum number of iterations, default 64. |
 
 
 ### Extraction
@@ -264,15 +262,17 @@ configuration file.
 
 | Variable              | Description                                                                                                                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `CORE_UTILIZATION`    | The core utilization percentage (0-100). Overrides `DIE_AREA` and `CORE_AREA`.                                                                                                                                                                   |
-| `CORE_ASPECT_RATIO`   | The core aspect ratio (height / width). This values is ignored if `CORE_UTILIZATION` undefined.                                                                                                                                            |
-| `CORE_MARGIN`         | The margin between the core area and die area, in multiples of SITE heights. The margin is applied to each side. This variable is ignored if `CORE_UTILIZATION` is undefined.                                                              |
-| `DIE_AREA`            | The die area specified as a list of lower-left and upper-right corners in microns (X1 Y1 X2 Y2). This variable is ignored if `CORE_UTILIZATION` and `CORE_ASPECT_RATIO` are defined.                                                       |
-| `CORE_AREA`           | The core area specified as a list of lower-left and upper-right corners in microns (X1 Y1 X2 Y2). This variable is ignored if `CORE_UTILIZATION` and `CORE_ASPECT_RATIO` are defined.                                                      |
+| `CORE_UTILIZATION`    | The core utilization percentage (0-100). |
+| `CORE_ASPECT_RATIO`   | The core aspect ratio (height / width). This values is ignored if `CORE_UTILIZATION` undefined. |
+| `CORE_MARGIN`         | The margin between the core area and die area, in multiples of SITE heights. The margin is applied to each side. This variable is ignored if `CORE_UTILIZATION` is undefined. |
+| `DIE_AREA`            | The die area specified as a list of lower-left and upper-right corners in microns (X1 Y1 X2 Y2). |
+| `CORE_AREA`           | The core area specified as a list of lower-left and upper-right corners in microns (X1 Y1 X2 Y2). |
 | `RESYNTH_AREA_RECOVER` | Enable re-synthesis for area reclaim. |
 | `RESYNTH_TIMING_RECOVER` | Enable re-synthesis for timing optimization. | 
 | `MACRO_HALO_X`         | Set macro halo for x-direction. Only available for ASAP7 PDK. |
 | `MACRO_HALO_Y`         | Set macro halo for y-direction. Only available for ASAP7 PDK. |
+
+The various methods to specify the die and core area(`FLOORPLAN_DEF`, `FOOTPRINT`, `DIE_AREA` and `CORE_UTILIZATION`) are mutually exclusive. If two methods are specified, floorplan.tcl will exit with an error requiring that a single method is used.
 
 #### Placement
 

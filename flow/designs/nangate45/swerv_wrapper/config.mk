@@ -2,7 +2,6 @@ export DESIGN_NAME = swerv_wrapper
 export PLATFORM    = nangate45
 
 export SYNTH_HIERARCHICAL = 1
-export RTLMP_FLOW = 1
 #
 # RTL_MP Settings
 export RTLMP_MAX_INST = 30000
@@ -12,7 +11,7 @@ export RTLMP_MIN_MACRO = 4
 
 export VERILOG_FILES = ./designs/src/swerv/swerv_wrapper.sv2v.v \
                        ./designs/$(PLATFORM)/swerv/macros.v
-export SDC_FILE      = ./designs/$(PLATFORM)/swerv/constraint.sdc
+export SDC_FILE      = ./designs/$(PLATFORM)/swerv_wrapper/constraint.sdc
 
 export ADDITIONAL_LEFS = $(PLATFORM_DIR)/lef/fakeram45_2048x39.lef \
                          $(PLATFORM_DIR)/lef/fakeram45_256x34.lef \

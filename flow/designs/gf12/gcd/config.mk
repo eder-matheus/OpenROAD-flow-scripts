@@ -11,8 +11,11 @@ export CORE_AREA   = 9.996 10.08 89.964 90.048
 
 export GLOBAL_PLACEMENT_ARGS = -skip_initial_place
 
-ifneq ($(USE_FILL),)
+ifeq ($(USE_FILL),1)
 export DESIGN_TYPE = CELL
 else
 export DESIGN_TYPE = CELL_NODEN
 endif
+
+export SKIP_GATE_CLONING = 1
+

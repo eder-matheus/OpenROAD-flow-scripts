@@ -3,11 +3,11 @@ source $::env(SCRIPTS_DIR)/util.tcl
 source $::env(SCRIPTS_DIR)/read_liberty.tcl
 
 # Read def
-if {[info exist ::env(DEF_FILE)]} {
+if {[env_var_exists_and_non_empty DEF_FILE]} {
     # Read lef
     read_lef $::env(TECH_LEF)
     read_lef $::env(SC_LEF)
-    if {[info exist ::env(ADDITIONAL_LEFS)]} {
+    if {[env_var_exists_and_non_empty ADDITIONAL_LEFS]} {
       foreach lef $::env(ADDITIONAL_LEFS) {
         read_lef $lef
       }
@@ -19,18 +19,11 @@ if {[info exist ::env(DEF_FILE)]} {
     read_db $input_file
 }
 
-if {![info exist ::env(GUI_NO_TIMING)]} {
-  # Determine design stage (1 ... 6)
-  set design_stage [lindex [split [file tail $input_file] "_"] 0]
-  
-  # Read SDC, first try to find the most recent SDC file for the stage
-  set sdc_file ""
-  for {set s $design_stage} {$s > 0} {incr s -1} {
-    set sdc_file [glob -nocomplain -directory $::env(RESULTS_DIR) -types f "${s}_\[A-Za-z\]*\.sdc"]
-    if {$sdc_file != ""} {
-      break
-    }
-  }
+proc read_timing {input_file} {
+  set result [find_sdc_file $input_file]
+  set design_stage [lindex $result 0]
+  set sdc_file [lindex $result 1]
+
   if {$sdc_file == ""} {
     set sdc_file $::env(SDC_FILE)
   }
@@ -53,20 +46,9 @@ if {![info exist ::env(GUI_NO_TIMING)]} {
     log_cmd estimate_parasitics -placement
   }
 
-  if {[info exist env(FASTROUTE_TCL)]} {
-    source $env(FASTROUTE_TCL)
-  } else {
-    set_global_routing_layer_adjustment $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER) 0.5
-    set_routing_layers -signal $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER)
-    if {[info exist env(MACRO_EXTENSION)]} {
-      set_macro_extension $env(MACRO_EXTENSION)
-    }
-  }
-  
-  # Cleanup temporary variables
-  unset sdc_file s design_stage
+  fast_route
 }
 
-if {[info exist env(GUI_SOURCE)]} {
-  source $::env(GUI_SOURCE)
+if {![env_var_equals GUI_NO_TIMING 1]} {
+  read_timing $input_file
 }
