@@ -28,7 +28,7 @@ proc repair_timing_helper { {hold_margin 1} } {
   append_env_var additional_args SKIP_BUFFER_REMOVAL -skip_buffer_removal 0
   append_env_var additional_args SKIP_LAST_GASP -skip_last_gasp 0
   puts "repair_timing [join $additional_args " "]"
-  repair_timing {*}$additional_args
+  return [repair_timing {*}$additional_args]
 }
 
 proc recover_power {} {

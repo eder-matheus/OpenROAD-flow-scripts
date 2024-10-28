@@ -49,8 +49,55 @@ log_cmd detailed_route {*}$all_args
 set_global_routing_layer_adjustment $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER) 0.5
 set_routing_layers -signal $env(MIN_ROUTING_LAYER)-$env(MAX_ROUTING_LAYER)
 
+if {[env_var_equals DRT_INCREMENTAL_TIMING_REPAIR 1]} {
+  # Run extraction and STA
+  if {[info exist ::env(RCX_RULES)]} {
+
+    # Set RC corner for RCX
+    # Set in config.mk
+    if {[info exist ::env(RCX_RC_CORNER)]} {
+      set rc_corner $::env(RCX_RC_CORNER)
+    }
+
+    # RCX section
+    define_process_corner -ext_model_index 0 X
+    extract_parasitics -ext_model_file $::env(RCX_RULES)
+
+    # Write Spef
+    write_spef $::env(RESULTS_DIR)/5_drt.spef
+    file delete $::env(DESIGN_NAME).totCap
+
+    # Read Spef for OpenSTA
+    read_spef $::env(RESULTS_DIR)/5_drt.spef
+
+    # Repair timing using detailed route parasitics from RCX
+    # process user settings
+    puts "Repair setup and hold violations..."
+
+    if {[repair_timing_helper]} {
+      if {[info exist ::env(DETAILED_METRICS)]} {
+        report_metrics 5 "detailed route post repair timing"
+      }
+
+      if {[env_var_exists_and_non_empty PRE_GLOBAL_ROUTE]} {
+        source $::env(PRE_GLOBAL_ROUTE)
+      }
+      fast_route
+
+      # Running DPL to fix overlapped instances
+      # Run to get modified net by DPL
+      global_route -start_incremental
+      detailed_placement
+      # Route only the modified net by DPL
+      global_route -end_incremental -congestion_report_file $::env(REPORTS_DIR)/congestion_post_drt_repair_timing.rpt
+
+      detailed_route {*}$all_args
+    }
+  }
+}
 
 if {![env_var_equals SKIP_ANTENNA_REPAIR_POST_DRT 1]} {
+  puts "Repair antenna violations..."
   set repair_antennas_iters 1
   if {[repair_antennas]} {
     detailed_route {*}$all_args
