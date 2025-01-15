@@ -160,10 +160,6 @@ export UTILS_DIR     ?= $(FLOW_HOME)/util
 export SCRIPTS_DIR   ?= $(FLOW_HOME)/scripts
 export TEST_DIR      ?= $(FLOW_HOME)/test
 
-# __SPACE__ is a workaround for whitespace hell in "foreach"; there
-# is no way to escape space in defaults.py and get "foreach" to work.
-$(foreach line,$(shell $(SCRIPTS_DIR)/defaults.py),$(eval export $(subst __SPACE__, ,$(line))))
-
 PUBLIC=nangate45 sky130hd sky130hs asap7 ihp-sg13g2 gf180
 
 ifneq ($(wildcard $(PLATFORM_HOME)/$(PLATFORM)),)
@@ -178,9 +174,10 @@ endif
 
 include $(PLATFORM_DIR)/config.mk
 
-# Enables hierarchical yosys
-export SYNTH_STATS = $(RESULTS_DIR)/synth_stats.txt
-export SYNTH_STATS_SCRIPT = $(SCRIPTS_DIR)/synth_stats.tcl
+# __SPACE__ is a workaround for whitespace hell in "foreach"; there
+# is no way to escape space in defaults.py and get "foreach" to work.
+$(foreach line,$(shell $(SCRIPTS_DIR)/defaults.py),$(eval export $(subst __SPACE__, ,$(line))))
+
 # If the design, nor $(PLATFORM_DIR)/config.mk provided a default, provide one here
 export MAX_UNGROUP_SIZE ?= 0
 
@@ -437,7 +434,7 @@ synth-report: synth
 
 .PHONY: do-synth-report
 do-synth-report:
-	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/synth_metrics.tcl) 2>&1 | tee $(LOG_DIR)/1_1_yosys_metrics.log
+	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/synth_metrics.tcl) 2>&1 | tee $(abspath $(LOG_DIR)/1_1_yosys_metrics.log)
 
 .PHONY: memory
 memory:
@@ -454,13 +451,6 @@ memory:
 
 export SYNTH_SCRIPT ?= $(SCRIPTS_DIR)/synth.tcl
 export SYNTH_MEMORY_MAX_BITS ?= 4096
-
-.PHONY: do-yosys-stats
-do-yosys-stats:
-	mkdir -p $(RESULTS_DIR) $(LOG_DIR) $(REPORTS_DIR)
-	(export VERILOG_FILES=$(RESULTS_DIR)/1_synth.rtlil; \
-	$(TIME_CMD) $(YOSYS_EXE) $(YOSYS_FLAGS) -c $(SYNTH_STATS_SCRIPT)) 2>&1 | tee $(abspath $(LOG_DIR)/1_1_yosys_stats.log)
-
 export SDC_FILE_CLOCK_PERIOD = $(RESULTS_DIR)/clock_period.txt
 
 $(SDC_FILE_CLOCK_PERIOD): $(SDC_FILE)
@@ -487,7 +477,7 @@ $(RESULTS_DIR)/1_synth.rtlil: $(YOSYS_DEPENDENCIES)
 	$(UNSET_AND_MAKE) do-yosys-canonicalize
 
 $(RESULTS_DIR)/1_1_yosys.v: $(RESULTS_DIR)/1_synth.rtlil
-	$(UNSET_AND_MAKE) do-yosys-stats do-yosys
+	$(UNSET_AND_MAKE) do-yosys
 
 .PHONY: do-synth
 do-synth:
@@ -553,7 +543,7 @@ define OPEN_GUI
 open_$(1):
 	$(2)=$(RESULTS_DIR)/$(1) $(OPENROAD_NO_EXIT_CMD) $(SCRIPTS_DIR)/open.tcl
 gui_$(1):
-	$(2)=$(RESULTS_DIR)/$(1) GUI_SHOW=1 $(OPENROAD_GUI_CMD) -minimize $(SCRIPTS_DIR)/open.tcl
+	$(2)=$(RESULTS_DIR)/$(1) $(OPENROAD_GUI_CMD) $(SCRIPTS_DIR)/open.tcl
 endef
 
 # Separate dependency checking and doing a step. This can
@@ -860,7 +850,7 @@ generate_abstract: $(RESULTS_DIR)/6_final.gds $(RESULTS_DIR)/6_final.def  $(RESU
 .PHONY: do-generate_abstract
 do-generate_abstract:
 	mkdir -p $(LOG_DIR) $(REPORTS_DIR)
-	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/generate_abstract.tcl -metrics $(LOG_DIR)/generate_abstract.json) 2>&1 | tee $(LOG_DIR)/generate_abstract.log
+	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/generate_abstract.tcl -metrics $(LOG_DIR)/generate_abstract.json) 2>&1 | tee $(abspath $(LOG_DIR)/generate_abstract.log)
 
 .PHONY: clean_abstract
 clean_abstract:
@@ -878,7 +868,7 @@ $(WRAPPED_GDSOAS): $(OBJECTS_DIR)/klayout_wrap.lyt $(WRAPPED_LEFS)
 	        -rd out_file=$@ \
 	        -rd tech_file=$(OBJECTS_DIR)/klayout_wrap.lyt \
 	        -rd layer_map=$(GDS_LAYER_MAP) \
-	        -r $(UTILS_DIR)/def2stream.py) 2>&1 | tee $(LOG_DIR)/6_merge_$(basename $(notdir $@)).log
+	        -r $(UTILS_DIR)/def2stream.py) 2>&1 | tee $(abspath $(LOG_DIR)/6_merge_$(basename $(notdir $@)).log)
 
 # Merge GDS using Klayout
 #-------------------------------------------------------------------------------
@@ -896,7 +886,7 @@ do-gds-merged:
 	        -rd out_file=$(GDS_MERGED_FILE) \
 	        -rd tech_file=$(OBJECTS_DIR)/klayout.lyt \
 	        -rd layer_map=$(GDS_LAYER_MAP) \
-	        -r $(UTILS_DIR)/def2stream.py) 2>&1 | tee $(LOG_DIR)/6_1_merge.log
+	        -r $(UTILS_DIR)/def2stream.py) 2>&1 | tee $(abspath $(LOG_DIR)/6_1_merge.log)
 
 $(RESULTS_DIR)/6_final.v: $(LOG_DIR)/6_report.log
 
@@ -916,7 +906,7 @@ ifneq ($(KLAYOUT_DRC_FILE),)
 	$(call KLAYOUT_FOUND)
 	($(TIME_CMD) $(KLAYOUT_CMD) -zz -rd in_gds="$<" \
 	        -rd report_file=$(abspath $@) \
-	        -r $(KLAYOUT_DRC_FILE)) 2>&1 | tee $(LOG_DIR)/6_drc.log
+	        -r $(KLAYOUT_DRC_FILE)) 2>&1 | tee $(abspath $(LOG_DIR)/6_drc.log)
 	# Hacky way of getting DRV count (don't error on no matches)
 	grep -c "<value>" $@ > $(REPORTS_DIR)/6_drc_count.rpt || [[ $$? == 1 ]]
 else
@@ -924,7 +914,7 @@ else
 endif
 
 $(RESULTS_DIR)/6_final.cdl: $(RESULTS_DIR)/6_final.v
-	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/cdl.tcl) 2>&1 | tee $(LOG_DIR)/6_cdl.log
+	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/cdl.tcl) 2>&1 | tee $(abspath $(LOG_DIR)/6_cdl.log)
 
 $(OBJECTS_DIR)/6_final_concat.cdl: $(RESULTS_DIR)/6_final.cdl $(CDL_FILE)
 	cat $^ > $@
@@ -938,7 +928,7 @@ ifneq ($(KLAYOUT_LVS_FILE),)
 	($(TIME_CMD) $(KLAYOUT_CMD) -b -rd in_gds="$<" \
 	        -rd cdl_file=$(abspath $(OBJECTS_DIR)/6_final_concat.cdl) \
 	        -rd report_file=$(abspath $@) \
-	        -r $(KLAYOUT_LVS_FILE)) 2>&1 | tee $(LOG_DIR)/6_lvs.log
+	        -r $(KLAYOUT_LVS_FILE)) 2>&1 | tee $(abspath $(LOG_DIR)/6_lvs.log)
 else
 	echo "LVS not supported on this platform" > $@
 endif
@@ -1053,7 +1043,8 @@ klayout:
 
 .phony: run
 run:
-	$(OPENROAD_CMD) -no_splash $(if $(filter %.py,$(RUN_SCRIPT)),-python) $(RUN_SCRIPT)
+	@mkdir -p $(RESULTS_DIR) $(LOG_DIR) $(REPORTS_DIR) $(OBJECTS_DIR)
+	($(OPENROAD_CMD) -no_splash $(if $(filter %.py,$(RUN_SCRIPT)),-python) $(RUN_SCRIPT) 2>&1 | tee $(abspath $(LOG_DIR)/$(RUN_LOG_NAME_STEM).log))
 
 # Utilities
 #-------------------------------------------------------------------------------

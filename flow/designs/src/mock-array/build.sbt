@@ -3,7 +3,7 @@ import scala.io.Source
 
 organization := "edu.berkeley.cs"
 
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.11"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-language:reflectiveCalls")
 
@@ -25,3 +25,5 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("snapshots"),
   Resolver.sonatypeRepo("releases")
 )
+
+resourceDirectory in Compile := baseDirectory.value / "src/main/resources"
