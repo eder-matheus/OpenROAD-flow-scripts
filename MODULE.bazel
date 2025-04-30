@@ -11,7 +11,7 @@ bazel_dep(name = "bazel-orfs")
 # To bump version, run: bazelisk run @bazel-orfs//:bump
 git_override(
     module_name = "bazel-orfs",
-    commit = "9b00feceb3f2d695787c45708131a5e39e30d08e",
+    commit = "4a67015d0165e14466b89cc7ce1e92688f393093",
     remote = "https://github.com/The-OpenROAD-Project/bazel-orfs.git",
 )
 
@@ -27,7 +27,7 @@ pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
     hub_name = "orfs-pip",
     python_version = "3.12",
-    requirements_lock = "//:util/requirements_lock.txt",
+    requirements_lock = "//flow:util/requirements_lock.txt",
 )
 use_repo(pip, "orfs-pip")
 
@@ -46,7 +46,7 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 """,
-    path = "../tools/OpenROAD/bazel-out/k8-opt/bin",
+    path = "tools/OpenROAD/bazel-out/k8-opt/bin",
 )
 
 orfs = use_extension("@bazel-orfs//:extension.bzl", "orfs_repositories")
@@ -61,10 +61,10 @@ orfs.default(
     # and update "image" to point to the local image.
 
     # Official image https://hub.docker.com/r/openroad/orfs/tags
-    image = "docker.io/openroad/orfs:v3.0-2784-g6bb4f353",
+    image = "docker.io/openroad/orfs:v3.0-2888-g38f93c61",
     # Use local files instead of docker image
-    makefile = "//:makefile",
-    makefile_yosys = "//:makefile_yosys",
+    makefile = "//flow:makefile",
+    makefile_yosys = "//flow:makefile_yosys",
     # TODO once openroad is switched to MODULE.bazel, use
     # local_path_override(module_name = "openroad", path = "../tools/OpenROAD")
     # to point to the local openroad Bazel module instead of
@@ -77,9 +77,9 @@ orfs.default(
     #
     # cd ../tools/OpenROAD
     # bazelisk build -c opt :openroad
-    openroad = "//test:openroad",
-    pdk = "//:asap7",
-    sha256 = "67535c7e4a1bdf6adc98eebc3a17988c80674760293887447e750dd526fe6427",
+    openroad = "//flow/test:openroad",
+    pdk = "//flow:asap7",
+    sha256 = "173581fc6ca74ece349150866ddce96534c5e9d855a25ca8ae509a45fcaefc0d",
 )
 use_repo(orfs, "com_github_nixos_patchelf_download")
 use_repo(orfs, "docker_orfs")
