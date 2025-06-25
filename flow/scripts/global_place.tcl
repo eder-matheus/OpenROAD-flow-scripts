@@ -5,6 +5,19 @@ load_design 3_2_place_iop.odb 2_floorplan.sdc
 
 set_dont_use $::env(DONT_USE_CELLS)
 
+remove_buffers
+
+# Do not buffer chip-level designs
+# by default, IO ports will be buffered
+# to not buffer IO ports, set environment variable
+# DONT_BUFFER_PORT = 1
+if { ![env_var_exists_and_non_empty FOOTPRINT] } {
+  if { ![env_var_equals DONT_BUFFER_PORTS 1] } {
+    puts "Perform port buffering..."
+    buffer_ports
+  }
+}
+
 fast_route
 
 set global_placement_args {}
@@ -26,7 +39,7 @@ proc do_placement {global_placement_args} {
     -pad_right $::env(CELL_PAD_IN_SITES_GLOBAL_PLACEMENT)] \
     $global_placement_args]
 
-  lappend all_args {*}$::env(GLOBAL_PLACEMENT_ARGS)
+  lappend all_args {*}[env_var_or_empty GLOBAL_PLACEMENT_ARGS]
 
   log_cmd global_placement {*}$all_args
 }
