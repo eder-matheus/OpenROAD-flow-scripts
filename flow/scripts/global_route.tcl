@@ -8,6 +8,7 @@ load_design 4_cts.odb 4_cts.sdc
 proc global_route_helper { } {
   source_env_var_if_exists PRE_GLOBAL_ROUTE_TCL
 
+  estimate_parasitics -placement
   proc do_global_route { } {
     set all_args [concat [list \
       -congestion_report_file $::global_route_congestion_report] \
