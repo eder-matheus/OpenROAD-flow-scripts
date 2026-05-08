@@ -192,7 +192,7 @@ if {
 } {
   source $::env(SCRIPTS_DIR)/synth_wrap_operators.tcl
 } else {
-  synth -top $::env(DESIGN_NAME) -run fine: -noabc {*}$synth_full_args
+  synth -top $::env(DESIGN_NAME) -run fine: {*}$synth_full_args
 }
 
 # Get rid of indigestibles
