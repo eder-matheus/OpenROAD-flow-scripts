@@ -198,6 +198,12 @@ $(foreach vt_type,$(OTHER_VT),\
 export CORNER ?= BC
 export LIB_FILES             += $($(CORNER)_$(LIB_MODEL)_LIB_FILES)
 export LIB_FILES             += $(ADDITIONAL_LIBS)
+
+# LDB equivalents: same paths as LIB_FILES with .lib(.gz) -> .ldb. Consumed by
+# the OpenROAD STA when USE_LDB=1. Generate the .ldb files alongside their
+# .lib(.gz) source with write_ldb (see docs/user/LibertyDatabase.md upstream).
+export LDB_FILES             += $(patsubst %.lib,%.ldb,$(patsubst %.lib.gz,%.ldb,$($(CORNER)_$(LIB_MODEL)_LIB_FILES)))
+export LDB_FILES             += $(patsubst %.lib,%.ldb,$(patsubst %.lib.gz,%.ldb,$(ADDITIONAL_LIBS)))
 export GDS_FILES             += $(ADDITIONAL_GDS)
 export DB_FILES              += $(realpath $($(CORNER)_DB_FILES))
 export TEMPERATURE            = $($(CORNER)_TEMPERATURE)
