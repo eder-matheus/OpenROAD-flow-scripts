@@ -467,6 +467,9 @@
     "description": "Path to per layer parasitics file. Defaults to $(PLATFORM_DIR)/setRC.tcl.\n",
     "type": "string"
   },
+  "LDB_FILES": {
+    "description": "List of LDB (binary Liberty cache) files for the standard cell library, consumed by the OpenROAD STA when USE_LDB=1 and CORNERS is unset. Mirrors LIB_FILES. For multi-corner flows, set <CORNER>_LDB_FILES per corner instead (e.g. corner \"slow\" reads SLOW_LDB_FILES).\n"
+  },
   "LEC_AUX_VERILOG_FILES": {
     "description": "Additional Verilog files (e.g. blackbox stubs) to include in LEC equivalence checks. Appended to the generated Verilog netlist before running the formal equivalence check.\n",
     "stages": [
@@ -1436,6 +1439,9 @@
   "USE_FILL": {
     "default": 0,
     "description": "Whether to perform metal density filling.\n"
+  },
+  "USE_LDB": {
+    "description": "When set to 1, the OpenROAD steps of the flow (everything after Yosys synthesis) load timing libraries from binary LDB files via `read_ldb` instead of parsing Liberty text via `read_liberty`. Yosys synthesis and the Kepler LEC check still consume Liberty text files. LDB paths come from LDB_FILES (single corner) or <CORNER>_LDB_FILES (multi-corner), mirroring LIB_FILES / <CORNER>_LIB_FILES. `read_ldb` is invoked with `-ignore_source_check`, so the original Liberty files do not need to be co-located with the LDB cache.\n"
   },
   "USE_NEGOTIATION": {
     "default": 0,

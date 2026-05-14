@@ -170,6 +170,7 @@ configuration file.
 | <a name="KLAYOUT_TECH_FILE"></a>KLAYOUT_TECH_FILE| A mapping from LEF/DEF to GDS using the KLayout tool.| |
 | <a name="LATCH_MAP_FILE"></a>LATCH_MAP_FILE| Optional mapping file supplied to Yosys to map latches| |
 | <a name="LAYER_PARASITICS_FILE"></a>LAYER_PARASITICS_FILE| Path to per layer parasitics file. Defaults to $(PLATFORM_DIR)/setRC.tcl.| |
+| <a name="LDB_FILES"></a>LDB_FILES| List of LDB (binary Liberty cache) files for the standard cell library, consumed by the OpenROAD STA when USE_LDB=1 and CORNERS is unset. Mirrors LIB_FILES. For multi-corner flows, set <CORNER>_LDB_FILES per corner instead (e.g. corner "slow" reads SLOW_LDB_FILES).| |
 | <a name="LEC_AUX_VERILOG_FILES"></a>LEC_AUX_VERILOG_FILES| Additional Verilog files (e.g. blackbox stubs) to include in LEC equivalence checks. Appended to the generated Verilog netlist before running the formal equivalence check.| |
 | <a name="LEC_CHECK"></a>LEC_CHECK| Perform a formal equivalence check between before and after netlists. If this fails, report an issue to OpenROAD.| 0|
 | <a name="LIB_FILES"></a>LIB_FILES| A Liberty file of the standard cell library with PVT characterization, input and output characteristics, timing and power definitions for each cell.| |
@@ -322,6 +323,7 @@ configuration file.
 | <a name="TNS_END_PERCENT"></a>TNS_END_PERCENT| Default TNS_END_PERCENT value for post CTS timing repair. Try fixing all violating endpoints by default (reduce to 5% for runtime). Specifies how many percent of violating paths to fix [0-100]. Worst path will always be fixed.| 100|
 | <a name="UNSET_ABC9_BOX_CELLS"></a>UNSET_ABC9_BOX_CELLS| List of cells to unset the abc9_box attribute on| |
 | <a name="USE_FILL"></a>USE_FILL| Whether to perform metal density filling.| 0|
+| <a name="USE_LDB"></a>USE_LDB| When set to 1, the OpenROAD steps of the flow (everything after Yosys synthesis) load timing libraries from binary LDB files via `read_ldb` instead of parsing Liberty text via `read_liberty`. Yosys synthesis and the Kepler LEC check still consume Liberty text files. LDB paths come from LDB_FILES (single corner) or <CORNER>_LDB_FILES (multi-corner), mirroring LIB_FILES / <CORNER>_LIB_FILES. `read_ldb` is invoked with `-ignore_source_check`, so the original Liberty files do not need to be co-located with the LDB cache.| |
 | <a name="USE_NEGOTIATION"></a>USE_NEGOTIATION| Enable using negotiation legalizer for detailed placement.| 0|
 | <a name="VERILOG_DEFINES"></a>VERILOG_DEFINES| Preprocessor defines passed to the language frontend. Example: `-D HPDCACHE_ASSERT_OFF`| |
 | <a name="VERILOG_FILES"></a>VERILOG_FILES| The path to the design Verilog/SystemVerilog files providing a description of modules.| |
@@ -644,6 +646,7 @@ configuration file.
 - [IR_DROP_LAYER](#IR_DROP_LAYER)
 - [KLAYOUT_TECH_FILE](#KLAYOUT_TECH_FILE)
 - [LAYER_PARASITICS_FILE](#LAYER_PARASITICS_FILE)
+- [LDB_FILES](#LDB_FILES)
 - [LIB_FILES](#LIB_FILES)
 - [MACRO_EXTENSION](#MACRO_EXTENSION)
 - [PLATFORM](#PLATFORM)
@@ -662,5 +665,6 @@ configuration file.
 - [TAP_CELL_NAME](#TAP_CELL_NAME)
 - [TECH_LEF](#TECH_LEF)
 - [USE_FILL](#USE_FILL)
+- [USE_LDB](#USE_LDB)
 - [USE_NEGOTIATION](#USE_NEGOTIATION)
 

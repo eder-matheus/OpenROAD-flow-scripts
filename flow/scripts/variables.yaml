@@ -151,6 +151,22 @@ LIB_FILES:
     A Liberty file of the standard cell library with PVT characterization,
     input and output characteristics, timing and power definitions for each
     cell.
+USE_LDB:
+  description: >
+    When set to 1, the OpenROAD steps of the flow (everything after Yosys
+    synthesis) load timing libraries from binary LDB files via `read_ldb`
+    instead of parsing Liberty text via `read_liberty`. Yosys synthesis and
+    the Kepler LEC check still consume Liberty text files. LDB paths come
+    from LDB_FILES (single corner) or <CORNER>_LDB_FILES (multi-corner),
+    mirroring LIB_FILES / <CORNER>_LIB_FILES. `read_ldb` is invoked with
+    `-ignore_source_check`, so the original Liberty files do not need to
+    be co-located with the LDB cache.
+LDB_FILES:
+  description: >
+    List of LDB (binary Liberty cache) files for the standard cell library,
+    consumed by the OpenROAD STA when USE_LDB=1 and CORNERS is unset.
+    Mirrors LIB_FILES. For multi-corner flows, set <CORNER>_LDB_FILES
+    per corner instead (e.g. corner "slow" reads SLOW_LDB_FILES).
 PLATFORM_TCL:
   description: |
     Specifies a Tcl script with commands to run before loading design.
