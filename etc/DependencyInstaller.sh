@@ -2,12 +2,15 @@
 
 set -euo pipefail
 
-# Make sure we are on the correct folder before beginning
+# Capture the script's absolute directory before any cd
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    cd "$(dirname $(perl -e 'use Cwd "abs_path";print abs_path(shift)' $0))/../"
+    _script_dir="$(dirname $(perl -e 'use Cwd "abs_path";print abs_path(shift)' $0))"
 else
-    cd "$(dirname $(readlink -f $0))/../"
+    _script_dir="$(dirname $(readlink -f $0))"
 fi
+
+# Make sure we are on the correct folder before beginning
+cd "${_script_dir}/../"
 
 # package versions
 klayoutVersion=0.30.7
@@ -36,23 +39,24 @@ _installPipCommon() {
         source /opt/rh/rh-python38/enable
         set -u
     fi
-    local pkgs="pandas numpy firebase_admin click pyyaml yamlfix"
+    local lockfile
+    lockfile="${_script_dir}/requirements-common_lock.txt"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         if [[ "$EUID" -eq 0 ]]; then
             echo "Error: Do NOT run with sudo."
             exit 1
         fi
         if [[ -n "${VIRTUAL_ENV:-}" ]]; then
-            pip3 install --no-cache-dir -U $pkgs
+            pip3 install --no-cache-dir -r "$lockfile"
         else
             echo "Error: Activate a virtual environment on macOS."
             exit 1
         fi
     else
         if [[ $(id -u) == 0 ]]; then
-            pip3 install --no-cache-dir -U $pkgs
+            pip3 install --no-cache-dir -r "$lockfile"
         else
-            pip3 install --no-cache-dir --user -U $pkgs
+            pip3 install --no-cache-dir --user -r "$lockfile"
         fi
     fi
 }
@@ -71,8 +75,11 @@ _install_EL7_Packages() {
     yum -y update
     yum -y install \
         time \
+        readline \
         ruby \
-        ruby-devel
+        ruby-devel \
+        tcl-tclreadline \
+        tcl-tclreadline-devel
 
     if ! [ -x "$(command -v klayout)" ]; then
       yum -y install https://www.klayout.org/downloads/CentOS_7/klayout-${klayoutVersion}-0.x86_64.rpm
@@ -108,8 +115,20 @@ _install_EL8_EL9_Packages() {
     dnf -y update
     dnf -y install \
         time \
+        readline \
         ruby \
         ruby-devel
+
+    if [[ "${elVersion}" == "8" ]]; then
+        dnf -y install \
+            tcl-tclreadline \
+            tcl-tclreadline-devel
+    fi
+
+    if [[ "${elVersion}" == "9" ]]; then
+        dnf -y install \
+            https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/readline-devel-8.1-4.el9.x86_64.rpm
+    fi
 
     # Install KLayout based on EL version, note the different URLs
     case "${elVersion}" in
@@ -186,6 +205,7 @@ _installUbuntuPackages() {
         libqt5opengl5 \
         libqt5svg5-dev \
         libqt5xmlpatterns5-dev \
+        libreadline-dev \
         libtbb-dev \
         libz-dev \
         perl \
@@ -196,6 +216,7 @@ _installUbuntuPackages() {
         qttools5-dev \
         ruby \
         ruby-dev \
+        tcl-tclreadline \
         time \
         zlib1g \
         zlib1g-dev
