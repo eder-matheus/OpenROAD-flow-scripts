@@ -8,6 +8,7 @@ FROM $fromImage
 WORKDIR /tmp/installer/etc
 
 COPY DependencyInstaller.sh .
+COPY requirements-common_lock.txt .
 
 COPY InstallerOpenROAD.sh \
        /tmp/installer/tools/OpenROAD/etc/DependencyInstaller.sh
@@ -15,21 +16,14 @@ COPY InstallerOpenROAD.sh \
 ARG options=""
 ARG constantBuildDir="-constant-build-dir"
 
-# add compiler wrapper scripts
-# inject the macro definitions during compilation only
-RUN mkdir -p /usr/local/bin/wrapped-cc && \
-    echo '#!/bin/sh' > /usr/local/bin/wrapped-cc/gcc && \
-    echo 'exec /usr/bin/gcc -D__TIME__="\"0\"" -D__DATE__="\"0\"" -D__TIMESTAMP__="\"0\"" -Wno-builtin-macro-redefined "$@"' >> /usr/local/bin/wrapped-cc/gcc && \
-    chmod +x /usr/local/bin/wrapped-cc/gcc && \
-    ln -sf /usr/local/bin/wrapped-cc/gcc /usr/local/bin/wrapped-cc/cc && \
-    echo '#!/bin/sh' > /usr/local/bin/wrapped-cc/g++ && \
-    echo 'exec /usr/bin/g++ -D__TIME__="\"0\"" -D__DATE__="\"0\"" -D__TIMESTAMP__="\"0\"" -Wno-builtin-macro-redefined "$@"' >> /usr/local/bin/wrapped-cc/g++ && \
-    chmod +x /usr/local/bin/wrapped-cc/g++
+# add compiler wrapper scripts for reproducible builds
+COPY setup_compiler_wrappers.sh /tmp/
+RUN sh /tmp/setup_compiler_wrappers.sh && rm /tmp/setup_compiler_wrappers.sh
 
 ENV PATH="/usr/local/bin/wrapped-cc:$PATH"
 
-RUN ./DependencyInstaller.sh -base $options $constantBuildDir \
-    && ./DependencyInstaller.sh -common $options $constantBuildDir \
+RUN ./DependencyInstaller.sh -base $options $constantBuildDir -save-deps-prefixes=/etc/openroad_deps_prefixes.txt \
+    && ./DependencyInstaller.sh -common $options $constantBuildDir -save-deps-prefixes=/etc/openroad_deps_prefixes.txt \
     && rm -rf /tmp/installer /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 ARG fromImage
@@ -37,3 +31,5 @@ ARG fromImage
 RUN echo "$fromImage" | grep -q "ubuntu" && \
     strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so || \
     echo "Skipping strip command as fromImage does not contain 'ubuntu'"
+
+WORKDIR /OpenROAD-flow-scripts

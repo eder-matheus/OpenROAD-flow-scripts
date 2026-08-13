@@ -248,7 +248,8 @@ module cva6_hpdcache_wrapper
         dcache_req[NumPorts] = '0,
         dcache_req_abort[NumPorts] = 1'b0,
         dcache_req_tag[NumPorts] = '0,
-        dcache_req_pma[NumPorts] = '0;
+        dcache_req_pma[NumPorts] = '0,
+        dcache_cmo_resp_o = '0;
 `endif
   endgenerate
 

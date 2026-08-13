@@ -1,6 +1,5 @@
 export PLATFORM                = asap7
 export PROCESS                 = 7
-export ASAP7_USE_VT           ?= RVT
 
 ifeq ($(LIB_MODEL),)
    export LIB_MODEL = NLDM
@@ -64,9 +63,11 @@ export TAPCELL_TCL             ?= $(PLATFORM_DIR)/openRoad/tapcell.tcl
 export SET_RC_TCL              = $(PLATFORM_DIR)/setRC.tcl
 
 # Route options
-export MIN_ROUTING_LAYER       ?= M2
-export MIN_CLK_ROUTING_LAYER   ?= M4
-export MAX_ROUTING_LAYER       ?= M7
+export MIN_ROUTING_LAYER        ?= M2
+export MIN_CLK_ROUTING_LAYER    ?= M4
+export MAX_ROUTING_LAYER        ?= M7
+export ROUTING_LAYER_ADJUSTMENT ?= 0.25
+export ENABLE_RESISTANCE_AWARE  ?= 1
 
 # Define fastRoute tcl
 export FASTROUTE_TCL ?= $(PLATFORM_DIR)/fastroute.tcl
@@ -162,9 +163,11 @@ export TC_NLDM_DFF_LIB_FILE    ?= $(subst PLACEHOLDER,$(PRIMARY_VT_TAG),$(TC_NLD
 export TC_NLDM_LIB_FILES       ?= $(subst PLACEHOLDER,$(PRIMARY_VT_TAG),$(TC_NLDM_LIB_FILES_T))
 
 ifeq ($(CLUSTER_FLOPS),1)
-   # Add the multi-bit FF for clustering.  These are single corner libraries.
-   export ADDITIONAL_LIBS      += $(LIB_DIR)/asap7sc7p5t_DFFHQNH2V2X_$(PRIMARY_VT_TAG)VT_TT_nldm_FAKE.lib \
-                                  $(LIB_DIR)/asap7sc7p5t_DFFHQNV2X_$(PRIMARY_VT_TAG)VT_TT_nldm_FAKE.lib
+   # Add the multi-bit FF for clustering, matching the CORNER selection.
+   # BC -> FF, WC -> SS, TC -> TT
+   _MBFF_LIB_CORNER = $(if $(filter BC,$(CORNER)),FF,$(if $(filter WC,$(CORNER)),SS,TT))
+   export ADDITIONAL_LIBS      += $(LIB_DIR)/asap7sc7p5t_DFFHQNH2V2X_$(PRIMARY_VT_TAG)VT_$(_MBFF_LIB_CORNER)_nldm_FAKE.lib \
+                                  $(LIB_DIR)/asap7sc7p5t_DFFHQNV2X_$(PRIMARY_VT_TAG)VT_$(_MBFF_LIB_CORNER)_nldm_FAKE.lib
 
    export ADDITIONAL_LEFS      += $(PLATFORM_DIR)/lef/asap7sc7p5t_DFFHQNH2V2X.lef \
                                   $(PLATFORM_DIR)/lef/asap7sc7p5t_DFFHQNV2X.lef
@@ -213,3 +216,5 @@ export IR_DROP_LAYER ?= M1
 
 # Allow empty GDS cell
 export GDS_ALLOW_EMPTY ?= fakeram.*
+
+export REMOVE_CELLS_FOR_LEC   = TAPCELL*

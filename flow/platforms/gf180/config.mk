@@ -13,12 +13,12 @@ export PROCESS                                = 180
 #----------------------------------------------------
 # OpenROAD
 #----------------------------------------------------
-export TECH_LEF                               = $(PLATFORM_DIR)/lef/gf180mcu_$(METAL_OPTION)_$(KVALUE)K_$(TRACK_OPTION)_tech.lef
+export TECH_LEF                              ?= $(PLATFORM_DIR)/lef/gf180mcu_$(METAL_OPTION)_$(KVALUE)K_$(TRACK_OPTION)_tech.lef
 
 export SC_LEF                                ?= $(PLATFORM_DIR)/lef/gf180mcu_$(METAL_OPTION)_$(KVALUE)K_$(TRACK_OPTION)_sc.lef
 
-export GDS_FILES                              = $(wildcard $(PLATFORM_DIR)/gds/$(TRACK_OPTION)/*.gds) \
-                                                $(ADDITIONAL_GDS)
+export GDS_FILES                             ?= $(wildcard $(PLATFORM_DIR)/gds/$(TRACK_OPTION)/*.gds)
+export GDS_FILES                             += $(ADDITIONAL_GDS)
 
 # Dont use cells 
 export DONT_USE_CELLS                         = *_1
@@ -31,6 +31,10 @@ export FILL_CELLS                             ?= gf180mcu_fd_sc_mcu$(TRACK_OPTIO
                                                  gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__fill_4 \
                                                  gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__fill_2 \
                                                  gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__fill_1
+
+# Metal density fill rules (OpenROAD density_fill). Applied at chip level
+# only when USE_FILL=1; macro/block builds leave USE_FILL=0 (the default).
+export FILL_CONFIG                            ?= $(PLATFORM_DIR)/fill.json
 
 export TIE_CELL                               = gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__filltie
 export ENDCAP_CELL                            = gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__endcap
@@ -93,6 +97,8 @@ export MIN_ROUTING_LAYER                     ?= Metal2
 export MAX_ROUTING_LAYER                     ?= Metal5
 export DISABLE_VIA_GEN                       ?= 1
 
+export OPT_POST_GRT_WNS                      ?= 0
+
 # Define fastRoute tcl
 export FASTROUTE_TCL ?= $(PLATFORM_DIR)/fastroute.tcl
 
@@ -118,17 +124,17 @@ export RCX_RC_CORNER                          = $($(CORNER)_RCX_RC_CORNER)
 #----------------------------------------------------------------------------------------------------
 # standard cell section
 #----------------------------------------------------------------------------------------------------
-export BC_LIB_FILES                           = $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__ff_n40C_5v50.lib.gz)
-export BC_TEMPERATURE                         = -40c
-export BC_VOLTAGE                             = 5.5
+export BC_LIB_FILES                          ?= $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__ff_n40C_5v50.lib.gz)
+export BC_TEMPERATURE                        ?= -40c
+export BC_VOLTAGE                            ?= 5.5
 
-export WC_LIB_FILES                           = $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__ss_125C_4v50.lib.gz)
-export WC_TEMPERATURE                         = 125c
-export WC_VOLTAGE                             = 4.5
+export WC_LIB_FILES                          ?= $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__ss_125C_4v50.lib.gz)
+export WC_TEMPERATURE                        ?= 125c
+export WC_VOLTAGE                            ?= 4.5
 
-export TC_LIB_FILES                           = $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__tt_025C_5v00.lib.gz)
-export TC_TEMPERATURE                         = 25c
-export TC_VOLTAGE                             = 5.0
+export TC_LIB_FILES                          ?= $(abspath $(PLATFORM_DIR)/lib/gf180mcu_fd_sc_mcu$(TRACK_OPTION)$(POWER_OPTION)__tt_025C_5v00.lib.gz)
+export TC_TEMPERATURE                        ?= 25c
+export TC_VOLTAGE                            ?= 5.0
 
 # ----------------------------------------------------------------------------------------------------
 # now, set files from user setting CORNER

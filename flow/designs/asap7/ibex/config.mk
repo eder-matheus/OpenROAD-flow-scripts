@@ -28,3 +28,6 @@ export ENABLE_DPO = 0
 
 export TNS_END_PERCENT        = 100
 
+export SWAP_ARITH_OPERATORS = 1
+export OPENROAD_HIERARCHICAL = 1
+
