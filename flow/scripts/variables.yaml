@@ -189,6 +189,27 @@ SYNTH_USE_SYN:
   stages:
     - synth
   default: 0
+AUTO_MEMORIES:
+  description: >
+    Experimental. When set to 1, memory-shaped modules in the RTL
+    (firtool/CIRCT `R*/W*/RW*_` port convention, module boundary only)
+    are detected pre-synthesis, inventoried in
+    `$(RESULTS_DIR)/memories.json`, and — when idiomatic as an SRAM
+    macro — given generated .lib/.lef views under
+    `$(RESULTS_DIR)/memories/`. Synthesis blackboxes those modules and
+    all later stages read the generated views, so an existing design
+    gets macro-based results without a memory compiler. Supported for
+    the asap7 platform only. See docs/user/AutoMemories.md.
+  default: 0
+ADDITIONAL_MEMORIES:
+  description: >
+    Experimental. Space-separated list of user-supplied `.memories`
+    files (the memories.json JSON schema) merged onto the set
+    AUTO_MEMORIES detects — to force-convert a memory the idiomatic
+    gate rejects, or to describe one the scanner cannot find. See
+    docs/user/AutoMemories.md.
+  stages:
+    - synth
 SYNTH_MEMORY_MAX_BITS:
   description: >
     Maximum number of bits for memory synthesis.
@@ -250,13 +271,6 @@ SYNTH_HDL_FRONTEND:
     Select an alternative language frontend to ingest the design. Available option
     is "slang". If the variable is empty, design is read with the Yosys read_verilog
     command.
-  stages:
-    - synth
-SLANG_PLUGIN_PATH:
-  description: >
-    Path to the slang plugin for Yosys. This can be a full path to a
-    custom-built plugin (e.g. for Bazel builds) or just the plugin name.
-  default: slang
   stages:
     - synth
 SYNTH_SLANG_ARGS:
@@ -639,10 +653,11 @@ DPO_MAX_DISPLACEMENT:
   description: |
     Specifies how far an instance can be moved when optimizing.
   default: 5 1
-USE_NEGOTIATION:
+GPL_RANDOM_SEED:
   description: |
-    Enable using negotiation legalizer for detailed placement.
-  default: 0
+    Specifies a random seed for global placement.  Useful for perturbation studies.
+  stages:
+    - place
 GPL_TIMING_DRIVEN:
   description: |
     Specifies whether the placer should use timing driven placement.
@@ -1544,14 +1559,6 @@ OPENROAD_HIERARCHICAL:
   default: 0
   stages:
     - All stages
-MAX_REPAIR_TIMING_ITER:
-  description: >
-    Maximum number of iterations for repair setup and repair hold.
-  stages:
-    - cts
-    - floorplan
-    - grt
-    - place
 NUM_CORES:
   description: >
     Passed to `openroad -threads $(NUM_CORES)`, defaults to numbers
@@ -1592,6 +1599,12 @@ LEC_AUX_VERILOG_FILES:
     running the formal equivalence check.
   stages:
     - cts
+REMOVE_LIBS_FOR_LEC:
+  description: >
+    List of Liberty files to exclude from LEC. This is required for cases where
+    a Verilog black box needs to be used instead of a Liberty file.
+  stages:
+    - cts
 REMOVE_CELLS_FOR_LEC:
   description: >
     String patterns directly passed to write_verilog -remove_cells <> for
@@ -1617,3 +1630,17 @@ CDL_FILE:
     for generating Circuit Description Language output.
   stages:
     - final
+OPT_POST_GRT_WNS:
+  default: 1
+  description: >
+    Optimize WNS after global routing by additional repair_timing that uses
+    VT swap and wire rerouting only to minimize placement and routing disturbance
+  stages:
+    - grt
+GRT_SEED:
+  description: >
+    Specifies a random seed for global routing.  Useful for perturbation studies.
+  stages:
+    - grt
+  tunable: 1
+  type: int
