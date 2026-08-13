@@ -64,6 +64,7 @@ module cvxif_fu
 
   // Handling of illegal instruction exception
   always_comb begin
+    x_exception_o = '0;
     x_exception_o.valid = x_illegal_i;
     x_exception_o.cause = x_illegal_i ? riscv::ILLEGAL_INSTR : '0;
     if (CVA6Cfg.TvalEn)

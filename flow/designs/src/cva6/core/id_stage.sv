@@ -229,6 +229,7 @@ module id_stage #(
       assign is_compressed_zcmt    = is_compressed_rvc;
       assign stall_macro_deco_zcmt = '0;
       assign jump_address          = '0;
+      assign dcache_req_ports_o    = '0;
     end
 
     if (CVA6Cfg.RVZCMT) begin

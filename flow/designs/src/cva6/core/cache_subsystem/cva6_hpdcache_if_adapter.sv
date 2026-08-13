@@ -114,6 +114,9 @@ module cva6_hpdcache_if_adapter
       assign cva6_req_o.data_rdata = hpdcache_rsp_i.rdata;
       assign cva6_req_o.data_rid = hpdcache_rsp_i.tid;
       assign cva6_req_o.data_gnt = hpdcache_req_ready_i;
+      assign cva6_req_o.data_ruser = '0;
+      assign cva6_amo_resp_o = '0;
+      assign cva6_dcache_flush_ack_o = 1'b0;
 
       //  Assertions
       //  {{{
@@ -317,6 +320,7 @@ module cva6_hpdcache_if_adapter
       assign cva6_req_o.data_rdata = hpdcache_rsp_i.rdata;
       assign cva6_req_o.data_rid = hpdcache_rsp_i.tid;
       assign cva6_req_o.data_gnt = hpdcache_req_ready_i;
+      assign cva6_req_o.data_ruser = '0;
 
       assign cva6_amo_resp_o.ack = hpdcache_rsp_valid_i && (hpdcache_rsp_i.tid == '1);
       assign cva6_amo_resp_o.result = amo_is_word ? {{32{amo_resp_word[31]}}, amo_resp_word}

@@ -6,34 +6,57 @@ load_design 4_cts.odb 4_cts.sdc
 # This proc is here to allow us to use 'return' to return early from this
 # file which is sourced
 proc global_route_helper { } {
-  source_env_var_if_exists PRE_GLOBAL_ROUTE_TCL
+  source_step_tcl PRE GLOBAL_ROUTE
 
   set res_aware ""
   append_env_var res_aware ENABLE_RESISTANCE_AWARE -resistance_aware 0
 
-  proc do_global_route { res_aware } {
+  set use_cugr ""
+  append_env_var use_cugr GLOBAL_ROUTE_USE_CUGR -use_cugr 0
+
+  proc set_grt_seed { } {
+    set seed_arg [env_var_or_empty GRT_SEED]
+    if { $seed_arg ne "" } {
+      log_cmd set_global_routing_random -seed $seed_arg
+    }
+  }
+
+  proc run_global_route_and_catch_failures { args } {
+    set result [catch { log_cmd global_route {*}$args } errMsg]
+
+    if { $result != 0 } {
+      if { !$::env(GENERATE_ARTIFACTS_ON_FAILURE) } {
+        log_cmd write_db $::env(RESULTS_DIR)/5_1_grt-failed.odb
+        error $errMsg
+      }
+      orfs_write_sdc $::env(RESULTS_DIR)/5_1_grt.sdc
+      orfs_write_db $::env(RESULTS_DIR)/5_1_grt.odb
+      return 0
+    }
+    return 1
+  }
+
+  proc do_global_route { res_aware use_cugr } {
+    set_grt_seed
+    # CUGR runs a full 3D maze pass per iteration; use a tighter default.
+    set cong_iters "-congestion_iterations 30"
+    if { $use_cugr ne "" } {
+      set cong_iters "-congestion_iterations 10"
+    }
     set all_args [concat [list \
       -congestion_report_file $::global_route_congestion_report] \
-      $::env(GLOBAL_ROUTE_ARGS) {*}$res_aware]
+      $cong_iters $::env(GLOBAL_ROUTE_ARGS) {*}$res_aware {*}$use_cugr]
 
-    log_cmd global_route {*}$all_args
+    return [run_global_route_and_catch_failures {*}$all_args]
   }
   set additional_args ""
   append_env_var additional_args dbProcessNode -db_process_node 1
   append_env_var additional_args VIA_IN_PIN_MIN_LAYER -via_in_pin_bottom_layer 1
   append_env_var additional_args VIA_IN_PIN_MAX_LAYER -via_in_pin_top_layer 1
 
-  pin_access {*}$additional_args
+  log_cmd pin_access {*}$additional_args
 
-  set result [catch { do_global_route $res_aware } errMsg]
-
-  if { $result != 0 } {
-    if { !$::env(GENERATE_ARTIFACTS_ON_FAILURE) } {
-      write_db $::env(RESULTS_DIR)/5_1_grt-failed.odb
-      error $errMsg
-    }
-    write_sdc -no_timestamp $::env(RESULTS_DIR)/5_1_grt.sdc
-    write_db $::env(RESULTS_DIR)/5_1_grt.odb
+  if { ![do_global_route $res_aware $use_cugr] } {
     return
   }
 
@@ -42,7 +65,7 @@ proc global_route_helper { } {
     -right $::env(CELL_PAD_IN_SITES_DETAIL_PLACEMENT)
 
   set_propagated_clock [all_clocks]
-  estimate_parasitics -global_routing
+  log_cmd estimate_parasitics -global_routing
 
   if { [env_var_exists_and_non_empty DONT_USE_CELLS] } {
     set_dont_use $::env(DONT_USE_CELLS)
@@ -64,12 +87,16 @@ proc global_route_helper { } {
     log_cmd global_route -start_incremental
     log_cmd detailed_placement
     # Route only the modified net by DPL
-    log_cmd global_route -end_incremental {*}$res_aware \
-      -congestion_report_file $::env(REPORTS_DIR)/congestion_post_repair_design.rpt
+    if {
+      ![run_global_route_and_catch_failures -end_incremental {*}$res_aware \
+        -congestion_report_file $::env(REPORTS_DIR)/congestion_post_repair_design.rpt]
+    } {
+      return
+    }
 
     # Repair timing using global route parasitics
     puts "Repair setup and hold violations..."
-    estimate_parasitics -global_routing
+    log_cmd estimate_parasitics -global_routing
 
     repair_timing_helper
 
@@ -77,21 +104,47 @@ proc global_route_helper { } {
       report_metrics 5 "global route post repair timing"
     }
 
-    # Running DPL to fix overlapped instances
-    # Run to get modified net by DPL
     log_cmd global_route -start_incremental
     log_cmd detailed_placement
+    log_cmd check_placement -verbose
     # Route only the modified net by DPL
-    log_cmd global_route -end_incremental {*}$res_aware \
-      -congestion_report_file $::env(REPORTS_DIR)/congestion_post_repair_timing.rpt
+    if {
+      ![run_global_route_and_catch_failures -end_incremental {*}$res_aware \
+        -congestion_report_file $::env(REPORTS_DIR)/congestion_post_repair_timing.rpt]
+    } {
+      return
+    }
+
+    log_cmd estimate_parasitics -global_routing
+
+    if { $::env(OPT_POST_GRT_WNS) } {
+      set repair_timing_args \
+        [list -setup -sequence "vt_swap reroute" -skip_last_gasp -repair_tns 0 -verbose]
+      if { [env_var_exists_and_non_empty MATCH_CELL_FOOTPRINT] } {
+        lappend repair_timing_args -match_cell_footprint
+      }
+      if { $::env(SETUP_SLACK_MARGIN) != 0 } {
+        lappend repair_timing_args -setup_margin $::env(SETUP_SLACK_MARGIN)
+      }
+      log_cmd repair_timing {*}$repair_timing_args
+
+      if { $::env(DETAILED_METRICS) } {
+        report_metrics 5 "global route post repair timing_opt_wns"
+      }
+    }
   }
 
-
-  log_cmd global_route -start_incremental
-  recover_power_helper
-  # Route the modified nets by rsz journal restore
-  log_cmd global_route -end_incremental {*}$res_aware \
-    -congestion_report_file $::env(REPORTS_DIR)/congestion_post_recover_power.rpt
+  if { !$::env(OPT_POST_GRT_WNS) } {
+    log_cmd global_route -start_incremental
+    recover_power_helper
+    # Route the modified nets by rsz journal restore
+    if {
+      ![run_global_route_and_catch_failures -end_incremental {*}$res_aware \
+        -congestion_report_file $::env(REPORTS_DIR)/congestion_post_recover_power.rpt]
+    } {
+      return
+    }
+  }
 
   if {
     !$::env(SKIP_ANTENNA_REPAIR) &&
@@ -99,12 +152,13 @@ proc global_route_helper { } {
   } {
     puts "Repair antennas..."
     repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)
+    # repair antennas calls DPL internally
     check_placement -verbose
     check_antennas -report_file $::env(REPORTS_DIR)/grt_antennas.log
   }
 
   puts "Estimate parasitics..."
-  estimate_parasitics -global_routing
+  log_cmd estimate_parasitics -global_routing
 
   report_metrics 5 "global route"
 
@@ -113,8 +167,9 @@ proc global_route_helper { } {
   source [file join $::env(SCRIPTS_DIR) "write_ref_sdc.tcl"]
 
   write_guides $::env(RESULTS_DIR)/route.guide
-  write_db $::env(RESULTS_DIR)/5_1_grt.odb
-  write_sdc -no_timestamp $::env(RESULTS_DIR)/5_1_grt.sdc
+  source_step_tcl POST GLOBAL_ROUTE
+  orfs_write_db $::env(RESULTS_DIR)/5_1_grt.odb
+  orfs_write_sdc $::env(RESULTS_DIR)/5_1_grt.sdc
 }
 
 global_route_helper
