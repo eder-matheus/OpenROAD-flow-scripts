@@ -11,7 +11,7 @@ please refer to the [Docker Shell](./DockerShell.md) documentation.
 - For this method you only need to install
 [Docker](https://docs.docker.com/engine/install) on your machine.
 - Ensure that you have sufficient memory allocated to the Virtual Machine (VM)
-as per our system [requirements](../index.md#system-requirements). Refer to
+as per our system [requirements](../index2.md#system-requirements). Refer to
 this [Docker guide](https://docs.docker.com/config/containers/resource_constraints/) for setting CPU cores and memory limits.
 
 :::{Warning}
@@ -77,7 +77,7 @@ You can restrict the number of CPUs with the `-t|--threads N` argument:
 The binaries are only available from inside a Docker container. Here is an example of starting a container from the created Docker image.
 
 ``` shell
-docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v $(pwd)/flow:/OpenROAD-flow-scripts/flow openroad/flow-ubuntu22.04-builder
+docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v $(pwd)/flow:/OpenROAD-flow-scripts/flow openroad/orfs
 ```
 
 Then, inside docker:
@@ -116,7 +116,7 @@ docker run --rm -it \
            -v ${HOME}/.Xauthority:/.Xauthority \
            --network host \
            --security-opt seccomp=unconfined \
-           openroad/flow-$OS_NAME-builder
+           openroad/orfs
 ```
 
 Running GUI with Docker on Mac OS X users, refer [here](https://cntnr.io/running-guis-with-docker-on-mac-os-x-a14df6a76efc).

@@ -1,0 +1,25 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/jpeg/base/3_1_place_gp_skip_io.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/jpeg/base/2_floorplan.sdc
+source ./platforms/gf180/setRC.tcl
+place_pins -hor_layers Metal3 -ver_layers Metal4
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 3746
+[INFO PPL-0002] Number of I/O             47
+[INFO PPL-0003] Number of I/O w/sink      47
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 21211.95 um.
+Design area 2020251 um^2 46% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/jpeg/base/3_2_place_iop.odb
+Elapsed time: 0:01.45[h:]min:sec. CPU time: user 1.27 sys 0.19 (100%). Peak memory: 293000KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_2_place_iop             .odb            1            286 166a9532b92b6d6ce5db

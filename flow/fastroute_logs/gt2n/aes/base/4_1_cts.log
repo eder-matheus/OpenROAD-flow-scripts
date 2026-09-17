@@ -1,0 +1,166 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/aes/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/aes/base/3_place.sdc
+source ./platforms/gt2n/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is gt2_6t_buf_x1_w31_lvt.
+[INFO CTS-0051] Sink buffer is gt2_6t_buf_x1_w31_lvt.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    gt2_6t_buf_x1_w31_lvt
+[INFO CTS-0049] Characterization buffer is gt2_6t_buf_x1_w31_lvt.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 562 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 562.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1440  dbu (0 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 7 and max clustering diameter of 11.
+[INFO CTS-0019]  Total number of sinks after clustering: 99.
+[INFO CTS-0024]  Normalized sink region: [(4.1, 3.81429), (53.2, 54.1)].
+[INFO CTS-0025]     Width:  49.1000.
+[INFO CTS-0026]     Height: 50.2857.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 50
+    Sub-region size: 49.1000 X 25.1429
+[INFO CTS-0034]     Segment length (rounded): 12.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 25
+    Sub-region size: 24.5500 X 25.1429
+[INFO CTS-0034]     Segment length (rounded): 12.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 13
+    Sub-region size: 24.5500 X 12.5714
+[INFO CTS-0034]     Segment length (rounded): 6.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (34.200 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 99.
+[INFO CTS-0018]     Created 112 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 4.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 4.
+[INFO CTS-0015]     Created 112 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:7, 5:25, 6:56, 7:10, 9:1, 10:2, 11:1, 12:2, 17:1, 18:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 647
+[INFO CTS-0100]  Leaf buffers 99
+[INFO CTS-0101]  Average sink wire length 55.79 um
+[INFO CTS-0102]  Path depth 3 - 4
+[INFO CTS-0207]  Dummy loads inserted 85
+[INFO CTS-0500] Runtime: 1.47s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 1422.95 um^2
+[INFO DPL-0007] Movable instances area: 471.76 um^2
+[INFO DPL-0008] Fixed instances area within core: 17.55 um^2
+[INFO DPL-0009] Utilization: 34.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 17381 cells
+[INFO DPL-0393]   height 2 row(s): 629 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         20 |         6 |        14
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.11s
+Placement Analysis
+---------------------------------
+total displacement        894.8 u
+average displacement        0.0 u
+max displacement            0.9 u
+original HPWL           27872.5 u
+legalized HPWL          28250.9 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.34s
+[INFO RSZ-0046] Found 8 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -3.059 |  -8.227 | text_in_r[63]$_DFFE_PP_/D
+    final |       0 |       7 |            0 |    +0.0% |   0.053 |   0.000 | text_in_r[98]$_DFFE_PP_/D
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 7 hold buffers.
+[INFO RSZ-0506] Runtime: 0.08s
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 1422.95 um^2
+[INFO DPL-0007] Movable instances area: 471.89 um^2
+[INFO DPL-0008] Fixed instances area within core: 17.55 um^2
+[INFO DPL-0009] Utilization: 34.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 17388 cells
+[INFO DPL-0393]   height 2 row(s): 629 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.09s
+Placement Analysis
+---------------------------------
+total displacement          0.7 u
+average displacement        0.0 u
+max displacement            0.2 u
+original HPWL           28251.3 u
+legalized HPWL          28251.4 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 489 um^2 34% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/aes/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/aes/base/4_cts.sdc
+Elapsed time: 0:08.67[h:]min:sec. CPU time: user 14.85 sys 8.37 (267%). Peak memory: 244008KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb            8            238 4ae8c7bd41fcc110a23d

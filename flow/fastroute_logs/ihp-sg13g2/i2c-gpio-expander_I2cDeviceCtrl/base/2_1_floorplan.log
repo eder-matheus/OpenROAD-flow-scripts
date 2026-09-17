@@ -1,0 +1,77 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_slow_1p08V_125C.lib
+read_liberty -corner typ ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_fast_1p32V_m40C.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/1_synth.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 461
+[INFO IFP-0001] Added 29 rows of 229 site CoreSite.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 147.840 147.420 ) um
+[INFO IFP-0101] Core BBox: ( 18.720 18.900 ) ( 128.640 128.520 ) um
+[INFO IFP-0102] Core area:                        12049.430 um^2
+[INFO IFP-0103] Total instances area:              7818.250 um^2
+[INFO IFP-0104] Effective utilization:                0.649
+[INFO IFP-0105] Number of instances:                    461
+source ./platforms/ihp-sg13g2/make_tracks.tcl
+source ./platforms/ihp-sg13g2/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 1 tie sg13g2_tielo instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 78 tie sg13g2_tiehi instances.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.06s
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1uA
+ power 1pW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (pF/um)
+------------------------------------------------
+    Metal1 |        8.55e-03 |         1.00e-10
+    Metal2 |        4.40e-04 |         1.69e-04
+    Metal3 |        4.40e-04 |         1.83e-04
+    Metal4 |        4.40e-04 |         1.66e-04
+    Metal5 |        4.40e-04 |         8.57e-05
+ TopMetal1 |        1.28e-05 |         1.11e-04
+ TopMetal2 |        7.25e-06 |         9.01e-05
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      Via1 |       2.00e-03 
+      Via2 |       2.00e-03 
+      Via3 |       2.00e-03 
+      Via4 |       2.00e-03 
+   TopVia1 |       4.00e-04 
+   TopVia2 |       2.20e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 8363 um^2 69% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/2_1_floorplan.sdc
+Elapsed time: 0:00.51[h:]min:sec. CPU time: user 0.48 sys 0.11 (114%). Peak memory: 133384KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            0            130 17bb57b91b324a43e53f
+2_1_floorplan             .sdc                             33c9aecd560be1bec8a4

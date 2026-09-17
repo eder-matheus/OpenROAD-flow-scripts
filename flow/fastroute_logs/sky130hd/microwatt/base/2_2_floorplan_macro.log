@@ -1,0 +1,36 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty ./designs/sky130hd/microwatt/lib/Microwatt_FP_DFFRFile.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM32_1RW1R.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM512.lib
+read_liberty ./designs/sky130hd/microwatt/lib/multiply_add_64x64.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/2_1_floorplan.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/2_1_floorplan.sdc
+source ./platforms/sky130hd/setRC.tcl
+rtl_macro_placer -max_num_level 2 -halo_width 50 -halo_height 50 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/sky130hd/microwatt/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+Die Area: (0.00, 0.00) (2866.97, 2866.97),  Floorplan Area: (1.38, 2.72) (2865.80, 2864.16)
+	Number of std cell instances: 58617
+	Area of std cell instances: 590655.24
+	Number of macros: 6
+	Macros to be placed: 6
+	Area of macros: 3926473.87
+	Base halo (L, B, R, T): (50.00, 50.00, 50.00, 50.00)
+	Area of macros with halos: 4784591.07
+	Area of std cell instances + Area of macros: 4517129.10
+	Floorplan area: 8196365.96
+	Design Utilization: 0.55
+	Floorplan Utilization: 0.14
+	Manufacturing Grid: 5
+
+[INFO MPL-0500] Runtime: 4.06s
+Design area 4517129 um^2 55% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/2_2_floorplan_macro.odb
+Elapsed time: 0:04.65[h:]min:sec. CPU time: user 34.53 sys 0.05 (743%). Peak memory: 274932KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            4            268 722671d99d73ab5bbd5d

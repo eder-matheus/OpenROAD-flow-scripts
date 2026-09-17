@@ -33,6 +33,14 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("--metadata", "-m", required=True, help="The metadata file")
 parser.add_argument("--rules", "-r", required=True, nargs="+", help="The rules file")
+parser.add_argument(
+    "--only-prefix",
+    nargs="+",
+    default=None,
+    help="Check only rules whose field starts with one of these prefixes. "
+    "Lets a partial run (e.g. synthesis-only) be gated by a full-flow "
+    "rules file without tripping the missing-field error.",
+)
 args = parser.parse_args()
 
 with open(args.metadata) as metadataFile:
@@ -45,6 +53,13 @@ for filePath in args.rules:
             rules.update(json.load(rulesFile))
     else:
         print(f"[WARN] File {filePath} not found")
+
+if args.only_prefix:
+    rules = {
+        field: rule
+        for field, rule in rules.items()
+        if any(field.startswith(prefix) for prefix in args.only_prefix)
+    }
 
 if len(rules) == 0:
     print("No rules")
@@ -106,8 +121,15 @@ for field, rule in rules.items():
             PRE = "[INFO]"
             CHECK = "pass"
         elif rule.get("level") == "warning":
+            # Warning-level rules never fail the build, but the prior
+            # message ("[WARN] field pass test: a == b") was misleading
+            # when a != b -- the build_value clearly differed from the
+            # rule_value yet "pass" implied a match. Say "differs"
+            # instead so the diagnostic reads naturally for fields like
+            # the netlist hash where the user wants visibility without
+            # an error.
             PRE = "[WARN]"
-            CHECK = "pass"
+            CHECK = "differs"
             WARNS += 1
         else:
             PRE = "[ERROR]"

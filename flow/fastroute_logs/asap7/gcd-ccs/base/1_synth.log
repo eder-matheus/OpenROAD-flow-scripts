@@ -1,0 +1,190 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_lef ./platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7_tech_1x_201209.lef, created 30 layers, 9 vias
+read_lef ./platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef, created 212 library cells
+set_dont_use "*x1p*_ASAP7* *xp*_ASAP7* SDF* ICG*"
+sv_elaborate -D SYNTHESIS --compat=vcs --ignore-assertions --no-implicit-memories --top gcd /OpenROAD-flow-scripts/flow/designs/src/gcd/gcd.v --std=1364-2005
+Top level design units:
+    gcd
+
+Build succeeded: 0 errors, 0 warnings
+syn::stats
+  adc: 1 cells, 17 bits
+  and: 3 cells, 3 bits
+  dff: 3 cells, 34 bits
+  eq: 7 cells, 7 bits
+  input: 5 cells, 36 bits
+  mux: 1 cells, 1 bits
+  name (tentative): 143 cells, 0 bits
+  not: 20 cells, 20 bits
+  output: 3 cells, 0 bits
+  ult: 1 cells, 1 bits
+  ushr: 29 cells, 230 bits
+  total: 216 cells, 349 bits
+synthesize
+[INFO SYN-0056] liveness: replaced 0 register bits, 0 combinational bits
+[INFO SYN-0020] abc_roundtrip: exported 490 ANDs, 70 CIs, 52 COs
+[1;37msyn     [0m : i/o =     70/     52  [1;36mand =     490[0m  [1;35mlev =   19[0m [1;35m(14.27)[0m  mem = 0.01 MB
+Simulating 4 words for 10 rounds. SAT solving with 1000000 conflicts.
+cst =     490  cls =      0  lit =     490  unused =      70  proof =     0
+cst =       2  cls =      6  lit =      20  unused =     534  proof =     0
+cst =       2  cls =      6  lit =      15  unused =     539  proof =     0
+cst =       2  cls =      7  lit =      13  unused =     540  proof =     0
+cst =       2  cls =      6  lit =      12  unused =     542  proof =     0
+cst =       2  cls =      6  lit =      12  unused =     542  proof =     0
+cst =       2  cls =      6  lit =      12  unused =     542  proof =     0
+cst =       2  cls =      6  lit =      12  unused =     542  proof =     0
+[1;37msyn     [0m : i/o =     70/     11  [1;36mand =     171[0m  [1;35mlev =   15[0m [1;35m(8.36)[0m  mem = 0.00 MB
+SAT solver statistics:
+CO =       11  AND =      171  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls      9  ( 81.82 %)   Ave conf =      3.7   Time =     0.00 sec ( 32.79 %)
+Sat   calls      2  ( 18.18 %)   Ave conf =      0.0   Time =     0.00 sec ( 13.77 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+  1 : P =      3. D =      2. F =     0. M =       0. And =     487. Time =     0.00 sec
+[1;37msyn     [0m : i/o =     70/      5  [1;36mand =      46[0m  [1;35mlev =   11[0m [1;35m(8.40)[0m  mem = 0.00 MB
+SAT solver statistics:
+CO =        5  AND =       46  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls      4  ( 80.00 %)   Ave conf =      2.0   Time =     0.00 sec ( 15.24 %)
+Sat   calls      1  ( 20.00 %)   Ave conf =      2.0   Time =     0.00 sec ( 14.29 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+  2 : P =      1. D =      1. F =     0. M =       0. And =     484. Time =     0.00 sec
+[1;37msyn     [0m : i/o =     70/      3  [1;36mand =      34[0m  [1;35mlev =   10[0m [1;35m(9.33)[0m  mem = 0.00 MB
+SAT solver statistics:
+CO =        3  AND =       34  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls      3  (100.00 %)   Ave conf =      1.3   Time =     0.00 sec ( 20.51 %)
+Sat   calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+  3 : P =      3. D =      0. F =     0. M =       0. And =     480. Time =     0.00 sec
+[1;37msyn     [0m : i/o =     70/      0  [1;36mand =       0[0m  [1;35mlev =    0[0m [1;35m(-nan)[0m  mem = 0.00 MB
+Considered all available candidate equivalences.
+Performed 10 SAT calls: P = 7  D = 3  F = 0
+NBeg = 490. NEnd = 480. (Gain =   2.04 %).  RBeg = 0. REnd = 0. (Gain =   0.00 %).
+Sim  =     0.00 sec ( 24.87 %)
+Sat  =     0.00 sec ( 55.35 %)
+Pat  =     0.00 sec (  2.21 %)
+Time =     0.00 sec
+[INFO SYN-0023] abc_roundtrip: after ABC: 480 ANDs, 70 CIs, 52 COs
+[INFO SYN-0020] abc_roundtrip: exported 480 ANDs, 70 CIs, 52 COs
+[1;37msyn     [0m : i/o =     70/     52  [1;36mand =     480[0m  [1;35mlev =   19[0m [1;35m(13.63)[0m  mem = 0.01 MB
+Starting:  syn             : pi =    70  po =    52  and =     480  lev =  19
+Rewrite:   syn             : pi =    70  po =    52  and =     442  lev =  21
+Refactor:  syn             : pi =    70  po =    52  and =     425  lev =  21
+Balance:   syn             : pi =    70  po =    52  and =     425  lev =  21
+Rewrite:   syn             : pi =    70  po =    52  and =     425  lev =  21
+RewriteZ:  syn             : pi =    70  po =    52  and =     423  lev =  21
+Balance:   syn             : pi =    70  po =    52  and =     423  lev =  20
+RefactorZ: syn             : pi =    70  po =    52  and =     423  lev =  20
+RewriteZ:  syn             : pi =    70  po =    52  and =     418  lev =  20
+Balance:   syn             : pi =    70  po =    52  and =     418  lev =  19
+Starting:  syn             : pi =    70  po =    52  and =     418  lev =  19
+Rewrite:   syn             : pi =    70  po =    52  and =     417  lev =  19
+Refactor:  syn             : pi =    70  po =    52  and =     417  lev =  19
+Balance:   syn             : pi =    70  po =    52  and =     417  lev =  19
+Rewrite:   syn             : pi =    70  po =    52  and =     417  lev =  19
+RewriteZ:  syn             : pi =    70  po =    52  and =     413  lev =  19
+Balance:   syn             : pi =    70  po =    52  and =     413  lev =  18
+RefactorZ: syn             : pi =    70  po =    52  and =     413  lev =  18
+RewriteZ:  syn             : pi =    70  po =    52  and =     407  lev =  18
+Balance:   syn             : pi =    70  po =    52  and =     407  lev =  18
+Starting:  syn             : pi =    70  po =    52  and =     464  lev =  13
+Rewrite:   syn             : pi =    70  po =    52  and =     424  lev =  17
+Refactor:  syn             : pi =    70  po =    52  and =     423  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     423  lev =  17
+Rewrite:   syn             : pi =    70  po =    52  and =     421  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     421  lev =  17
+RefactorZ: syn             : pi =    70  po =    52  and =     421  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     421  lev =  17
+Starting:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Rewrite:   syn             : pi =    70  po =    52  and =     421  lev =  17
+Refactor:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     421  lev =  17
+Rewrite:   syn             : pi =    70  po =    52  and =     421  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     421  lev =  17
+RefactorZ: syn             : pi =    70  po =    52  and =     421  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     421  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     420  lev =  17
+Starting:  syn             : pi =    70  po =    52  and =     420  lev =  17
+Rewrite:   syn             : pi =    70  po =    52  and =     420  lev =  17
+Refactor:  syn             : pi =    70  po =    52  and =     420  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     420  lev =  17
+Rewrite:   syn             : pi =    70  po =    52  and =     420  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     420  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     420  lev =  17
+RefactorZ: syn             : pi =    70  po =    52  and =     420  lev =  17
+RewriteZ:  syn             : pi =    70  po =    52  and =     420  lev =  17
+Balance:   syn             : pi =    70  po =    52  and =     420  lev =  17
+[1;37msyn     [0m : i/o =     70/     52  [1;36mand =     420[0m  [1;35mlev =   17[0m [1;35m(13.42)[0m  mem = 0.01 MB
+[INFO SYN-0023] abc_roundtrip: after ABC: 420 ANDs, 70 CIs, 52 COs
+[INFO SYN-0017] mapCombinationals: done
+[INFO SYN-0040] gatefusion: 0 fusions applied, area delta 0.0000
+  input: 5 cells, 36 bits
+  name (tentative): 102 cells, 0 bits
+  not: 1 cells, 1 bits
+  output: 3 cells, 0 bits
+  target: AND2x2_ASAP7_75t_R: 3 cells, 3 bits, area 0.26244
+  target: AND3x1_ASAP7_75t_R: 3 cells, 3 bits, area 0.26244
+  target: AND4x1_ASAP7_75t_R: 1 cells, 1 bits, area 0.10206
+  target: AO21x1_ASAP7_75t_R: 17 cells, 17 bits, area 1.48716
+  target: AO221x1_ASAP7_75t_R: 18 cells, 18 bits, area 2.6244
+  target: AO32x1_ASAP7_75t_R: 2 cells, 2 bits, area 0.23328
+  target: AOI21x1_ASAP7_75t_R: 20 cells, 20 bits, area 2.3328
+  target: AOI221x1_ASAP7_75t_R: 1 cells, 1 bits, area 0.20412
+  target: DFFHQNx1_ASAP7_75t_R: 34 cells, 34 bits, area 9.9144
+  target: INVx1_ASAP7_75t_R: 24 cells, 24 bits, area 1.04976
+  target: MAJx2_ASAP7_75t_R: 8 cells, 8 bits, area 1.04976
+  target: NAND2x1_ASAP7_75t_R: 9 cells, 9 bits, area 0.78732
+  target: NAND3x1_ASAP7_75t_R: 2 cells, 2 bits, area 0.32076
+  target: NOR2x1_ASAP7_75t_R: 7 cells, 7 bits, area 0.61236
+  target: NOR3x1_ASAP7_75t_R: 1 cells, 1 bits, area 0.16038
+  target: OA211x2_ASAP7_75t_R: 17 cells, 17 bits, area 1.98288
+  target: OA21x2_ASAP7_75t_R: 13 cells, 13 bits, area 1.32678
+  target: OAI21x1_ASAP7_75t_R: 24 cells, 24 bits, area 2.79936
+  target: OAI22x1_ASAP7_75t_R: 1 cells, 1 bits, area 0.1458
+  target: OR2x2_ASAP7_75t_R: 7 cells, 7 bits, area 0.61236
+  target: OR3x1_ASAP7_75t_R: 20 cells, 20 bits, area 1.7496
+  target: OR4x1_ASAP7_75t_R: 2 cells, 2 bits, area 0.20412
+  target: OR5x1_ASAP7_75t_R: 2 cells, 2 bits, area 0.23328
+  target: XNOR2x2_ASAP7_75t_R: 6 cells, 6 bits, area 0.96228
+  target: XOR2x2_ASAP7_75t_R: 19 cells, 19 bits, area 3.04722
+  total: 372 cells, 298 bits, area 34.4671
+[INFO SYN-0031] Export to ODB: created 261 instances, 209 nets, 54 ports
+read_sdc /OpenROAD-flow-scripts/flow/designs/asap7/gcd/constraint.sdc
+repair_design -pre_placement
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |    +17.4% |       0 |      43 |            49 |       340
+    final |    +17.4% |       0 |      43 |            49 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0038] Inserted 43 buffers in 49 nets.
+[INFO RSZ-0504] Runtime: 0.07s
+Report metrics stage 1, synth...
+
+==========================================================================
+synth report_design_area
+--------------------------------------------------------------------------
+Design area 40 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/1_synth.sdc
+Elapsed time: 0:06.75[h:]min:sec. CPU time: user 6.68 sys 0.13 (100%). Peak memory: 459128KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .v              6            448 b3c65aa67d1b3e82d782
+1_synth                   .odb                             9ddbdc029e65dfd5cb14
+1_synth                   .sdc                             5011e5aed360886d25f2

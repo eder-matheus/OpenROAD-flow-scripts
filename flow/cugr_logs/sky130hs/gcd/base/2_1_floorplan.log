@@ -1,0 +1,103 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hs/lib/sky130_fd_sc_hs__tt_025C_1v80.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/gcd/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/gcd/base/1_synth.sdc
+source ./platforms/sky130hs/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 385
+[INFO IFP-0107] Defining die area using utilization: 50.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (1.000, 1.000) snapped to (1.440, 3.330).
+[INFO IFP-0001] Added 26 rows of 184 site unit.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 91.235 91.235 ) um
+[INFO IFP-0101] Core BBox: (  1.440  3.330 ) ( 89.760 89.910 ) um
+[INFO IFP-0102] Core area:                         7646.746 um^2
+[INFO IFP-0103] Total instances area:              3981.614 um^2
+[INFO IFP-0104] Effective utilization:                0.521
+[INFO IFP-0105] Number of instances:                    385
+source ./platforms/sky130hs/make_tracks.tcl
+source ./platforms/sky130hs/fastroute.tcl
+Repair tie lo fanout...
+Repair tie hi fanout...
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 16 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 16 out of 16 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.347 |       -9.8 |       -5.5 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      10* |       0 |       5 |        0 |      0 |     4 |    +1.1% |   -0.184 |       -4.9 |       -3.3 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      14* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      16* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      18* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      20* |       0 |       6 |        0 |      0 |     1 |    +1.2% |   -0.180 |       -4.4 |       -3.2 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      20* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      22* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      24* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      26* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      28* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      30* |       0 |       6 |        0 |      0 |     1 |    +1.2% |   -0.180 |       -4.4 |       -3.2 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      30* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      32* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      34* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      36* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      38* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      40* |       0 |       6 |        0 |      0 |     1 |    +1.2% |   -0.180 |       -4.4 |       -3.2 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      40* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      42* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      44* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+      44* |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     16 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+    final |       0 |       5 |        0 |      0 |     1 |    +1.1% |   -0.171 |       -4.4 |       -3.0 |     32 | dpath.b_reg.out\[0\]$_DFFE_PP_/DE
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 5 instances: 5 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 1 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.21s
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (pF/um)
+------------------------------------------------
+       li1 |        6.82e-02 |         1.50e-04
+      met1 |        1.21e-03 |         1.72e-04
+      met2 |        1.22e-03 |         1.36e-04
+      met3 |        1.66e-04 |         2.15e-04
+      met4 |        1.68e-04 |         1.48e-04
+      met5 |        1.84e-05 |         1.54e-04
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      mcon |       9.25e-03 
+       via |       4.50e-03 
+      via2 |       3.37e-03 
+      via3 |       3.77e-04 
+      via4 |       5.80e-06 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 4025 um^2 53% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/gcd/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/gcd/base/2_1_floorplan.sdc
+Elapsed time: 0:01.52[h:]min:sec. CPU time: user 1.47 sys 0.19 (109%). Peak memory: 169016KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            1            165 f6ebbd2c86e5d715f923
+2_1_floorplan             .sdc                             15c4a3f0f3443523b7a2

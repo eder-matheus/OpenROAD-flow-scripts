@@ -1,0 +1,26 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_512x64.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x7.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x96.lef, created 1 library cells
+link_design bp_fe_top
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/1_2_yosys.sdc
+source ./platforms/nangate45/setRC.tcl
+eliminate_dead_logic
+Removed 1 unused instances and 1 unused nets.
+Design area 213935 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/1_synth.sdc
+Elapsed time: 0:00.96[h:]min:sec. CPU time: user 0.87 sys 0.09 (100%). Peak memory: 206996KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            0            202 daec19e5eac924d0dc61
+1_synth                   .sdc                             97009b6b5bd858428bbd

@@ -1,0 +1,70 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/spi/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/spi/base/6_1_fill.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/spi/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/spi/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/ihp-sg13g2/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation spi (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 656 rc segments
+[INFO RCX-0439] Coupling Cap extraction spi ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 52% of 1059 wires extracted
+[INFO RCX-0442] 100% of 1059 wires extracted
+[INFO RCX-0045] Extract 190 nets, 846 rsegs, 846 caps, 936 ccs
+[INFO RCX-0443] 190 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.97e-03 W
+Supply voltage   : 1.20e+00 V
+Worstcase voltage: 1.20e+00 V
+Average voltage  : 1.20e+00 V
+Average IR drop  : 5.41e-04 V
+Worstcase IR drop: 3.00e-03 V
+Percentage drop  : 0.25 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 1.97e-03 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 3.81e-03 V
+Average voltage  : 4.18e-04 V
+Average IR drop  : 4.18e-04 V
+Worstcase IR drop: 3.81e-03 V
+Percentage drop  : 0.32 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                               700    7431.78
+  Clock buffer                              5      72.58
+  Timing Repair Buffer                     35     261.27
+  Inverter                                  2      10.89
+  Clock inverter                            3      16.33
+  Sequential cell                          25    1226.53
+  Multi-Input combinational cell          110    1075.94
+  Total                                   880   10095.32
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 2664 um^2 26% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:01.43[h:]min:sec. CPU time: user 1.43 sys 0.23 (115%). Peak memory: 171032KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                  1            167                  N/A

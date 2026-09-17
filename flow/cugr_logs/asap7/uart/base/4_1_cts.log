@@ -1,0 +1,316 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_TT_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_TT_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib.gz
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/uart/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/uart/base/3_place.sdc
+source ./platforms/asap7/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is BUFx4_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx8_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx4_ASAP7_75t_R
+                    BUFx10_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx10_ASAP7_75t_R.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 79 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 79.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0023]  Original sink region: [(3553, 2295), (14590, 15795)].
+[INFO CTS-0024]  Normalized sink region: [(2.63185, 1.7), (10.8074, 11.7)].
+[INFO CTS-0025]     Width:  8.1756.
+[INFO CTS-0026]     Height: 10.0000.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 40
+    Sub-region size: 8.1756 X 5.0000
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 20
+    Sub-region size: 4.0878 X 5.0000
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 10
+    Sub-region size: 4.0878 X 2.5000
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (162.640 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 79.
+[INFO CTS-0018]     Created 9 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 9 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 7:1, 8:1, 9:2, 10:1, 11:1, 12:1, 13:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 86
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 22.68 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 7
+[INFO CTS-0500] Runtime: 1.83s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 221.32 um^2
+[INFO DPL-0007] Movable instances area: 92.55 um^2
+[INFO DPL-0008] Fixed instances area within core: 3.21 um^2
+[INFO DPL-0009] Utilization: 43.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 873 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          4 |         2 |         2
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement        110.7 u
+average displacement        0.1 u
+max displacement            2.2 u
+original HPWL            1405.9 u
+legalized HPWL           1473.3 u
+delta HPWL                    5 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 65 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 65 out of 65 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -39.890 |     -304.9 |    -1342.3 |     65 | uart_tx_inst.prescale_reg\[15\]$_SDFFE_PP0P_/D
+      10* |       0 |       3 |        3 |      0 |     3 |    +0.3% |  -41.449 |     -399.3 |    -1117.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      20* |       0 |       5 |       11 |      0 |     4 |    +1.2% |  -31.880 |     -394.8 |    -1022.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      28* |       0 |       3 |        2 |      0 |     3 |    +0.2% |  -27.006 |     -267.6 |    -1001.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      30* |       0 |       3 |        2 |      0 |     4 |    +0.2% |  -27.006 |     -268.1 |    -1003.2 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      40* |       0 |       8 |        4 |      0 |     7 |    +0.6% |  -27.006 |     -255.9 |     -899.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      42* |       0 |       7 |        3 |      0 |     5 |    +0.4% |  -27.006 |     -252.5 |     -898.5 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      49* |       0 |       7 |        3 |      0 |     5 |    +0.4% |  -27.006 |     -252.5 |     -898.5 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      50* |       0 |       7 |        3 |      0 |     5 |    +0.4% |  -27.006 |     -252.5 |     -898.5 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      55* |       0 |       9 |        4 |      0 |     7 |    +0.7% |  -27.006 |     -246.1 |     -865.2 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      59* |       0 |       9 |        4 |      0 |     7 |    +0.7% |  -27.006 |     -246.1 |     -865.2 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      60* |       0 |       9 |        4 |      0 |     7 |    +0.7% |  -27.006 |     -246.1 |     -865.2 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      62* |       0 |       9 |        4 |      0 |     8 |    +0.7% |  -27.006 |     -245.8 |     -864.3 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      70* |       0 |      10 |        8 |      0 |    10 |    +1.2% |  -27.006 |     -260.2 |     -850.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      79* |       0 |      10 |        8 |      0 |     8 |    +1.2% |  -27.006 |     -224.7 |     -847.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      80* |       0 |      10 |        8 |      0 |     8 |    +1.2% |  -27.006 |     -224.7 |     -847.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      88* |       0 |      10 |        9 |      0 |    10 |    +1.2% |  -27.006 |     -271.0 |     -897.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      90* |       0 |      10 |        9 |      0 |    11 |    +1.2% |  -27.006 |     -271.0 |     -898.1 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+      90* |       0 |      10 |        9 |      0 |    10 |    +1.2% |  -27.006 |     -271.0 |     -897.6 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     100* |       0 |      11 |       17 |      0 |    11 |    +2.1% |  -30.771 |     -322.1 |    -1076.3 |     65 | uart_rx_inst.prescale_reg\[14\]$_SDFFE_PP0P_/D
+     102* |       0 |      10 |       11 |      0 |    11 |    +1.4% |  -27.006 |     -269.2 |     -915.7 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     109* |       0 |      10 |       11 |      0 |    11 |    +1.4% |  -27.006 |     -269.2 |     -915.7 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     110* |       0 |      10 |       11 |      0 |    11 |    +1.4% |  -27.006 |     -269.2 |     -915.7 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     117* |       0 |      13 |       11 |      0 |    15 |    +1.5% |  -27.006 |     -284.3 |     -929.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     120* |       0 |      13 |       13 |      0 |    15 |    +1.7% |  -37.205 |     -413.3 |    -1108.4 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     124* |       0 |      13 |       11 |      0 |    15 |    +1.5% |  -27.006 |     -284.3 |     -929.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     130* |       0 |      13 |       17 |      0 |    15 |    +2.2% |  -32.091 |     -373.0 |    -1100.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     134* |       0 |      13 |       11 |      0 |    15 |    +1.5% |  -27.006 |     -284.3 |     -929.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     140* |       0 |      13 |       17 |      0 |    15 |    +2.2% |  -32.091 |     -373.0 |    -1100.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     141* |       0 |      13 |       11 |      0 |    15 |    +1.5% |  -27.006 |     -284.3 |     -929.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     143* |       0 |      13 |       11 |      0 |    16 |    +1.5% |  -27.006 |     -284.3 |     -928.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     150* |       0 |      16 |       11 |      0 |    19 |    +1.6% |  -27.006 |     -225.3 |     -880.9 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     152* |       0 |      16 |       11 |      0 |    17 |    +1.6% |  -27.006 |     -225.2 |     -877.4 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     158* |       0 |      18 |       12 |      0 |    18 |    +1.8% |  -27.006 |     -228.4 |     -869.2 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     160* |       0 |      18 |       12 |      0 |    19 |    +1.8% |  -27.006 |     -228.4 |     -867.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     162* |       0 |      18 |       12 |      0 |    19 |    +1.8% |  -27.006 |     -228.4 |     -867.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     169* |       0 |      21 |       12 |      0 |    21 |    +2.0% |  -27.006 |     -230.5 |     -869.5 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     170* |       0 |      21 |       12 |      0 |    21 |    +2.0% |  -27.006 |     -230.5 |     -869.5 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     173* |       0 |      22 |       13 |      0 |    22 |    +2.1% |  -27.006 |     -230.5 |     -892.0 |     65 | uart_rx_inst.m_axis_tdata\[2\]$_SDFFE_PP0P_/D
+     180* |       0 |      23 |       18 |      0 |    22 |    +2.6% |  -25.443 |     -310.1 |     -862.2 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     183* |       0 |      23 |       20 |      0 |    22 |    +2.8% |  -25.443 |     -309.0 |     -849.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     185* |       0 |      23 |       20 |      0 |    22 |    +2.8% |  -25.443 |     -309.0 |     -849.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     187* |       0 |      23 |       20 |      0 |    22 |    +2.8% |  -25.443 |     -309.0 |     -849.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     190* |       0 |      23 |       21 |      0 |    23 |    +2.9% |  -25.443 |     -309.4 |     -864.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     196* |       0 |      24 |       21 |      0 |    24 |    +3.0% |  -25.443 |     -309.4 |     -849.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     197* |       0 |      24 |       21 |      0 |    24 |    +3.0% |  -25.443 |     -309.4 |     -849.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     199* |       0 |      24 |       21 |      0 |    24 |    +3.0% |  -25.443 |     -309.4 |     -849.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     200* |       0 |      24 |       21 |      0 |    24 |    +3.0% |  -25.443 |     -309.4 |     -849.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     201* |       0 |      24 |       21 |      0 |    24 |    +3.0% |  -25.443 |     -309.4 |     -849.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     205* |       0 |      25 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -309.4 |     -801.2 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     209* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     210* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     210* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     212* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     214* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     216* |       0 |      27 |       22 |      0 |    25 |    +3.1% |  -25.443 |     -273.2 |     -784.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     220* |       0 |      28 |       23 |      0 |    26 |    +3.2% |  -25.443 |     -273.2 |     -855.7 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     220* |       0 |      28 |       23 |      0 |    26 |    +3.2% |  -25.443 |     -273.2 |     -855.7 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     223* |       0 |      29 |       23 |      0 |    27 |    +3.3% |  -25.443 |     -278.7 |     -857.2 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     228* |       0 |      29 |       23 |      0 |    27 |    +3.3% |  -25.443 |     -278.7 |     -857.2 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     230* |       0 |      30 |       23 |      0 |    27 |    +3.3% |  -25.443 |     -278.7 |     -845.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     235* |       0 |      31 |       24 |      0 |    29 |    +3.4% |  -25.443 |     -301.5 |     -875.4 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     237* |       0 |      32 |       24 |      0 |    29 |    +3.5% |  -25.443 |     -296.1 |     -810.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     240* |       0 |      32 |       24 |      0 |    31 |    +3.5% |  -25.443 |     -296.1 |     -812.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     240* |       0 |      32 |       24 |      0 |    30 |    +3.5% |  -25.443 |     -296.1 |     -810.7 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     247* |       0 |      34 |       27 |      0 |    31 |    +4.0% |  -25.443 |     -343.2 |     -897.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     250* |       0 |      35 |       28 |      0 |    31 |    +4.2% |  -25.443 |     -343.2 |     -876.0 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     253* |       0 |      37 |       28 |      0 |    32 |    +4.2% |  -25.443 |     -343.2 |     -868.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     255* |       0 |      37 |       29 |      0 |    32 |    +4.3% |  -25.443 |     -331.2 |     -863.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     258* |       0 |      37 |       29 |      0 |    33 |    +4.3% |  -25.443 |     -331.2 |     -863.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     259* |       0 |      37 |       29 |      0 |    33 |    +4.3% |  -25.443 |     -331.2 |     -863.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     260* |       0 |      37 |       29 |      0 |    33 |    +4.3% |  -25.443 |     -331.2 |     -863.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     261* |       0 |      38 |       29 |      0 |    33 |    +4.4% |  -25.443 |     -331.2 |     -865.2 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     263* |       0 |      39 |       29 |      0 |    33 |    +4.4% |  -25.443 |     -331.2 |     -866.8 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     270* |       0 |      42 |       29 |      0 |    36 |    +4.5% |  -25.443 |     -327.5 |     -861.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     273* |       0 |      45 |       29 |      0 |    36 |    +4.7% |  -25.443 |     -324.7 |     -855.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     275* |       0 |      46 |       29 |      0 |    36 |    +4.8% |  -25.443 |     -324.7 |     -856.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     279* |       0 |      46 |       29 |      0 |    39 |    +4.8% |  -25.443 |     -324.7 |     -854.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     280* |       0 |      46 |       29 |      0 |    39 |    +4.8% |  -25.443 |     -324.7 |     -854.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     281* |       0 |      46 |       29 |      0 |    39 |    +4.8% |  -25.443 |     -324.7 |     -854.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     282* |       0 |      46 |       29 |      0 |    39 |    +4.8% |  -25.443 |     -324.7 |     -854.3 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     287* |       0 |      50 |       29 |      0 |    39 |    +5.0% |  -25.443 |     -297.6 |     -831.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     289* |       0 |      51 |       29 |      0 |    39 |    +5.1% |  -25.443 |     -297.6 |     -832.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     290* |       0 |      51 |       29 |      0 |    39 |    +5.1% |  -25.443 |     -297.6 |     -832.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     290* |       0 |      51 |       29 |      0 |    39 |    +5.1% |  -25.443 |     -297.6 |     -832.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     291* |       0 |      51 |       29 |      0 |    39 |    +5.1% |  -25.443 |     -297.6 |     -832.9 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     294* |       1 |      51 |       29 |      0 |    40 |    +5.0% |  -25.443 |     -297.6 |     -824.5 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     298* |       1 |      51 |       29 |      0 |    42 |    +5.0% |  -25.443 |     -297.8 |     -823.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     299* |       1 |      51 |       29 |      0 |    42 |    +5.0% |  -25.443 |     -297.8 |     -823.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     300* |       1 |      51 |       29 |      0 |    42 |    +5.0% |  -25.443 |     -297.8 |     -823.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     300* |       1 |      51 |       29 |      0 |    42 |    +5.0% |  -25.443 |     -297.8 |     -823.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     301* |       1 |      51 |       29 |      0 |    42 |    +5.0% |  -25.443 |     -297.8 |     -823.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     306* |       1 |      53 |       31 |      0 |    42 |    +5.2% |  -25.443 |     -297.8 |     -817.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     307* |       1 |      53 |       31 |      0 |    42 |    +5.2% |  -25.443 |     -297.8 |     -817.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     310* |       1 |      53 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -817.1 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     311* |       2 |      53 |       31 |      0 |    44 |    +5.1% |  -25.443 |     -297.8 |     -816.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     316* |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     316* |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     65 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     317+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     318+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     319+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     320+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     320+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     321+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     322+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     323+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     324+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     325+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     326+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     327+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     328+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     329+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     330+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     330+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     331+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     332+ |       2 |      55 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -802.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     334+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     335+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     336+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     337+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     338+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     339+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     340+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     340+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     341+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     342+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     343+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     344+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     345+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     346+ |       2 |      56 |       31 |      0 |    44 |    +5.2% |  -25.443 |     -297.8 |     -792.9 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     348+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     349+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     350+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     350+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     351+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     352+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     353+ |       2 |      57 |       31 |      0 |    44 |    +5.3% |  -25.443 |     -297.8 |     -783.4 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     356+ |       2 |      58 |       31 |      0 |    45 |    +5.3% |  -25.443 |     -297.8 |     -782.5 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     357+ |       2 |      58 |       31 |      0 |    45 |    +5.3% |  -25.443 |     -297.8 |     -782.5 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     359+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     360+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     360+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     361+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     362+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     363+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     364+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     365+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     366+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     367+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     368+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     369+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     370+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     370+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     371+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     372+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     373+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     374+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     375+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     376+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     377+ |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+    final |       2 |      58 |       31 |      0 |    46 |    +5.3% |  -25.443 |     -297.7 |     -781.6 |     56 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 2 buffers.
+[INFO RSZ-0045] Inserted 31 buffers, 8 to split loads.
+[INFO RSZ-0051] Resized 58 instances: 58 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 46 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 1.73s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.00s
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 221.32 um^2
+[INFO DPL-0007] Movable instances area: 97.60 um^2
+[INFO DPL-0008] Fixed instances area within core: 3.21 um^2
+[INFO DPL-0009] Utilization: 45.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 902 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         86 |        18 |        68
+        1 |         16 |         2 |        14
+        2 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 2.
+[INFO DPL-0500] Runtime: 0.01s
+Placement Analysis
+---------------------------------
+total displacement         41.9 u
+average displacement        0.0 u
+max displacement            1.8 u
+original HPWL            1537.3 u
+legalized HPWL           1584.0 u
+delta HPWL                    3 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 101 um^2 46% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/uart/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/uart/base/4_cts.sdc
+Elapsed time: 0:06.55[h:]min:sec. CPU time: user 7.20 sys 0.61 (119%). Peak memory: 248088KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb            6            242 d7702d1310e63d06c725

@@ -1,0 +1,509 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_slow_1p08V_125C.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+read_liberty -corner slow /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_slow.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib line 19, library sg13g2_io_slow_1p08V_3p0V_125C already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_fast_1p32V_m40C.lib
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+read_liberty -corner fast /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib
+[WARNING STA-1140] /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib line 1, library I2cDeviceCtrl already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib line 19, library sg13g2_io_fast_1p32V_3p6V_m40C already exists.
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/5_1_grt.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/5_1_grt.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_clk_core can not be propagated.
+detailed_route -output_drc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/5_route_drc.rpt -output_maze /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     15
+Number of macros:     108
+Number of vias:       95
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   I2cGpioExpanderTop
+Die area:                 ( 0 0 ) ( 1050240 1050840 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     929
+Number of terminals:      20
+Number of snets:          20
+Number of nets:           882
+
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/clock
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_reg
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_ready
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_valid
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_interrupts[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_scl_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_scl_write
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_sda_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_sda_write
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_interrupts[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_error
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_ready
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_valid
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/reset
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_YX
+  Layer Via3
+    default via: Via3_XY
+  Layer Via4
+    default via: Via4_YX
+  Layer TopVia1
+    default via: TopVia1EWNS
+  Layer TopVia2
+    default via: TopVia2EWNS
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 135.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete GatPoly.
+[INFO DRT-0024]   Complete Cont.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0024]   Complete TopVia1.
+[INFO DRT-0024]   Complete TopMetal1.
+[INFO DRT-0024]   Complete TopVia2.
+[INFO DRT-0024]   Complete TopMetal2.
+[INFO DRT-0033] GatPoly shape region query size = 0.
+[INFO DRT-0033] Cont shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 24631.
+[INFO DRT-0033] Via1 shape region query size = 8162.
+[INFO DRT-0033] Metal2 shape region query size = 1459.
+[INFO DRT-0033] Via2 shape region query size = 8162.
+[INFO DRT-0033] Metal3 shape region query size = 1841.
+[INFO DRT-0033] Via3 shape region query size = 8114.
+[INFO DRT-0033] Metal4 shape region query size = 1770.
+[INFO DRT-0033] Via4 shape region query size = 8114.
+[INFO DRT-0033] Metal5 shape region query size = 2478.
+[INFO DRT-0033] TopVia1 shape region query size = 5996.
+[INFO DRT-0033] TopMetal1 shape region query size = 1357.
+[INFO DRT-0033] TopVia2 shape region query size = 3178.
+[INFO DRT-0033] TopMetal2 shape region query size = 647.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 617 pins.
+[INFO DRT-0081]   Complete 66 unique inst patterns.
+[INFO DRT-0084]   Complete 513 groups.
+#scanned instances     = 929
+#unique  instances     = 119
+#stdCellGenAp          = 2976
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 2277
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2562
+#instTermValidViaApCnt = 0
+#macroGenAp            = 2302
+#macroValidPlanarAp    = 394
+#macroValidViaAp       = 63
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:24, elapsed time = 00:00:01, memory = 242.58 (MB), peak = 236.87 (MB)
+
+[INFO DRT-0157] Number of guides:     6450
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 145 STEP 7200 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 145 STEP 7200 ;
+[INFO DRT-0028]   Complete GatPoly.
+[INFO DRT-0028]   Complete Cont.
+[INFO DRT-0028]   Complete Metal1.
+[INFO DRT-0028]   Complete Via1.
+[INFO DRT-0028]   Complete Metal2.
+[INFO DRT-0028]   Complete Via2.
+[INFO DRT-0028]   Complete Metal3.
+[INFO DRT-0028]   Complete Via3.
+[INFO DRT-0028]   Complete Metal4.
+[INFO DRT-0028]   Complete Via4.
+[INFO DRT-0028]   Complete Metal5.
+[INFO DRT-0028]   Complete TopVia1.
+[INFO DRT-0028]   Complete TopMetal1.
+[INFO DRT-0028]   Complete TopVia2.
+[INFO DRT-0028]   Complete TopMetal2.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete GatPoly (guide).
+[INFO DRT-0035]   Complete Cont (guide).
+[INFO DRT-0035]   Complete Metal1 (guide).
+[INFO DRT-0035]   Complete Via1 (guide).
+[INFO DRT-0035]   Complete Metal2 (guide).
+[INFO DRT-0035]   Complete Via2 (guide).
+[INFO DRT-0035]   Complete Metal3 (guide).
+[INFO DRT-0035]   Complete Via3 (guide).
+[INFO DRT-0035]   Complete Metal4 (guide).
+[INFO DRT-0035]   Complete Via4 (guide).
+[INFO DRT-0035]   Complete Metal5 (guide).
+[INFO DRT-0035]   Complete TopVia1 (guide).
+[INFO DRT-0035]   Complete TopMetal1 (guide).
+[INFO DRT-0035]   Complete TopVia2 (guide).
+[INFO DRT-0035]   Complete TopMetal2 (guide).
+[INFO DRT-0036] GatPoly guide region query size = 0.
+[INFO DRT-0036] Cont guide region query size = 0.
+[INFO DRT-0036] Metal1 guide region query size = 2214.
+[INFO DRT-0036] Via1 guide region query size = 0.
+[INFO DRT-0036] Metal2 guide region query size = 1872.
+[INFO DRT-0036] Via2 guide region query size = 0.
+[INFO DRT-0036] Metal3 guide region query size = 990.
+[INFO DRT-0036] Via3 guide region query size = 0.
+[INFO DRT-0036] Metal4 guide region query size = 157.
+[INFO DRT-0036] Via4 guide region query size = 0.
+[INFO DRT-0036] Metal5 guide region query size = 39.
+[INFO DRT-0036] TopVia1 guide region query size = 0.
+[INFO DRT-0036] TopMetal1 guide region query size = 2.
+[INFO DRT-0036] TopVia2 guide region query size = 0.
+[INFO DRT-0036] TopMetal2 guide region query size = 0.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 244.47 (MB), peak = 238.51 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 2031 vertical wires in 3 frboxes and 3243 horizontal wires in 3 frboxes.
+[INFO DRT-0186] Done with 613 vertical wires in 3 frboxes and 416 horizontal wires in 3 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 275.48 (MB), peak = 270.07 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 277.09 (MB), peak = 271.48 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 278.63 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 278.83 (MB).
+    Completing 30% with 64 violations.
+    elapsed time = 00:00:03, memory = 338.86 (MB).
+    Completing 40% with 64 violations.
+    elapsed time = 00:00:03, memory = 339.05 (MB).
+    Completing 50% with 64 violations.
+    elapsed time = 00:00:03, memory = 440.04 (MB).
+    Completing 60% with 142 violations.
+    elapsed time = 00:00:05, memory = 430.89 (MB).
+    Completing 70% with 142 violations.
+    elapsed time = 00:00:05, memory = 432.09 (MB).
+    Completing 80% with 207 violations.
+    elapsed time = 00:00:08, memory = 530.11 (MB).
+    Completing 90% with 207 violations.
+    elapsed time = 00:00:08, memory = 530.12 (MB).
+    Completing 100% with 274 violations.
+    elapsed time = 00:00:18, memory = 611.55 (MB).
+[INFO DRT-0199]   Number of violations = 333.
+Viol/Layer      Metal1   Via1 Metal2   Via2 Metal3 Metal4
+Metal Spacing        0      0    101      0     41      0
+Recheck              2      0     40      0     16      1
+Short                0      1    121      3      7      0
+[INFO DRT-0267] cpu time = 00:00:31, elapsed time = 00:00:19, memory = 1016.62 (MB), peak = 1013.02 (MB)
+Total wire length = 37015 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 15626 um.
+Total wire length on LAYER Metal3 = 15270 um.
+Total wire length on LAYER Metal4 = 4513 um.
+Total wire length on LAYER Metal5 = 1248 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5291.
+Up-via summary (total 5291):
+
+------------------
+   GatPoly       0
+    Metal1    2594
+    Metal2    2321
+    Metal3     299
+    Metal4      73
+    Metal5       4
+ TopMetal1       0
+------------------
+          5291
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 333 violations.
+    elapsed time = 00:00:00, memory = 1016.62 (MB).
+    Completing 20% with 333 violations.
+    elapsed time = 00:00:00, memory = 1016.70 (MB).
+    Completing 30% with 313 violations.
+    elapsed time = 00:00:00, memory = 1062.30 (MB).
+    Completing 40% with 313 violations.
+    elapsed time = 00:00:00, memory = 1062.30 (MB).
+    Completing 50% with 313 violations.
+    elapsed time = 00:00:00, memory = 1150.00 (MB).
+    Completing 60% with 242 violations.
+    elapsed time = 00:00:06, memory = 1107.87 (MB).
+    Completing 70% with 242 violations.
+    elapsed time = 00:00:06, memory = 1107.89 (MB).
+    Completing 80% with 249 violations.
+    elapsed time = 00:00:08, memory = 1160.05 (MB).
+    Completing 90% with 249 violations.
+    elapsed time = 00:00:08, memory = 1160.05 (MB).
+    Completing 100% with 188 violations.
+    elapsed time = 00:00:21, memory = 1199.59 (MB).
+[INFO DRT-0199]   Number of violations = 188.
+Viol/Layer      Metal2 Metal3
+Metal Spacing       79     26
+Short               83      0
+[INFO DRT-0267] cpu time = 00:00:31, elapsed time = 00:00:21, memory = 1202.59 (MB), peak = 1279.28 (MB)
+Total wire length = 36765 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 15471 um.
+Total wire length on LAYER Metal3 = 15130 um.
+Total wire length on LAYER Metal4 = 4602 um.
+Total wire length on LAYER Metal5 = 1204 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5201.
+Up-via summary (total 5201):
+
+------------------
+   GatPoly       0
+    Metal1    2594
+    Metal2    2236
+    Metal3     300
+    Metal4      67
+    Metal5       4
+ TopMetal1       0
+------------------
+          5201
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 188 violations.
+    elapsed time = 00:00:00, memory = 1202.59 (MB).
+    Completing 20% with 188 violations.
+    elapsed time = 00:00:00, memory = 1202.59 (MB).
+    Completing 30% with 167 violations.
+    elapsed time = 00:00:02, memory = 1237.42 (MB).
+    Completing 40% with 167 violations.
+    elapsed time = 00:00:02, memory = 1237.42 (MB).
+    Completing 50% with 167 violations.
+    elapsed time = 00:00:07, memory = 1237.60 (MB).
+    Completing 60% with 147 violations.
+    elapsed time = 00:00:07, memory = 1237.60 (MB).
+    Completing 70% with 147 violations.
+    elapsed time = 00:00:07, memory = 1237.60 (MB).
+    Completing 80% with 152 violations.
+    elapsed time = 00:00:10, memory = 1262.55 (MB).
+    Completing 90% with 152 violations.
+    elapsed time = 00:00:10, memory = 1262.55 (MB).
+    Completing 100% with 178 violations.
+    elapsed time = 00:00:15, memory = 1291.65 (MB).
+[INFO DRT-0199]   Number of violations = 178.
+Viol/Layer      Metal2 Metal3
+Metal Spacing       77     28
+Off Grid             2      0
+Short               68      3
+[INFO DRT-0267] cpu time = 00:00:23, elapsed time = 00:00:15, memory = 1291.65 (MB), peak = 1333.55 (MB)
+Total wire length = 36722 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 15457 um.
+Total wire length on LAYER Metal3 = 15098 um.
+Total wire length on LAYER Metal4 = 4615 um.
+Total wire length on LAYER Metal5 = 1195 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5219.
+Up-via summary (total 5219):
+
+------------------
+   GatPoly       0
+    Metal1    2592
+    Metal2    2251
+    Metal3     304
+    Metal4      68
+    Metal5       4
+ TopMetal1       0
+------------------
+          5219
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 178 violations.
+    elapsed time = 00:00:00, memory = 1291.65 (MB).
+    Completing 20% with 178 violations.
+    elapsed time = 00:00:00, memory = 1291.65 (MB).
+    Completing 30% with 147 violations.
+    elapsed time = 00:00:02, memory = 1344.10 (MB).
+    Completing 40% with 147 violations.
+    elapsed time = 00:00:02, memory = 1344.10 (MB).
+    Completing 50% with 147 violations.
+    elapsed time = 00:00:02, memory = 1344.10 (MB).
+    Completing 60% with 75 violations.
+    elapsed time = 00:00:03, memory = 1371.79 (MB).
+    Completing 70% with 75 violations.
+    elapsed time = 00:00:03, memory = 1371.79 (MB).
+    Completing 80% with 45 violations.
+    elapsed time = 00:00:04, memory = 1399.95 (MB).
+    Completing 90% with 45 violations.
+    elapsed time = 00:00:04, memory = 1399.95 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:12, memory = 1400.06 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer      Metal2
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:17, elapsed time = 00:00:12, memory = 1400.06 (MB), peak = 1434.82 (MB)
+Total wire length = 36704 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 14811 um.
+Total wire length on LAYER Metal3 = 15175 um.
+Total wire length on LAYER Metal4 = 5174 um.
+Total wire length on LAYER Metal5 = 1185 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5329.
+Up-via summary (total 5329):
+
+------------------
+   GatPoly       0
+    Metal1    2592
+    Metal2    2276
+    Metal3     389
+    Metal4      68
+    Metal5       4
+ TopMetal1       0
+------------------
+          5329
+
+
+[INFO DRT-0195] Start 4th guides tiles iteration.
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 1400.06 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 1400.06 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:00, memory = 1400.06 (MB).
+    Completing 80% with 3 violations.
+    elapsed time = 00:00:00, memory = 1400.06 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 1400.06 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 1400.06 (MB), peak = 1434.82 (MB)
+Total wire length = 36701 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 14800 um.
+Total wire length on LAYER Metal3 = 15173 um.
+Total wire length on LAYER Metal4 = 5185 um.
+Total wire length on LAYER Metal5 = 1185 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5327.
+Up-via summary (total 5327):
+
+------------------
+   GatPoly       0
+    Metal1    2592
+    Metal2    2274
+    Metal3     389
+    Metal4      68
+    Metal5       4
+ TopMetal1       0
+------------------
+          5327
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 36701 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 14800 um.
+Total wire length on LAYER Metal3 = 15173 um.
+Total wire length on LAYER Metal4 = 5185 um.
+Total wire length on LAYER Metal5 = 1185 um.
+Total wire length on LAYER TopMetal1 = 356 um.
+Total wire length on LAYER TopMetal2 = 0 um.
+Total number of vias = 5327.
+Up-via summary (total 5327):
+
+------------------
+   GatPoly       0
+    Metal1    2592
+    Metal2    2274
+    Metal3     389
+    Metal4      68
+    Metal5       4
+ TopMetal1       0
+------------------
+          5327
+
+
+[INFO DRT-0267] cpu time = 00:01:45, elapsed time = 00:01:09, memory = 1400.12 (MB), peak = 1434.82 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO DRT-0501] Runtime: 71.74s
+Took 71 seconds: detailed_route -output_drc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/5_route_drc.rpt -output_maze /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Design area 36575 um^2 30% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/5_2_route.odb
+Elapsed time: 1:12.19[h:]min:sec. CPU time: user 132.59 sys 0.70 (184%). Peak memory: 1469252KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_2_route                 .odb           72           1434 8137a14b8f9b08747e2b

@@ -1,0 +1,510 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes/base/4_cts.sdc
+source ./platforms/asap7/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   aes_cipher_top
+Die area:                 ( 0 0 ) ( 48709 48709 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     12672
+Number of terminals:      390
+Number of snets:          2
+Number of nets:           12494
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 223.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 196430.
+[INFO DRT-0033] V1 shape region query size = 209213.
+[INFO DRT-0033] M2 shape region query size = 3409.
+[INFO DRT-0033] V2 shape region query size = 4455.
+[INFO DRT-0033] M3 shape region query size = 4455.
+[INFO DRT-0033] V3 shape region query size = 2970.
+[INFO DRT-0033] M4 shape region query size = 3215.
+[INFO DRT-0033] V4 shape region query size = 2970.
+[INFO DRT-0033] M5 shape region query size = 1808.
+[INFO DRT-0033] V5 shape region query size = 324.
+[INFO DRT-0033] M6 shape region query size = 198.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0078]   Complete 1313 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0081]   Complete 223 unique inst patterns.
+[INFO DRT-0084]   Complete 7380 groups.
+#scanned instances     = 12672
+#unique  instances     = 223
+#stdCellGenAp          = 6280
+#stdCellValidPlanarAp  = 7
+#stdCellValidViaAp     = 5304
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 42975
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:02:55, elapsed time = 00:00:06, memory = 265.24 (MB), peak = 259.70 (MB)
+Took 6 seconds: pin_access
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose -resistance_aware
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 1590
+[INFO GRT-0019] Found 35 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 74
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal      96317         68522          28.86%
+M3         Vertical       109746         81638          25.61%
+M4         Horizontal      84152         62564          25.65%
+M5         Vertical        81429         60459          25.75%
+M6         Horizontal      56826         38724          31.86%
+M7         Vertical        63924         43092          32.59%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 93489
+[INFO GRT-0198] Via related Steiner nodes: 3139
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 124149
+[INFO GRT-0112] Final usage 3D: 457705
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+M1                   0             0            0.00%             0 /  0 /  0
+M2               68522         29198           42.61%             0 /  0 /  0
+M3               81638         33903           41.53%             0 /  0 /  0
+M4               62564          7791           12.45%             0 /  0 /  0
+M5               60459          5186            8.58%             0 /  0 /  0
+M6               38724          4699           12.13%             0 /  0 /  0
+M7               43092          4481           10.40%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           354999         85258           24.02%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 703385 um
+[INFO GRT-0014] Routed nets: 12494
+[INFO GRT-0303] Global routing runtime = 00:00:05
+Took 6 seconds: global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose -resistance_aware
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     12520
+     1000 |     +0.0% |       0 |       0 |             0 |     11520
+     2000 |     +0.0% |       0 |       0 |             0 |     10520
+     3000 |     +0.0% |       0 |       0 |             0 |      9520
+     4000 |     +0.0% |       0 |       0 |             0 |      8520
+     5000 |     +0.0% |       0 |       0 |             0 |      7520
+     6000 |     +0.0% |       0 |       0 |             0 |      6520
+     7000 |     +0.0% |       0 |       0 |             0 |      5520
+     8000 |     +0.0% |       0 |       0 |             0 |      4520
+     9000 |     +0.0% |       0 |       0 |             0 |      3520
+    10000 |     +0.0% |       0 |       0 |             0 |      2520
+    11000 |     +0.0% |       0 |       0 |             0 |      1520
+    12000 |     +0.0% |       0 |       0 |             0 |       520
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 1.23s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 1975.07 um^2
+[INFO DPL-0007] Movable instances area: 1412.95 um^2
+[INFO DPL-0008] Fixed instances area within core: 11.98 um^2
+[INFO DPL-0009] Utilization: 72.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 12672 cells
+[INFO DPL-0500] Runtime: 0.06s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           41867.3 u
+legalized HPWL          41867.3 u
+delta HPWL                    0 %
+
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 95 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 95 out of 95 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -16.899 |     -455.1 |     -563.9 |     95 | u2643/D
+      10* |       0 |       7 |        3 |      0 |     0 |    +0.0% |  -12.603 |     -435.2 |     -516.1 |     95 | u2643/D
+      20* |       0 |      16 |        3 |      0 |     1 |    +0.1% |  -10.333 |     -413.1 |     -470.5 |     95 | u565/D
+      30* |       0 |      20 |        8 |      0 |     4 |    +0.1% |   -9.713 |     -393.9 |     -438.0 |     95 | u565/D
+      40* |       0 |      25 |       12 |      1 |     6 |    +0.2% |  -10.701 |     -378.4 |     -418.3 |     95 | u1658/D
+      50* |       0 |      28 |       20 |      1 |     9 |    +0.2% |  -11.690 |     -364.4 |     -395.8 |     95 | u2643/D
+      54* |       0 |      26 |       19 |      1 |     6 |    +0.2% |   -9.065 |     -358.5 |     -387.9 |     95 | u2643/D
+      60* |       0 |      28 |       20 |      1 |     8 |    +0.2% |   -9.065 |     -359.9 |     -389.9 |     95 | u2643/D
+      70* |       0 |      31 |       23 |      1 |    13 |    +0.2% |   -9.059 |     -359.1 |     -385.2 |     95 | u2643/D
+      80* |       0 |      33 |       23 |      2 |    20 |    +0.3% |   -9.059 |     -356.3 |     -380.6 |     95 | u2643/D
+      90* |       0 |      36 |       26 |      2 |    24 |    +0.3% |   -9.059 |     -354.1 |     -379.2 |     95 | u2643/D
+      91* |       0 |      33 |       23 |      2 |    17 |    +0.3% |   -9.059 |     -356.5 |     -379.6 |     95 | u2643/D
+      99* |       0 |      35 |       27 |      2 |    18 |    +0.3% |   -9.059 |     -355.1 |     -377.1 |     95 | u2643/D
+     100* |       0 |      35 |       27 |      2 |    18 |    +0.3% |   -9.059 |     -355.1 |     -377.1 |     95 | u2643/D
+     110* |       0 |      39 |       37 |      3 |    19 |    +0.4% |   -9.059 |     -350.0 |     -376.1 |     95 | u2643/D
+     120* |       0 |      45 |       40 |      3 |    21 |    +0.4% |   -9.175 |     -353.9 |     -386.7 |     95 | u682/D
+     130* |       0 |      51 |       47 |      3 |    22 |    +0.5% |   -9.059 |     -350.0 |     -378.1 |     95 | u2643/D
+     135* |       0 |      53 |       50 |      3 |    22 |    +0.5% |   -9.059 |     -347.5 |     -374.4 |     95 | u2643/D
+     140* |       0 |      55 |       50 |      3 |    24 |    +0.5% |   -9.059 |     -340.6 |     -370.8 |     95 | u2643/D
+     148* |       0 |      56 |       50 |      3 |    24 |    +0.5% |   -9.059 |     -338.1 |     -368.5 |     95 | u2643/D
+     150* |       0 |      57 |       50 |      3 |    24 |    +0.5% |   -9.453 |     -339.8 |     -378.0 |     95 | u983/D
+     160* |       0 |      63 |       52 |      4 |    26 |    +0.6% |   -9.059 |     -334.0 |     -349.7 |     95 | u2643/D
+     170* |       0 |      65 |       61 |      4 |    27 |    +0.6% |   -9.059 |     -324.3 |     -334.2 |     95 | u2643/D
+     180* |       0 |      69 |       64 |      4 |    31 |    +0.7% |   -9.059 |     -325.0 |     -331.4 |     95 | u2643/D
+     183* |       0 |      71 |       64 |      4 |    32 |    +0.7% |   -9.059 |     -325.8 |     -331.9 |     95 | u2643/D
+     190* |       0 |      72 |       68 |      5 |    33 |    +0.7% |   -9.059 |     -319.9 |     -323.3 |     95 | u2643/D
+     200* |       0 |      76 |       71 |      6 |    35 |    +0.7% |   -9.059 |     -313.9 |     -314.1 |     95 | u2643/D
+     206* |       0 |      72 |       67 |      4 |    33 |    +0.7% |   -9.059 |     -320.9 |     -325.2 |     95 | u2643/D
+     210* |       0 |      75 |       67 |      4 |    33 |    +0.7% |   -9.059 |     -309.3 |     -314.2 |     95 | u2643/D
+     211* |       0 |      76 |       67 |      4 |    33 |    +0.7% |   -9.059 |     -300.1 |     -310.2 |     95 | u2643/D
+     220* |       0 |      77 |       77 |      4 |    35 |    +0.8% |   -9.059 |     -289.7 |     -297.8 |     95 | u2643/D
+     224* |       1 |      78 |       77 |      4 |    37 |    +0.8% |   -9.059 |     -285.5 |     -296.2 |     95 | u2643/D
+     226* |       1 |      79 |       77 |      4 |    37 |    +0.8% |   -9.059 |     -287.8 |     -296.5 |     95 | u2643/D
+     230* |       1 |      81 |       77 |      4 |    38 |    +0.8% |   -9.059 |     -284.1 |     -295.5 |     95 | u2643/D
+     232* |       1 |      83 |       77 |      4 |    38 |    +0.8% |   -9.059 |     -283.9 |     -289.3 |     95 | u2643/D
+     237* |       1 |      86 |       80 |      4 |    38 |    +0.8% |   -9.059 |     -274.1 |     -283.9 |     95 | u2643/D
+     240* |       1 |      86 |       80 |      4 |    40 |    +0.8% |   -9.059 |     -274.1 |     -283.7 |     95 | u2643/D
+     241* |       1 |      86 |       81 |      4 |    40 |    +0.8% |   -9.059 |     -274.1 |     -282.9 |     95 | u2643/D
+     245* |       1 |      87 |       82 |      4 |    41 |    +0.8% |   -9.059 |     -271.1 |     -278.8 |     95 | u2643/D
+     246* |       1 |      87 |       82 |      4 |    41 |    +0.8% |   -9.059 |     -271.1 |     -278.8 |     95 | u2643/D
+     250* |       1 |      87 |       84 |      4 |    43 |    +0.8% |   -9.059 |     -266.9 |     -276.7 |     95 | u2643/D
+     260* |       1 |      91 |       87 |      4 |    47 |    +0.8% |   -9.059 |     -261.1 |     -274.7 |     95 | u2643/D
+     263* |       1 |      91 |       86 |      4 |    44 |    +0.8% |   -9.059 |     -261.1 |     -273.5 |     95 | u2643/D
+     270* |       1 |      94 |       87 |      4 |    46 |    +0.9% |   -9.059 |     -255.0 |     -267.1 |     95 | u2643/D
+     275* |       1 |      93 |       87 |      4 |    45 |    +0.9% |   -9.059 |     -256.1 |     -268.4 |     95 | u2643/D
+     276* |       1 |      93 |       87 |      4 |    45 |    +0.9% |   -9.059 |     -256.1 |     -268.4 |     95 | u2643/D
+     280* |       1 |      94 |       88 |      5 |    45 |    +0.9% |   -9.059 |     -257.3 |     -257.2 |     95 | u2643/D
+     282* |       1 |      95 |       88 |      5 |    45 |    +0.9% |   -9.059 |     -257.3 |     -256.3 |     95 | u2643/D
+     288* |       1 |      95 |       88 |      5 |    47 |    +0.9% |   -9.059 |     -257.2 |     -256.4 |     95 | u2643/D
+     290* |       1 |      96 |       88 |      5 |    47 |    +0.9% |   -9.874 |     -258.7 |     -261.6 |     95 | u145/D
+     300* |       1 |     100 |       93 |      5 |    49 |    +0.9% |   -9.059 |     -243.9 |     -242.8 |     95 | u2643/D
+     310* |       1 |     104 |       94 |      5 |    54 |    +0.9% |   -9.059 |     -243.1 |     -242.2 |     95 | u2643/D
+     316* |       1 |     104 |       98 |      5 |    54 |    +0.9% |   -9.059 |     -240.3 |     -239.4 |     95 | u2643/D
+     317* |       1 |     104 |       98 |      5 |    54 |    +0.9% |   -9.059 |     -240.3 |     -239.4 |     95 | u2643/D
+     318* |       1 |     104 |       98 |      5 |    54 |    +0.9% |   -9.059 |     -240.3 |     -239.4 |     95 | u2643/D
+     320* |       1 |     105 |       98 |      5 |    54 |    +1.0% |   -9.059 |     -229.4 |     -235.6 |     95 | u2643/D
+     323* |       1 |     107 |       98 |      5 |    55 |    +1.0% |   -9.059 |     -224.0 |     -225.3 |     95 | u2643/D
+     325* |       1 |     108 |       98 |      5 |    55 |    +1.0% |   -9.059 |     -224.0 |     -223.5 |     95 | u2643/D
+     330* |       1 |     110 |       98 |      5 |    57 |    +1.0% |   -9.059 |     -216.4 |     -219.2 |     95 | u2643/D
+     338* |       1 |     110 |       98 |      5 |    55 |    +1.0% |   -9.059 |     -215.9 |     -216.5 |     95 | u2643/D
+     340* |       1 |     110 |       98 |      5 |    56 |    +1.0% |   -9.059 |     -214.2 |     -215.6 |     95 | u2643/D
+     343* |       1 |     111 |       98 |      5 |    58 |    +1.0% |   -9.059 |     -215.8 |     -215.5 |     95 | u2643/D
+     350* |       1 |     114 |      100 |      5 |    59 |    +1.0% |   -9.059 |     -204.3 |     -206.7 |     95 | u2643/D
+     350* |       1 |     114 |      100 |      5 |    59 |    +1.0% |   -9.059 |     -204.3 |     -206.7 |     95 | u2643/D
+     358* |       1 |     114 |      101 |      5 |    65 |    +1.0% |   -9.059 |     -204.7 |     -207.9 |     95 | u2643/D
+     360* |       1 |     115 |      101 |      5 |    65 |    +1.0% |   -9.059 |     -205.2 |     -208.3 |     95 | u2643/D
+     370* |       1 |     116 |      108 |      5 |    69 |    +1.0% |   -9.059 |     -195.3 |     -201.7 |     95 | u2643/D
+     372* |       1 |     117 |      112 |      5 |    69 |    +1.1% |   -9.059 |     -192.9 |     -199.8 |     95 | u2643/D
+     380* |       1 |     121 |      114 |      5 |    71 |    +1.1% |  -12.120 |     -200.2 |     -191.1 |     95 | u2643/D
+     383* |       1 |     117 |      112 |      5 |    69 |    +1.1% |   -9.059 |     -192.9 |     -199.8 |     95 | u2643/D
+     386* |       1 |     119 |      112 |      5 |    69 |    +1.1% |   -9.059 |     -185.3 |     -190.1 |     95 | u2643/D
+     390* |       1 |     120 |      113 |      5 |    70 |    +1.1% |   -9.059 |     -182.9 |     -184.4 |     95 | u2643/D
+     392* |       1 |     121 |      116 |      5 |    70 |    +1.1% |   -9.059 |     -182.9 |     -184.1 |     95 | u2643/D
+     400* |       1 |     124 |      119 |      5 |    72 |    +1.1% |   -9.059 |     -174.2 |     -173.8 |     95 | u2643/D
+     409* |       1 |     124 |      121 |      5 |    74 |    +1.1% |   -9.059 |     -174.2 |     -174.1 |     95 | u2643/D
+     410* |       1 |     124 |      121 |      5 |    74 |    +1.1% |   -9.059 |     -174.2 |     -174.1 |     95 | u2643/D
+     410* |       1 |     124 |      121 |      5 |    74 |    +1.1% |   -9.059 |     -174.2 |     -174.1 |     95 | u2643/D
+     412* |       1 |     124 |      122 |      5 |    74 |    +1.2% |   -9.059 |     -174.2 |     -173.2 |     95 | u2643/D
+     413* |       1 |     124 |      122 |      5 |    74 |    +1.2% |   -9.059 |     -174.2 |     -173.2 |     95 | u2643/D
+     420* |       1 |     124 |      126 |      5 |    78 |    +1.2% |   -9.059 |     -178.0 |     -173.9 |     95 | u2643/D
+     430* |       1 |     128 |      126 |      5 |    84 |    +1.2% |   -9.059 |     -171.7 |     -173.3 |     95 | u2643/D
+     433* |       1 |     128 |      126 |      5 |    84 |    +1.2% |   -9.059 |     -171.7 |     -173.3 |     95 | u2643/D
+     440* |       1 |     130 |      127 |      5 |    87 |    +1.2% |   -9.059 |     -170.7 |     -170.4 |     95 | u2643/D
+     441* |       1 |     131 |      127 |      5 |    87 |    +1.2% |   -9.059 |     -170.7 |     -169.5 |     95 | u2643/D
+     450* |       1 |     136 |      128 |      5 |    89 |    +1.2% |   -9.059 |     -156.4 |     -154.7 |     95 | u2643/D
+     451* |       1 |     136 |      129 |      5 |    89 |    +1.2% |   -9.059 |     -156.1 |     -154.4 |     95 | u2643/D
+     452* |       1 |     136 |      129 |      5 |    89 |    +1.2% |   -9.059 |     -156.1 |     -154.4 |     95 | u2643/D
+     454* |       1 |     137 |      129 |      5 |    89 |    +1.2% |   -9.059 |     -154.5 |     -150.9 |     95 | u2643/D
+     457* |       1 |     139 |      129 |      5 |    89 |    +1.3% |   -9.059 |     -152.1 |     -149.9 |     95 | u2643/D
+     460* |       1 |     139 |      130 |      6 |    89 |    +1.3% |   -9.059 |     -151.2 |     -148.0 |     95 | u2643/D
+     463* |       1 |     140 |      131 |      6 |    90 |    +1.3% |   -9.059 |     -145.5 |     -144.0 |     95 | u2643/D
+     469* |       1 |     140 |      131 |      6 |    90 |    +1.3% |   -9.059 |     -145.5 |     -144.0 |     95 | u2643/D
+     470* |       1 |     140 |      131 |      6 |    90 |    +1.3% |   -9.059 |     -145.5 |     -144.0 |     95 | u2643/D
+     480* |       1 |     143 |      134 |      6 |    95 |    +1.3% |   -9.059 |     -142.5 |     -139.0 |     95 | u2643/D
+     487* |       1 |     143 |      134 |      6 |    93 |    +1.3% |   -9.059 |     -142.4 |     -138.0 |     95 | u2643/D
+     488* |       1 |     143 |      134 |      6 |    93 |    +1.3% |   -9.059 |     -142.4 |     -138.0 |     95 | u2643/D
+     489* |       1 |     143 |      134 |      6 |    93 |    +1.3% |   -9.059 |     -142.4 |     -138.0 |     95 | u2643/D
+     490* |       1 |     143 |      134 |      6 |    93 |    +1.3% |   -9.059 |     -142.4 |     -138.0 |     95 | u2643/D
+     491* |       1 |     144 |      134 |      6 |    93 |    +1.3% |   -9.059 |     -142.9 |     -136.1 |     95 | u2643/D
+     497* |       1 |     146 |      135 |      6 |    95 |    +1.3% |   -9.059 |     -141.3 |     -135.1 |     95 | u2643/D
+     499* |       1 |     147 |      135 |      6 |    95 |    +1.3% |   -9.059 |     -140.7 |     -134.5 |     95 | u2643/D
+     500* |       1 |     147 |      135 |      6 |    95 |    +1.3% |   -9.059 |     -140.7 |     -134.5 |     95 | u2643/D
+     502* |       1 |     148 |      135 |      6 |    96 |    +1.3% |   -9.059 |     -131.1 |     -131.5 |     95 | u2643/D
+     510* |       1 |     151 |      136 |      6 |    99 |    +1.3% |   -9.059 |     -131.4 |     -135.7 |     95 | u2643/D
+     514* |       1 |     154 |      137 |      6 |    99 |    +1.4% |   -9.059 |     -127.9 |     -130.2 |     95 | u2643/D
+     520* |       1 |     154 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -128.3 |     -127.5 |     95 | u2643/D
+     523* |       1 |     157 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.3 |     -127.3 |     95 | u2643/D
+     524* |       1 |     157 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.3 |     -127.3 |     95 | u2643/D
+     525* |       1 |     157 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.3 |     -127.3 |     95 | u2643/D
+     527* |       1 |     158 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.3 |     -126.9 |     95 | u2643/D
+     529* |       1 |     159 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.5 |     -125.5 |     95 | u2643/D
+     530* |       1 |     159 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.5 |     -125.5 |     95 | u2643/D
+     540* |       1 |     161 |      144 |      7 |   107 |    +1.4% |  -10.135 |     -129.1 |     -133.9 |     95 | u2643/D
+     542* |       1 |     159 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.5 |     -125.5 |     95 | u2643/D
+     544* |       1 |     160 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -126.5 |     -121.3 |     95 | u2643/D
+     550* |       1 |     163 |      139 |      6 |   104 |    +1.4% |   -9.059 |     -126.1 |     -121.2 |     95 | u2643/D
+     560* |       2 |     163 |      142 |      6 |   110 |    +1.4% |   -9.059 |     -128.6 |     -126.9 |     95 | u2643/D
+     562* |       1 |     162 |      139 |      6 |   102 |    +1.4% |   -9.059 |     -124.7 |     -120.3 |     95 | u2643/D
+     570* |       1 |     166 |      139 |      6 |   105 |    +1.4% |   -9.059 |     -117.8 |     -116.4 |     95 | u2643/D
+     577* |       1 |     167 |      141 |      6 |   110 |    +1.4% |   -9.059 |     -117.1 |     -115.8 |     95 | u2643/D
+     580* |       1 |     167 |      142 |      6 |   111 |    +1.4% |   -9.059 |     -117.1 |     -115.8 |     95 | u2643/D
+     590* |       2 |     168 |      143 |      6 |   118 |    +1.4% |   -9.059 |     -115.2 |     -111.4 |     95 | u2643/D
+     595* |       2 |     170 |      146 |      6 |   118 |    +1.5% |   -9.059 |     -117.3 |     -113.1 |     95 | u2643/D
+     597* |       2 |     171 |      146 |      6 |   118 |    +1.5% |   -9.059 |     -118.6 |     -113.8 |     95 | u2643/D
+     600* |       2 |     171 |      147 |      6 |   119 |    +1.5% |   -9.059 |     -115.9 |     -111.9 |     95 | u2643/D
+     601* |       2 |     172 |      147 |      6 |   119 |    +1.5% |   -9.059 |     -113.8 |     -111.0 |     95 | u2643/D
+     602* |       2 |     172 |      147 |      6 |   119 |    +1.5% |   -9.059 |     -113.8 |     -111.0 |     95 | u2643/D
+     603* |       2 |     172 |      147 |      6 |   119 |    +1.5% |   -9.059 |     -113.8 |     -111.0 |     95 | u2643/D
+     604* |       2 |     172 |      147 |      6 |   119 |    +1.5% |   -9.059 |     -113.8 |     -111.0 |     95 | u2643/D
+     606* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     607* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     608* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     609* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     610* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     610* |       2 |     172 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -113.8 |     -110.1 |     95 | u2643/D
+     612* |       2 |     173 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -112.5 |     -108.2 |     95 | u2643/D
+     613* |       2 |     173 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -112.5 |     -108.2 |     95 | u2643/D
+     614* |       2 |     173 |      147 |      6 |   120 |    +1.5% |   -9.059 |     -112.5 |     -108.2 |     95 | u2643/D
+     618* |       2 |     173 |      147 |      6 |   123 |    +1.5% |   -9.059 |     -112.3 |     -106.7 |     95 | u2643/D
+     620* |       2 |     173 |      147 |      6 |   124 |    +1.5% |   -9.059 |     -112.2 |     -106.6 |     95 | u2643/D
+     620* |       2 |     173 |      147 |      6 |   124 |    +1.5% |   -9.059 |     -112.2 |     -106.6 |     95 | u2643/D
+     621* |       2 |     173 |      147 |      6 |   124 |    +1.5% |   -9.059 |     -112.2 |     -106.6 |     95 | u2643/D
+     623* |       2 |     174 |      147 |      6 |   124 |    +1.5% |   -9.059 |     -112.2 |     -104.8 |     95 | u2643/D
+     624* |       2 |     174 |      147 |      6 |   124 |    +1.5% |   -9.059 |     -112.2 |     -104.8 |     95 | u2643/D
+     630* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     630* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     631* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     632* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     633* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     634* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     635* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     636* |       2 |     174 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -112.2 |     -103.1 |     95 | u2643/D
+     638* |       2 |     175 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -111.5 |     -102.4 |     95 | u2643/D
+     640* |       2 |     176 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -111.5 |     -101.9 |     95 | u2643/D
+     640* |       2 |     176 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -111.5 |     -101.9 |     95 | u2643/D
+     642* |       2 |     176 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -111.5 |     -101.9 |     95 | u2643/D
+     643* |       2 |     176 |      148 |      6 |   128 |    +1.5% |   -9.059 |     -111.5 |     -101.9 |     95 | u2643/D
+     647* |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     95 | u2643/D
+     648* |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     95 | u2643/D
+     649* |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     95 | u2643/D
+     649* |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     95 | u2643/D
+     650+ |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     31 | u2643/D
+     650+ |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     31 | u2643/D
+     651+ |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     31 | u2643/D
+     652+ |       2 |     178 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.4 |     -100.1 |     31 | u2643/D
+     654+ |       2 |     179 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -110.4 |     -100.0 |     31 | u2643/D
+     655+ |       2 |     179 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -110.4 |     -100.0 |     31 | u2643/D
+     656+ |       2 |     179 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -110.4 |     -100.0 |     31 | u2643/D
+     658+ |       2 |     180 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.6 |      -98.9 |     31 | u2643/D
+     659+ |       2 |     180 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.6 |      -98.9 |     31 | u2643/D
+     660+ |       2 |     180 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.6 |      -98.9 |     31 | u2643/D
+     660+ |       2 |     180 |      150 |      6 |   128 |    +1.5% |   -9.059 |     -109.6 |      -98.9 |     31 | u2643/D
+     662+ |       2 |     180 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -108.4 |      -97.7 |     31 | u2643/D
+     663+ |       2 |     180 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -108.4 |      -97.7 |     31 | u2643/D
+     664+ |       2 |     180 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -108.4 |      -97.7 |     31 | u2643/D
+     666+ |       2 |     181 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -106.9 |      -97.0 |     31 | u2643/D
+     667+ |       2 |     181 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -106.9 |      -97.0 |     31 | u2643/D
+     668+ |       2 |     181 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -106.9 |      -97.0 |     31 | u2643/D
+     670+ |       2 |     182 |      150 |      6 |   129 |    +1.5% |   -9.059 |     -105.1 |      -95.3 |     31 | u2643/D
+     670+ |       2 |     182 |      150 |      6 |   130 |    +1.5% |   -9.059 |     -103.8 |      -94.6 |     31 | u2643/D
+     672+ |       2 |     182 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -94.1 |     31 | u2643/D
+     673+ |       2 |     182 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -94.1 |     31 | u2643/D
+     674+ |       2 |     182 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -94.1 |     31 | u2643/D
+     676+ |       2 |     183 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -93.3 |     31 | u2643/D
+     677+ |       2 |     183 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -93.3 |     31 | u2643/D
+     678+ |       2 |     183 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -103.8 |      -93.3 |     31 | u2643/D
+     680+ |       2 |     184 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -102.7 |      -91.8 |     31 | u2643/D
+     680+ |       2 |     185 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -101.9 |      -91.1 |     31 | u2643/D
+     682+ |       2 |     186 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -100.6 |      -90.7 |     31 | u2643/D
+     683+ |       2 |     186 |      150 |      6 |   131 |    +1.5% |   -9.059 |     -100.6 |      -90.7 |     31 | u2643/D
+     684+ |       2 |     186 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -90.2 |     31 | u2643/D
+     685+ |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     31 | u2643/D
+     686+ |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     31 | u2643/D
+     687+ |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     31 | u2643/D
+     688+ |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     31 | u2643/D
+     689+ |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     31 | u2643/D
+    final |       2 |     187 |      150 |      6 |   132 |    +1.5% |   -9.059 |     -100.6 |      -89.9 |     26 | u2643/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 2 buffers.
+[INFO RSZ-0045] Inserted 150 buffers, 2 to split loads.
+[INFO RSZ-0051] Resized 187 instances: 187 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 132 instances.
+[INFO RSZ-0049] Cloned 6 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 25.92s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.05s
+Took 26 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 1975.07 um^2
+[INFO DPL-0007] Movable instances area: 1434.88 um^2
+[INFO DPL-0008] Fixed instances area within core: 11.98 um^2
+[INFO DPL-0009] Utilization: 73.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 12826 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        524 |       134 |       390
+        1 |        266 |        50 |       216
+        2 |        117 |        19 |        98
+        3 |         18 |         4 |        14
+        4 |          8 |         2 |         6
+        5 |         20 |         2 |        18
+        6 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 6.
+[INFO DPL-0500] Runtime: 0.16s
+Placement Analysis
+---------------------------------
+total displacement        208.9 u
+average displacement        0.0 u
+max displacement            3.0 u
+original HPWL           42121.9 u
+legalized HPWL          42312.5 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+repair_timing -setup -sequence "vt_swap reroute" -skip_last_gasp -repair_tns 0 -verbose
+[INFO RSZ-0100] Repair move sequence: RerouteMove 
+[INFO RSZ-0094] Found 38 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1 out of 38 (0.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -9.357 |     -109.5 |     -101.1 |     38 | u2643/D
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -9.357 |     -109.5 |     -101.1 |     38 | u2643/D
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -9.357 |     -109.5 |     -101.1 |     38 | u2643/D
+    final |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -9.357 |     -109.5 |     -101.1 |     38 | u2643/D
+------------------------------------------------------------------------------------------------------------------------------
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.45s
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 1447 um^2 73% utilization.
+[INFO FLW-0007] clock clk period 380.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 685
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes/base/5_1_grt.sdc
+Elapsed time: 0:48.66[h:]min:sec. CPU time: user 441.84 sys 36.18 (982%). Peak memory: 544588KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           48            531 85d0beea6976f417b12a
+5_1_grt                   .sdc                             fac572f5cfbc5b8e1282

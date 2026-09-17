@@ -10,19 +10,23 @@ export VERILOG_FILES = $(sort $(wildcard $(DESIGN_HOME)/src/riscv32i/*.v))
 export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/riscv32i/constraint.sdc
 
 ifeq ($(BLOCKS),)
-	export ADDITIONAL_LEFS = ./platforms/$(PLATFORM)/lef/fakeram7_256x32.lef
-	export ADDITIONAL_LIBS = $(LIB_DIR)/fakeram7_256x32.lib
+	export ADDITIONAL_LEFS = $(PLATFORM_DIR)/lef/fakeram7_256x32.lef
+	export ADDITIONAL_LIBS = $(PLATFORM_DIR)/lib/NLDM/fakeram7_256x32.lib
 endif
 
-export DIE_AREA = 0 0 80 90
-export CORE_AREA = 5 5 75 85 
+export CORE_UTILIZATION = 62
+export CORE_MARGIN      = 5
 
 export PLACE_DENSITY_LB_ADDON = 0.10
 
 export IO_CONSTRAINTS     = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/io.tcl
-export MACRO_PLACE_HALO    = 2 2
+export MACRO_PLACE_HALO    = 4 4
 
 export TNS_END_PERCENT   = 100
 
 export CTS_CLUSTER_SIZE = 10
 export CTS_CLUSTER_DIAMETER = 50
+
+export SWAP_ARITH_OPERATORS = 1
+export OPENROAD_HIERARCHICAL = 1
+

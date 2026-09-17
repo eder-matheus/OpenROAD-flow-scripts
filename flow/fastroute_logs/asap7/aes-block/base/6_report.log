@@ -1,0 +1,57 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block_aes_rcon/base/aes_rcon_typ.lib
+read_liberty /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block_aes_sbox/base/aes_sbox_typ.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/6_1_fill.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation aes_cipher_top (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 32975 rc segments
+[INFO RCX-0439] Coupling Cap extraction aes_cipher_top ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 11% of 43179 wires extracted
+[INFO RCX-0442] 42% of 43179 wires extracted
+[INFO RCX-0442] 64% of 43179 wires extracted
+[INFO RCX-0442] 73% of 43179 wires extracted
+[INFO RCX-0442] 100% of 43179 wires extracted
+[INFO RCX-0045] Extract 5435 nets, 38410 rsegs, 38410 caps, 38132 ccs
+[INFO RCX-0443] 5435 nets finished
+IR drop analysis for power nets is skipped because PWR_NETS_VOLTAGES is undefined
+IR drop analysis for ground nets is skipped because GND_NETS_VOLTAGES is undefined
+Cell type report:                       Count       Area
+  Macro                                    21    5118.21
+  Fill cell                             16090    2875.51
+  Tap cell                               4038     117.75
+  Clock buffer                             48      18.66
+  Timing Repair Buffer                    866      80.48
+  Inverter                                749      33.56
+  Clock inverter                           21       5.13
+  Sequential cell                         518     151.28
+  Multi-Input combinational cell         2810     344.39
+  Total                                 25161    8744.99
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 5869 um^2 49% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:03.56[h:]min:sec. CPU time: user 4.04 sys 2.21 (175%). Peak memory: 351224KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                  3            342                  N/A

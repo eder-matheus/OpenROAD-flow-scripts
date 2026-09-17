@@ -1,0 +1,704 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/4_cts.sdc
+source ./platforms/sky130hd/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     441
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+
+Design:                   aes_cipher_top
+Die area:                 ( 0 0 ) ( 475190 475190 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     18357
+Number of terminals:      390
+Number of snets:          2
+Number of nets:           15570
+
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 225.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 370683.
+[INFO DRT-0033] mcon shape region query size = 205415.
+[INFO DRT-0033] met1 shape region query size = 48552.
+[INFO DRT-0033] via shape region query size = 14705.
+[INFO DRT-0033] met2 shape region query size = 8986.
+[INFO DRT-0033] via2 shape region query size = 11764.
+[INFO DRT-0033] met3 shape region query size = 9048.
+[INFO DRT-0033] via3 shape region query size = 11764.
+[INFO DRT-0033] met4 shape region query size = 3553.
+[INFO DRT-0033] via4 shape region query size = 578.
+[INFO DRT-0033] met5 shape region query size = 646.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0078]   Complete 1844 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0081]   Complete 225 unique inst patterns.
+[INFO DRT-0084]   Complete 9610 groups.
+#scanned instances     = 18357
+#unique  instances     = 225
+#stdCellGenAp          = 6987
+#stdCellValidPlanarAp  = 18
+#stdCellValidViaAp     = 5518
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 53301
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:03:58, elapsed time = 00:00:08, memory = 222.92 (MB), peak = 220.58 (MB)
+Took 9 seconds: pin_access
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hd/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 13775
+[INFO GRT-0019] Found 103 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 65
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal      73203         48797          33.34%
+met2       Vertical        59831         39262          34.38%
+met3       Horizontal      44589         30380          31.87%
+met4       Vertical        29614         18291          38.24%
+met5       Horizontal       6566          4690          28.57%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove congestion.
+[INFO GRT-0102] Start extra iteration 1/30
+[INFO GRT-0102] Start extra iteration 2/30
+[INFO GRT-0102] Start extra iteration 3/30
+[INFO GRT-0102] Start extra iteration 4/30
+[INFO GRT-0102] Start extra iteration 5/30
+[INFO GRT-0102] Start extra iteration 6/30
+[INFO GRT-0102] Start extra iteration 7/30
+[INFO GRT-0102] Start extra iteration 8/30
+[INFO GRT-0197] Via related to pin nodes: 96743
+[INFO GRT-0198] Via related Steiner nodes: 2677
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 126646
+[INFO GRT-0112] Final usage 3D: 463509
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1             48797         31847           65.26%             0 /  0 /  0
+met2             39262         30367           77.34%             0 /  0 /  0
+met3             30380         11770           38.74%             0 /  0 /  0
+met4             18291          9137           49.95%             0 /  0 /  0
+met5              4690           450            9.59%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           141420         83571           59.09%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 874133 um
+[INFO GRT-0014] Routed nets: 15570
+[INFO GRT-0303] Global routing runtime = 00:00:03
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     15662
+     1000 |     +0.0% |       0 |       0 |             0 |     14662
+     2000 |     +0.0% |       0 |       0 |             0 |     13662
+     3000 |     +0.0% |       0 |       0 |             0 |     12662
+     4000 |     +0.0% |       0 |       0 |             0 |     11662
+     5000 |     +0.0% |       0 |       0 |             0 |     10662
+     6000 |     +0.0% |       0 |       0 |             0 |      9662
+     7000 |     +0.0% |       1 |       1 |             1 |      8662
+     8000 |     +0.0% |       1 |       1 |             1 |      7662
+     9000 |     +0.0% |       1 |       1 |             1 |      6662
+    10000 |     +0.0% |       1 |       1 |             1 |      5662
+    11000 |     +0.0% |       1 |       1 |             1 |      4662
+    12000 |     +0.0% |       1 |       1 |             1 |      3662
+    13000 |     +0.0% |       2 |       2 |             2 |      2662
+    14000 |     +0.0% |       3 |       2 |             3 |      1662
+    15000 |     +0.0% |       3 |       2 |             3 |       662
+    final |     +0.0% |       3 |       2 |             3 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 3 slew violations.
+[INFO RSZ-0039] Resized 3 instances.
+[INFO RSZ-0038] Inserted 2 buffers in 3 nets.
+[INFO RSZ-0504] Runtime: 1.33s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 121061.11 um^2
+[INFO DPL-0008] Fixed instances area within core: 3701.05 um^2
+[INFO DPL-0009] Utilization: 56.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18359 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.07s
+Placement Analysis
+---------------------------------
+total displacement         22.2 u
+average displacement        0.0 u
+max displacement           14.1 u
+original HPWL          468353.9 u
+legalized HPWL         468369.7 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hd/aes/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 150 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 150 out of 150 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.794 |      -46.5 |      -36.0 |    150 | sa01_sr\[5\]$_DFF_P_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -0.411 |      -36.8 |      -33.3 |    150 | sa23_sr\[5\]$_DFF_P_/D
+      20* |       0 |      15 |        1 |      0 |     3 |    +0.1% |   -0.421 |      -35.0 |      -31.9 |    150 | sa23_sr\[5\]$_DFF_P_/D
+      30* |       0 |      25 |        1 |      0 |     3 |    +0.1% |   -0.337 |      -32.4 |      -31.0 |    150 | sa23_sr\[5\]$_DFF_P_/D
+      40* |       0 |      31 |        1 |      0 |     7 |    +0.1% |   -0.342 |      -30.8 |      -30.4 |    150 | sa12_sr\[0\]$_DFF_P_/D
+      50* |       0 |      40 |        4 |      0 |     7 |    +0.2% |   -0.307 |      -28.3 |      -29.1 |    150 | sa22_sr\[1\]$_DFF_P_/D
+      60* |       0 |      44 |        7 |      1 |    10 |    +0.2% |   -0.295 |      -27.6 |      -27.9 |    150 | sa01_sr\[5\]$_DFF_P_/D
+      70* |       0 |      52 |        8 |      1 |    11 |    +0.2% |   -0.277 |      -27.1 |      -27.4 |    150 | sa01_sr\[6\]$_DFF_P_/D
+      80* |       0 |      59 |        8 |      1 |    14 |    +0.3% |   -0.265 |      -25.8 |      -26.6 |    150 | sa11_sr\[7\]$_DFF_P_/D
+      90* |       0 |      69 |        8 |      1 |    14 |    +0.3% |   -0.253 |      -25.0 |      -25.8 |    150 | sa03_sr\[1\]$_DFF_P_/D
+     100* |       0 |      77 |       12 |      1 |    15 |    +0.4% |   -0.249 |      -24.8 |      -25.4 |    150 | sa32_sr\[4\]$_DFF_P_/D
+     110* |       0 |      83 |       16 |      1 |    15 |    +0.4% |   -0.240 |      -23.5 |      -24.7 |    150 | sa32_sr\[3\]$_DFF_P_/D
+     120* |       0 |      90 |       20 |      1 |    16 |    +0.5% |   -0.230 |      -22.2 |      -23.7 |    150 | sa23_sr\[0\]$_DFF_P_/D
+     130* |       0 |     100 |       20 |      1 |    16 |    +0.5% |   -0.222 |      -21.0 |      -22.6 |    150 | sa11_sr\[3\]$_DFF_P_/D
+     140* |       0 |     103 |       23 |      2 |    19 |    +0.6% |   -0.218 |      -20.7 |      -22.5 |    150 | sa23_sr\[5\]$_DFF_P_/D
+     150* |       0 |     110 |       26 |      2 |    21 |    +0.6% |   -0.209 |      -20.3 |      -22.2 |    150 | sa21_sr\[3\]$_DFF_P_/D
+     160* |       1 |     116 |       29 |      2 |    22 |    +0.6% |   -0.204 |      -19.9 |      -22.0 |    150 | sa31_sr\[5\]$_DFF_P_/D
+     170* |       1 |     121 |       30 |      3 |    25 |    +0.7% |   -0.200 |      -19.2 |      -21.3 |    150 | sa01_sr\[6\]$_DFF_P_/D
+     180* |       1 |     125 |       33 |      4 |    28 |    +0.7% |   -0.253 |      -19.3 |      -21.6 |    150 | sa22_sr\[3\]$_DFF_P_/D
+     190* |       1 |     133 |       33 |      5 |    29 |    +0.8% |   -0.372 |      -20.1 |      -21.6 |    150 | sa23_sr\[5\]$_DFF_P_/D
+     200* |       1 |     138 |       36 |      5 |    31 |    +0.8% |   -0.189 |      -18.7 |      -20.3 |    150 | sa12_sr\[7\]$_DFF_P_/D
+     210* |       1 |     146 |       36 |      6 |    32 |    +0.8% |   -0.186 |      -18.2 |      -19.8 |    150 | sa32_sr\[2\]$_DFF_P_/D
+     220* |       1 |     151 |       38 |      6 |    36 |    +0.9% |   -0.183 |      -17.9 |      -19.6 |    150 | u0.u3.d\[2\]$_DFF_P_/D
+     230* |       1 |     159 |       40 |      6 |    37 |    +0.9% |   -0.180 |      -17.4 |      -19.2 |    150 | sa31_sr\[1\]$_DFF_P_/D
+     240* |       1 |     164 |       43 |      7 |    40 |    +1.0% |   -0.194 |      -16.9 |      -18.5 |    150 | sa11_sr\[5\]$_DFF_P_/D
+     250* |       1 |     172 |       44 |      7 |    41 |    +1.0% |   -0.175 |      -16.4 |      -18.0 |    150 | sa12_sr\[0\]$_DFF_P_/D
+     260* |       1 |     180 |       44 |      7 |    43 |    +1.0% |   -0.176 |      -16.0 |      -17.6 |    150 | sa03_sr\[6\]$_DFF_P_/D
+     270* |       1 |     189 |       44 |      7 |    44 |    +1.1% |   -0.169 |      -15.6 |      -17.2 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     280* |       1 |     197 |       45 |      7 |    45 |    +1.1% |   -0.163 |      -14.6 |      -16.8 |    150 | sa23_sr\[5\]$_DFF_P_/D
+     290* |       1 |     207 |       45 |      7 |    45 |    +1.1% |   -0.156 |      -13.7 |      -16.4 |    150 | sa12_sr\[4\]$_DFF_P_/D
+     300* |       1 |     212 |       45 |      7 |    50 |    +1.2% |   -0.158 |      -13.8 |      -16.3 |    150 | sa01_sr\[1\]$_DFF_P_/D
+     310* |       1 |     219 |       49 |      7 |    52 |    +1.2% |   -0.151 |      -13.6 |      -16.1 |    150 | sa12_sr\[4\]$_DFF_P_/D
+     320* |       1 |     225 |       52 |      8 |    53 |    +1.3% |   -0.173 |      -13.6 |      -15.6 |    150 | sa23_sr\[7\]$_DFF_P_/D
+     330* |       1 |     233 |       56 |      8 |    53 |    +1.3% |   -0.145 |      -12.7 |      -15.2 |    150 | sa03_sr\[7\]$_DFF_P_/D
+     340* |       1 |     240 |       57 |      8 |    55 |    +1.4% |   -0.141 |      -12.2 |      -14.8 |    150 | sa02_sr\[3\]$_DFF_P_/D
+     350* |       1 |     242 |       61 |     10 |    58 |    +1.4% |   -0.293 |      -12.6 |      -15.7 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     360* |       2 |     249 |       62 |     10 |    59 |    +1.4% |   -0.139 |      -12.0 |      -14.6 |    150 | sa13_sr\[4\]$_DFF_P_/D
+     370* |       2 |     256 |       63 |     10 |    61 |    +1.5% |   -0.138 |      -11.7 |      -14.3 |    150 | sa12_sr\[5\]$_DFF_P_/D
+     380* |       2 |     263 |       63 |     11 |    63 |    +1.5% |   -0.142 |      -11.6 |      -13.7 |    150 | sa11_sr\[4\]$_DFF_P_/D
+     390* |       2 |     269 |       67 |     11 |    64 |    +1.6% |   -0.133 |      -11.1 |      -13.2 |    150 | sa23_sr\[7\]$_DFF_P_/D
+     400* |       3 |     277 |       67 |     11 |    65 |    +1.6% |   -0.163 |      -10.2 |      -12.7 |    150 | sa01_sr\[5\]$_DFF_P_/D
+     410* |       3 |     283 |       68 |     11 |    68 |    +1.6% |   -0.128 |       -9.8 |      -12.4 |    150 | sa21_sr\[4\]$_DFF_P_/D
+     420* |       3 |     292 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.4 |      -12.1 |    150 | u0.u0.d\[4\]$_DFF_P_/D
+     421* |       3 |     293 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.2 |      -11.9 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     424* |       3 |     295 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.2 |      -11.8 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     428* |       3 |     298 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.2 |      -11.7 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     429* |       3 |     298 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.2 |      -11.7 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     430* |       3 |     298 |       68 |     11 |    69 |    +1.6% |   -0.123 |       -9.2 |      -11.7 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     440* |       3 |     307 |       69 |     11 |    69 |    +1.7% |   -0.123 |       -8.9 |      -11.6 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     450* |       3 |     317 |       69 |     11 |    69 |    +1.7% |   -0.123 |       -8.9 |      -11.6 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     453* |       3 |     319 |       69 |     11 |    70 |    +1.7% |   -0.123 |       -8.8 |      -11.6 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     457* |       3 |     319 |       69 |     11 |    71 |    +1.7% |   -0.123 |       -8.8 |      -11.6 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     460* |       3 |     321 |       69 |     11 |    71 |    +1.7% |   -0.123 |       -8.8 |      -11.6 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     469* |       3 |     329 |       69 |     11 |    72 |    +1.8% |   -0.123 |       -8.8 |      -11.4 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     470* |       3 |     329 |       69 |     11 |    72 |    +1.8% |   -0.123 |       -8.8 |      -11.4 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     473* |       3 |     332 |       69 |     11 |    72 |    +1.8% |   -0.123 |       -8.8 |      -11.3 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     478* |       3 |     335 |       71 |     11 |    72 |    +1.8% |   -0.123 |       -8.7 |      -11.2 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     480* |       3 |     336 |       71 |     11 |    72 |    +1.8% |   -0.123 |       -8.7 |      -11.2 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     490* |       3 |     341 |       73 |     13 |    73 |    +1.9% |   -0.123 |       -8.7 |      -11.3 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     492* |       3 |     342 |       73 |     13 |    74 |    +1.9% |   -0.123 |       -8.6 |      -11.1 |    150 | u0.u3.d\[5\]$_DFF_P_/D
+     497* |       3 |     345 |       73 |     13 |    75 |    +1.9% |   -0.122 |       -8.3 |      -10.9 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     500* |       3 |     347 |       73 |     13 |    75 |    +1.9% |   -0.122 |       -8.2 |      -10.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     506* |       3 |     351 |       74 |     13 |    76 |    +1.9% |   -0.122 |       -8.1 |      -10.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     510* |       4 |     352 |       74 |     13 |    77 |    +1.9% |   -0.122 |       -8.1 |      -10.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     520* |       4 |     358 |       80 |     13 |    78 |    +2.0% |   -0.150 |       -8.3 |      -10.9 |    150 | sa23_sr\[0\]$_DFF_P_/D
+     530* |       4 |     365 |       83 |     14 |    78 |    +2.0% |   -0.152 |       -8.3 |      -11.0 |    150 | sa23_sr\[0\]$_DFF_P_/D
+     540* |       4 |     371 |       83 |     14 |    82 |    +2.0% |   -0.154 |       -8.3 |      -11.0 |    150 | sa23_sr\[0\]$_DFF_P_/D
+     546* |       4 |     356 |       77 |     13 |    78 |    +1.9% |   -0.122 |       -7.8 |      -10.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     550* |       4 |     356 |       80 |     13 |    79 |    +2.0% |   -0.122 |       -7.8 |      -10.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     557* |       4 |     360 |       81 |     13 |    81 |    +2.0% |   -0.122 |       -7.8 |      -10.6 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     560* |       4 |     361 |       82 |     13 |    81 |    +2.0% |   -0.122 |       -7.7 |      -10.4 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     561* |       4 |     362 |       82 |     13 |    81 |    +2.0% |   -0.122 |       -7.7 |      -10.5 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     563* |       4 |     363 |       82 |     13 |    81 |    +2.0% |   -0.122 |       -7.7 |      -10.4 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     570* |       4 |     368 |       82 |     13 |    82 |    +2.0% |   -0.122 |       -7.7 |      -10.3 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     570* |       4 |     368 |       82 |     13 |    82 |    +2.0% |   -0.122 |       -7.7 |      -10.3 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     580* |       5 |     373 |       82 |     13 |    85 |    +2.0% |   -0.262 |       -7.8 |      -11.3 |    150 | sa02_sr\[4\]$_DFF_P_/D
+     584* |       5 |     376 |       85 |     13 |    85 |    +2.0% |   -0.122 |       -7.6 |      -10.2 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     590* |       5 |     378 |       87 |     13 |    87 |    +2.1% |   -0.122 |       -7.6 |      -10.1 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     600* |       5 |     385 |       88 |     14 |    88 |    +2.1% |   -0.122 |       -7.6 |      -10.2 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     608* |       5 |     390 |       89 |     14 |    90 |    +2.1% |   -0.122 |       -7.5 |      -10.0 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     610* |       5 |     390 |       89 |     15 |    90 |    +2.1% |   -0.210 |       -8.0 |      -10.4 |    150 | u0.u3.d\[7\]$_DFF_P_/D
+     616* |       5 |     394 |       90 |     15 |    91 |    +2.2% |   -0.122 |       -7.2 |       -9.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     620* |       5 |     396 |       90 |     15 |    92 |    +2.2% |   -0.122 |       -7.2 |       -9.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     625* |       5 |     396 |       90 |     15 |    92 |    +2.2% |   -0.122 |       -7.2 |       -9.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     630* |       5 |     398 |       91 |     15 |    93 |    +2.2% |   -0.122 |       -7.1 |       -9.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     640* |       5 |     403 |       91 |     15 |    98 |    +2.2% |   -0.210 |       -7.3 |      -10.3 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     650* |       5 |     410 |       94 |     15 |    99 |    +2.2% |   -0.163 |       -7.1 |       -9.8 |    150 | sa22_sr\[5\]$_DFF_P_/D
+     660* |       5 |     414 |       99 |     15 |   101 |    +2.3% |   -0.260 |       -7.6 |      -10.4 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     670* |       5 |     417 |      107 |     15 |   103 |    +2.3% |   -0.246 |       -7.6 |      -10.3 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     680* |       5 |     424 |      108 |     15 |   105 |    +2.3% |   -0.246 |       -7.6 |      -10.2 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     686* |       5 |     403 |       91 |     15 |    96 |    +2.2% |   -0.122 |       -7.0 |       -9.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     687* |       5 |     403 |       91 |     15 |    96 |    +2.2% |   -0.122 |       -7.0 |       -9.7 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     690* |       5 |     405 |       91 |     15 |    96 |    +2.2% |   -0.122 |       -7.0 |       -9.6 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     694* |       5 |     409 |       91 |     15 |    96 |    +2.2% |   -0.122 |       -7.0 |       -9.5 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     700* |       5 |     411 |       92 |     15 |    98 |    +2.2% |   -0.163 |       -7.1 |       -9.5 |    150 | sa12_sr\[5\]$_DFF_P_/D
+     710* |       5 |     417 |       93 |     15 |   101 |    +2.3% |   -0.122 |       -7.0 |       -9.4 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     712* |       5 |     418 |       93 |     15 |   102 |    +2.3% |   -0.122 |       -6.9 |       -9.3 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     715* |       5 |     420 |       93 |     15 |   102 |    +2.3% |   -0.122 |       -6.9 |       -9.2 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     719* |       5 |     423 |       93 |     15 |   102 |    +2.3% |   -0.122 |       -6.8 |       -8.9 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     720* |       5 |     423 |       93 |     15 |   102 |    +2.3% |   -0.122 |       -6.8 |       -8.9 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     730* |       5 |     429 |       95 |     16 |   103 |    +2.3% |   -0.122 |       -6.7 |       -9.0 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     740* |       5 |     434 |      100 |     17 |   104 |    +2.4% |   -0.122 |       -6.7 |       -8.9 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     750* |       5 |     440 |      104 |     17 |   105 |    +2.4% |   -0.337 |       -7.2 |      -11.2 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     760* |       6 |     444 |      106 |     17 |   108 |    +2.5% |   -0.171 |       -6.8 |       -9.5 |    150 | sa33_sr\[2\]$_DFF_P_/D
+     770* |       6 |     451 |      108 |     17 |   109 |    +2.5% |   -0.203 |       -6.7 |       -9.6 |    150 | sa33_sr\[2\]$_DFF_P_/D
+     775* |       5 |     434 |      100 |     17 |   104 |    +2.4% |   -0.122 |       -6.7 |       -8.9 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     780* |       5 |     437 |      101 |     17 |   104 |    +2.4% |   -0.122 |       -6.7 |       -8.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     786* |       5 |     442 |      101 |     17 |   105 |    +2.4% |   -0.122 |       -6.7 |       -8.8 |    150 | sa10_sr\[7\]$_DFF_P_/D
+     790* |       5 |     444 |      101 |     17 |   106 |    +2.4% |   -0.120 |       -6.6 |       -8.8 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     800* |       5 |     450 |      101 |     17 |   110 |    +2.5% |   -0.120 |       -6.5 |       -8.6 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     810* |       5 |     458 |      102 |     17 |   111 |    +2.5% |   -0.120 |       -6.5 |       -8.6 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     813* |       5 |     461 |      102 |     17 |   111 |    +2.5% |   -0.120 |       -6.5 |       -8.6 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     820* |       5 |     465 |      102 |     18 |   112 |    +2.5% |   -0.120 |       -6.4 |       -8.4 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     825* |       5 |     465 |      102 |     17 |   111 |    +2.5% |   -0.120 |       -6.4 |       -8.4 |    150 | sa01_sr\[4\]$_DFF_P_/D
+     830* |       5 |     468 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.3 |       -8.2 |    150 | sa00_sr\[3\]$_DFF_P_/D
+     840* |       5 |     474 |      103 |     18 |   114 |    +2.6% |   -0.160 |       -6.6 |       -8.4 |    150 | sa01_sr\[5\]$_DFF_P_/D
+     850* |       5 |     481 |      104 |     18 |   116 |    +2.6% |   -0.160 |       -6.6 |       -8.4 |    150 | sa01_sr\[5\]$_DFF_P_/D
+     858* |       5 |     468 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.3 |       -8.2 |    150 | sa00_sr\[3\]$_DFF_P_/D
+     860* |       5 |     469 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.3 |       -8.1 |    150 | sa00_sr\[3\]$_DFF_P_/D
+     861* |       5 |     470 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.3 |       -8.0 |    150 | sa00_sr\[3\]$_DFF_P_/D
+     870* |       5 |     478 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.0 |       -7.6 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     872* |       5 |     480 |      102 |     18 |   111 |    +2.6% |   -0.120 |       -6.0 |       -7.5 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     880* |       5 |     483 |      103 |     19 |   113 |    +2.6% |   -0.120 |       -6.0 |       -7.5 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     883* |       5 |     484 |      103 |     19 |   115 |    +2.6% |   -0.120 |       -5.9 |       -7.4 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     890* |       5 |     487 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.9 |       -7.3 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     891* |       5 |     488 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.9 |       -7.3 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     895* |       5 |     491 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.9 |       -7.2 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     900* |       5 |     495 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.9 |       -7.1 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     900* |       5 |     495 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.9 |       -7.1 |    150 | sa32_sr\[7\]$_DFF_P_/D
+     907* |       5 |     501 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.8 |       -7.0 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     910* |       5 |     503 |      104 |     19 |   117 |    +2.7% |   -0.120 |       -5.8 |       -6.9 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     919* |       5 |     507 |      104 |     19 |   122 |    +2.7% |   -0.120 |       -5.9 |       -7.0 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     920* |       5 |     507 |      104 |     19 |   122 |    +2.7% |   -0.120 |       -5.9 |       -7.0 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     926* |       5 |     513 |      104 |     19 |   122 |    +2.7% |   -0.120 |       -5.8 |       -6.9 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     929* |       5 |     515 |      104 |     19 |   122 |    +2.7% |   -0.120 |       -5.8 |       -6.8 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     930* |       5 |     515 |      104 |     19 |   122 |    +2.7% |   -0.120 |       -5.8 |       -6.8 |    150 | sa02_sr\[5\]$_DFF_P_/D
+     940* |       5 |     520 |      107 |     19 |   124 |    +2.8% |   -0.118 |       -5.7 |       -6.8 |    150 | sa11_sr\[4\]$_DFF_P_/D
+     946* |       5 |     524 |      108 |     19 |   125 |    +2.8% |   -0.118 |       -5.7 |       -6.7 |    150 | sa11_sr\[4\]$_DFF_P_/D
+     950* |       5 |     525 |      108 |     20 |   126 |    +2.8% |   -0.210 |       -6.0 |       -7.3 |    150 | sa22_sr\[4\]$_DFF_P_/D
+     960* |       6 |     532 |      109 |     20 |   127 |    +2.9% |   -0.170 |       -5.9 |       -7.2 |    150 | sa22_sr\[6\]$_DFF_P_/D
+     970* |       6 |     535 |      113 |     20 |   130 |    +2.9% |   -0.205 |       -6.1 |       -6.9 |    150 | sa22_sr\[2\]$_DFF_P_/D
+     980* |       6 |     543 |      115 |     20 |   130 |    +3.0% |   -0.182 |       -5.9 |       -6.9 |    150 | sa22_sr\[2\]$_DFF_P_/D
+     990* |       6 |     548 |      117 |     20 |   133 |    +3.0% |   -0.162 |       -5.9 |       -7.1 |    150 | sa22_sr\[2\]$_DFF_P_/D
+     998* |       5 |     525 |      108 |     19 |   125 |    +2.8% |   -0.118 |       -5.6 |       -6.7 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1000* |       5 |     526 |      108 |     19 |   125 |    +2.8% |   -0.118 |       -5.6 |       -6.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1001* |       5 |     527 |      108 |     19 |   125 |    +2.8% |   -0.118 |       -5.6 |       -6.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1005* |       5 |     530 |      108 |     19 |   125 |    +2.8% |   -0.118 |       -5.6 |       -6.4 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1009* |       5 |     532 |      110 |     19 |   125 |    +2.9% |   -0.118 |       -5.6 |       -6.4 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1010* |       5 |     532 |      110 |     19 |   125 |    +2.9% |   -0.118 |       -5.6 |       -6.4 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1015* |       5 |     536 |      110 |     19 |   126 |    +2.9% |   -0.118 |       -5.4 |       -6.2 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1020* |       5 |     539 |      116 |     19 |   126 |    +2.9% |   -0.118 |       -5.3 |       -6.2 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1021* |       5 |     539 |      118 |     19 |   126 |    +2.9% |   -0.118 |       -5.3 |       -6.2 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1026* |       5 |     542 |      118 |     19 |   127 |    +2.9% |   -0.118 |       -5.3 |       -6.1 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1029* |       5 |     544 |      118 |     19 |   127 |    +2.9% |   -0.118 |       -5.3 |       -6.1 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1030* |       5 |     544 |      118 |     19 |   127 |    +2.9% |   -0.118 |       -5.3 |       -6.1 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1034* |       5 |     546 |      119 |     19 |   128 |    +3.0% |   -0.118 |       -5.3 |       -5.9 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1040* |       5 |     550 |      119 |     19 |   129 |    +3.0% |   -0.118 |       -5.3 |       -5.9 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1050* |       5 |     556 |      120 |     20 |   131 |    +3.0% |   -0.147 |       -5.4 |       -6.2 |    150 | sa22_sr\[0\]$_DFF_P_/D
+    1052* |       5 |     552 |      119 |     19 |   130 |    +3.0% |   -0.118 |       -5.3 |       -5.8 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1054* |       5 |     553 |      119 |     19 |   130 |    +3.0% |   -0.118 |       -5.3 |       -5.8 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1057* |       5 |     555 |      119 |     19 |   130 |    +3.0% |   -0.118 |       -5.2 |       -5.7 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1060* |       5 |     557 |      119 |     19 |   130 |    +3.0% |   -0.118 |       -5.2 |       -5.7 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1062* |       5 |     559 |      119 |     19 |   130 |    +3.0% |   -0.118 |       -5.2 |       -5.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1067* |       5 |     562 |      119 |     19 |   131 |    +3.0% |   -0.118 |       -5.2 |       -5.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1070* |       5 |     564 |      119 |     19 |   131 |    +3.0% |   -0.118 |       -5.2 |       -5.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1070* |       5 |     564 |      119 |     19 |   131 |    +3.0% |   -0.118 |       -5.2 |       -5.6 |    150 | sa11_sr\[4\]$_DFF_P_/D
+    1075* |       5 |     567 |      119 |     19 |   132 |    +3.0% |   -0.117 |       -5.1 |       -5.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1078* |       5 |     569 |      119 |     19 |   132 |    +3.0% |   -0.117 |       -5.0 |       -5.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1080* |       5 |     570 |      119 |     19 |   132 |    +3.1% |   -0.117 |       -5.0 |       -5.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1090* |       5 |     574 |      124 |     20 |   134 |    +3.1% |   -0.117 |       -4.9 |       -4.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1100* |       6 |     580 |      125 |     21 |   135 |    +3.2% |   -0.117 |       -4.9 |       -4.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1100* |       6 |     580 |      125 |     21 |   135 |    +3.2% |   -0.117 |       -4.9 |       -4.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1103* |       6 |     582 |      125 |     21 |   135 |    +3.2% |   -0.117 |       -4.9 |       -4.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1110* |       6 |     585 |      129 |     22 |   135 |    +3.2% |   -0.132 |       -5.0 |       -4.9 |    150 | sa33_sr\[1\]$_DFF_P_/D
+    1120* |       6 |     588 |      132 |     23 |   139 |    +3.3% |   -0.117 |       -5.0 |       -4.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1124* |       6 |     590 |      134 |     23 |   140 |    +3.3% |   -0.117 |       -5.0 |       -4.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1130* |       6 |     594 |      136 |     23 |   140 |    +3.3% |   -0.117 |       -4.9 |       -4.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1130* |       6 |     594 |      136 |     23 |   140 |    +3.3% |   -0.117 |       -4.9 |       -4.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1134* |       6 |     597 |      136 |     23 |   140 |    +3.3% |   -0.117 |       -4.9 |       -4.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1138* |       6 |     600 |      136 |     23 |   140 |    +3.3% |   -0.117 |       -4.9 |       -4.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1140* |       6 |     601 |      136 |     23 |   140 |    +3.3% |   -0.117 |       -4.8 |       -4.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1142* |       6 |     602 |      137 |     23 |   140 |    +3.4% |   -0.117 |       -4.7 |       -4.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1150* |       6 |     605 |      139 |     25 |   141 |    +3.4% |   -0.117 |       -4.8 |       -4.8 |    150 | sa33_sr\[3\]$_DFF_P_/D
+    1154* |       6 |     606 |      144 |     25 |   142 |    +3.5% |   -0.117 |       -4.8 |       -4.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1160* |       6 |     609 |      150 |     25 |   143 |    +3.5% |   -0.117 |       -4.5 |       -4.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1170* |       6 |     616 |      150 |     25 |   146 |    +3.5% |   -0.117 |       -4.4 |       -4.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1171* |       6 |     616 |      150 |     25 |   147 |    +3.5% |   -0.117 |       -4.4 |       -4.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1172* |       6 |     616 |      150 |     25 |   147 |    +3.5% |   -0.117 |       -4.4 |       -4.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1180* |       6 |     618 |      151 |     27 |   149 |    +3.6% |   -0.135 |       -4.4 |       -4.6 |    150 | sa21_sr\[3\]$_DFF_P_/D
+    1190* |       6 |     623 |      154 |     28 |   150 |    +3.6% |   -0.135 |       -4.3 |       -4.5 |    150 | sa21_sr\[3\]$_DFF_P_/D
+    1191* |       6 |     616 |      151 |     27 |   148 |    +3.6% |   -0.117 |       -4.4 |       -4.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1200* |       6 |     621 |      155 |     27 |   149 |    +3.6% |   -0.117 |       -4.3 |       -4.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1202* |       6 |     623 |      155 |     27 |   149 |    +3.6% |   -0.117 |       -4.3 |       -4.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1210* |       6 |     627 |      156 |     27 |   151 |    +3.6% |   -0.117 |       -4.1 |       -3.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1210* |       6 |     627 |      156 |     27 |   151 |    +3.6% |   -0.117 |       -4.1 |       -3.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1220* |       6 |     633 |      159 |     27 |   153 |    +3.7% |   -0.117 |       -4.1 |       -3.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1229* |       6 |     639 |      159 |     27 |   156 |    +3.7% |   -0.117 |       -4.1 |       -3.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1230* |       6 |     639 |      159 |     27 |   156 |    +3.7% |   -0.117 |       -4.1 |       -3.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1238* |       6 |     645 |      159 |     27 |   158 |    +3.7% |   -0.117 |       -4.1 |       -3.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1240* |       6 |     646 |      159 |     27 |   158 |    +3.7% |   -0.117 |       -4.0 |       -3.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1240* |       6 |     646 |      159 |     27 |   158 |    +3.7% |   -0.117 |       -4.0 |       -3.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1250* |       6 |     653 |      159 |     27 |   160 |    +3.7% |   -0.133 |       -4.1 |       -3.8 |    150 | sa20_sr\[3\]$_DFF_P_/D
+    1250* |       6 |     647 |      159 |     27 |   158 |    +3.7% |   -0.117 |       -4.0 |       -3.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1251* |       6 |     647 |      159 |     27 |   158 |    +3.7% |   -0.117 |       -4.0 |       -3.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1258* |       6 |     650 |      164 |     27 |   158 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1260* |       6 |     651 |      164 |     27 |   158 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1263* |       6 |     653 |      164 |     27 |   159 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1264* |       6 |     653 |      164 |     27 |   159 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1266* |       6 |     654 |      164 |     27 |   159 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1270* |       6 |     655 |      165 |     27 |   160 |    +3.8% |   -0.117 |       -4.0 |       -3.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1280* |       7 |     660 |      167 |     27 |   162 |    +3.8% |   -0.117 |       -3.8 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1281* |       7 |     660 |      169 |     27 |   162 |    +3.8% |   -0.117 |       -3.8 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1283* |       7 |     661 |      169 |     27 |   162 |    +3.8% |   -0.117 |       -3.7 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1288* |       7 |     664 |      173 |     27 |   162 |    +3.8% |   -0.117 |       -3.7 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1289* |       7 |     664 |      173 |     27 |   162 |    +3.8% |   -0.117 |       -3.7 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1290* |       7 |     664 |      173 |     27 |   162 |    +3.8% |   -0.117 |       -3.7 |       -3.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1297* |       7 |     671 |      173 |     27 |   162 |    +3.9% |   -0.117 |       -3.7 |       -3.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1300* |       7 |     672 |      173 |     27 |   163 |    +3.9% |   -0.117 |       -3.7 |       -3.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1304* |       7 |     675 |      176 |     27 |   163 |    +3.9% |   -0.117 |       -3.6 |       -3.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1310* |       7 |     677 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.6 |       -3.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1310* |       7 |     677 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.6 |       -3.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1314* |       7 |     680 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.6 |       -3.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1320* |       7 |     681 |      176 |     29 |   168 |    +4.0% |   -0.186 |       -3.6 |       -3.5 |    150 | sa30_sr\[0\]$_DFF_P_/D
+    1328* |       7 |     680 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.6 |       -3.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1330* |       7 |     681 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.5 |       -3.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1332* |       7 |     683 |      176 |     27 |   166 |    +3.9% |   -0.117 |       -3.5 |       -2.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1334* |       7 |     683 |      176 |     27 |   167 |    +3.9% |   -0.117 |       -3.5 |       -2.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1337* |       7 |     685 |      176 |     27 |   167 |    +3.9% |   -0.117 |       -3.4 |       -2.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1340* |       7 |     687 |      176 |     27 |   167 |    +3.9% |   -0.117 |       -3.2 |       -2.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1346* |       7 |     690 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1347* |       7 |     690 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1348* |       7 |     690 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1349* |       7 |     690 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1350* |       7 |     690 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1351* |       7 |     691 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.2 |       -2.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1354* |       7 |     693 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.0 |       -2.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1358* |       7 |     696 |      177 |     27 |   169 |    +4.0% |   -0.117 |       -3.0 |       -2.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1360* |       7 |     696 |      178 |     27 |   169 |    +4.0% |   -0.117 |       -3.0 |       -2.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1360* |       7 |     696 |      178 |     27 |   169 |    +4.0% |   -0.117 |       -3.0 |       -2.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1370* |       7 |     700 |      185 |     27 |   171 |    +4.1% |   -0.117 |       -2.8 |       -2.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1372* |       7 |     702 |      185 |     27 |   171 |    +4.1% |   -0.117 |       -2.7 |       -2.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1380* |       7 |     705 |      187 |     27 |   174 |    +4.1% |   -0.117 |       -2.7 |       -2.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1390* |       7 |     713 |      187 |     27 |   176 |    +4.1% |   -0.117 |       -2.8 |       -2.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1400* |       7 |     720 |      190 |     28 |   176 |    +4.2% |   -0.117 |       -2.8 |       -2.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1402* |       7 |     722 |      190 |     28 |   176 |    +4.2% |   -0.117 |       -2.8 |       -2.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1404* |       7 |     723 |      190 |     28 |   176 |    +4.2% |   -0.117 |       -2.8 |       -2.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1410* |       7 |     726 |      190 |     28 |   178 |    +4.2% |   -0.117 |       -2.7 |       -2.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1414* |       7 |     729 |      192 |     28 |   178 |    +4.2% |   -0.117 |       -2.6 |       -2.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1420* |       7 |     730 |      192 |     28 |   182 |    +4.2% |   -0.121 |       -2.8 |       -2.3 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1421* |       7 |     730 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.6 |       -2.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1424* |       7 |     730 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.6 |       -2.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1427* |       7 |     732 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.5 |       -2.2 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1429* |       7 |     733 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.5 |       -2.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1430* |       7 |     733 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.5 |       -2.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1431* |       7 |     734 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.5 |       -2.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1433* |       7 |     735 |      192 |     28 |   179 |    +4.2% |   -0.117 |       -2.4 |       -2.1 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1438* |       7 |     737 |      192 |     28 |   181 |    +4.2% |   -0.117 |       -2.4 |       -2.0 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1440* |       7 |     738 |      192 |     28 |   181 |    +4.2% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1440* |       7 |     738 |      192 |     28 |   181 |    +4.2% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1444* |       7 |     739 |      193 |     29 |   181 |    +4.3% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1446* |       7 |     740 |      193 |     29 |   181 |    +4.3% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1448* |       7 |     741 |      193 |     29 |   181 |    +4.3% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1449* |       7 |     741 |      193 |     29 |   181 |    +4.3% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1450* |       7 |     741 |      193 |     29 |   181 |    +4.3% |   -0.117 |       -2.4 |       -1.9 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1454* |       7 |     743 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.4 |       -1.8 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1460* |       7 |     748 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.3 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1460* |       7 |     748 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.3 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1462* |       7 |     749 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1463* |       7 |     749 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1464* |       7 |     749 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1465* |       7 |     749 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.7 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1468* |       7 |     751 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.6 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1470* |       7 |     752 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1473* |       7 |     755 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1474* |       7 |     755 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1475* |       7 |     755 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1476* |       7 |     755 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1477* |       7 |     755 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.2 |       -1.5 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1479* |       7 |     756 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1480* |       7 |     756 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1482* |       7 |     758 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1483* |       7 |     758 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1485* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1486* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1487* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1488* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1489* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1490* |       7 |     759 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1491* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1492* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1493* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1494* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1495* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1496* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1497* |       7 |     760 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.1 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1500* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1500* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1501* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1502* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1503* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1504* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1504* |       7 |     762 |      194 |     29 |   182 |    +4.3% |   -0.117 |       -2.0 |       -1.4 |    150 | sa20_sr\[6\]$_DFF_P_/D
+    1505+ |       7 |     763 |      194 |     29 |   182 |    +4.3% |   -0.101 |       -1.9 |       -1.3 |     35 | sa02_sr\[4\]$_DFF_P_/D
+    1510+ |       7 |     766 |      194 |     29 |   183 |    +4.3% |   -0.089 |       -1.9 |       -1.2 |     35 | sa23_sr\[2\]$_DFF_P_/D
+    1510+ |       7 |     766 |      194 |     29 |   183 |    +4.3% |   -0.089 |       -1.9 |       -1.2 |     35 | sa23_sr\[2\]$_DFF_P_/D
+    1512+ |       7 |     767 |      194 |     29 |   183 |    +4.3% |   -0.086 |       -1.8 |       -1.2 |     35 | sa30_sr\[3\]$_DFF_P_/D
+    1518+ |       7 |     773 |      194 |     29 |   183 |    +4.4% |   -0.085 |       -1.6 |       -1.1 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1519+ |       7 |     773 |      194 |     29 |   183 |    +4.4% |   -0.085 |       -1.6 |       -1.1 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1520+ |       7 |     773 |      194 |     29 |   183 |    +4.4% |   -0.085 |       -1.6 |       -1.1 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1520+ |       7 |     773 |      194 |     29 |   183 |    +4.4% |   -0.085 |       -1.6 |       -1.1 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1522+ |       7 |     775 |      194 |     29 |   183 |    +4.4% |   -0.085 |       -1.6 |       -1.0 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1525+ |       7 |     776 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.5 |       -1.0 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1530+ |       7 |     780 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.3 |       -0.9 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1534+ |       7 |     784 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.2 |       -0.9 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1535+ |       7 |     785 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.1 |       -0.8 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1536+ |       7 |     785 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.1 |       -0.8 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1539+ |       7 |     787 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.0 |       -0.8 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1540+ |       7 |     787 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.0 |       -0.8 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1540+ |       7 |     787 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.0 |       -0.8 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1544+ |       7 |     791 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.0 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1545+ |       7 |     792 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -1.0 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1546+ |       7 |     793 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -0.9 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1548+ |       7 |     794 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -0.9 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1549+ |       7 |     794 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -0.9 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1550+ |       7 |     794 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -0.9 |       -0.7 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1550+ |       7 |     795 |      194 |     29 |   184 |    +4.4% |   -0.085 |       -0.9 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1555+ |       7 |     798 |      194 |     29 |   185 |    +4.4% |   -0.085 |       -0.8 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1556+ |       7 |     798 |      194 |     29 |   185 |    +4.4% |   -0.085 |       -0.8 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1558+ |       7 |     799 |      194 |     29 |   186 |    +4.4% |   -0.085 |       -0.8 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1560+ |       7 |     800 |      194 |     29 |   186 |    +4.4% |   -0.085 |       -0.8 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1561+ |       7 |     802 |      194 |     29 |   186 |    +4.5% |   -0.085 |       -0.7 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1562+ |       7 |     803 |      194 |     29 |   186 |    +4.5% |   -0.085 |       -0.7 |       -0.6 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1565+ |       7 |     805 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1567+ |       7 |     807 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1568+ |       7 |     808 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1569+ |       7 |     809 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1570+ |       7 |     809 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1570+ |       7 |     810 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1571+ |       7 |     810 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1573+ |       7 |     812 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1574+ |       7 |     812 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1575+ |       7 |     813 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1576+ |       7 |     814 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    1577+ |       7 |     815 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     35 | sa30_sr\[7\]$_DFF_P_/D
+    final |       7 |     815 |      194 |     29 |   187 |    +4.5% |   -0.085 |       -0.7 |       -0.5 |     17 | sa30_sr\[7\]$_DFF_P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 7 buffers.
+[INFO RSZ-0045] Inserted 194 buffers, 1 to split loads.
+[INFO RSZ-0051] Resized 815 instances: 815 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 187 instances.
+[INFO RSZ-0049] Cloned 29 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 46.31s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.05s
+Took 46 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 126662.73 um^2
+[INFO DPL-0008] Fixed instances area within core: 3701.05 um^2
+[INFO DPL-0009] Utilization: 59.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18575 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        895 |       191 |       701
+        1 |        484 |        64 |       420
+        2 |        338 |        34 |       304
+        3 |        230 |        29 |       201
+        4 |        200 |        24 |       176
+        5 |        127 |        11 |       116
+        6 |         76 |        10 |        66
+        7 |        102 |        10 |        92
+        8 |        121 |        11 |       110
+        9 |         64 |         6 |        58
+       10 |         53 |         6 |        47
+       12 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 12.
+[INFO DPL-0500] Runtime: 0.29s
+Placement Analysis
+---------------------------------
+total displacement       4924.6 u
+average displacement        0.3 u
+max displacement           27.2 u
+original HPWL          476360.5 u
+legalized HPWL         481118.6 u
+delta HPWL                    1 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hd/aes/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hd/aes/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 91 antenna violations.
+[INFO GRT-0302] Inserted 60 jumpers for 57 nets.
+[INFO GRT-0012] Found 38 antenna violations.
+[WARNING GRT-0243] Unable to repair antennas on net with diodes.
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 126194.78 um^2
+[INFO DPL-0008] Fixed instances area within core: 4271.60 um^2
+[INFO DPL-0009] Utilization: 59.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18616 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         82 |        18 |        64
+        1 |        106 |        14 |        92
+        2 |         76 |        12 |        64
+        3 |         40 |         6 |        34
+        4 |         44 |         6 |        38
+        5 |         62 |         7 |        55
+        6 |         59 |         5 |        54
+        7 |         26 |         5 |        21
+        8 |         36 |         5 |        31
+        9 |         18 |         4 |        14
+       10 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 10.
+[INFO DPL-0500] Runtime: 0.14s
+[INFO GRT-0015] Inserted 41 diodes.
+[INFO GRT-0012] Found 3 antenna violations.
+[INFO GRT-0302] Inserted 2 jumpers for 2 nets.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 126760.32 um^2
+[INFO DPL-0008] Fixed instances area within core: 3708.56 um^2
+[INFO DPL-0009] Utilization: 59.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18617 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.07s
+[INFO GRT-0015] Inserted 1 diodes.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 130469 um^2 59% utilization.
+[INFO FLW-0007] clock clk period 3.600000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 953
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/5_1_grt.sdc
+Elapsed time: 1:08.58[h:]min:sec. CPU time: user 753.42 sys 22.89 (1132%). Peak memory: 572244KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           68            558 1e2a1d30356c83b2c43e
+5_1_grt                   .sdc                             3243e6ea47080a672a6d

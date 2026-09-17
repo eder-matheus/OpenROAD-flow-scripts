@@ -1,0 +1,97 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_SLVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_SLVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x256.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_128x64.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x28.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x25.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation cva6 (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 1009312 rc segments
+[INFO RCX-0439] Coupling Cap extraction cva6 ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 10% of 1095773 wires extracted
+[INFO RCX-0442] 23% of 1095773 wires extracted
+[INFO RCX-0442] 36% of 1095773 wires extracted
+[INFO RCX-0442] 54% of 1095773 wires extracted
+[INFO RCX-0442] 60% of 1095773 wires extracted
+[INFO RCX-0442] 72% of 1095773 wires extracted
+[INFO RCX-0442] 86% of 1095773 wires extracted
+[INFO RCX-0442] 100% of 1095773 wires extracted
+[INFO RCX-0045] Extract 125460 nets, 1134037 rsegs, 1134037 caps, 1832066 ccs
+[INFO RCX-0042] 100000 nets finished
+[INFO RCX-0443] 125460 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.67e-01 W
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.60e-01 V
+Average voltage  : 7.69e-01 V
+Average IR drop  : 1.46e-03 V
+Worstcase IR drop: 9.84e-03 V
+Percentage drop  : 1.28 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 1.67e-01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 1.00e-02 V
+Average voltage  : 1.45e-03 V
+Average IR drop  : 1.45e-03 V
+Worstcase IR drop: 1.00e-02 V
+Percentage drop  : 1.30 %
+######################################
+Cell type report:                        Count       Area
+  Macro                                      8    4167.38
+  Fill cell                              94838    4279.17
+  Tap cell                                2587      75.44
+  Tie cell                                7843     343.05
+  Clock buffer                            1061     463.29
+  Timing Repair Buffer                   12977    1131.58
+  Inverter                               10316     451.24
+  Clock inverter                             1       0.10
+  Sequential cell                         8465    3052.50
+  Multi-Input combinational cell         79281    8625.41
+  Total                                 217377   22589.17
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 18310 um^2 79% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 1:59.02[h:]min:sec. CPU time: user 241.06 sys 51.30 (245%). Peak memory: 3202220KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                119           3127                  N/A

@@ -1,0 +1,579 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_2048x39.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x34.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x21.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/3_place.sdc
+source ./platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "core_clock".
+[INFO CTS-0011]  Clock net "clk" for macros has 28 sinks.
+[INFO CTS-0011]  Clock net "clk_regs" for registers has 11216 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 12 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 28.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 439.6 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 4 and clustering diameter of 440.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 9.
+[INFO CTS-0024]  Normalized sink region: [(12.6389, 10.07), (141.476, 141.395)].
+[INFO CTS-0025]     Width:  128.8368.
+[INFO CTS-0026]     Height: 131.3250.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 5
+    Sub-region size: 128.8368 X 65.6625
+[INFO CTS-0034]     Segment length (rounded): 32.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 3
+    Sub-region size: 64.4184 X 65.6625
+[INFO CTS-0034]     Segment length (rounded): 32.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 2
+    Sub-region size: 64.4184 X 32.8313
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 1
+    Sub-region size: 32.2092 X 32.8313
+[INFO CTS-0034]     Segment length (rounded): 16.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 9.
+[INFO CTS-0201] 12 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_regs.
+[INFO CTS-0028]  Total number of sinks: 11216.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 91.
+[INFO CTS-0019]  Total number of sinks after clustering: 1809.
+[INFO CTS-0024]  Normalized sink region: [(2.37417, 2.13333), (154.628, 129.761)].
+[INFO CTS-0025]     Width:  152.2542.
+[INFO CTS-0026]     Height: 127.6281.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 905
+    Sub-region size: 76.1271 X 127.6281
+[INFO CTS-0034]     Segment length (rounded): 38.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 453
+    Sub-region size: 76.1271 X 63.8140
+[INFO CTS-0034]     Segment length (rounded): 32.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 227
+    Sub-region size: 38.0635 X 63.8140
+[INFO CTS-0034]     Segment length (rounded): 20.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 114
+    Sub-region size: 38.0635 X 31.9070
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 57
+    Sub-region size: 19.0318 X 31.9070
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 29
+    Sub-region size: 19.0318 X 15.9535
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 15
+    Sub-region size: 9.5159 X 15.9535
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 8
+    Sub-region size: 9.5159 X 7.9768
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 1809.
+[INFO CTS-0018]     Created 25 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 5.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 5.
+[INFO CTS-0015]     Created 25 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:10, 2:1, 3:3, 4:4..
+[INFO CTS-0017]     Max level of the clock tree: 4.
+[INFO CTS-0018]     Created 2112 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 7.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 7.
+[INFO CTS-0015]     Created 2112 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:12, 3:43, 4:114, 5:321, 6:664, 7:630, 8:199, 9:42, 10:19, 11:7, 12:7, 13:3, 14:3, 15:1..
+[INFO CTS-0017]     Max level of the clock tree: 8.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 28
+[INFO CTS-0100]  Leaf buffers 9
+[INFO CTS-0101]  Average sink wire length 1743.52 um
+[INFO CTS-0102]  Path depth 5 - 5
+[INFO CTS-0207]  Dummy loads inserted 1
+[INFO CTS-0098] Clock net "clk_regs"
+[INFO CTS-0099]  Sinks 12723
+[INFO CTS-0100]  Leaf buffers 1809
+[INFO CTS-0101]  Average sink wire length 733.23 um
+[INFO CTS-0102]  Path depth 6 - 7
+[INFO CTS-0207]  Dummy loads inserted 1507
+[INFO RSZ-0047] Found 1 long wires.
+[INFO RSZ-0048] Inserted 1 buffers in 1 nets.
+[INFO CTS-0033] Balancing latency for clock core_clock
+[INFO CTS-0036]  inserted 2 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 2
+[INFO CTS-0500] Runtime: 8.24s
+Took 9 seconds: clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 1056662.92 um^2
+[INFO DPL-0007] Movable instances area: 164708.80 um^2
+[INFO DPL-0008] Fixed instances area within core: 472582.78 um^2
+[INFO DPL-0009] Utilization: 60.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 96360 cells
+[INFO DPL-0393]   height 43 row(s): 4 cells
+[INFO DPL-0393]   height 47 row(s): 16 cells
+[INFO DPL-0393]   height 157 row(s): 8 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.90s
+Placement Analysis
+---------------------------------
+total displacement      43059.1 u
+average displacement        0.4 u
+max displacement           20.0 u
+original HPWL         3612375.3 u
+legalized HPWL        3637714.4 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 2251 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 2251 out of 2251 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.689 |     -146.4 |     -720.7 |   2251 | swerv.dec.instbuff.genblk4_bp2ff.genblock_dff.dout\[3\]$_DFF_PN0_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -0.550 |     -139.0 |     -605.2 |   2251 | swerv.lsu.lsu_lsc_ctl.lsu_pkt_dc1ff.dout\[12\]$_DFF_PN0_/D
+      20* |       0 |      16 |        2 |      0 |     2 |    +0.0% |   -0.506 |     -135.4 |     -582.1 |   2251 | swerv.dec.instbuff.genblk3_pc2ff.genblock_dff.dout\[7\]$_DFF_PN0_/D
+      30* |       0 |      23 |        5 |      0 |     4 |    +0.0% |   -0.481 |     -133.5 |     -564.0 |   2251 | swerv.dec.instbuff.genblk3_pc2ff.genblock_dff.dout\[7\]$_DFF_PN0_/D
+      40* |       0 |      29 |        7 |      0 |     6 |    +0.0% |   -0.456 |     -132.1 |     -542.0 |   2251 | swerv.dma_ctrl.RdPtr_dff.dffs.dout\[1\]$_DFFE_PN0P_/D
+      50* |       0 |      35 |        7 |      0 |    10 |    +0.0% |   -0.441 |     -131.6 |     -517.6 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[28\]$_DFF_PN0_/D
+      60* |       0 |      43 |        7 |      0 |    12 |    +0.0% |   -0.422 |     -124.7 |     -504.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+      70* |       0 |      48 |        9 |      0 |    15 |    +0.0% |   -0.432 |     -124.6 |     -505.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[4\]$_DFF_PN0_/D
+      80* |       0 |      56 |       10 |      0 |    16 |    +0.0% |   -0.406 |     -120.4 |     -474.1 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[24\]$_DFF_PN0_/D
+      90* |       0 |      64 |       10 |      0 |    18 |    +0.0% |   -0.400 |     -118.0 |     -473.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     100* |       0 |      73 |       10 |      0 |    19 |    +0.0% |   -0.402 |     -116.4 |     -475.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     110* |       0 |      83 |       10 |      0 |    19 |    +0.0% |   -0.382 |     -115.5 |     -467.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+     120* |       0 |      93 |       10 |      0 |    19 |    +0.0% |   -0.375 |     -112.6 |     -461.9 |   2251 | swerv.dec.instbuff.genblk3_pc2ff.genblock_dff.dout\[7\]$_DFF_PN0_/D
+     130* |       0 |     102 |       10 |      0 |    20 |    +0.0% |   -0.369 |     -112.0 |     -456.0 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[24\]$_DFF_PN0_/D
+     140* |       0 |     108 |       10 |      0 |    24 |    +0.0% |   -0.364 |     -108.7 |     -451.0 |   2251 | swerv.lsu.lsu_lsc_ctl.sddc1ff.dout\[15\]$_DFF_PN0_/D
+     150* |       0 |     117 |       10 |      0 |    25 |    +0.0% |   -0.366 |     -108.9 |     -450.8 |   2251 | swerv.dec.instbuff.genblk4_bp2ff.genblock_dff.dout\[10\]$_DFF_PN0_/D
+     160* |       1 |     124 |       12 |      0 |    26 |    +0.0% |   -0.358 |     -107.8 |     -435.7 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[24\]$_DFF_PN0_/D
+     170* |       1 |     130 |       12 |      0 |    30 |    +0.0% |   -0.350 |     -105.9 |     -434.6 |   2251 | swerv.dec.instbuff.genblk3_pc2ff.genblock_dff.dout\[7\]$_DFF_PN0_/D
+     180* |       2 |     136 |       13 |      0 |    32 |    +0.0% |   -0.342 |     -102.9 |     -419.2 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[24\]$_DFF_PN0_/D
+     190* |       2 |     142 |       14 |      0 |    35 |    +0.0% |   -0.332 |      -99.9 |     -411.7 |   2251 | swerv.dec.tlu.flush_lower_ff.dout\[24\]$_DFF_PN0_/D
+     200* |       2 |     146 |       15 |      1 |    39 |    +0.0% |   -0.384 |      -99.1 |     -413.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[13\]$_DFF_PN0_/D
+     210* |       2 |     151 |       17 |      3 |    40 |    +0.0% |   -0.347 |      -98.3 |     -408.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[19\]$_DFF_PN0_/D
+     220* |       2 |     159 |       17 |      3 |    42 |    +0.0% |   -0.353 |      -98.5 |     -410.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[23\]$_DFF_PN0_/D
+     230* |       2 |     164 |       18 |      3 |    46 |    +0.0% |   -0.382 |      -99.0 |     -417.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+     240* |       2 |     169 |       18 |      3 |    51 |    +0.0% |   -0.395 |      -99.3 |     -421.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+     249* |       2 |     146 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -404.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     250* |       2 |     146 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -404.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     260* |       2 |     154 |       16 |      0 |    40 |    +0.0% |   -0.327 |      -98.0 |     -408.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     270* |       2 |     159 |       18 |      0 |    44 |    +0.0% |   -0.332 |      -98.0 |     -414.4 |   2251 | swerv.dec.instbuff.cinst1ff.genblock_dff.dout\[0\]$_DFF_PN0_/D
+     280* |       2 |     164 |       20 |      0 |    47 |    +0.0% |   -0.329 |      -98.0 |     -412.8 |   2251 | swerv.dec.instbuff.cinst1ff.genblock_dff.dout\[0\]$_DFF_PN0_/D
+     290* |       2 |     172 |       20 |      0 |    49 |    +0.0% |   -0.339 |      -98.5 |     -419.0 |   2251 | swerv.dec.instbuff.cinst1ff.genblock_dff.dout\[0\]$_DFF_PN0_/D
+     297* |       2 |     152 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -404.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     300* |       2 |     153 |       16 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -408.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     310* |       2 |     160 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -97.9 |     -406.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     320* |       2 |     170 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -97.6 |     -399.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     330* |       2 |     174 |       22 |      0 |    43 |    +0.0% |   -0.327 |      -97.6 |     -399.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     340* |       2 |     180 |       25 |      0 |    44 |    +0.0% |   -0.327 |      -97.6 |     -402.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     343* |       2 |     153 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.1 |     -404.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     350* |       2 |     156 |       19 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -407.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     360* |       2 |     165 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -405.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     370* |       2 |     173 |       21 |      0 |    40 |    +0.0% |   -0.327 |      -97.6 |     -400.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     380* |       2 |     180 |       24 |      0 |    40 |    +0.0% |   -0.327 |      -97.6 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     380* |       2 |     154 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.1 |     -404.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     390* |       2 |     159 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -97.9 |     -407.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     400* |       2 |     169 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -97.6 |     -400.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     410* |       2 |     176 |       22 |      0 |    40 |    +0.0% |   -0.327 |      -97.6 |     -402.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     416* |       2 |     154 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.1 |     -404.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     420* |       2 |     155 |       18 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -408.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     430* |       2 |     163 |       20 |      0 |    39 |    +0.0% |   -0.327 |      -98.0 |     -406.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     440* |       2 |     172 |       21 |      0 |    39 |    +0.0% |   -0.327 |      -97.6 |     -400.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     450* |       2 |     179 |       24 |      0 |    39 |    +0.0% |   -0.327 |      -97.6 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     452* |       2 |     154 |       15 |      0 |    39 |    +0.0% |   -0.327 |      -98.1 |     -404.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     460* |       2 |     158 |       18 |      0 |    39 |    +0.0% |   -0.327 |      -98.1 |     -405.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     470* |       2 |     162 |       20 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     480* |       2 |     170 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.8 |     -401.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     490* |       2 |     180 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -398.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     500* |       2 |     186 |       28 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -402.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     510* |       2 |     193 |       30 |      2 |    42 |    +0.0% |   -0.327 |      -97.5 |     -400.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     510* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     520* |       2 |     166 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -402.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     530* |       2 |     175 |       25 |      2 |    41 |    +0.0% |   -0.327 |      -97.6 |     -400.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     540* |       2 |     183 |       27 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -397.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     550* |       2 |     191 |       29 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -401.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     553* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     560* |       2 |     163 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -402.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     570* |       2 |     173 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -400.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     580* |       2 |     182 |       25 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -398.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     590* |       2 |     189 |       28 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     596* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     600* |       2 |     162 |       20 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     610* |       2 |     170 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.8 |     -401.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     620* |       2 |     180 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -398.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     630* |       2 |     186 |       28 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -402.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     639* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     640* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     650* |       2 |     167 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -402.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     660* |       2 |     176 |       25 |      2 |    41 |    +0.0% |   -0.327 |      -97.6 |     -400.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     670* |       2 |     184 |       27 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -397.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     680* |       2 |     192 |       29 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -401.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     683* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     690* |       2 |     163 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -402.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     700* |       2 |     173 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -400.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     710* |       2 |     182 |       25 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -398.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     720* |       2 |     189 |       28 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     726* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     730* |       2 |     163 |       19 |      2 |    41 |    +0.0% |   -0.327 |      -97.9 |     -404.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     740* |       2 |     170 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.8 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     750* |       2 |     180 |       24 |      2 |    41 |    +0.0% |   -0.327 |      -97.8 |     -398.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     760* |       2 |     187 |       27 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -402.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     770* |       2 |     194 |       30 |      2 |    41 |    +0.0% |   -0.327 |      -97.5 |     -400.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     770* |       2 |     161 |       19 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     780* |       2 |     168 |       21 |      1 |    41 |    +0.0% |   -0.327 |      -97.9 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     790* |       2 |     178 |       21 |      1 |    41 |    +0.0% |   -0.327 |      -97.5 |     -395.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     800* |       2 |     185 |       24 |      1 |    41 |    +0.0% |   -0.327 |      -97.5 |     -398.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     810* |       2 |     191 |       26 |      2 |    42 |    +0.0% |   -0.327 |      -97.9 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     815* |       2 |     191 |       26 |      2 |    42 |    +0.0% |   -0.327 |      -97.9 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     820* |       2 |     193 |       27 |      3 |    42 |    +0.0% |   -0.327 |      -97.5 |     -402.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     825* |       2 |     197 |       28 |      3 |    42 |    +0.0% |   -0.327 |      -97.5 |     -402.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     828* |       2 |     199 |       28 |      3 |    42 |    +0.0% |   -0.327 |      -97.5 |     -402.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     830* |       2 |     200 |       28 |      3 |    42 |    +0.0% |   -0.327 |      -97.5 |     -402.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     840* |       2 |     209 |       28 |      3 |    43 |    +0.0% |   -0.327 |      -97.4 |     -401.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     849* |       2 |     210 |       28 |      3 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     850* |       2 |     210 |       28 |      3 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     858* |       2 |     211 |       28 |      3 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     860* |       2 |     212 |       28 |      3 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     869* |       2 |     214 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     870* |       2 |     214 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     877* |       2 |     215 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     880* |       2 |     216 |       32 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     885* |       2 |     216 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     890* |       2 |     219 |       32 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     893* |       2 |     217 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     900* |       2 |     221 |       33 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     901* |       2 |     218 |       29 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -401.7 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     910* |       2 |     224 |       32 |      4 |    44 |    +0.0% |   -0.327 |      -97.4 |     -402.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     912* |       2 |     224 |       31 |      4 |    44 |    +0.0% |   -0.327 |      -97.5 |     -401.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     920* |       2 |     229 |       32 |      4 |    45 |    +0.0% |   -0.327 |      -97.5 |     -402.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     923* |       2 |     228 |       32 |      4 |    44 |    +0.0% |   -0.327 |      -97.5 |     -402.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     927* |       2 |     231 |       32 |      4 |    44 |    +0.0% |   -0.327 |      -97.6 |     -402.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     930* |       2 |     232 |       32 |      4 |    45 |    +0.0% |   -0.327 |      -97.6 |     -402.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     939* |       2 |     237 |       32 |      4 |    45 |    +0.0% |   -0.327 |      -97.6 |     -402.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     940* |       2 |     237 |       32 |      4 |    45 |    +0.0% |   -0.327 |      -97.6 |     -402.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     950* |       2 |     243 |       36 |      4 |    47 |    +0.1% |   -0.327 |      -97.6 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     951* |       2 |     244 |       36 |      4 |    47 |    +0.1% |   -0.327 |      -97.6 |     -401.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     960* |       2 |     250 |       40 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -400.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     960* |       2 |     246 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -400.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     967* |       2 |     247 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -400.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     969* |       2 |     248 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -400.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     970* |       2 |     248 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -400.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     980* |       2 |     256 |       39 |      5 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     981* |       2 |     255 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     988* |       2 |     256 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     990* |       2 |     257 |       39 |      4 |    47 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     992* |       2 |     258 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+     994* |       2 |     259 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1000* |       2 |     263 |       40 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1001* |       2 |     260 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1010* |       2 |     265 |       40 |      5 |    49 |    +0.1% |   -0.327 |      -97.4 |     -399.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1010* |       2 |     263 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1012* |       2 |     264 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.2 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1020* |       2 |     269 |       39 |      5 |    49 |    +0.1% |   -0.327 |      -97.4 |     -399.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1021* |       2 |     268 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1030* |       2 |     272 |       41 |      6 |    49 |    +0.1% |   -0.327 |      -97.4 |     -400.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1030* |       2 |     270 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1040* |       2 |     277 |       40 |      4 |    49 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1040* |       2 |     277 |       39 |      4 |    48 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1044* |       2 |     278 |       39 |      4 |    50 |    +0.1% |   -0.327 |      -97.4 |     -399.3 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1050* |       2 |     283 |       39 |      4 |    50 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1053* |       2 |     285 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1060* |       2 |     289 |       41 |      4 |    52 |    +0.1% |   -0.327 |      -97.5 |     -399.6 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1060* |       2 |     285 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1066* |       2 |     285 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1070* |       2 |     288 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1075* |       2 |     288 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.4 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1080* |       2 |     291 |       39 |      5 |    51 |    +0.1% |   -0.337 |      -98.8 |     -400.1 |   2251 | swerv.dec.instbuff.genblk4_bp2ff.genblock_dff.dout\[58\]$_DFF_PN0_/D
+    1090* |       2 |     294 |       46 |      6 |    51 |    +0.1% |   -0.331 |      -98.4 |     -408.9 |   2251 | swerv.lsu.lsu_lsc_ctl.sddc1ff.dout\[15\]$_DFF_PN0_/D
+    1093* |       2 |     290 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.7 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1100* |       2 |     295 |       39 |      5 |    51 |    +0.1% |   -0.327 |      -97.7 |     -399.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1100* |       2 |     294 |       39 |      4 |    51 |    +0.1% |   -0.327 |      -97.7 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1106* |       2 |     295 |       39 |      4 |    53 |    +0.1% |   -0.327 |      -97.7 |     -399.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1110* |       2 |     298 |       39 |      4 |    53 |    +0.1% |   -0.327 |      -98.0 |     -399.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1117* |       2 |     299 |       40 |      4 |    53 |    +0.1% |   -0.327 |      -98.0 |     -399.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1120* |       2 |     299 |       40 |      6 |    53 |    +0.1% |   -0.327 |      -98.0 |     -400.1 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1126* |       2 |     302 |       40 |      7 |    53 |    +0.1% |   -0.327 |      -98.0 |     -400.5 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1130* |       2 |     304 |       40 |      8 |    53 |    +0.1% |   -0.327 |      -98.0 |     -400.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1137* |       2 |     306 |       43 |      9 |    53 |    +0.1% |   -0.327 |      -98.0 |     -401.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1140* |       2 |     308 |       43 |      9 |    53 |    +0.1% |   -0.327 |      -98.0 |     -401.8 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1143* |       2 |     309 |       44 |      9 |    53 |    +0.1% |   -0.327 |      -98.0 |     -402.4 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1150* |       2 |     313 |       45 |     10 |    53 |    +0.1% |   -0.327 |      -98.0 |     -402.9 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1152* |       2 |     313 |       47 |     10 |    53 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1157* |       2 |     316 |       47 |     10 |    53 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1160* |       2 |     317 |       47 |     10 |    54 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1160* |       2 |     317 |       47 |     10 |    53 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1164* |       2 |     318 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1170* |       2 |     323 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1173* |       2 |     323 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1180* |       2 |     324 |       50 |     12 |    55 |    +0.1% |   -0.341 |      -99.0 |     -406.1 |   2251 | swerv.dec.instbuff.genblk4_bp2ff.genblock_dff.dout\[58\]$_DFF_PN0_/D
+    1190* |       2 |     331 |       57 |     12 |    55 |    +0.1% |   -0.335 |      -98.6 |     -413.1 |   2251 | swerv.dec.instbuff.pc1ff.genblock_dff.dout\[10\]$_DFF_PN0_/D
+    1193* |       2 |     323 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1195* |       2 |     323 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1200* |       2 |     327 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1200* |       2 |     327 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1200* |       2 |     327 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2251 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1200+ |       2 |     327 |       47 |     10 |    55 |    +0.1% |   -0.327 |      -98.0 |     -403.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[30\]$_DFF_PN0_/D
+    1203+ |       2 |     329 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.9 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1204+ |       2 |     329 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.9 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1205+ |       2 |     329 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.9 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1207+ |       2 |     330 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1208+ |       2 |     330 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1209+ |       2 |     330 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1210+ |       2 |     330 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1210+ |       2 |     330 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1212+ |       2 |     331 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1214+ |       2 |     332 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1215+ |       2 |     332 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1217+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1218+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1219+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1220+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1220+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1221+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1222+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1223+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1224+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1225+ |       2 |     333 |       47 |     10 |    55 |    +0.1% |   -0.326 |      -97.7 |     -401.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1230+ |       2 |     336 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -97.3 |     -400.8 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1235+ |       2 |     341 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1237+ |       2 |     342 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1239+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1240+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1240+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1241+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1242+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1243+ |       2 |     343 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.4 |     -400.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1246+ |       2 |     345 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1247+ |       2 |     345 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1250+ |       2 |     347 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1250+ |       2 |     347 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1251+ |       2 |     347 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1252+ |       2 |     347 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1253+ |       2 |     347 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1255+ |       2 |     348 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1256+ |       2 |     348 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1257+ |       2 |     348 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1258+ |       2 |     348 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1260+ |       2 |     349 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1260+ |       2 |     349 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -400.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1262+ |       2 |     350 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -398.9 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1263+ |       2 |     350 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -95.3 |     -398.9 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1266+ |       2 |     352 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.6 |     -398.8 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1267+ |       2 |     352 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.6 |     -398.8 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1270+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1270+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1271+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1272+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1273+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1274+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1275+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1276+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1277+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1278+ |       2 |     354 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1280+ |       2 |     355 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1280+ |       2 |     355 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1281+ |       2 |     355 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1282+ |       2 |     355 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1284+ |       2 |     356 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1285+ |       2 |     356 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1287+ |       2 |     357 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1288+ |       2 |     357 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -398.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1290+ |       2 |     358 |       47 |     10 |    56 |    +0.1% |   -0.326 |      -93.4 |     -397.9 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1295+ |       2 |     362 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1297+ |       2 |     363 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1298+ |       2 |     363 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1300+ |       2 |     364 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1301+ |       2 |     364 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1303+ |       2 |     365 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1304+ |       2 |     365 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1305+ |       2 |     365 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1307+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1308+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1309+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1310+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1310+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1311+ |       2 |     366 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1313+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1314+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1315+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1316+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1317+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1318+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1319+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1320+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1320+ |       2 |     367 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -396.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1322+ |       2 |     368 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -395.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1323+ |       2 |     368 |       47 |     10 |    57 |    +0.1% |   -0.326 |      -93.4 |     -395.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1325+ |       2 |     368 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.4 |     -395.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1328+ |       2 |     370 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.4 |     -394.7 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1330+ |       2 |     371 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.4 |     -394.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1334+ |       2 |     375 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.4 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1336+ |       2 |     376 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.3 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1338+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1339+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1340+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1340+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1341+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1342+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1343+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1344+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1345+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1346+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1347+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1348+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1349+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1350+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1350+ |       2 |     377 |       47 |     10 |    58 |    +0.1% |   -0.326 |      -93.3 |     -394.2 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1353+ |       2 |     378 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1355+ |       2 |     379 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1357+ |       2 |     380 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1358+ |       2 |     380 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1360+ |       2 |     381 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1361+ |       2 |     382 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1363+ |       2 |     383 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1364+ |       2 |     383 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -394.0 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1366+ |       2 |     384 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1367+ |       2 |     384 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.6 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1369+ |       2 |     385 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1370+ |       2 |     385 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1370+ |       2 |     385 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1371+ |       2 |     385 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1372+ |       2 |     385 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1376+ |       2 |     388 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1377+ |       2 |     388 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1378+ |       2 |     388 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1380+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1380+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1381+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1382+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1383+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1384+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1385+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1386+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1387+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1388+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1389+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1390+ |       2 |     389 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1391+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1392+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1393+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1394+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1395+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1396+ |       2 |     390 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    1400+ |       2 |     393 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2210 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+    final |       2 |     393 |       47 |     10 |    59 |    +0.1% |   -0.326 |      -93.4 |     -393.5 |   2206 | swerv.ifu.mem_ctl.ifu_debug_data_ff.dout\[15\]$_DFF_PN0_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 2 buffers.
+[INFO RSZ-0040] Inserted 47 buffers.
+[INFO RSZ-0051] Resized 393 instances: 393 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 59 instances.
+[INFO RSZ-0049] Cloned 10 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 100.62s
+[INFO RSZ-0046] Found 24 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.071 |  -1.026 | swerv.ifu.mem_ctl.axi_rsp_vld_ff.dout$_DFF_PN0_/RN
+       10 |       0 |       3 |            0 |    +0.0% |  -0.039 |  -0.326 | swerv.dbg.dmabstractcs_error_reg.dout[1]$_DFF_PN0_/RN
+       20 |       0 |       5 |            0 |    +0.0% |   0.013 |   0.000 | swerv.dbg.dmabstractcs_error_reg.dout[1]$_DFF_PN0_/RN
+    final |       0 |       5 |            0 |    +0.0% |   0.013 |   0.000 | swerv.dbg.dmabstractcs_error_reg.dout[1]$_DFF_PN0_/RN
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 5 hold buffers.
+[INFO RSZ-0506] Runtime: 2.38s
+Took 103 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 1056662.92 um^2
+[INFO DPL-0007] Movable instances area: 165284.42 um^2
+[INFO DPL-0008] Fixed instances area within core: 472582.78 um^2
+[INFO DPL-0009] Utilization: 60.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 96420 cells
+[INFO DPL-0393]   height 43 row(s): 4 cells
+[INFO DPL-0393]   height 47 row(s): 16 cells
+[INFO DPL-0393]   height 157 row(s): 8 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          8 |         2 |         6
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 1.00s
+Placement Analysis
+---------------------------------
+total displacement        390.4 u
+average displacement        0.0 u
+max displacement            8.4 u
+original HPWL         3638762.9 u
+legalized HPWL        3639106.0 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 637867 um^2 60% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/4_cts.sdc
+Elapsed time: 3:57.03[h:]min:sec. CPU time: user 434.42 sys 199.51 (267%). Peak memory: 1063288KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb          237           1038 2951d4d644de93b34392

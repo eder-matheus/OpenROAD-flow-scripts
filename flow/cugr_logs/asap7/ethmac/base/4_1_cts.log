@@ -1,0 +1,320 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ethmac/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ethmac/base/3_place.sdc
+source ./platforms/asap7/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx24_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0007] Net "wb_clk_i" found for clock "wb_clk_i".
+[INFO CTS-0010]  Clock net "wb_clk_i" has 10018 sinks.
+[INFO CTS-0007] Net "mtx_clk_pad_i" found for clock "mtx_clk_pad_i".
+[INFO CTS-0010]  Clock net "mtx_clk_pad_i" has 231 sinks.
+[INFO CTS-0007] Net "mrx_clk_pad_i" found for clock "mrx_clk_pad_i".
+[INFO CTS-0010]  Clock net "mrx_clk_pad_i" has 297 sinks.
+[INFO CTS-0008] TritonCTS found 3 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net wb_clk_i.
+[INFO CTS-0028]  Total number of sinks: 10018.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 10 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 10 and max clustering diameter of 18.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 1002.
+[INFO CTS-0024]  Normalized sink region: [(2.13185, 2.22), (76.7379, 76.4533)].
+[INFO CTS-0025]     Width:  74.6060.
+[INFO CTS-0026]     Height: 74.2333.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 501
+    Sub-region size: 37.3030 X 74.2333
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 251
+    Sub-region size: 37.3030 X 37.1167
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 126
+    Sub-region size: 18.6515 X 37.1167
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 63
+    Sub-region size: 18.6515 X 18.5583
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 32
+    Sub-region size: 9.3258 X 18.5583
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 16
+    Sub-region size: 9.3258 X 9.2792
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 8
+    Sub-region size: 4.6629 X 9.2792
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (137.460 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 1002.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net mtx_clk_pad_i.
+[INFO CTS-0028]  Total number of sinks: 231.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 10 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 10 and max clustering diameter of 25.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 24.
+[INFO CTS-0024]  Normalized sink region: [(30.2496, 56.0796), (43.543, 74.5996)].
+[INFO CTS-0025]     Width:  13.2933.
+[INFO CTS-0026]     Height: 18.5200.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 12
+    Sub-region size: 13.2933 X 9.2600
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 6
+    Sub-region size: 6.6467 X 9.2600
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (137.460 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 24.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net mrx_clk_pad_i.
+[INFO CTS-0028]  Total number of sinks: 297.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 10 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 10 and max clustering diameter of 14.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 30.
+[INFO CTS-0024]  Normalized sink region: [(45.0196, 53.7332), (65.2616, 68.6667)].
+[INFO CTS-0025]     Width:  20.2420.
+[INFO CTS-0026]     Height: 14.9335.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 15
+    Sub-region size: 10.1210 X 14.9335
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 8
+    Sub-region size: 10.1210 X 7.4668
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (137.460 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 30.
+[INFO CTS-0018]     Created 1207 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 6.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 6.
+[INFO CTS-0015]     Created 1207 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 7:22, 8:107, 10:1001..
+[INFO CTS-0017]     Max level of the clock tree: 7.
+[INFO CTS-0018]     Created 29 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 29 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:1, 6:4, 9:1, 10:22..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0018]     Created 35 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 35 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 7:3, 8:2, 10:29..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0098] Clock net "wb_clk_i"
+[INFO CTS-0099]  Sinks 10041
+[INFO CTS-0100]  Leaf buffers 1002
+[INFO CTS-0101]  Average sink wire length 196.28 um
+[INFO CTS-0102]  Path depth 5 - 6
+[INFO CTS-0207]  Dummy loads inserted 23
+[INFO CTS-0098] Clock net "mtx_clk_pad_i"
+[INFO CTS-0099]  Sinks 233
+[INFO CTS-0100]  Leaf buffers 24
+[INFO CTS-0101]  Average sink wire length 43.58 um
+[INFO CTS-0102]  Path depth 3 - 3
+[INFO CTS-0207]  Dummy loads inserted 2
+[INFO CTS-0098] Clock net "mrx_clk_pad_i"
+[INFO CTS-0099]  Sinks 300
+[INFO CTS-0100]  Leaf buffers 30
+[INFO CTS-0101]  Average sink wire length 54.46 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 3
+[INFO CTS-0500] Runtime: 2.45s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 10438.29 um^2
+[INFO DPL-0007] Movable instances area: 8098.36 um^2
+[INFO DPL-0008] Fixed instances area within core: 44.21 um^2
+[INFO DPL-0009] Utilization: 78.0%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 61049 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       7215 |      1285 |      5930
+        1 |       1890 |       276 |      1614
+        2 |        744 |       101 |       643
+        3 |        522 |        52 |       470
+        4 |        416 |        33 |       383
+        5 |        266 |        20 |       246
+        6 |        178 |        16 |       162
+        7 |        137 |        13 |       124
+        8 |         61 |        11 |        50
+        9 |         32 |         4 |        28
+       10 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 10.
+[INFO DPL-0500] Runtime: 1.38s
+Placement Analysis
+---------------------------------
+total displacement      13391.7 u
+average displacement        0.2 u
+max displacement            3.2 u
+original HPWL          166127.0 u
+legalized HPWL         175827.4 u
+delta HPWL                    6 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin -10 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 26 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 26 out of 26 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -90.054 |    -1008.2 |    -1544.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[5\]$_DFFE_PP0P_/D
+      10* |       0 |       2 |        2 |      0 |     5 |    +0.0% |  -91.124 |    -1012.9 |    -1556.2 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      15* |       0 |       2 |        1 |      0 |     1 |    +0.0% |  -88.886 |     -991.0 |    -1517.3 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      20* |       0 |       3 |        1 |      0 |     4 |    +0.0% |  -91.832 |    -1030.2 |    -1564.0 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      24* |       0 |       2 |        1 |      0 |     1 |    +0.0% |  -88.886 |     -991.0 |    -1517.3 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      30* |       0 |       3 |        4 |      0 |     2 |    +0.0% |  -87.374 |     -985.5 |    -1492.7 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      30* |       0 |       3 |        4 |      0 |     2 |    +0.0% |  -87.374 |     -985.5 |    -1492.7 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      32* |       0 |       3 |        4 |      0 |     3 |    +0.0% |  -87.325 |     -984.9 |    -1492.4 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      34* |       0 |       3 |        4 |      0 |     3 |    +0.0% |  -87.325 |     -984.9 |    -1492.4 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      36* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      38* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      39* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      40* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      40* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      48* |       0 |       3 |        4 |      0 |     4 |    +0.0% |  -87.297 |     -984.5 |    -1491.8 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      50* |       0 |       4 |        4 |      0 |     4 |    +0.0% |  -87.731 |     -990.7 |    -1487.2 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      53* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      55* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      57* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      59* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      60* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      61* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      63* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      66* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      69* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      70* |       0 |       6 |        4 |      0 |     4 |    +0.0% |  -87.227 |     -983.4 |    -1470.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      80* |       0 |      11 |        7 |      0 |     6 |    +0.0% |  -87.227 |     -958.9 |    -1443.6 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      82* |       0 |      12 |        8 |      0 |     6 |    +0.0% |  -87.227 |     -955.4 |    -1440.2 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      85* |       0 |      12 |        9 |      0 |     6 |    +0.0% |  -87.227 |     -955.4 |    -1436.3 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      88* |       0 |      13 |        9 |      0 |     7 |    +0.0% |  -87.227 |     -953.7 |    -1431.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      89* |       0 |      13 |        9 |      0 |     7 |    +0.0% |  -87.227 |     -953.7 |    -1431.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      90* |       0 |      13 |        9 |      0 |     7 |    +0.0% |  -87.227 |     -953.7 |    -1431.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      90* |       0 |      13 |        9 |      0 |     7 |    +0.0% |  -87.227 |     -953.7 |    -1431.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      91* |       0 |      13 |        9 |      0 |     7 |    +0.0% |  -87.227 |     -953.7 |    -1431.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      94* |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      95* |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      95* |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     26 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      96+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      97+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      98+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+      99+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     100+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     100+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     101+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     102+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     103+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     104+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     105+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     106+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     107+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     108+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     109+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     110+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     110+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     111+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     112+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     113+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+     114+ |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+    final |       0 |      13 |       10 |      0 |     8 |    +0.0% |  -87.227 |     -952.7 |    -1430.9 |     19 | maccontrol1.receivecontrol1.PauseTimer\[4\]$_DFFE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 10 buffers.
+[INFO RSZ-0051] Resized 13 instances: 13 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 8 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 4.12s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.08s
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 10438.29 um^2
+[INFO DPL-0007] Movable instances area: 8099.54 um^2
+[INFO DPL-0008] Fixed instances area within core: 44.21 um^2
+[INFO DPL-0009] Utilization: 78.0%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 61059 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        102 |        20 |        82
+        1 |         20 |         4 |        16
+        2 |         10 |         4 |         6
+        3 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 3.
+[INFO DPL-0500] Runtime: 0.43s
+Placement Analysis
+---------------------------------
+total displacement         17.5 u
+average displacement        0.0 u
+max displacement            2.2 u
+original HPWL          175829.9 u
+legalized HPWL         175846.4 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 8144 um^2 78% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ethmac/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ethmac/base/4_cts.sdc
+Elapsed time: 0:31.25[h:]min:sec. CPU time: user 48.64 sys 37.74 (276%). Peak memory: 663088KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           31            647 a0b447f9f3d27968743b

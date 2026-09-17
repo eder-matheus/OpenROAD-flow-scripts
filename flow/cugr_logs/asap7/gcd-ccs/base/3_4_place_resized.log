@@ -1,0 +1,77 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       391
+       10 |     +0.0% |       0 |       0 |             0 |       381
+       20 |     +0.0% |       0 |       0 |             0 |       371
+       30 |     +0.0% |       0 |       0 |             0 |       361
+       40 |     +0.0% |       0 |       0 |             0 |       351
+       50 |     +0.0% |       0 |       0 |             0 |       341
+       60 |     +0.0% |       0 |       0 |             0 |       331
+       70 |     +0.0% |       0 |       0 |             0 |       321
+       80 |     +0.0% |       0 |       0 |             0 |       311
+       90 |     +0.0% |       0 |       0 |             0 |       301
+      100 |     +0.0% |       0 |       0 |             0 |       291
+      110 |     +0.0% |       0 |       0 |             0 |       281
+      120 |     +0.0% |       0 |       0 |             0 |       271
+      130 |     +0.0% |       0 |       0 |             0 |       261
+      140 |     +0.0% |       0 |       0 |             0 |       251
+      150 |     +0.0% |       0 |       0 |             0 |       241
+      160 |     +0.0% |       0 |       0 |             0 |       231
+      170 |     +0.0% |       0 |       0 |             0 |       221
+      180 |     +0.0% |       0 |       0 |             0 |       211
+      190 |     +0.0% |       0 |       0 |             0 |       201
+      200 |     +0.0% |       0 |       0 |             0 |       191
+      210 |     +0.0% |       0 |       0 |             0 |       181
+      220 |     +0.0% |       0 |       0 |             0 |       171
+      230 |     +0.0% |       0 |       0 |             0 |       161
+      240 |     +0.0% |       0 |       0 |             0 |       151
+      250 |     +0.0% |       0 |       0 |             0 |       141
+      260 |     +0.0% |       0 |       0 |             0 |       131
+      270 |     +0.0% |       0 |       0 |             0 |       121
+      280 |     +0.0% |       0 |       0 |             0 |       111
+      290 |     +0.0% |       0 |       0 |             0 |       101
+      300 |     +0.0% |       0 |       0 |             0 |        91
+      310 |     +0.0% |       0 |       0 |             0 |        81
+      320 |     +0.0% |       0 |       0 |             0 |        71
+      330 |     +0.0% |       0 |       0 |             0 |        61
+      340 |     +0.0% |       0 |       0 |             0 |        51
+      350 |     +0.0% |       0 |       0 |             0 |        41
+      360 |     +0.0% |       0 |       0 |             0 |        31
+      370 |     +0.0% |       0 |       0 |             0 |        21
+      380 |     +0.0% |       0 |       0 |             0 |        11
+      390 |     +0.0% |       0 |       0 |             0 |         1
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.27s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 44 um^2 67% utilization.
+Instance count before 415, after 415
+Pin count before 1166, after 1166
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/3_4_place_resized.odb
+Elapsed time: 0:06.87[h:]min:sec. CPU time: user 6.95 sys 0.12 (102%). Peak memory: 454584KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            6            443 5bcaae609ccb7523fa46

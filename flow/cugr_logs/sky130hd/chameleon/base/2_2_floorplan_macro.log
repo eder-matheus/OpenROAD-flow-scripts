@@ -1,0 +1,32 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/chameleon/base/2_1_floorplan.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/chameleon/base/2_1_floorplan.sdc
+source ./platforms/sky130hd/setRC.tcl
+rtl_macro_placer -max_num_level 2 -halo_width 35 -halo_height 35 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/objects/sky130hd/chameleon/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.6
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+Die Area: (0.00, 0.00) (2683.22, 3486.98),  Floorplan Area: (2.30, 2.72) (2680.88, 3484.32)
+	Number of std cell instances: 2459
+	Area of std cell instances: 24342.10
+	Number of macros: 6
+	Macros to be placed: 6
+	Area of macros: 5574790.15
+	Base halo (L, B, R, T): (35.00, 35.00, 35.00, 35.00)
+	Area of macros with halos: 5905700.12
+	Area of std cell instances + Area of macros: 5599132.24
+	Floorplan area: 9325744.13
+	Design Utilization: 0.60
+	Floorplan Utilization: 0.01
+	Manufacturing Grid: 5
+
+[INFO MPL-0500] Runtime: 5.23s
+Took 5 seconds: rtl_macro_placer -max_num_level 2 -halo_width 35 -halo_height 35 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/objects/sky130hd/chameleon/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.6
+Design area 5599132 um^2 60% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/chameleon/base/2_2_floorplan_macro.odb
+Elapsed time: 0:05.65[h:]min:sec. CPU time: user 23.02 sys 2.88 (458%). Peak memory: 145176KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            5            141 b52cd7a8fb4c8d33e4cd

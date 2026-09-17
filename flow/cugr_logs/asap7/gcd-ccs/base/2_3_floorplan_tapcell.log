@@ -1,0 +1,28 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/2_2_floorplan_macro.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/2_1_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+Tap and End Cap cell insertion
+  TAP Cell          : TAPCELL_ASAP7_75t_R
+  ENDCAP Cell       : TAPCELL_ASAP7_75t_R
+  Halo Around Macro : 2 2
+  TAP Cell Distance : 25
+[INFO TAP-0004] Inserted 60 endcaps.
+[INFO TAP-0005] Inserted 0 tapcells.
+Design area 42 um^2 64% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/2_3_floorplan_tapcell.odb
+Elapsed time: 0:06.55[h:]min:sec. CPU time: user 6.46 sys 0.09 (100%). Peak memory: 448756KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_3_floorplan_tapcell     .odb            6            438 7faa8feb9c7e00edadc9

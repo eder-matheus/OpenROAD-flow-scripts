@@ -1,0 +1,204 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/1_synth.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/1_synth.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+number instances in verilog is 7066
+[INFO IFP-0107] Defining die area using utilization: 35.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (17.500, 17.500) snapped to (17.760, 18.900).
+[INFO IFP-0001] Added 154 rows of 1221 site CoreSite.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 621.715 621.715 ) um
+[INFO IFP-0101] Core BBox: ( 17.760 18.900 ) ( 603.840 601.020 ) um
+[INFO IFP-0102] Core area:                       341168.890 um^2
+[INFO IFP-0103] Total instances area:            120481.603 um^2
+[INFO IFP-0104] Effective utilization:                0.353
+[INFO IFP-0105] Number of instances:                   7064
+source ./platforms/ihp-sg13g2/make_tracks.tcl
+source ./platforms/ihp-sg13g2/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 3 tie sg13g2_tielo instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 1024 tie sg13g2_tiehi instances.
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 100 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 100 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 100 out of 100 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.166 |       -4.9 |       -6.3 |    100 | aluout[13]
+       2* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       3* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       4* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       5* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       6* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       7* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       8* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+       9* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      10* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      10* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      11* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      12* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      13* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      14* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      15* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      16* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      17* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      18* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      19* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      20* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      20* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      21* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      22* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      23* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      24* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      25* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      26* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      27* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      28* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      29* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      30* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      30* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      31* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      32* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      33* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      34* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      35* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      36* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      37* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      38* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      39* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      40* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      40* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      41* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      42* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      43* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      44* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      45* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      46* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      47* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      48* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      49* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      50* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      50* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      51* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      52* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      53* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      54* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      55* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      56* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      57* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      58* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      59* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      60* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      60* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      61* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      62* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      63* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      64* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      65* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      66* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      67* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      68* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      69* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      70* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      70* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      71* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      72* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      73* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      74* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      75* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      76* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      77* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      78* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      79* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      80* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      80* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      81* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      82* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      83* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      84* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      85* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      86* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      87* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      88* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      89* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      90* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      90* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      91* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      92* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      93* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      94* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      95* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      96* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      97* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      98* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+      99* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+     100* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+     100* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+     101* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+     101* |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |    100 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+    final |       0 |       1 |        0 |      0 |     0 |    +0.0% |    0.511 |        0.0 |        0.0 |      0 | dp.rf.rf\[10\]\[1\]$_DFFE_PP_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 1 instances: 1 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0505] Runtime: 0.72s
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1uA
+ power 1pW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (pF/um)
+------------------------------------------------
+    Metal1 |        8.55e-03 |         1.00e-10
+    Metal2 |        4.40e-04 |         1.69e-04
+    Metal3 |        4.40e-04 |         1.83e-04
+    Metal4 |        4.40e-04 |         1.66e-04
+    Metal5 |        4.40e-04 |         8.57e-05
+ TopMetal1 |        1.28e-05 |         1.11e-04
+ TopMetal2 |        7.25e-06 |         9.01e-05
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      Via1 |       2.00e-03 
+      Via2 |       2.00e-03 
+      Via3 |       2.00e-03 
+      Via4 |       2.00e-03 
+   TopVia1 |       4.00e-04 
+   TopVia2 |       2.20e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 127926 um^2 37% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/2_1_floorplan.sdc
+Elapsed time: 0:02.56[h:]min:sec. CPU time: user 3.37 sys 0.77 (161%). Peak memory: 160176KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            2            156 d2024675fcc229cc1534
+2_1_floorplan             .sdc                             bd6455d2d5c5273cd3cd

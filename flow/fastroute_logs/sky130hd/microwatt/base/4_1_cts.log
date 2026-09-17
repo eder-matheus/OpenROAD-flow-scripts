@@ -1,0 +1,1115 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty ./designs/sky130hd/microwatt/lib/Microwatt_FP_DFFRFile.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM32_1RW1R.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM512.lib
+read_liberty ./designs/sky130hd/microwatt/lib/multiply_add_64x64.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/3_place.sdc
+source ./platforms/sky130hd/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets -distance_between_buffers 600 -sink_clustering_size 10 -sink_clustering_max_diameter 50
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "ext_clk" found for clock "ext_clk".
+[INFO CTS-0011]  Clock net "ext_clk" for macros has 6 sinks.
+[INFO CTS-0011]  Clock net "ext_clk_regs" for registers has 9924 sinks.
+[INFO CTS-0007] Net "jtag_tck" found for clock "jtag_tck".
+[INFO CTS-0010]  Clock net "jtag_tck" has 226 sinks.
+[WARNING CTS-0041] Net "net30395" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30394" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30393" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30392" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30391" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30390" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30389" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30388" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30387" has 1 sinks. Skipping...
+[WARNING CTS-0041] Net "net30386" has 1 sinks. Skipping...
+[INFO CTS-0008] TritonCTS found 3 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 6 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net ext_clk.
+[INFO CTS-0028]  Total number of sinks: 6.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 3167.6 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0021]  Distance between buffers: 22 units (600 um).
+[INFO CTS-0023]  Original sink region: [(549470, 55160), (2864800, 2801260)].
+[INFO CTS-0024]  Normalized sink region: [(40.4022, 4.05588), (210.647, 205.975)].
+[INFO CTS-0025]     Width:  170.2449.
+[INFO CTS-0026]     Height: 201.9191.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 3
+    Sub-region size: 170.2449 X 100.9596
+[INFO CTS-0034]     Segment length (rounded): 50.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 2
+    Sub-region size: 85.1224 X 100.9596
+[INFO CTS-0034]     Segment length (rounded): 42.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 1
+    Sub-region size: 85.1224 X 50.4798
+[INFO CTS-0034]     Segment length (rounded): 26.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1911.535 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 6.
+[INFO CTS-0201] 6 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net ext_clk_regs.
+[INFO CTS-0028]  Total number of sinks: 9924.
+[INFO CTS-0029]  Register sinks will be clustered in groups of up to 10 and with maximum cluster diameter of 50.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0021]  Distance between buffers: 22 units (600 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 10 and clustering diameter of 50.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 1718.
+[INFO CTS-0024]  Normalized sink region: [(1.03419, 1.2277), (208.097, 197.976)].
+[INFO CTS-0025]     Width:  207.0625.
+[INFO CTS-0026]     Height: 196.7484.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 859
+    Sub-region size: 103.5313 X 196.7484
+[INFO CTS-0034]     Segment length (rounded): 52.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 430
+    Sub-region size: 103.5313 X 98.3742
+[INFO CTS-0034]     Segment length (rounded): 50.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 215
+    Sub-region size: 51.7656 X 98.3742
+[INFO CTS-0034]     Segment length (rounded): 26.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 108
+    Sub-region size: 51.7656 X 49.1871
+[INFO CTS-0034]     Segment length (rounded): 24.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 54
+    Sub-region size: 25.8828 X 49.1871
+[INFO CTS-0034]     Segment length (rounded): 12.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 27
+    Sub-region size: 25.8828 X 24.5936
+[INFO CTS-0034]     Segment length (rounded): 12.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 14
+    Sub-region size: 12.9414 X 24.5936
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 7
+    Sub-region size: 12.9414 X 12.2968
+[INFO CTS-0034]     Segment length (rounded): 6.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1911.535 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 1718.
+[INFO CTS-0201] 6 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net jtag_tck.
+[INFO CTS-0028]  Total number of sinks: 226.
+[INFO CTS-0029]  Register sinks will be clustered in groups of up to 10 and with maximum cluster diameter of 50.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0021]  Distance between buffers: 22 units (600 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 10 and clustering diameter of 50.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 25.
+[INFO CTS-0024]  Normalized sink region: [(4.90309, 86.4397), (113.516, 105.859)].
+[INFO CTS-0025]     Width:  108.6131.
+[INFO CTS-0026]     Height: 19.4194.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 13
+    Sub-region size: 54.3065 X 19.4194
+[INFO CTS-0034]     Segment length (rounded): 28.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 7
+    Sub-region size: 54.3065 X 9.7097
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1911.535 um) and max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 25.
+[INFO CTS-0018]     Created 13 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 4.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 4.
+[INFO CTS-0015]     Created 13 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:6..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0018]     Created 2061 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 7.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 7.
+[INFO CTS-0015]     Created 2061 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:18, 2:173, 3:175, 4:215, 5:246, 6:282, 7:403, 8:166, 9:138, 10:158..
+[INFO CTS-0017]     Max level of the clock tree: 8.
+[INFO CTS-0018]     Created 30 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 30 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:1, 6:5, 7:2, 8:2, 9:1, 10:18..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0098] Clock net "ext_clk"
+[INFO CTS-0099]  Sinks 6
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 4908.68 um
+[INFO CTS-0102]  Path depth 4 - 4
+[INFO CTS-0207]  Dummy loads inserted 2
+[INFO CTS-0098] Clock net "ext_clk_regs"
+[INFO CTS-0099]  Sinks 11386
+[INFO CTS-0100]  Leaf buffers 1718
+[INFO CTS-0101]  Average sink wire length 2002.89 um
+[INFO CTS-0102]  Path depth 6 - 7
+[INFO CTS-0207]  Dummy loads inserted 1462
+[INFO CTS-0098] Clock net "jtag_tck"
+[INFO CTS-0099]  Sinks 236
+[INFO CTS-0100]  Leaf buffers 25
+[INFO CTS-0101]  Average sink wire length 2007.99 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 10
+[INFO RSZ-0047] Found 1 long wires.
+[INFO RSZ-0048] Inserted 1 buffers in 1 nets.
+[INFO CTS-0033] Balancing latency for clock ext_clk
+[INFO CTS-0036]  inserted 5 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 5
+[INFO CTS-0500] Runtime: 5.02s
+Took 5 seconds: clock_tree_synthesis -sink_clustering_enable -repair_clock_nets -distance_between_buffers 600 -sink_clustering_size 10 -sink_clustering_max_diameter 50
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 8196365.96 um^2
+[INFO DPL-0007] Movable instances area: 732462.49 um^2
+[INFO DPL-0008] Fixed instances area within core: 3997684.66 um^2
+[INFO DPL-0009] Utilization: 57.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (5 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 127494 cells
+[INFO DPL-0393]   height 69 row(s): 2 cells
+[INFO DPL-0393]   height 203 row(s): 2 cells
+[INFO DPL-0393]   height 363 row(s): 1 cells
+[INFO DPL-0393]   height 423 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         20 |         4 |        16
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.75s
+Placement Analysis
+---------------------------------
+total displacement      93818.6 u
+average displacement        0.7 u
+max displacement          218.9 u
+original HPWL         5782426.9 u
+legalized HPWL        5836269.1 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0.2 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -match_cell_footprint -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 308 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 308 out of 308 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -3.309 |       -7.0 |     -444.3 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -2.819 |       -7.0 |     -438.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+      20* |       0 |      19 |        0 |      0 |     0 |    +0.0% |   -2.665 |       -7.0 |     -435.7 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+      30* |       0 |      29 |        0 |      0 |     0 |    +0.0% |   -2.546 |       -7.0 |     -425.0 |    308 | soc0/processor/decode1_0/_027_\[161\]$_SDFFE_PP0P_/D
+      40* |       0 |      37 |        0 |      0 |     2 |    +0.0% |   -2.389 |       -7.0 |     -418.8 |    308 | soc0/processor/decode1_0/_028_\[119\]$_SDFFE_PP0P_/D
+      50* |       0 |      47 |        0 |      0 |     2 |    +0.0% |   -2.277 |       -7.0 |     -392.7 |    308 | soc0/processor/decode1_0/_027_\[124\]$_SDFFE_PP0P_/D
+      60* |       0 |      56 |        1 |      0 |     2 |    +0.0% |   -2.190 |       -7.0 |     -388.9 |    308 | soc0/processor/decode1_0/_027_\[149\]$_SDFFE_PP0P_/D
+      70* |       0 |      64 |        1 |      0 |     4 |    +0.0% |   -2.144 |       -7.0 |     -387.1 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+      80* |       0 |      74 |        1 |      0 |     4 |    +0.0% |   -2.092 |       -7.0 |     -381.7 |    308 | soc0/processor/decode1_0/_028_\[125\]$_SDFFE_PP0P_/D
+      90* |       0 |      82 |        1 |      0 |     6 |    +0.0% |   -2.041 |       -7.0 |     -367.7 |    308 | soc0/processor/decode1_0/_027_\[125\]$_SDFFE_PP0P_/D
+     100* |       0 |      91 |        1 |      0 |     7 |    +0.0% |   -1.995 |       -7.0 |     -366.1 |    308 | soc0/processor/icache_0/_163_\[120\]$_DFFE_PP_/DE
+     110* |       0 |     100 |        1 |      0 |     8 |    +0.0% |   -1.969 |       -7.0 |     -361.6 |    308 | soc0/processor/decode1_0/_027_\[124\]$_SDFFE_PP0P_/D
+     120* |       0 |     107 |        1 |      0 |    11 |    +0.0% |   -1.968 |       -7.0 |     -361.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     130* |       0 |     116 |        1 |      0 |    12 |    +0.0% |   -1.941 |       -7.0 |     -355.1 |    308 | soc0/processor/decode1_0/_027_\[123\]$_SDFFE_PP0P_/D
+     140* |       0 |     123 |        2 |      0 |    14 |    +0.0% |   -1.919 |       -7.0 |     -351.4 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     150* |       0 |     131 |        2 |      0 |    16 |    +0.0% |   -1.922 |       -7.0 |     -346.7 |    308 | soc0/processor/decode1_0/_027_\[140\]$_SDFFE_PP0P_/D
+     160* |       0 |     137 |        4 |      0 |    18 |    +0.0% |   -1.846 |       -7.0 |     -338.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     170* |       0 |     146 |        4 |      0 |    19 |    +0.0% |   -1.820 |       -7.0 |     -330.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     180* |       0 |     155 |        4 |      0 |    20 |    +0.0% |   -1.807 |       -7.0 |     -329.6 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     190* |       0 |     161 |        6 |      0 |    22 |    +0.0% |   -1.802 |       -7.0 |     -328.4 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     200* |       0 |     170 |        7 |      0 |    22 |    +0.0% |   -1.786 |       -7.0 |     -325.9 |    308 | soc0/processor/decode1_0/_028_\[120\]$_SDFFE_PP0P_/D
+     210* |       0 |     178 |        8 |      0 |    23 |    +0.0% |   -1.775 |       -7.0 |     -325.8 |    308 | soc0/processor/decode1_0/_027_\[131\]$_SDFFE_PP0P_/D
+     220* |       0 |     186 |        8 |      0 |    25 |    +0.0% |   -1.765 |       -7.0 |     -325.4 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     230* |       0 |     193 |        8 |      0 |    28 |    +0.0% |   -1.751 |       -7.0 |     -324.9 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     240* |       0 |     200 |       10 |      0 |    30 |    +0.0% |   -1.738 |       -7.0 |     -323.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     250* |       0 |     207 |       11 |      0 |    32 |    +0.0% |   -1.708 |       -7.0 |     -320.0 |    308 | soc0/processor/decode1_0/_027_\[135\]$_SDFFE_PP0P_/D
+     260* |       0 |     217 |       11 |      0 |    32 |    +0.0% |   -1.696 |       -7.0 |     -317.6 |    308 | soc0/processor/decode1_0/_027_\[131\]$_SDFFE_PP0P_/D
+     270* |       0 |     227 |       11 |      0 |    32 |    +0.0% |   -1.689 |       -7.0 |     -314.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     280* |       0 |     234 |       12 |      0 |    34 |    +0.0% |   -1.681 |       -7.0 |     -311.3 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     290* |       0 |     242 |       12 |      0 |    36 |    +0.0% |   -1.672 |       -7.0 |     -310.8 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+     300* |       0 |     250 |       12 |      0 |    38 |    +0.0% |   -1.664 |       -7.0 |     -309.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+     310* |       0 |     259 |       12 |      0 |    39 |    +0.0% |   -1.657 |       -7.0 |     -307.9 |    308 | soc0/processor/decode1_0/_027_\[139\]$_SDFFE_PP0P_/D
+     320* |       0 |     267 |       12 |      0 |    41 |    +0.0% |   -1.640 |       -7.0 |     -307.3 |    308 | soc0/processor/decode1_0/_027_\[129\]$_SDFFE_PP0P_/D
+     330* |       0 |     274 |       12 |      0 |    44 |    +0.0% |   -1.686 |       -7.0 |     -307.0 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+     340* |       0 |     282 |       12 |      0 |    46 |    +0.0% |   -1.624 |       -7.0 |     -306.6 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     350* |       0 |     290 |       12 |      0 |    48 |    +0.0% |   -1.652 |       -7.0 |     -300.4 |    308 | soc0/processor/decode1_0/_028_\[135\]$_SDFFE_PP0P_/D
+     360* |       0 |     296 |       13 |      0 |    51 |    +0.0% |   -1.610 |       -7.0 |     -299.9 |    308 | soc0/processor/decode1_0/_027_\[158\]$_SDFFE_PP0P_/D
+     370* |       0 |     306 |       13 |      0 |    51 |    +0.0% |   -1.598 |       -7.0 |     -298.9 |    308 | soc0/processor/decode1_0/_027_\[139\]$_SDFFE_PP0P_/D
+     380* |       0 |     314 |       14 |      0 |    52 |    +0.0% |   -1.588 |       -7.0 |     -297.8 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     390* |       0 |     321 |       15 |      0 |    54 |    +0.0% |   -1.581 |       -7.0 |     -296.4 |    308 | soc0/processor/decode1_0/_027_\[150\]$_SDFFE_PP0P_/D
+     400* |       0 |     330 |       15 |      0 |    55 |    +0.0% |   -1.575 |       -7.0 |     -295.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     410* |       0 |     337 |       16 |      0 |    57 |    +0.0% |   -1.608 |       -7.0 |     -295.7 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     420* |       0 |     344 |       17 |      0 |    59 |    +0.0% |   -1.564 |       -7.0 |     -295.6 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     430* |       0 |     353 |       17 |      0 |    60 |    +0.0% |   -1.584 |       -7.0 |     -295.5 |    308 | soc0/processor/decode1_0/_028_\[119\]$_SDFFE_PP0P_/D
+     431* |       0 |     354 |       17 |      0 |    60 |    +0.0% |   -1.557 |       -7.0 |     -295.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     440* |       0 |     359 |       17 |      0 |    63 |    +0.0% |   -1.557 |       -7.0 |     -295.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     450* |       0 |     366 |       18 |      0 |    65 |    +0.0% |   -1.558 |       -7.0 |     -295.2 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     460* |       0 |     374 |       18 |      0 |    67 |    +0.0% |   -1.558 |       -7.0 |     -294.1 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     470* |       0 |     380 |       20 |      0 |    69 |    +0.0% |   -1.558 |       -7.0 |     -294.1 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     480* |       0 |     389 |       21 |      0 |    69 |    +0.0% |   -1.558 |       -7.0 |     -293.8 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     490* |       0 |     396 |       26 |      0 |    69 |    +0.0% |   -1.560 |       -7.0 |     -293.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     493* |       0 |     361 |       17 |      0 |    64 |    +0.0% |   -1.557 |       -7.0 |     -295.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     494* |       0 |     361 |       17 |      0 |    64 |    +0.0% |   -1.557 |       -7.0 |     -295.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     500* |       0 |     364 |       19 |      0 |    64 |    +0.0% |   -1.557 |       -7.0 |     -295.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     510* |       0 |     371 |       20 |      0 |    66 |    +0.0% |   -1.557 |       -7.0 |     -294.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     520* |       0 |     380 |       20 |      0 |    67 |    +0.0% |   -1.558 |       -7.0 |     -294.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     530* |       0 |     388 |       20 |      0 |    69 |    +0.0% |   -1.558 |       -7.0 |     -294.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     540* |       0 |     395 |       22 |      0 |    71 |    +0.0% |   -1.558 |       -7.0 |     -294.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     550* |       0 |     401 |       24 |      0 |    73 |    +0.0% |   -1.558 |       -7.0 |     -295.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     560* |       0 |     407 |       26 |      0 |    75 |    +0.0% |   -1.558 |       -7.0 |     -294.7 |    308 | soc0/processor/decode1_0/_027_\[127\]$_SDFFE_PP0P_/D
+     561* |       0 |     372 |       20 |      0 |    66 |    +0.0% |   -1.557 |       -7.0 |     -294.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     570* |       0 |     380 |       20 |      0 |    66 |    +0.0% |   -1.558 |       -7.0 |     -294.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     580* |       0 |     387 |       24 |      0 |    66 |    +0.0% |   -1.558 |       -7.0 |     -294.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     590* |       0 |     394 |       27 |      0 |    66 |    +0.0% |   -1.559 |       -7.0 |     -294.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     600* |       0 |     404 |       27 |      0 |    66 |    +0.0% |   -1.559 |       -7.0 |     -294.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     610* |       0 |     413 |       27 |      0 |    67 |    +0.0% |   -1.559 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     612* |       0 |     372 |       20 |      0 |    66 |    +0.0% |   -1.557 |       -7.0 |     -294.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     620* |       0 |     379 |       20 |      0 |    66 |    +0.0% |   -1.557 |       -7.0 |     -294.8 |    308 | soc0/processor/decode1_0/_030_\[2\]$_SDFFE_PP0P_/D
+     630* |       0 |     386 |       20 |      0 |    69 |    +0.0% |   -1.557 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     640* |       0 |     394 |       21 |      0 |    70 |    +0.0% |   -1.558 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[129\]$_SDFFE_PP0P_/D
+     650* |       0 |     404 |       21 |      0 |    70 |    +0.0% |   -1.565 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     660* |       0 |     411 |       24 |      0 |    71 |    +0.0% |   -1.567 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     670* |       0 |     418 |       28 |      0 |    71 |    +0.0% |   -1.567 |       -7.0 |     -293.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     680* |       0 |     424 |       29 |      0 |    74 |    +0.0% |   -1.572 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     681* |       0 |     387 |       20 |      0 |    69 |    +0.0% |   -1.557 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     690* |       0 |     395 |       20 |      0 |    69 |    +0.0% |   -1.558 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     700* |       0 |     404 |       21 |      0 |    69 |    +0.0% |   -1.558 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     710* |       0 |     412 |       24 |      0 |    69 |    +0.0% |   -1.560 |       -7.0 |     -293.7 |    308 | soc0/processor/decode1_0/_027_\[129\]$_SDFFE_PP0P_/D
+     720* |       0 |     418 |       24 |      0 |    73 |    +0.0% |   -1.560 |       -7.0 |     -293.7 |    308 | soc0/processor/decode1_0/_027_\[129\]$_SDFFE_PP0P_/D
+     720* |       0 |     387 |       20 |      0 |    69 |    +0.0% |   -1.557 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     725* |       0 |     389 |       21 |      0 |    70 |    +0.0% |   -1.557 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     730* |       0 |     391 |       21 |      0 |    72 |    +0.0% |   -1.557 |       -7.0 |     -293.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     740* |       0 |     401 |       21 |      0 |    72 |    +0.0% |   -1.557 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     750* |       0 |     408 |       22 |      0 |    74 |    +0.0% |   -1.557 |       -7.0 |     -293.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     760* |       0 |     414 |       23 |      0 |    77 |    +0.0% |   -1.558 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     770* |       0 |     423 |       23 |      0 |    78 |    +0.0% |   -1.558 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     780* |       0 |     431 |       26 |      0 |    78 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     790* |       0 |     438 |       26 |      0 |    81 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     800* |       0 |     445 |       28 |      0 |    82 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     810* |       0 |     451 |       29 |      0 |    85 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     820* |       0 |     460 |       29 |      0 |    86 |    +0.0% |   -1.557 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     830* |       0 |     467 |       31 |      0 |    87 |    +0.0% |   -1.558 |       -7.0 |     -292.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     840* |       0 |     475 |       32 |      0 |    88 |    +0.0% |   -1.563 |       -7.0 |     -293.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     850* |       0 |     483 |       33 |      0 |    89 |    +0.0% |   -1.564 |       -7.0 |     -293.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     860* |       0 |     489 |       34 |      0 |    92 |    +0.0% |   -1.564 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     868* |       0 |     459 |       29 |      0 |    85 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     870* |       0 |     459 |       29 |      0 |    86 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     880* |       0 |     466 |       32 |      0 |    86 |    +0.0% |   -1.558 |       -7.0 |     -292.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     890* |       0 |     475 |       32 |      0 |    87 |    +0.0% |   -1.563 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     900* |       0 |     485 |       32 |      0 |    87 |    +0.0% |   -1.564 |       -7.0 |     -290.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     910* |       0 |     491 |       35 |      0 |    88 |    +0.0% |   -1.564 |       -7.0 |     -291.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     919* |       0 |     459 |       29 |      0 |    85 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     920* |       0 |     459 |       29 |      0 |    85 |    +0.0% |   -1.557 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     930* |       0 |     465 |       31 |      0 |    87 |    +0.0% |   -1.549 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     930* |       0 |     465 |       31 |      0 |    86 |    +0.0% |   -1.549 |       -7.0 |     -293.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     940* |       0 |     470 |       32 |      0 |    89 |    +0.0% |   -1.549 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     950* |       0 |     478 |       35 |      0 |    89 |    +0.0% |   -1.549 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     960* |       0 |     484 |       37 |      0 |    92 |    +0.0% |   -1.550 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     965* |       0 |     473 |       32 |      0 |    89 |    +0.0% |   -1.549 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     968* |       0 |     474 |       32 |      0 |    90 |    +0.0% |   -1.549 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     970* |       0 |     475 |       32 |      0 |    90 |    +0.0% |   -1.549 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     976* |       0 |     478 |       33 |      0 |    91 |    +0.0% |   -1.544 |       -7.0 |     -293.3 |    308 | soc0/processor/decode1_0/_028_\[150\]$_SDFFE_PP0P_/D
+     980* |       0 |     481 |       33 |      0 |    91 |    +0.0% |   -1.542 |       -7.0 |     -293.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     990* |       0 |     489 |       35 |      0 |    92 |    +0.0% |   -1.543 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     992* |       0 |     487 |       33 |      0 |    91 |    +0.0% |   -1.542 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+     994* |       0 |     487 |       33 |      0 |    92 |    +0.0% |   -1.542 |       -7.0 |     -293.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1000* |       0 |     492 |       33 |      0 |    92 |    +0.0% |   -1.542 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1010* |       0 |     499 |       35 |      0 |    94 |    +0.1% |   -1.542 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1020* |       0 |     504 |       36 |      0 |    98 |    +0.1% |   -1.542 |       -7.0 |     -292.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1030* |       0 |     507 |       43 |      0 |    98 |    +0.1% |   -1.542 |       -7.0 |     -292.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1037* |       0 |     502 |       35 |      0 |    95 |    +0.1% |   -1.542 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1040* |       0 |     503 |       35 |      0 |    96 |    +0.1% |   -1.587 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1050* |       0 |     511 |       35 |      0 |    98 |    +0.1% |   -1.588 |       -7.0 |     -293.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1060* |       0 |     519 |       36 |      0 |    99 |    +0.1% |   -1.588 |       -7.0 |     -293.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1070* |       0 |     526 |       38 |      0 |   100 |    +0.1% |   -1.588 |       -7.0 |     -292.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1080* |       0 |     530 |       41 |      0 |   103 |    +0.1% |   -1.588 |       -7.0 |     -292.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1087* |       0 |     502 |       35 |      0 |    96 |    +0.1% |   -1.542 |       -7.0 |     -292.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1090* |       0 |     504 |       35 |      0 |    96 |    +0.1% |   -1.542 |       -7.0 |     -292.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1100* |       0 |     508 |       38 |      0 |   100 |    +0.1% |   -1.542 |       -7.0 |     -292.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1110* |       0 |     513 |       41 |      0 |   102 |    +0.1% |   -1.542 |       -7.0 |     -292.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1120* |       0 |     517 |       46 |      0 |   103 |    +0.1% |   -1.542 |       -7.0 |     -292.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1121* |       0 |     516 |       41 |      0 |   102 |    +0.1% |   -1.542 |       -7.0 |     -292.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1130* |       0 |     521 |       45 |      0 |   102 |    +0.1% |   -1.543 |       -7.0 |     -292.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1139* |       0 |     516 |       41 |      0 |   102 |    +0.1% |   -1.542 |       -7.0 |     -292.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1140* |       0 |     516 |       41 |      0 |   102 |    +0.1% |   -1.542 |       -7.0 |     -292.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1150* |       0 |     524 |       41 |      0 |   104 |    +0.1% |   -1.542 |       -7.0 |     -292.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1152* |       0 |     522 |       41 |      0 |   102 |    +0.1% |   -1.542 |       -7.0 |     -292.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1160* |       0 |     524 |       44 |      0 |   104 |    +0.1% |   -1.542 |       -7.0 |     -291.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1161* |       0 |     524 |       45 |      0 |   104 |    +0.1% |   -1.542 |       -7.0 |     -291.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1164* |       0 |     524 |       45 |      0 |   104 |    +0.1% |   -1.542 |       -7.0 |     -291.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1170* |       0 |     528 |       46 |      0 |   104 |    +0.1% |   -1.542 |       -7.0 |     -291.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1180* |       0 |     535 |       48 |      0 |   105 |    +0.1% |   -1.542 |       -7.0 |     -291.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1190* |       0 |     543 |       50 |      0 |   106 |    +0.1% |   -1.543 |       -7.0 |     -291.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1194* |       0 |     532 |       46 |      0 |   105 |    +0.1% |   -1.542 |       -7.0 |     -291.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1200* |       0 |     535 |       47 |      0 |   106 |    +0.1% |   -1.542 |       -7.0 |     -291.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1210* |       0 |     542 |       47 |      0 |   109 |    +0.1% |   -1.542 |       -7.0 |     -290.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1217* |       0 |     547 |       48 |      0 |   109 |    +0.1% |   -1.542 |       -7.0 |     -290.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1220* |       0 |     548 |       49 |      0 |   109 |    +0.1% |   -1.542 |       -7.0 |     -290.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1230* |       0 |     555 |       53 |      0 |   110 |    +0.1% |   -1.542 |       -7.0 |     -290.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1240* |       0 |     564 |       53 |      0 |   111 |    +0.1% |   -1.543 |       -7.0 |     -289.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1250* |       0 |     569 |       54 |      0 |   115 |    +0.1% |   -1.543 |       -7.0 |     -289.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1260* |       0 |     575 |       55 |      0 |   118 |    +0.1% |   -1.543 |       -7.0 |     -289.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1263* |       0 |     562 |       53 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1270* |       0 |     567 |       54 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1278* |       0 |     566 |       53 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1280* |       0 |     567 |       53 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1290* |       0 |     575 |       54 |      0 |   112 |    +0.1% |   -1.545 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1300* |       0 |     580 |       56 |      0 |   115 |    +0.1% |   -1.545 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1310* |       0 |     587 |       56 |      0 |   118 |    +0.1% |   -1.545 |       -7.0 |     -290.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1312* |       0 |     571 |       54 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1320* |       0 |     576 |       56 |      0 |   111 |    +0.1% |   -1.543 |       -7.0 |     -289.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1330* |       0 |     584 |       59 |      0 |   111 |    +0.1% |   -1.543 |       -7.0 |     -288.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1333* |       0 |     571 |       54 |      0 |   111 |    +0.1% |   -1.542 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1340* |       0 |     574 |       54 |      0 |   114 |    +0.1% |   -1.542 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1350* |       0 |     580 |       56 |      0 |   116 |    +0.1% |   -1.542 |       -7.0 |     -289.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1360* |       0 |     588 |       57 |      0 |   117 |    +0.1% |   -1.542 |       -7.0 |     -289.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1370* |       0 |     596 |       57 |      0 |   119 |    +0.1% |   -1.542 |       -7.0 |     -289.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1376* |       0 |     600 |       57 |      0 |   121 |    +0.1% |   -1.542 |       -7.0 |     -289.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1380* |       0 |     603 |       57 |      0 |   121 |    +0.1% |   -1.542 |       -7.0 |     -284.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1390* |       0 |     610 |       61 |      0 |   121 |    +0.1% |   -1.542 |       -7.0 |     -271.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1400* |       0 |     617 |       62 |      0 |   123 |    +0.1% |   -1.542 |       -7.0 |     -265.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1410* |       0 |     622 |       64 |      0 |   126 |    +0.1% |   -1.542 |       -7.0 |     -263.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1420* |       0 |     629 |       67 |      0 |   126 |    +0.1% |   -1.542 |       -7.0 |     -254.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1422* |       0 |     629 |       68 |      0 |   126 |    +0.1% |   -1.542 |       -7.0 |     -254.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1423* |       0 |     629 |       68 |      0 |   126 |    +0.1% |   -1.542 |       -7.0 |     -254.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1430* |       0 |     633 |       68 |      0 |   128 |    +0.1% |   -1.542 |       -7.0 |     -254.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1440* |       0 |     640 |       69 |      0 |   130 |    +0.1% |   -1.533 |       -7.0 |     -254.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1450* |       0 |     649 |       69 |      0 |   131 |    +0.1% |   -1.533 |       -7.0 |     -254.0 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1460* |       0 |     656 |       71 |      0 |   132 |    +0.1% |   -1.533 |       -7.0 |     -254.0 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1464* |       0 |     659 |       71 |      0 |   133 |    +0.1% |   -1.533 |       -7.0 |     -254.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1465* |       0 |     659 |       71 |      0 |   133 |    +0.1% |   -1.533 |       -7.0 |     -254.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1466* |       0 |     659 |       71 |      0 |   133 |    +0.1% |   -1.533 |       -7.0 |     -254.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1467* |       0 |     659 |       71 |      0 |   133 |    +0.1% |   -1.533 |       -7.0 |     -254.2 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1470* |       0 |     661 |       71 |      0 |   133 |    +0.1% |   -1.533 |       -7.0 |     -254.0 |    308 | soc0/processor/decode1_0/_027_\[122\]$_SDFFE_PP0P_/D
+    1480* |       0 |     666 |       75 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -254.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1489* |       0 |     668 |       75 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -254.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1490* |       0 |     668 |       75 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -254.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1497* |       0 |     668 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -257.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1500* |       0 |     670 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -257.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1501* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1502* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1503* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1504* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1508* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1510* |       0 |     671 |       80 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1512* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1516* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1520* |       0 |     673 |       80 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1520* |       0 |     671 |       79 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1530* |       0 |     679 |       80 |      0 |   135 |    +0.1% |   -1.532 |       -7.0 |     -256.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1540* |       0 |     686 |       82 |      0 |   137 |    +0.1% |   -1.532 |       -7.0 |     -256.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1550* |       0 |     693 |       85 |      0 |   137 |    +0.1% |   -1.533 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1560* |       0 |     701 |       87 |      0 |   137 |    +0.1% |   -1.533 |       -7.0 |     -256.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1570* |       0 |     707 |       89 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1572* |       0 |     707 |       89 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1577* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1578* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1579* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1580* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1580* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1581* |       0 |     710 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -256.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1584* |       0 |     712 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -255.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1585* |       0 |     712 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -255.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1586* |       0 |     712 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -255.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1587* |       0 |     712 |       90 |      0 |   139 |    +0.1% |   -1.531 |       -7.0 |     -255.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1590* |       0 |     713 |       90 |      0 |   140 |    +0.1% |   -1.531 |       -7.0 |     -255.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1600* |       0 |     720 |       91 |      0 |   142 |    +0.1% |   -1.531 |       -7.0 |     -255.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1609* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1610* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1610* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1611* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1612* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1613* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1614* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1615* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1616* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1617* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1618* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1619* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1620* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1630* |       0 |     732 |       94 |      0 |   145 |    +0.1% |   -1.531 |       -7.0 |     -255.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1630* |       0 |     725 |       93 |      0 |   143 |    +0.1% |   -1.531 |       -7.0 |     -255.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1640* |       0 |     733 |       93 |      0 |   144 |    +0.1% |   -1.531 |       -7.0 |     -255.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1650* |       0 |     740 |       98 |      0 |   145 |    +0.1% |   -1.531 |       -7.0 |     -255.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1660* |       0 |     747 |      100 |      0 |   147 |    +0.1% |   -1.531 |       -7.0 |     -255.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1670* |       0 |     755 |      102 |      0 |   148 |    +0.1% |   -1.531 |       -7.0 |     -254.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1680* |       0 |     763 |      104 |      0 |   148 |    +0.1% |   -1.531 |       -7.0 |     -254.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1690* |       0 |     771 |      106 |      0 |   149 |    +0.1% |   -1.531 |       -7.0 |     -254.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1700* |       0 |     780 |      107 |      0 |   149 |    +0.1% |   -1.531 |       -7.0 |     -254.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1710* |       0 |     786 |      111 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1720* |       0 |     792 |      114 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1720* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1721* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1722* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1723* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1724* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1725* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1726* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1727* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1730* |       0 |     789 |      112 |      0 |   153 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1730* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1731* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1732* |       0 |     789 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1740* |       0 |     796 |      112 |      0 |   151 |    +0.1% |   -1.532 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1750* |       0 |     803 |      114 |      0 |   152 |    +0.1% |   -1.532 |       -7.0 |     -255.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1756* |       0 |     790 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1758* |       0 |     791 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1760* |       0 |     792 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1762* |       0 |     794 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1763* |       0 |     794 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1764* |       0 |     794 |      112 |      0 |   151 |    +0.1% |   -1.531 |       -7.0 |     -255.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1770* |       0 |     798 |      112 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -254.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1780* |       0 |     804 |      114 |      0 |   154 |    +0.1% |   -1.531 |       -7.0 |     -254.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1787* |       0 |     800 |      112 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -254.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1790* |       0 |     801 |      113 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -254.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1793* |       0 |     801 |      112 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -254.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1800* |       0 |     807 |      112 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -253.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1810* |       0 |     817 |      112 |      0 |   152 |    +0.1% |   -1.531 |       -7.0 |     -252.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1820* |       0 |     823 |      114 |      0 |   154 |    +0.1% |   -1.531 |       -7.0 |     -252.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1830* |       0 |     828 |      118 |      0 |   157 |    +0.1% |   -1.531 |       -7.0 |     -252.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1831* |       0 |     824 |      114 |      0 |   154 |    +0.1% |   -1.531 |       -7.0 |     -252.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1840* |       0 |     830 |      114 |      0 |   156 |    +0.1% |   -1.531 |       -7.0 |     -251.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1850* |       0 |     836 |      116 |      0 |   158 |    +0.1% |   -1.531 |       -7.0 |     -251.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1860* |       0 |     840 |      119 |      0 |   161 |    +0.1% |   -1.531 |       -7.0 |     -252.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1862* |       0 |     829 |      114 |      0 |   154 |    +0.1% |   -1.531 |       -7.0 |     -251.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1870* |       0 |     834 |      115 |      0 |   155 |    +0.1% |   -1.532 |       -7.0 |     -251.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1880* |       0 |     841 |      117 |      0 |   156 |    +0.1% |   -1.533 |       -7.0 |     -251.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1886* |       0 |     830 |      115 |      0 |   155 |    +0.1% |   -1.531 |       -7.0 |     -251.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1890* |       0 |     832 |      115 |      0 |   156 |    +0.1% |   -1.531 |       -7.0 |     -251.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1900* |       0 |     841 |      116 |      0 |   156 |    +0.1% |   -1.531 |       -7.0 |     -251.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1910* |       0 |     850 |      116 |      0 |   157 |    +0.1% |   -1.532 |       -7.0 |     -250.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1920* |       0 |     853 |      120 |      0 |   161 |    +0.1% |   -1.532 |       -7.0 |     -251.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1930* |       0 |     863 |      120 |      0 |   161 |    +0.1% |   -1.532 |       -7.0 |     -248.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1940* |       0 |     868 |      121 |      0 |   165 |    +0.1% |   -1.533 |       -7.0 |     -245.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1950* |       0 |     870 |      127 |      0 |   167 |    +0.1% |   -1.540 |       -7.0 |     -246.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1950* |       0 |     841 |      116 |      0 |   156 |    +0.1% |   -1.531 |       -7.0 |     -251.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1960* |       0 |     847 |      118 |      0 |   157 |    +0.1% |   -1.531 |       -7.0 |     -249.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1963* |       0 |     849 |      118 |      0 |   158 |    +0.1% |   -1.531 |       -7.0 |     -249.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1970* |       0 |     852 |      119 |      0 |   160 |    +0.1% |   -1.531 |       -7.0 |     -248.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1980* |       0 |     858 |      120 |      0 |   163 |    +0.1% |   -1.531 |       -7.0 |     -248.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1983* |       0 |     860 |      120 |      0 |   163 |    +0.1% |   -1.531 |       -7.0 |     -248.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    1990* |       0 |     866 |      120 |      0 |   163 |    +0.1% |   -1.531 |       -7.0 |     -248.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2000* |       0 |     873 |      120 |      0 |   166 |    +0.1% |   -1.531 |       -7.0 |     -247.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2010* |       0 |     881 |      121 |      0 |   167 |    +0.1% |   -1.532 |       -7.0 |     -247.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2020* |       0 |     889 |      124 |      0 |   167 |    +0.1% |   -1.532 |       -7.0 |     -247.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2030* |       0 |     897 |      125 |      0 |   168 |    +0.1% |   -1.532 |       -7.0 |     -247.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2040* |       0 |     905 |      127 |      0 |   168 |    +0.1% |   -1.532 |       -7.0 |     -247.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2050* |       0 |     912 |      128 |      0 |   170 |    +0.1% |   -1.532 |       -7.0 |     -247.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2050* |       0 |     876 |      121 |      0 |   167 |    +0.1% |   -1.531 |       -7.0 |     -247.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2060* |       0 |     881 |      124 |      0 |   168 |    +0.1% |   -1.531 |       -7.0 |     -249.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2063* |       0 |     881 |      123 |      0 |   168 |    +0.1% |   -1.531 |       -7.0 |     -247.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2068* |       0 |     881 |      123 |      0 |   168 |    +0.1% |   -1.531 |       -7.0 |     -247.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2070* |       0 |     881 |      124 |      0 |   168 |    +0.1% |   -1.531 |       -7.0 |     -249.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2073* |       0 |     881 |      123 |      0 |   168 |    +0.1% |   -1.531 |       -7.0 |     -247.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2080* |       0 |     886 |      123 |      0 |   169 |    +0.1% |   -1.531 |       -7.0 |     -247.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2090* |       0 |     893 |      125 |      0 |   170 |    +0.1% |   -1.531 |       -7.0 |     -247.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2100* |       0 |     901 |      126 |      0 |   171 |    +0.1% |   -1.531 |       -7.0 |     -247.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2101* |       0 |     890 |      124 |      0 |   169 |    +0.1% |   -1.531 |       -7.0 |     -247.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2110* |       0 |     897 |      124 |      0 |   170 |    +0.1% |   -1.531 |       -7.0 |     -246.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2120* |       0 |     901 |      128 |      0 |   173 |    +0.1% |   -1.531 |       -7.0 |     -247.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2130* |       0 |     908 |      130 |      0 |   175 |    +0.1% |   -1.531 |       -7.0 |     -246.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2133* |       0 |     901 |      127 |      0 |   173 |    +0.1% |   -1.531 |       -7.0 |     -246.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2140* |       0 |     905 |      128 |      0 |   174 |    +0.1% |   -1.531 |       -7.0 |     -245.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2150* |       0 |     911 |      130 |      0 |   176 |    +0.1% |   -1.532 |       -7.0 |     -245.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2159* |       0 |     901 |      127 |      0 |   173 |    +0.1% |   -1.531 |       -7.0 |     -246.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2160* |       0 |     901 |      127 |      0 |   173 |    +0.1% |   -1.531 |       -7.0 |     -246.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2170* |       0 |     908 |      129 |      0 |   174 |    +0.1% |   -1.532 |       -7.0 |     -245.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2180* |       0 |     915 |      131 |      0 |   175 |    +0.1% |   -1.535 |       -7.0 |     -245.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2189* |       0 |     903 |      128 |      0 |   174 |    +0.1% |   -1.531 |       -7.0 |     -245.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2190* |       0 |     903 |      128 |      0 |   174 |    +0.1% |   -1.531 |       -7.0 |     -245.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2200* |       0 |     912 |      128 |      0 |   175 |    +0.1% |   -1.531 |       -7.0 |     -244.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2210* |       0 |     916 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -244.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2212* |       0 |     914 |      129 |      0 |   177 |    +0.1% |   -1.531 |       -7.0 |     -244.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2220* |       0 |     920 |      130 |      0 |   177 |    +0.1% |   -1.532 |       -7.0 |     -243.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2230* |       0 |     927 |      132 |      0 |   178 |    +0.1% |   -1.538 |       -7.0 |     -243.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2231* |       0 |     919 |      130 |      0 |   177 |    +0.1% |   -1.531 |       -7.0 |     -243.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2237* |       0 |     922 |      130 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -243.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2240* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2240* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2241* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2242* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2243* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2244* |       0 |     923 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -245.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2250* |       0 |     928 |      131 |      0 |   178 |    +0.1% |   -1.531 |       -7.0 |     -244.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2260* |       0 |     936 |      132 |      0 |   179 |    +0.1% |   -1.531 |       -7.0 |     -244.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2270* |       0 |     942 |      134 |      0 |   181 |    +0.1% |   -1.531 |       -7.0 |     -244.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2280* |       0 |     949 |      136 |      0 |   182 |    +0.1% |   -1.531 |       -7.0 |     -244.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2286* |       0 |     949 |      136 |      0 |   183 |    +0.1% |   -1.531 |       -7.0 |     -244.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2290* |       0 |     951 |      136 |      0 |   184 |    +0.1% |   -1.531 |       -7.0 |     -244.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2300* |       0 |     957 |      139 |      0 |   185 |    +0.1% |   -1.531 |       -7.0 |     -244.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2300* |       0 |     951 |      136 |      0 |   184 |    +0.1% |   -1.531 |       -7.0 |     -244.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2310* |       0 |     957 |      140 |      0 |   185 |    +0.1% |   -1.532 |       -7.0 |     -244.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2320* |       0 |     965 |      142 |      0 |   185 |    +0.1% |   -1.532 |       -7.0 |     -244.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2330* |       0 |     972 |      143 |      0 |   187 |    +0.1% |   -1.532 |       -7.0 |     -245.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2330* |       0 |     951 |      136 |      0 |   184 |    +0.1% |   -1.531 |       -7.0 |     -244.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2340* |       0 |     958 |      137 |      0 |   185 |    +0.1% |   -1.531 |       -7.0 |     -243.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2350* |       0 |     965 |      138 |      0 |   187 |    +0.1% |   -1.531 |       -7.0 |     -243.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2354* |       0 |     968 |      139 |      0 |   187 |    +0.1% |   -1.531 |       -7.0 |     -243.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2360* |       0 |     970 |      139 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -243.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2365* |       0 |     970 |      139 |      0 |   187 |    +0.1% |   -1.531 |       -7.0 |     -242.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2370* |       0 |     972 |      140 |      0 |   188 |    +0.1% |   -1.531 |       -7.0 |     -244.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2380* |       0 |     980 |      142 |      0 |   188 |    +0.1% |   -1.531 |       -7.0 |     -243.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2384* |       0 |     971 |      139 |      0 |   187 |    +0.1% |   -1.531 |       -7.0 |     -242.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2388* |       0 |     973 |      139 |      0 |   188 |    +0.1% |   -1.531 |       -7.0 |     -242.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2390* |       0 |     974 |      139 |      0 |   188 |    +0.1% |   -1.531 |       -7.0 |     -242.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2400* |       0 |     981 |      140 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -243.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2410* |       0 |     988 |      142 |      0 |   191 |    +0.1% |   -1.531 |       -7.0 |     -242.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2410* |       0 |     978 |      139 |      0 |   189 |    +0.1% |   -1.531 |       -7.0 |     -242.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2416* |       0 |     978 |      139 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -242.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2420* |       0 |     980 |      140 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -240.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2425* |       0 |     980 |      139 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -240.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2430* |       0 |     984 |      139 |      0 |   190 |    +0.1% |   -1.531 |       -7.0 |     -240.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2440* |       0 |     991 |      141 |      0 |   191 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2447* |       0 |     991 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2449* |       0 |     992 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2450* |       0 |     992 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2450* |       0 |     992 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2455* |       0 |     993 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2456* |       0 |     993 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2460* |       0 |     996 |      141 |      0 |   192 |    +0.1% |   -1.532 |       -7.0 |     -239.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2466* |       0 |     993 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2467* |       0 |     993 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2468* |       0 |     993 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2470* |       0 |     994 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -239.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2474* |       0 |     996 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -239.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2477* |       0 |     996 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -239.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2480* |       0 |     997 |      142 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -242.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2480* |       0 |     996 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -239.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2483* |       0 |     996 |      141 |      0 |   192 |    +0.1% |   -1.531 |       -7.0 |     -239.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2490* |       0 |     998 |      144 |      0 |   193 |    +0.1% |   -1.531 |       -7.0 |     -240.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2495* |       0 |     996 |      141 |      0 |   193 |    +0.1% |   -1.531 |       -7.0 |     -239.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2500* |       0 |     997 |      144 |      0 |   193 |    +0.1% |   -1.531 |       -7.0 |     -241.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2501* |       0 |     996 |      143 |      0 |   193 |    +0.1% |   -1.531 |       -7.0 |     -241.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2510* |       0 |    1003 |      143 |      0 |   194 |    +0.1% |   -1.531 |       -7.0 |     -237.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2520* |       0 |    1012 |      143 |      0 |   195 |    +0.1% |   -1.531 |       -7.0 |     -231.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2530* |       0 |    1020 |      146 |      0 |   195 |    +0.1% |   -1.531 |       -7.0 |     -231.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2540* |       0 |    1024 |      151 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -234.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2543* |       0 |    1020 |      144 |      0 |   195 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2550* |       0 |    1024 |      145 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2558* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2560* |       0 |    1020 |      145 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2562* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2563* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2567* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2570* |       0 |    1021 |      145 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2571* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2575* |       0 |    1020 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2579* |       0 |    1023 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2580* |       0 |    1023 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2580* |       0 |    1023 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2581* |       0 |    1023 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2582* |       0 |    1023 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2586* |       0 |    1024 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2589* |       0 |    1024 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2590* |       0 |    1024 |      144 |      0 |   196 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2594* |       0 |    1026 |      145 |      0 |   197 |    +0.1% |   -1.531 |       -7.0 |     -233.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2598* |       0 |    1028 |      145 |      0 |   198 |    +0.1% |   -1.531 |       -7.0 |     -233.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2600* |       0 |    1029 |      145 |      0 |   198 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2604* |       0 |    1030 |      145 |      0 |   199 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2610* |       0 |    1035 |      145 |      0 |   199 |    +0.1% |   -1.532 |       -7.0 |     -233.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2620* |       0 |    1041 |      146 |      0 |   202 |    +0.1% |   -1.535 |       -7.0 |     -233.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2630* |       0 |    1049 |      147 |      0 |   203 |    +0.1% |   -1.542 |       -7.0 |     -231.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2640* |       0 |    1053 |      150 |      0 |   206 |    +0.1% |   -1.542 |       -7.0 |     -231.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2640* |       0 |    1032 |      145 |      0 |   199 |    +0.1% |   -1.531 |       -7.0 |     -233.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2644* |       0 |    1033 |      147 |      0 |   200 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2650* |       0 |    1035 |      149 |      0 |   201 |    +0.1% |   -1.531 |       -7.0 |     -234.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2654* |       0 |    1033 |      147 |      0 |   200 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2659* |       0 |    1033 |      147 |      0 |   200 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2660* |       0 |    1033 |      147 |      0 |   200 |    +0.1% |   -1.531 |       -7.0 |     -233.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2669* |       0 |    1038 |      149 |      0 |   202 |    +0.1% |   -1.531 |       -7.0 |     -234.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2670* |       0 |    1038 |      149 |      0 |   202 |    +0.1% |   -1.531 |       -7.0 |     -234.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2680* |       0 |    1043 |      152 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2683* |       0 |    1042 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2688* |       0 |    1043 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2690* |       0 |    1044 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2699* |       0 |    1046 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2700* |       0 |    1046 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2700* |       0 |    1046 |      150 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2702* |       0 |    1046 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2710* |       0 |    1050 |      153 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -235.6 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2720* |       0 |    1058 |      154 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -234.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2722* |       0 |    1046 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2724* |       0 |    1047 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -234.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2728* |       0 |    1050 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2729* |       0 |    1050 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2730* |       0 |    1050 |      151 |      0 |   204 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2737* |       0 |    1050 |      151 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2738* |       0 |    1050 |      151 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2740* |       0 |    1051 |      151 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2741* |       0 |    1051 |      151 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -233.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2750* |       0 |    1056 |      153 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -234.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2755* |       0 |    1054 |      151 |      0 |   205 |    +0.1% |   -1.531 |       -7.0 |     -233.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2759* |       0 |    1056 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2760* |       0 |    1056 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.7 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2770* |       0 |    1062 |      154 |      0 |   207 |    +0.1% |   -1.531 |       -7.0 |     -234.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2780* |       0 |    1071 |      154 |      0 |   208 |    +0.1% |   -1.531 |       -7.0 |     -233.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2788* |       0 |    1062 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2790* |       0 |    1063 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2792* |       0 |    1064 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2800* |       0 |    1070 |      152 |      0 |   206 |    +0.1% |   -1.535 |       -7.0 |     -233.2 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2810* |       0 |    1078 |      154 |      0 |   206 |    +0.1% |   -1.536 |       -7.0 |     -230.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2820* |       0 |    1084 |      157 |      0 |   207 |    +0.1% |   -1.542 |       -7.0 |     -231.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2822* |       0 |    1064 |      151 |      0 |   206 |    +0.1% |   -1.531 |       -7.0 |     -233.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2830* |       0 |    1070 |      151 |      0 |   207 |    +0.1% |   -1.531 |       -7.0 |     -232.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2840* |       0 |    1073 |      154 |      0 |   211 |    +0.1% |   -1.531 |       -7.0 |     -232.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2843* |       0 |    1072 |      152 |      0 |   208 |    +0.1% |   -1.531 |       -7.0 |     -232.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2850* |       0 |    1074 |      154 |      0 |   210 |    +0.1% |   -1.531 |       -7.0 |     -233.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2853* |       0 |    1073 |      152 |      0 |   208 |    +0.1% |   -1.531 |       -7.0 |     -232.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2860* |       0 |    1079 |      152 |      0 |   208 |    +0.1% |   -1.531 |       -7.0 |     -232.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2870* |       0 |    1084 |      154 |      0 |   211 |    +0.1% |   -1.531 |       -7.0 |     -232.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2880* |       0 |    1091 |      155 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -232.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2890* |       0 |    1097 |      157 |      0 |   215 |    +0.1% |   -1.531 |       -7.0 |     -232.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2892* |       0 |    1090 |      154 |      0 |   212 |    +0.1% |   -1.531 |       -7.0 |     -232.3 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2900* |       0 |    1093 |      160 |      0 |   212 |    +0.1% |   -1.531 |       -7.0 |     -235.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2900* |       0 |    1090 |      156 |      0 |   212 |    +0.1% |   -1.531 |       -7.0 |     -232.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2903* |       0 |    1091 |      156 |      0 |   212 |    +0.1% |   -1.531 |       -7.0 |     -232.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2910* |       0 |    1095 |      157 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -232.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2918* |       0 |    1097 |      157 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -232.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2920* |       0 |    1097 |      158 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -233.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2930* |       0 |    1104 |      159 |      0 |   215 |    +0.1% |   -1.531 |       -7.0 |     -232.8 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2936* |       0 |    1097 |      157 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -232.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2940* |       0 |    1100 |      157 |      0 |   213 |    +0.1% |   -1.531 |       -7.0 |     -231.9 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2950* |       0 |    1109 |      157 |      0 |   214 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2960* |       0 |    1117 |      159 |      0 |   214 |    +0.1% |   -1.532 |       -7.0 |     -231.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2970* |       0 |    1124 |      160 |      0 |   216 |    +0.1% |   -1.539 |       -7.0 |     -231.5 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2979* |       0 |    1111 |      157 |      0 |   214 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2980* |       0 |    1111 |      157 |      0 |   214 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    2990* |       0 |    1119 |      157 |      0 |   216 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3000* |       0 |    1120 |      164 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -235.0 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3000* |       0 |    1120 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3000* |       0 |    1120 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    308 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3000+ |       0 |    1120 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3001+ |       0 |    1120 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3002+ |       0 |    1120 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3010+ |       0 |    1127 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3012+ |       0 |    1129 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3016+ |       0 |    1132 |      159 |      0 |   217 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3019+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3020+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3020+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3021+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3022+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3023+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3024+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3025+ |       0 |    1133 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.1 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3030+ |       0 |    1137 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.0 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3035+ |       0 |    1143 |      159 |      0 |   218 |    +0.1% |   -1.531 |       -7.0 |     -231.0 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3040+ |       0 |    1146 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3040+ |       0 |    1146 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3041+ |       0 |    1146 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3043+ |       0 |    1147 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3044+ |       0 |    1147 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3045+ |       0 |    1147 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3048+ |       0 |    1149 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3049+ |       0 |    1149 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3050+ |       0 |    1149 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3050+ |       0 |    1149 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3051+ |       0 |    1149 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3055+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3056+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3057+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3058+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3059+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3060+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3060+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3061+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3062+ |       0 |    1152 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.8 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3064+ |       0 |    1153 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.7 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3067+ |       0 |    1155 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.7 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3069+ |       0 |    1156 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3070+ |       0 |    1156 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3071+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3072+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3073+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3074+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3075+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3076+ |       0 |    1157 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3080+ |       0 |    1160 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3081+ |       0 |    1161 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3082+ |       0 |    1161 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3083+ |       0 |    1161 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3084+ |       0 |    1161 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.4 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3087+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3088+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3089+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3090+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3090+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3091+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3092+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3093+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3094+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3095+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3096+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3097+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3098+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3099+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3100+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3101+ |       0 |    1163 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.3 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3107+ |       0 |    1168 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3108+ |       0 |    1168 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3109+ |       0 |    1168 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3110+ |       0 |    1168 |      159 |      0 |   219 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3112+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3113+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3114+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3115+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3116+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3117+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3118+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3119+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3120+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3120+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3121+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3122+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3123+ |       0 |    1169 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -230.2 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3129+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3130+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3130+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3131+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3132+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3133+ |       0 |    1174 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3136+ |       0 |    1176 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3140+ |       0 |    1179 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3140+ |       0 |    1179 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3142+ |       0 |    1180 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3143+ |       0 |    1180 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3144+ |       0 |    1180 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3145+ |       0 |    1180 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3147+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3148+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3149+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3150+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3150+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3151+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3152+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3153+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3154+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3155+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3156+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3157+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3158+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3159+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3160+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3160+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3161+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3162+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3163+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3164+ |       0 |    1181 |      159 |      0 |   220 |    +0.1% |   -1.531 |       -7.0 |     -229.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3170+ |       0 |    1185 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -227.0 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3172+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3173+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3174+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3175+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3176+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3177+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3178+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3179+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3180+ |       0 |    1187 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3181+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3182+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3183+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3184+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3185+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3186+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3187+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3188+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3189+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3190+ |       0 |    1188 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3191+ |       0 |    1189 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3192+ |       0 |    1189 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3193+ |       0 |    1189 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -226.6 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    3200+ |       0 |    1195 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -224.5 |    286 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+    final |       0 |    1195 |      159 |      0 |   221 |    +0.1% |   -1.531 |       -7.0 |     -224.5 |    285 | soc0/processor/decode1_0/_027_\[119\]$_SDFFE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0045] Inserted 159 buffers, 5 to split loads.
+[INFO RSZ-0051] Resized 1195 instances: 1195 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 221 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 61.60s
+[INFO RSZ-0046] Found 855 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -3.507 | -1833.755 | soc0/processor/icache_0/rams:1.way/cache_ram_0/A0[3]
+       10 |       0 |      20 |            0 |    +0.0% |  -3.202 | -1820.472 | soc0/bram.bram0/ram_0/memory_0/Di0[54]
+       20 |       1 |      47 |            0 |    +0.0% |  -3.125 | -1806.716 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[0]
+       30 |       2 |      75 |            0 |    +0.0% |  -3.087 | -1794.134 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[8]
+       40 |       5 |     103 |            0 |    +0.0% |  -3.019 | -1781.743 | soc0/bram.bram0/ram_0/memory_0/Di0[43]
+       50 |       7 |     133 |            0 |    +0.0% |  -2.948 | -1771.842 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[15]
+       60 |       9 |     170 |            0 |    +0.0% |  -2.917 | -1756.311 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[19]
+       70 |      10 |     207 |            0 |    +0.0% |  -2.862 | -1741.245 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[23]
+       80 |      10 |     245 |            0 |    +0.1% |  -2.833 | -1723.495 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[46]
+       90 |      10 |     281 |            0 |    +0.1% |  -2.812 | -1705.097 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[30]
+      100 |      11 |     318 |            0 |    +0.1% |  -2.782 | -1680.203 | soc0/bram.bram0/ram_0/memory_0/Di0[32]
+      110 |      16 |     353 |            0 |    +0.1% |  -2.728 | -1663.914 | soc0/processor/dcache_0/rams:1.way/cache_ram_0/Di0[54]
+      120 |      18 |     385 |            0 |    +0.1% |  -2.653 | -1646.691 | soc0/bram.bram0/ram_0/memory_0/A0[8]
+      130 |      20 |     421 |            0 |    +0.1% |  -2.602 | -1628.457 | soc0/bram.bram0/ram_0/memory_0/WE0[6]
+      140 |      23 |     456 |            0 |    +0.1% |  -2.601 | -1601.587 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      150 |      31 |     492 |            0 |    +0.1% |  -2.601 | -1586.717 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      160 |      35 |     538 |            0 |    +0.1% |  -2.601 | -1572.063 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      170 |      38 |     571 |            0 |    +0.1% |  -2.601 | -1558.191 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      180 |      38 |     581 |            0 |    +0.1% |  -2.601 | -1552.852 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      190 |      38 |     594 |            0 |    +0.1% |  -2.601 | -1545.642 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      200 |      38 |     604 |            0 |    +0.1% |  -2.601 | -1540.298 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      210 |      39 |     621 |            0 |    +0.1% |  -2.601 | -1532.627 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      220 |      40 |     637 |            0 |    +0.1% |  -2.601 | -1506.731 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      230 |      40 |     651 |            0 |    +0.1% |  -2.601 | -1503.076 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      240 |      40 |     666 |            0 |    +0.1% |  -2.601 | -1495.579 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      250 |      40 |     676 |            0 |    +0.2% |  -2.601 | -1490.191 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      260 |      40 |     686 |            0 |    +0.2% |  -2.601 | -1484.762 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      270 |      40 |     696 |            0 |    +0.2% |  -2.601 | -1479.325 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      280 |      40 |     706 |            0 |    +0.2% |  -2.601 | -1473.868 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      290 |      40 |     719 |            0 |    +0.2% |  -2.601 | -1466.588 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      300 |      40 |     735 |            0 |    +0.2% |  -2.601 | -1458.462 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      310 |      40 |     745 |            0 |    +0.2% |  -2.601 | -1453.130 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      320 |      40 |     755 |            0 |    +0.2% |  -2.601 | -1447.796 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      330 |      40 |     768 |            0 |    +0.2% |  -2.601 | -1440.608 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      340 |      40 |     778 |            0 |    +0.2% |  -2.601 | -1435.204 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      350 |      40 |     788 |            0 |    +0.2% |  -2.601 | -1429.792 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      360 |      42 |     804 |            0 |    +0.2% |  -2.601 | -1421.187 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      370 |      44 |     821 |            0 |    +0.2% |  -2.601 | -1411.630 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      380 |      44 |     831 |            0 |    +0.2% |  -2.601 | -1405.944 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      390 |      45 |     847 |            0 |    +0.2% |  -2.601 | -1397.874 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      400 |      45 |     860 |            0 |    +0.2% |  -2.601 | -1389.191 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      410 |      45 |     870 |            0 |    +0.2% |  -2.601 | -1383.355 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      420 |      45 |     880 |            0 |    +0.2% |  -2.601 | -1377.488 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      430 |      45 |     893 |            0 |    +0.2% |  -2.601 | -1369.964 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      440 |      45 |     903 |            0 |    +0.2% |  -2.601 | -1364.049 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      450 |      46 |     931 |            0 |    +0.2% |  -2.601 | -1350.852 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      460 |      51 |     967 |            0 |    +0.2% |  -2.601 | -1336.126 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      470 |      52 |     994 |            0 |    +0.2% |  -2.601 | -1326.991 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      480 |      53 |    1009 |            0 |    +0.2% |  -2.601 | -1320.682 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      490 |      54 |    1024 |            0 |    +0.2% |  -2.601 | -1315.051 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      500 |      54 |    1034 |            0 |    +0.2% |  -2.601 | -1309.663 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      510 |      55 |    1048 |            0 |    +0.2% |  -2.601 | -1301.888 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      520 |      55 |    1058 |            0 |    +0.2% |  -2.601 | -1296.491 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      530 |      55 |    1068 |            0 |    +0.2% |  -2.601 | -1291.040 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      540 |      56 |    1082 |            0 |    +0.2% |  -2.601 | -1285.239 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      550 |      56 |    1092 |            0 |    +0.2% |  -2.601 | -1279.803 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      560 |      56 |    1102 |            0 |    +0.2% |  -2.601 | -1274.391 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      570 |      56 |    1112 |            0 |    +0.2% |  -2.601 | -1268.928 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      580 |      56 |    1124 |            0 |    +0.2% |  -2.601 | -1261.892 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      590 |      56 |    1134 |            0 |    +0.3% |  -2.601 | -1256.359 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      600 |      57 |    1152 |            0 |    +0.3% |  -2.601 | -1247.442 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      610 |      59 |    1180 |            0 |    +0.3% |  -2.601 | -1237.752 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      620 |      61 |    1200 |            0 |    +0.3% |  -2.601 | -1230.866 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      630 |      68 |    1229 |            0 |    +0.3% |  -2.601 | -1219.902 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      640 |      68 |    1245 |            0 |    +0.3% |  -2.601 | -1209.979 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      650 |      69 |    1265 |            0 |    +0.3% |  -2.601 | -1198.426 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      660 |      69 |    1283 |            0 |    +0.3% |  -2.601 | -1186.918 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      670 |      71 |    1310 |            0 |    +0.3% |  -2.601 | -1173.174 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      680 |      74 |    1343 |            0 |    +0.3% |  -2.601 | -1162.407 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      690 |      76 |    1371 |            0 |    +0.3% |  -2.601 | -1151.256 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      700 |      77 |    1387 |            0 |    +0.3% |  -2.601 | -1143.180 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      710 |      77 |    1397 |            0 |    +0.3% |  -2.601 | -1136.708 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      720 |      77 |    1407 |            0 |    +0.3% |  -2.601 | -1130.116 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      730 |      78 |    1421 |            0 |    +0.3% |  -2.601 | -1123.652 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      740 |      80 |    1444 |            0 |    +0.3% |  -2.601 | -1111.433 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      750 |      86 |    1477 |            0 |    +0.3% |  -2.601 | -1097.994 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      760 |      89 |    1500 |            0 |    +0.3% |  -2.601 | -1088.276 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      770 |      95 |    1546 |            0 |    +0.3% |  -2.601 | -1075.956 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      780 |      95 |    1583 |            0 |    +0.4% |  -2.601 | -1064.588 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      790 |      95 |    1616 |            0 |    +0.4% |  -2.601 | -1052.879 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      800 |      95 |    1655 |            0 |    +0.4% |  -2.601 | -1041.112 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      810 |      95 |    1687 |            0 |    +0.4% |  -2.601 | -1029.785 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      820 |      95 |    1719 |            0 |    +0.4% |  -2.601 | -1019.123 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      830 |      95 |    1753 |            0 |    +0.4% |  -2.601 | -1009.059 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      840 |      96 |    1787 |            0 |    +0.4% |  -2.601 | -1001.328 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      850 |      96 |    1818 |            0 |    +0.4% |  -2.601 | -994.821 | soc0/bram.bram0/ram_0/memory_0/Di0[57]
+      860 |      96 |    1847 |            0 |    +0.4% |  -2.484 | -982.197 | soc0/bram.bram0/ram_0/memory_0/Di0[46]
+      870 |      96 |    1897 |            0 |    +0.4% |  -2.078 | -920.401 | soc0/processor/icache_0/rams:1.way/cache_ram_0/A0[0]
+      880 |      96 |    1942 |            0 |    +0.4% |  -2.078 | -908.781 | soc0/processor/icache_0/rams:1.way/cache_ram_0/A0[0]
+      890 |      96 |    1970 |            0 |    +0.4% |  -1.876 | -894.586 | soc0/processor/execute1_0/multiply_0/multiplier/a[12]
+      900 |      96 |    1990 |            0 |    +0.4% |  -1.869 | -884.130 | soc0/processor/execute1_0/multiply_0/multiplier/c[78]
+      910 |      96 |    2010 |            0 |    +0.4% |  -1.868 | -873.637 | soc0/processor/execute1_0/multiply_0/multiplier/a[40]
+      920 |      96 |    2030 |            0 |    +0.4% |  -1.865 | -863.123 | soc0/processor/execute1_0/multiply_0/multiplier/a[14]
+      930 |      96 |    2052 |            0 |    +0.5% |  -1.863 | -851.779 | soc0/processor/execute1_0/multiply_0/multiplier/c[83]
+      940 |      96 |    2072 |            0 |    +0.5% |  -1.861 | -841.214 | soc0/processor/execute1_0/multiply_0/multiplier/a[55]
+      950 |      96 |    2092 |            0 |    +0.5% |  -1.859 | -830.651 | soc0/processor/execute1_0/multiply_0/multiplier/a[47]
+      960 |      96 |    2114 |            0 |    +0.5% |  -1.853 | -819.281 | soc0/processor/execute1_0/multiply_0/multiplier/c[40]
+      970 |      96 |    2134 |            0 |    +0.5% |  -1.848 | -808.635 | soc0/processor/execute1_0/multiply_0/multiplier/a[5]
+      980 |      96 |    2154 |            0 |    +0.5% |  -1.845 | -798.015 | soc0/processor/execute1_0/multiply_0/multiplier/c[34]
+      990 |      96 |    2174 |            0 |    +0.5% |  -1.842 | -787.387 | soc0/processor/execute1_0/multiply_0/multiplier/c[37]
+     1000 |      96 |    2194 |            0 |    +0.5% |  -1.839 | -776.844 | soc0/processor/execute1_0/multiply_0/multiplier/c[67]
+     1010 |      96 |    2216 |            0 |    +0.5% |  -1.836 | -765.503 | soc0/processor/execute1_0/multiply_0/multiplier/c[100]
+     1020 |      96 |    2236 |            0 |    +0.5% |  -1.834 | -755.020 | soc0/processor/execute1_0/multiply_0/multiplier/c[104]
+     1030 |      96 |    2256 |            0 |    +0.5% |  -1.830 | -744.527 | soc0/processor/execute1_0/multiply_0/multiplier/c[73]
+     1040 |      96 |    2276 |            0 |    +0.5% |  -1.823 | -734.049 | soc0/processor/execute1_0/multiply_0/multiplier/c[92]
+     1050 |      96 |    2296 |            0 |    +0.5% |  -1.813 | -723.465 | soc0/processor/execute1_0/multiply_0/multiplier/c[58]
+     1060 |      96 |    2316 |            0 |    +0.5% |  -1.806 | -712.876 | soc0/processor/execute1_0/multiply_0/multiplier/c[56]
+     1070 |      96 |    2341 |            0 |    +0.5% |  -1.764 | -700.096 | soc0/processor/execute1_0/multiply_0/multiplier/a[62]
+     1080 |      96 |    2364 |            0 |    +0.5% |  -1.743 | -688.995 | soc0/processor/execute1_0/multiply_0/multiplier/b[4]
+     1090 |      96 |    2387 |            0 |    +0.5% |  -1.709 | -677.875 | soc0/processor/execute1_0/multiply_0/multiplier/b[63]
+     1100 |      96 |    2408 |            0 |    +0.5% |  -1.689 | -666.337 | soc0/processor/execute1_0/multiply_0/multiplier/b[53]
+     1110 |      96 |    2428 |            0 |    +0.5% |  -1.674 | -655.370 | soc0/processor/execute1_0/multiply_0/multiplier/b[47]
+     1120 |      96 |    2448 |            0 |    +0.5% |  -1.665 | -644.358 | soc0/processor/execute1_0/multiply_0/multiplier/b[28]
+     1130 |      96 |    2470 |            0 |    +0.5% |  -1.660 | -632.215 | soc0/processor/execute1_0/multiply_0/multiplier/b[8]
+     1140 |      96 |    2490 |            0 |    +0.5% |  -1.645 | -621.163 | soc0/processor/execute1_0/multiply_0/multiplier/b[24]
+     1150 |      97 |    2519 |            0 |    +0.6% |  -1.602 | -606.804 | soc0/bram.bram0/ram_0/memory_0/Di0[48]
+     1160 |      97 |    2541 |            0 |    +0.6% |  -1.582 | -595.967 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[2]
+     1170 |      97 |    2561 |            0 |    +0.6% |  -1.571 | -585.334 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[27]
+     1180 |      97 |    2582 |            0 |    +0.6% |  -1.563 | -575.194 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[15]
+     1190 |      97 |    2603 |            0 |    +0.6% |  -1.557 | -564.157 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[55]
+     1200 |      97 |    2623 |            0 |    +0.6% |  -1.551 | -553.637 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[39]
+     1210 |      97 |    2644 |            0 |    +0.6% |  -1.544 | -543.208 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[38]
+     1220 |      97 |    2664 |            0 |    +0.6% |  -1.534 | -532.563 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[6]
+     1230 |      97 |    2684 |            0 |    +0.6% |  -1.529 | -521.968 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[61]
+     1240 |      97 |    2704 |            0 |    +0.6% |  -1.526 | -511.398 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[19]
+     1250 |      97 |    2724 |            0 |    +0.6% |  -1.521 | -500.760 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[48]
+     1260 |      97 |    2744 |            0 |    +0.6% |  -1.514 | -490.072 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[124]
+     1270 |      97 |    2764 |            0 |    +0.6% |  -1.504 | -479.365 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[13]
+     1280 |      97 |    2784 |            0 |    +0.6% |  -1.488 | -468.565 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[43]
+     1290 |      98 |    2808 |            0 |    +0.6% |  -1.450 | -456.739 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[109]
+     1300 |      98 |    2828 |            0 |    +0.6% |  -1.384 | -445.887 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[36]
+     1310 |      98 |    2852 |            0 |    +0.6% |  -1.333 | -433.822 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[113]
+     1320 |      98 |    2874 |            0 |    +0.6% |  -1.244 | -422.999 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[103]
+     1330 |      98 |    2897 |            0 |    +0.6% |  -1.194 | -411.304 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[46]
+     1340 |      98 |    2918 |            0 |    +0.6% |  -1.155 | -399.780 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[111]
+     1350 |      98 |    2945 |            0 |    +0.6% |  -1.122 | -386.818 | soc0/bram.bram0/ram_0/memory_0/Di0[25]
+     1360 |      98 |    2967 |            0 |    +0.6% |  -1.108 | -376.457 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[82]
+     1370 |      98 |    2990 |            0 |    +0.7% |  -1.088 | -365.682 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[31]
+     1380 |      98 |    3010 |            0 |    +0.7% |  -1.069 | -355.664 | soc0/bram.bram0/ram_0/memory_0/Di0[1]
+     1390 |      98 |    3031 |            0 |    +0.7% |  -1.056 | -346.337 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[19]
+     1400 |      98 |    3051 |            0 |    +0.7% |  -1.030 | -336.622 | soc0/bram.bram0/ram_0/memory_0/Di0[16]
+     1410 |      98 |    3080 |            0 |    +0.7% |  -1.005 | -328.748 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[85]
+     1420 |      98 |    3099 |            0 |    +0.7% |  -0.980 | -323.026 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[45]
+     1430 |      99 |    3119 |            0 |    +0.7% |  -0.967 | -313.428 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[38]
+     1440 |      99 |    3139 |            0 |    +0.7% |  -0.885 | -306.759 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1450 |      99 |    3151 |            0 |    +0.7% |  -0.885 | -303.238 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1460 |      99 |    3174 |            0 |    +0.7% |  -0.885 | -298.182 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1470 |      99 |    3195 |            0 |    +0.7% |  -0.885 | -292.413 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1480 |      99 |    3210 |            0 |    +0.7% |  -0.885 | -287.793 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1490 |      99 |    3229 |            0 |    +0.7% |  -0.885 | -282.314 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1500 |      99 |    3247 |            0 |    +0.7% |  -0.885 | -277.147 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1510 |      99 |    3266 |            0 |    +0.7% |  -0.885 | -272.060 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1520 |      99 |    3282 |            0 |    +0.7% |  -0.885 | -266.966 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1530 |      99 |    3291 |            0 |    +0.7% |  -0.885 | -263.969 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1540 |      99 |    3304 |            0 |    +0.7% |  -0.885 | -260.283 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1550 |      99 |    3319 |            0 |    +0.7% |  -0.885 | -257.863 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1560 |      99 |    3329 |            0 |    +0.7% |  -0.885 | -255.721 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1570 |      99 |    3334 |            0 |    +0.7% |  -0.885 | -254.313 | soc0/processor/execute1_0/multiply_0/multiplier/c[125]
+     1580 |      99 |    3341 |            0 |    +0.7% |  -0.878 | -253.232 | soc0/processor/execute1_0/multiply_0/multiplier/c[126]
+     1590 |      99 |    3361 |            0 |    +0.7% |  -0.831 | -244.691 | soc0/processor/execute1_0/multiply_0/multiplier/c[90]
+     1600 |      99 |    3381 |            0 |    +0.7% |  -0.817 | -236.454 | soc0/processor/execute1_0/multiply_0/multiplier/a[10]
+     1610 |      99 |    3401 |            0 |    +0.7% |  -0.814 | -228.295 | soc0/processor/execute1_0/multiply_0/multiplier/a[34]
+     1620 |      99 |    3421 |            0 |    +0.7% |  -0.809 | -220.172 | soc0/processor/execute1_0/multiply_0/multiplier/a[36]
+     1630 |      99 |    3441 |            0 |    +0.7% |  -0.807 | -212.087 | soc0/processor/execute1_0/multiply_0/multiplier/a[43]
+     1640 |      99 |    3461 |            0 |    +0.8% |  -0.803 | -204.041 | soc0/processor/execute1_0/multiply_0/multiplier/a[11]
+     1650 |      99 |    3481 |            0 |    +0.8% |  -0.800 | -196.021 | soc0/processor/execute1_0/multiply_0/multiplier/c[72]
+     1660 |      99 |    3501 |            0 |    +0.8% |  -0.795 | -188.039 | soc0/processor/execute1_0/multiply_0/multiplier/c[36]
+     1670 |      99 |    3521 |            0 |    +0.8% |  -0.792 | -180.105 | soc0/processor/execute1_0/multiply_0/multiplier/c[40]
+     1680 |      99 |    3541 |            0 |    +0.8% |  -0.789 | -172.195 | soc0/processor/execute1_0/multiply_0/multiplier/a[3]
+     1690 |      99 |    3561 |            0 |    +0.8% |  -0.784 | -164.326 | soc0/processor/execute1_0/multiply_0/multiplier/c[41]
+     1700 |      99 |    3581 |            0 |    +0.8% |  -0.780 | -156.503 | soc0/processor/execute1_0/multiply_0/multiplier/c[1]
+     1710 |      99 |    3601 |            0 |    +0.8% |  -0.777 | -148.716 | soc0/processor/execute1_0/multiply_0/multiplier/c[14]
+     1720 |      99 |    3621 |            0 |    +0.8% |  -0.772 | -140.970 | soc0/processor/execute1_0/multiply_0/multiplier/c[110]
+     1730 |      99 |    3641 |            0 |    +0.8% |  -0.765 | -133.280 | soc0/processor/execute1_0/multiply_0/multiplier/c[38]
+     1740 |      99 |    3661 |            0 |    +0.8% |  -0.759 | -125.657 | soc0/processor/execute1_0/multiply_0/multiplier/a[0]
+     1750 |      99 |    3681 |            0 |    +0.8% |  -0.748 | -118.114 | soc0/processor/execute1_0/multiply_0/multiplier/c[46]
+     1760 |      99 |    3701 |            0 |    +0.8% |  -0.676 | -110.829 | soc0/processor/execute1_0/multiply_0/multiplier/a[50]
+     1770 |      99 |    3721 |            0 |    +0.8% |  -0.633 | -104.221 | soc0/processor/execute1_0/multiply_0/multiplier/b[60]
+     1780 |      99 |    3741 |            0 |    +0.8% |  -0.601 | -98.033 | soc0/processor/execute1_0/multiply_0/multiplier/b[41]
+     1790 |      99 |    3761 |            0 |    +0.8% |  -0.586 | -92.090 | soc0/processor/execute1_0/multiply_0/multiplier/b[7]
+     1800 |      99 |    3781 |            0 |    +0.8% |  -0.565 | -86.352 | soc0/processor/execute1_0/multiply_0/multiplier/b[30]
+     1810 |      99 |    3801 |            0 |    +0.8% |  -0.558 | -80.723 | soc0/processor/execute1_0/multiply_0/multiplier/c[6]
+     1820 |      99 |    3821 |            0 |    +0.8% |  -0.547 | -75.199 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[1]
+     1830 |      99 |    3839 |            0 |    +0.8% |  -0.536 | -69.789 | soc0/processor/execute1_0/multiply_0/multiplier/c[4]
+     1840 |      99 |    3857 |            0 |    +0.8% |  -0.523 | -64.481 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[14]
+     1850 |      99 |    3877 |            0 |    +0.8% |  -0.511 | -59.292 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[24]
+     1860 |      99 |    3893 |            0 |    +0.8% |  -0.502 | -54.210 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[29]
+     1870 |      99 |    3903 |            0 |    +0.8% |  -0.496 | -49.222 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[20]
+     1880 |      99 |    3913 |            0 |    +0.8% |  -0.485 | -44.307 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[13]
+     1890 |      99 |    3923 |            0 |    +0.9% |  -0.477 | -39.489 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[8]
+     1900 |      99 |    3933 |            0 |    +0.9% |  -0.469 | -34.768 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[45]
+     1910 |      99 |    3943 |            0 |    +0.9% |  -0.463 | -30.113 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/a[1]
+     1920 |      99 |    3953 |            0 |    +0.9% |  -0.453 | -25.533 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[53]
+     1930 |      99 |    3963 |            0 |    +0.9% |  -0.445 | -21.049 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[44]
+     1940 |      99 |    3973 |            0 |    +0.9% |  -0.426 | -16.681 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[122]
+     1950 |      99 |    3983 |            0 |    +0.9% |  -0.410 | -12.518 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[18]
+     1960 |      99 |    3993 |            0 |    +0.9% |  -0.383 |  -8.519 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[115]
+     1970 |      99 |    4003 |            0 |    +0.9% |  -0.327 |  -4.957 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[22]
+     1980 |      99 |    4014 |            0 |    +0.9% |  -0.224 |  -2.128 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/b[32]
+     1990 |      99 |    4024 |            0 |    +0.9% |  -0.075 |  -0.531 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[121]
+     2000 |      99 |    4034 |            0 |    +0.9% |  -0.023 |  -0.049 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier/c[118]
+    final |      99 |    4038 |            0 |    +0.9% |   0.001 |   0.000 | soc0/bram.bram0/ram_0/memory_0/Di0[34]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 99 instances.
+[INFO RSZ-0032] Inserted 4038 hold buffers.
+[INFO RSZ-0506] Runtime: 6.65s
+Took 68 seconds: repair_timing -setup_margin 0.2 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -match_cell_footprint -verbose
+detailed_placement
+[INFO DPL-0006] Core area: 8196365.96 um^2
+[INFO DPL-0007] Movable instances area: 780262.08 um^2
+[INFO DPL-0008] Fixed instances area within core: 3997684.66 um^2
+[INFO DPL-0009] Utilization: 58.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (5 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 131691 cells
+[INFO DPL-0393]   height 69 row(s): 2 cells
+[INFO DPL-0393]   height 203 row(s): 2 cells
+[INFO DPL-0393]   height 363 row(s): 1 cells
+[INFO DPL-0393]   height 423 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         73 |        13 |        60
+        1 |          4 |         2 |         2
+        2 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 2.
+[INFO DPL-0500] Runtime: 0.77s
+Placement Analysis
+---------------------------------
+total displacement      68454.3 u
+average displacement        0.5 u
+max displacement          377.4 u
+original HPWL         5973723.8 u
+legalized HPWL        5985665.5 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 4777947 um^2 58% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/microwatt/base/4_cts.sdc
+Elapsed time: 1:47.19[h:]min:sec. CPU time: user 146.66 sys 65.85 (198%). Peak memory: 1065820KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb          107           1040 0a58138f8608d0a0fb90

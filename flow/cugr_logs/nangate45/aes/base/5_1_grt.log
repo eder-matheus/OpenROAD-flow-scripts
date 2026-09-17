@@ -1,0 +1,222 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/aes/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/aes/base/4_cts.sdc
+source ./platforms/nangate45/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     21
+Number of macros:     135
+Number of vias:       33
+Number of viarulegen: 19
+
+[INFO DRT-0150] Reading design.
+
+Design:                   aes_cipher_top
+Die area:                 ( 0 0 ) ( 499700 501200 )
+Number of track patterns: 40
+Number of DEF vias:       0
+Number of components:     15099
+Number of terminals:      390
+Number of snets:          2
+Number of nets:           15423
+
+[INFO DRT-0167] List of default vias:
+  Layer via2
+    default via: via2_5
+  Layer via3
+    default via: via3_2
+  Layer via4
+    default via: via4_0
+  Layer via5
+    default via: via5_0
+  Layer via6
+    default via: via6_0
+  Layer via7
+    default via: via7_0
+  Layer via8
+    default via: via8_0
+  Layer via9
+    default via: via9_0
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 117.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete active.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete metal1.
+[INFO DRT-0024]   Complete via1.
+[INFO DRT-0024]   Complete metal2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete metal3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete metal4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete metal5.
+[INFO DRT-0024]   Complete via5.
+[INFO DRT-0024]   Complete metal6.
+[INFO DRT-0024]   Complete via6.
+[INFO DRT-0024]   Complete metal7.
+[INFO DRT-0024]   Complete via7.
+[INFO DRT-0024]   Complete metal8.
+[INFO DRT-0024]   Complete via8.
+[INFO DRT-0024]   Complete metal9.
+[INFO DRT-0024]   Complete via9.
+[INFO DRT-0024]   Complete metal10.
+[INFO DRT-0033] active shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] metal1 shape region query size = 230453.
+[INFO DRT-0033] via1 shape region query size = 2229.
+[INFO DRT-0033] metal2 shape region query size = 1655.
+[INFO DRT-0033] via2 shape region query size = 2229.
+[INFO DRT-0033] metal3 shape region query size = 1705.
+[INFO DRT-0033] via3 shape region query size = 2229.
+[INFO DRT-0033] metal4 shape region query size = 824.
+[INFO DRT-0033] via4 shape region query size = 720.
+[INFO DRT-0033] metal5 shape region query size = 144.
+[INFO DRT-0033] via5 shape region query size = 720.
+[INFO DRT-0033] metal6 shape region query size = 144.
+[INFO DRT-0033] via6 shape region query size = 288.
+[INFO DRT-0033] metal7 shape region query size = 104.
+[INFO DRT-0033] via7 shape region query size = 0.
+[INFO DRT-0033] metal8 shape region query size = 0.
+[INFO DRT-0033] via8 shape region query size = 0.
+[INFO DRT-0033] metal9 shape region query size = 0.
+[INFO DRT-0033] via9 shape region query size = 0.
+[INFO DRT-0033] metal10 shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 667 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 117 unique inst patterns.
+[INFO DRT-0084]   Complete 8602 groups.
+#scanned instances     = 15099
+#unique  instances     = 117
+#stdCellGenAp          = 3758
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 2716
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 51800
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:11, elapsed time = 00:00:02, memory = 170.11 (MB), peak = 167.93 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/nangate45/aes/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -use_cugr
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 108 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 72
+Design statistics
+Nets:                14866
+Special nets:        2
+Routing layers:      10
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       112354         56177          50.00%
+metal3     Horizontal     153232         76616          50.00%
+metal4     Vertical        73810         55357          25.00%
+metal5     Horizontal      76755         57566          25.00%
+metal6     Vertical        76511         57383          25.00%
+metal7     Horizontal      21253         16102          24.24%
+metal8     Vertical        26918         20189          25.00%
+metal9     Horizontal      13502         10492          22.29%
+metal10    Vertical        13502         10492          22.29%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Stage 3: Pattern routing with detours.
+Stage 4: Maze routing on sparsified graph.
+Stage 5: Iterative rip-up and re-route.
+[INFO GRT-0117] Start extra iteration 1/10
+[WARNING GRT-0305] Demoted 2 NDR net(s) to default rule to reduce congestion (use debug 'softNDR' for net list).
+[INFO GRT-0117] Start extra iteration 2/10
+[INFO GRT-0117] Start extra iteration 3/10
+[INFO GRT-0117] Start extra iteration 4/10
+[INFO GRT-0117] Start extra iteration 5/10
+[INFO GRT-0117] Start extra iteration 6/10
+[INFO GRT-0117] Start extra iteration 7/10
+[INFO GRT-0117] Start extra iteration 8/10
+[INFO GRT-0117] Start extra iteration 9/10
+[INFO GRT-0117] Start extra iteration 10/10
+[INFO GRT-0306] Iterative RRR soft-demoted 2 NDR net(s) total.
+[WARNING GRT-0118] Iterative RRR finished with congestion remaining (598).
+Routing statistics
+Wire length:           1148847
+Total via count:       103379
+Total congestion:      598.81
+Min resource:          -2.09
+Bottleneck:            (2, 30, 43)
+[INFO GRT-0130] CUGR congestion report:
+Layer   Dir     Resource     Wire Dmd      Via Dmd    Total Dmd  Usage (%)   Wire Ovf    Via Ovf  Max Edge Ovf
+--------------------------------------------------------------------------------------------------------------
+metal1    H         0.00         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+metal2    V     56176.76     18472.00      5826.84     24298.84      43.25     299.47     104.88          2.05
+metal3    H     76616.05     26238.00      4864.98     31102.98      40.60     137.98      30.17          2.09
+metal4    V     55357.38     11283.00      2232.53     13515.53      24.42      19.95       3.91          0.98
+metal5    H     57566.18     10609.00      1150.75     11759.75      20.43       1.84       0.17          0.34
+metal6    V     57383.12      8543.00       369.72      8912.72      15.53       0.40       0.03          0.34
+metal7    H     16101.75       698.00        73.54       771.54       4.79       0.00       0.00          0.00
+metal8    V     20188.50       516.00        23.02       539.02       2.67       0.00       0.00          0.00
+metal9    H     10492.00       152.00         8.98       160.98       1.53       0.00       0.00          0.00
+metal10   V     10492.00         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+--------------------------------------------------------------------------------------------------------------
+Total          360373.74     76511.00     14550.35     91061.35      25.27     459.64     139.17          2.09
+[INFO GRT-0018] Total wirelength: 324820 um
+[INFO GRT-0014] Routed nets: 14866
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO GRT-0303] Global routing runtime = 00:00:22
+Took 22 seconds: global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/nangate45/aes/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -use_cugr
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/nangate45/aes/base/congestion_post_recover_power.rpt
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 19132 um^2 36% utilization.
+[INFO FLW-0007] clock clk period 0.820000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 1338
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/aes/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/aes/base/5_1_grt.sdc
+Elapsed time: 0:31.01[h:]min:sec. CPU time: user 144.61 sys 55.30 (644%). Peak memory: 348336KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           31            340 6dd0e6cf7e7f1197440c
+5_1_grt                   .sdc                             c4fc350a67e9fac81d42

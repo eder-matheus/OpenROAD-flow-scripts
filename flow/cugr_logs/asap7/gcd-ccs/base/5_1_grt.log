@@ -1,0 +1,315 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd-ccs/base/4_cts.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   gcd
+Die area:                 ( 0 0 ) ( 9211 9211 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     424
+Number of terminals:      56
+Number of snets:          2
+Number of nets:           399
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 93.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 6590.
+[INFO DRT-0033] V1 shape region query size = 7312.
+[INFO DRT-0033] M2 shape region query size = 226.
+[INFO DRT-0033] V2 shape region query size = 186.
+[INFO DRT-0033] M3 shape region query size = 186.
+[INFO DRT-0033] V3 shape region query size = 124.
+[INFO DRT-0033] M4 shape region query size = 149.
+[INFO DRT-0033] V4 shape region query size = 124.
+[INFO DRT-0033] M5 shape region query size = 103.
+[INFO DRT-0033] V5 shape region query size = 16.
+[INFO DRT-0033] M6 shape region query size = 16.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 501 pins.
+[INFO DRT-0081]   Complete 93 unique inst patterns.
+[INFO DRT-0084]   Complete 245 groups.
+#scanned instances     = 424
+#unique  instances     = 93
+#stdCellGenAp          = 2120
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 1714
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 1183
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:00, memory = 452.22 (MB), peak = 446.73 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/gcd-ccs/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -resistance_aware -use_cugr
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 102
+[INFO GRT-0019] Found 6 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 26
+Design statistics
+Nets:                399
+Special nets:        2
+Routing layers:      7
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal       3094          2320          25.02%
+M3         Vertical         3784          2838          25.00%
+M4         Horizontal       2826          2119          25.02%
+M5         Vertical         2593          1945          24.99%
+M6         Horizontal       1755          1320          24.79%
+M7         Vertical         2160          1620          25.00%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Stage 2: Resistance-aware re-route of critical nets.
+Routing statistics
+Wire length:           19805
+Total via count:       2221
+Total congestion:      0.00
+Min resource:          0.00
+Bottleneck:            (5, 0, 11)
+[INFO GRT-0130] CUGR congestion report:
+Layer   Dir     Resource     Wire Dmd      Via Dmd    Total Dmd  Usage (%)
+--------------------------------------------------------------------------
+M1        V         0.00         0.00         0.00         0.00       0.00
+M2        H      2320.24       454.00       177.21       631.21      27.20
+M3        V      2837.91       590.00       108.24       698.24      24.60
+M4        H      2119.22       169.00        51.83       220.83      10.42
+M5        V      1945.04        61.00        27.34        88.34       4.54
+M6        H      1320.00        45.50        14.07        59.57       4.51
+M7        V      1620.00        47.50         6.69        54.19       3.35
+--------------------------------------------------------------------------
+Total           12162.41      1367.00       385.38      1752.38      14.41
+[INFO GRT-0018] Total wirelength: 12785 um
+[INFO GRT-0014] Routed nets: 399
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       400
+       10 |     +0.0% |       0 |       0 |             0 |       390
+       20 |     +0.0% |       0 |       0 |             0 |       380
+       30 |     +0.0% |       0 |       0 |             0 |       370
+       40 |     +0.0% |       0 |       0 |             0 |       360
+       50 |     +0.0% |       0 |       0 |             0 |       350
+       60 |     +0.0% |       0 |       0 |             0 |       340
+       70 |     +0.0% |       0 |       0 |             0 |       330
+       80 |     +0.0% |       0 |       0 |             0 |       320
+       90 |     +0.0% |       0 |       0 |             0 |       310
+      100 |     +0.0% |       0 |       0 |             0 |       300
+      110 |     +0.0% |       0 |       0 |             0 |       290
+      120 |     +0.0% |       0 |       0 |             0 |       280
+      130 |     +0.0% |       0 |       0 |             0 |       270
+      140 |     +0.0% |       0 |       0 |             0 |       260
+      150 |     +0.0% |       0 |       0 |             0 |       250
+      160 |     +0.0% |       0 |       0 |             0 |       240
+      170 |     +0.0% |       0 |       0 |             0 |       230
+      180 |     +0.0% |       0 |       0 |             0 |       220
+      190 |     +0.0% |       0 |       0 |             0 |       210
+      200 |     +0.0% |       0 |       0 |             0 |       200
+      210 |     +0.0% |       0 |       0 |             0 |       190
+      220 |     +0.0% |       0 |       0 |             0 |       180
+      230 |     +0.0% |       0 |       0 |             0 |       170
+      240 |     +0.0% |       0 |       0 |             0 |       160
+      250 |     +0.0% |       0 |       0 |             0 |       150
+      260 |     +0.0% |       0 |       0 |             0 |       140
+      270 |     +0.0% |       0 |       0 |             0 |       130
+      280 |     +0.0% |       0 |       0 |             0 |       120
+      290 |     +0.0% |       0 |       0 |             0 |       110
+      300 |     +0.0% |       0 |       0 |             0 |       100
+      310 |     +0.0% |       0 |       0 |             0 |        90
+      320 |     +0.0% |       0 |       0 |             0 |        80
+      330 |     +0.0% |       0 |       0 |             0 |        70
+      340 |     +0.0% |       0 |       0 |             0 |        60
+      350 |     +0.0% |       0 |       0 |             0 |        50
+      360 |     +0.0% |       0 |       0 |             0 |        40
+      370 |     +0.0% |       0 |       0 |             0 |        30
+      380 |     +0.0% |       0 |       0 |             0 |        20
+      390 |     +0.0% |       0 |       0 |             0 |        10
+      400 |     +0.0% |       0 |       0 |             0 |         0
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.53s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 66.05 um^2
+[INFO DPL-0007] Movable instances area: 43.36 um^2
+[INFO DPL-0008] Fixed instances area within core: 1.75 um^2
+[INFO DPL-0009] Utilization: 68.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 424 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL             642.4 u
+legalized HPWL            642.4 u
+delta HPWL                    0 %
+
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/gcd-ccs/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_last_gasp -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 9 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 9 out of 9 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+      10* |       0 |       0 |        2 |      0 |     7 |    +0.4% |  -62.639 |     -672.0 |     -216.9 |      9 | resp_msg[15]
+      12* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+      15* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+      18* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+      20* |       0 |       0 |        1 |      0 |     0 |    +0.2% |  -53.488 |     -479.6 |     -164.7 |      9 | resp_msg[15]
+      21* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+      25* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -52.765 |     -478.9 |     -161.3 |      9 | resp_msg[15]
+/usr/include/c++/11/bits/stl_vector.h:1045: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::array<double, 3>; _Alloc = std::allocator<std::array<double, 3> >; std::vector<_Tp, _Alloc>::reference = std::array<double, 3>&; std::vector<_Tp, _Alloc>::size_type = long unsigned int]: Assertion '__n < this->size()' failed.
+Signal 6 received
+Stack trace:
+ 0# 0x0000000000F1DB47 in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+ 1# 0x0000000000042520 in /lib/x86_64-linux-gnu/libc.so.6
+ 2# pthread_kill in /lib/x86_64-linux-gnu/libc.so.6
+ 3# raise in /lib/x86_64-linux-gnu/libc.so.6
+ 4# abort in /lib/x86_64-linux-gnu/libc.so.6
+ 5# 0x0000000000F12DE8 in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+ 6# sta::PrimaDelayCalc::dcalcResults() in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+ 7# sta::PrimaDelayCalc::gateDelays(std::vector<sta::ArcDcalcArg, std::allocator<sta::ArcDcalcArg> >&, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > > const&, sta::Scene const*, sta::MinMax const*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+ 8# sta::PrimaDelayCalc::gateDelay(sta::Pin const*, sta::TimingArc const*, sta::Delay const&, float, sta::Parasitic const*, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > > const&, sta::Scene const*, sta::MinMax const*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+ 9# sta::GraphDelayCalc::findDriverArcDelays(sta::Vertex*, sta::MultiDrvrNet const*, sta::Edge*, sta::TimingArc const*, sta::Scene const*, sta::MinMax const*, sta::ArcDelayCalc*, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > >&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+10# sta::GraphDelayCalc::findDriverEdgeDelays(sta::Vertex*, sta::MultiDrvrNet const*, sta::Edge*, sta::ArcDelayCalc*, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > >&, std::array<bool, 2ul>&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+11# sta::GraphDelayCalc::findDriverDelays1(sta::Vertex*, sta::MultiDrvrNet*, sta::ArcDelayCalc*, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > >&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+12# sta::GraphDelayCalc::findDriverDelays(sta::Vertex*, sta::ArcDelayCalc*, std::map<sta::Pin const*, unsigned long, sta::PinIdLess, std::allocator<std::pair<sta::Pin const* const, unsigned long> > >&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+13# sta::GraphDelayCalc::findVertexDelay(sta::Vertex*, sta::ArcDelayCalc*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+14# 0x0000000003E37F1C in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+15# sta::GraphDelayCalc::findDelays(int) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+16# sta::Sta::searchPreamble() in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+17# sta::Sta::findRequired(sta::Vertex*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+18# 0x0000000003E4FC94 in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+19# sta::Sta::slack(sta::Net const*, sta::MinMax const*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+20# grt::CUGR::patternRoute(std::vector<int, std::allocator<int> >&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+21# grt::CUGR::route(bool) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+22# grt::GlobalRouter::findRoutingCugr(std::vector<grt::Net*, std::allocator<grt::Net*> >&, bool) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+23# grt::GlobalRouter::updateDirtyRoutesCugr(bool) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+24# grt::GlobalRouter::updateDirtyRoutes(bool) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+25# est::EstimateParasitics::updateParasitics() in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+26# rsz::SetupLegacyPolicy::repairEndpoint(rsz::SetupLegacyBase::EndpointRepairState&, rsz::SetupLegacyPolicy::MainRepairState&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+27# rsz::SetupLegacyPolicy::runMainRepairLoop(std::vector<std::pair<sta::Vertex*, sta::Delay>, std::allocator<std::pair<sta::Vertex*, sta::Delay> > > const&, rsz::SetupLegacyPolicy::MainRepairState&) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+28# rsz::SetupLegacyPolicy::iterate() in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+29# rsz::Optimizer::run() in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+30# rsz::Resizer::repairSetup(double, double, int, int, int, bool, bool, std::vector<rsz::MoveType, std::allocator<rsz::MoveType> > const&, char const*, bool, bool, bool, bool, bool, bool, bool, bool) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+31# 0x00000000010103BE in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+32# TclNRRunCallbacks in /lib/x86_64-linux-gnu/libtcl8.6.so
+33# 0x000000000003E028 in /lib/x86_64-linux-gnu/libtcl8.6.so
+34# Tcl_EvalEx in /lib/x86_64-linux-gnu/libtcl8.6.so
+35# Tcl_Eval in /lib/x86_64-linux-gnu/libtcl8.6.so
+36# sta::sourceTclFile(char const*, bool, bool, Tcl_Interp*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+37# 0x0000000003E20EB0 in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+38# ord::tclAppInit(Tcl_Interp*) in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+39# Tcl_MainEx in /lib/x86_64-linux-gnu/libtcl8.6.so
+40# main in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+41# 0x0000000000029D90 in /lib/x86_64-linux-gnu/libc.so.6
+42# __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+43# _start in /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
+Elapsed time: 0:09.83[h:]min:sec. CPU time: user 31.09 sys 0.33 (319%). Peak memory: 476444KB.

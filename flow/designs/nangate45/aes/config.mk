@@ -9,7 +9,8 @@ export FLOORPLAN_DEF = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/aes_ng45_fp
 
 export PLACE_DENSITY_LB_ADDON = 0.20
 export TNS_END_PERCENT        = 100
-export REMOVE_CELLS_FOR_EQY   = TAPCELL*
-
 # workaround for high congestion in post-grt repair
 export SKIP_INCREMENTAL_REPAIR = 1
+
+export SWAP_ARITH_OPERATORS = 1
+export OPENROAD_HIERARCHICAL = 1
