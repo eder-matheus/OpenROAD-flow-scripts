@@ -1,0 +1,473 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block_aes_rcon/base/aes_rcon_typ.lib
+read_liberty /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block_aes_sbox/base/aes_sbox_typ.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/5_1_grt.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/5_1_grt.sdc
+source ./platforms/asap7/setRC.tcl
+detailed_route -output_drc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes-block/base/5_route_drc.rpt -output_maze /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     214
+Number of vias:       32
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   aes_cipher_top
+Die area:                 ( 0 0 ) ( 113801 113801 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     9071
+Number of terminals:      390
+Number of snets:          2
+Number of nets:           5435
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 149.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 101917.
+[INFO DRT-0033] V1 shape region query size = 387010.
+[INFO DRT-0033] M2 shape region query size = 12595.
+[INFO DRT-0033] V2 shape region query size = 20388.
+[INFO DRT-0033] M3 shape region query size = 20409.
+[INFO DRT-0033] V3 shape region query size = 13592.
+[INFO DRT-0033] M4 shape region query size = 14108.
+[INFO DRT-0033] V4 shape region query size = 13592.
+[INFO DRT-0033] M5 shape region query size = 9601.
+[INFO DRT-0033] V5 shape region query size = 6134.
+[INFO DRT-0033] M6 shape region query size = 2029.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 780 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 139 unique inst patterns.
+[INFO DRT-0084]   Complete 3506 groups.
+#scanned instances     = 9071
+#unique  instances     = 145
+#stdCellGenAp          = 3824
+#stdCellValidPlanarAp  = 48
+#stdCellValidViaAp     = 3078
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 14237
+#instTermValidViaApCnt = 0
+#macroGenAp            = 440
+#macroValidPlanarAp    = 440
+#macroValidViaAp       = 222
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:00, elapsed time = 00:00:02, memory = 446.30 (MB), peak = 441.78 (MB)
+
+[INFO DRT-0157] Number of guides:     42779
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 199 STEP 570 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 199 STEP 570 ;
+[INFO DRT-0028]   Complete Active.
+[INFO DRT-0028]   Complete V0.
+[INFO DRT-0028]   Complete M1.
+[INFO DRT-0028]   Complete V1.
+[INFO DRT-0028]   Complete M2.
+[INFO DRT-0028]   Complete V2.
+[INFO DRT-0028]   Complete M3.
+[INFO DRT-0028]   Complete V3.
+[INFO DRT-0028]   Complete M4.
+[INFO DRT-0028]   Complete V4.
+[INFO DRT-0028]   Complete M5.
+[INFO DRT-0028]   Complete V5.
+[INFO DRT-0028]   Complete M6.
+[INFO DRT-0028]   Complete V6.
+[INFO DRT-0028]   Complete M7.
+[INFO DRT-0028]   Complete V7.
+[INFO DRT-0028]   Complete M8.
+[INFO DRT-0028]   Complete V8.
+[INFO DRT-0028]   Complete M9.
+[INFO DRT-0028]   Complete V9.
+[INFO DRT-0028]   Complete Pad.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Active (guide).
+[INFO DRT-0035]   Complete V0 (guide).
+[INFO DRT-0035]   Complete M1 (guide).
+[INFO DRT-0035]   Complete V1 (guide).
+[INFO DRT-0035]   Complete M2 (guide).
+[INFO DRT-0035]   Complete V2 (guide).
+[INFO DRT-0035]   Complete M3 (guide).
+[INFO DRT-0035]   Complete V3 (guide).
+[INFO DRT-0035]   Complete M4 (guide).
+[INFO DRT-0035]   Complete V4 (guide).
+[INFO DRT-0035]   Complete M5 (guide).
+[INFO DRT-0035]   Complete V5 (guide).
+[INFO DRT-0035]   Complete M6 (guide).
+[INFO DRT-0035]   Complete V6 (guide).
+[INFO DRT-0035]   Complete M7 (guide).
+[INFO DRT-0035]   Complete V7 (guide).
+[INFO DRT-0035]   Complete M8 (guide).
+[INFO DRT-0035]   Complete V8 (guide).
+[INFO DRT-0035]   Complete M9 (guide).
+[INFO DRT-0035]   Complete V9 (guide).
+[INFO DRT-0035]   Complete Pad (guide).
+[INFO DRT-0036] Active guide region query size = 0.
+[INFO DRT-0036] V0 guide region query size = 0.
+[INFO DRT-0036] M1 guide region query size = 12295.
+[INFO DRT-0036] V1 guide region query size = 0.
+[INFO DRT-0036] M2 guide region query size = 10716.
+[INFO DRT-0036] V2 guide region query size = 0.
+[INFO DRT-0036] M3 guide region query size = 6015.
+[INFO DRT-0036] V3 guide region query size = 0.
+[INFO DRT-0036] M4 guide region query size = 1807.
+[INFO DRT-0036] V4 guide region query size = 0.
+[INFO DRT-0036] M5 guide region query size = 1331.
+[INFO DRT-0036] V5 guide region query size = 0.
+[INFO DRT-0036] M6 guide region query size = 1020.
+[INFO DRT-0036] V6 guide region query size = 0.
+[INFO DRT-0036] M7 guide region query size = 777.
+[INFO DRT-0036] V7 guide region query size = 0.
+[INFO DRT-0036] M8 guide region query size = 499.
+[INFO DRT-0036] V8 guide region query size = 0.
+[INFO DRT-0036] M9 guide region query size = 185.
+[INFO DRT-0036] V9 guide region query size = 0.
+[INFO DRT-0036] Pad guide region query size = 0.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 454.45 (MB), peak = 450.03 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 20603 vertical wires in 4 frboxes and 14042 horizontal wires in 4 frboxes.
+[INFO DRT-0186] Done with 1762 vertical wires in 4 frboxes and 2783 horizontal wires in 4 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:01, memory = 662.46 (MB), peak = 658.07 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 662.98 (MB), peak = 658.57 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 2950.64 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:01, memory = 3232.18 (MB).
+    Completing 30% with 83 violations.
+    elapsed time = 00:00:03, memory = 3470.28 (MB).
+    Completing 40% with 83 violations.
+    elapsed time = 00:00:03, memory = 3505.19 (MB).
+    Completing 50% with 83 violations.
+    elapsed time = 00:00:04, memory = 2855.34 (MB).
+    Completing 60% with 189 violations.
+    elapsed time = 00:00:06, memory = 3920.69 (MB).
+    Completing 70% with 189 violations.
+    elapsed time = 00:00:07, memory = 3868.18 (MB).
+    Completing 80% with 268 violations.
+    elapsed time = 00:00:09, memory = 3992.18 (MB).
+    Completing 90% with 268 violations.
+    elapsed time = 00:00:10, memory = 4084.38 (MB).
+    Completing 100% with 344 violations.
+    elapsed time = 00:00:12, memory = 2125.63 (MB).
+[INFO DRT-0199]   Number of violations = 551.
+Viol/Layer          M1     M2     M3     V3     M4     V4     M5     V5     M6     M7     M8     V8
+Cut Spacing          0      0      0      0      0      0      0      0      0      0      0      1
+CutSpcTbl            0      0      0      8      0      3      0      1      0      0      0      0
+EOL                  0     15      4      0      2      0      0      0      0      0      0      0
+Metal Spacing       72     10     13      0      1      0      2      0      1      0      0      0
+Min Step             0      0      0      0      0      0      0      0      0      0      3      0
+Recheck              0     68     42      0     35      0     35      0     21      4      2      0
+Short                0     33     12      2      2      4      5      2      5      0      0      0
+eolKeepOut           0    114     15      0     14      0      0      0      0      0      0      0
+[INFO DRT-0267] cpu time = 00:03:56, elapsed time = 00:00:12, memory = 2590.86 (MB), peak = 4442.79 (MB)
+Total wire length = 42581 um.
+Total wire length on LAYER M1 = 0 um.
+Total wire length on LAYER M2 = 12764 um.
+Total wire length on LAYER M3 = 11329 um.
+Total wire length on LAYER M4 = 4531 um.
+Total wire length on LAYER M5 = 1500 um.
+Total wire length on LAYER M6 = 1668 um.
+Total wire length on LAYER M7 = 1663 um.
+Total wire length on LAYER M8 = 6753 um.
+Total wire length on LAYER M9 = 2370 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 44352.
+Up-via summary (total 44352):
+
+----------------
+ Active        0
+     M1    14042
+     M2    22904
+     M3     3575
+     M4     1254
+     M5      891
+     M6      809
+     M7      529
+     M8      348
+     M9        0
+----------------
+       44352
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 551 violations.
+    elapsed time = 00:00:00, memory = 4625.59 (MB).
+    Completing 20% with 551 violations.
+    elapsed time = 00:00:01, memory = 4699.71 (MB).
+    Completing 30% with 403 violations.
+    elapsed time = 00:00:03, memory = 4501.83 (MB).
+    Completing 40% with 403 violations.
+    elapsed time = 00:00:04, memory = 4697.19 (MB).
+    Completing 50% with 403 violations.
+    elapsed time = 00:00:05, memory = 3866.73 (MB).
+    Completing 60% with 293 violations.
+    elapsed time = 00:00:06, memory = 4709.14 (MB).
+    Completing 70% with 293 violations.
+    elapsed time = 00:00:07, memory = 4721.41 (MB).
+    Completing 80% with 155 violations.
+    elapsed time = 00:00:09, memory = 4654.61 (MB).
+    Completing 90% with 155 violations.
+    elapsed time = 00:00:10, memory = 4625.66 (MB).
+    Completing 100% with 45 violations.
+    elapsed time = 00:00:11, memory = 2787.37 (MB).
+[INFO DRT-0199]   Number of violations = 45.
+Viol/Layer          M1     M2     M3     V3     M4     V4     V8
+Cut Spacing          0      0      0      0      0      0      1
+CutSpcTbl            0      0      0      2      0      1      0
+EOL                  0      1      0      0      1      0      0
+Metal Spacing       16      0     15      0      0      0      0
+Short                0      1      1      0      0      0      0
+eolKeepOut           0      3      0      0      3      0      0
+[INFO DRT-0267] cpu time = 00:04:16, elapsed time = 00:00:12, memory = 2790.37 (MB), peak = 5034.50 (MB)
+Total wire length = 42419 um.
+Total wire length on LAYER M1 = 0 um.
+Total wire length on LAYER M2 = 12757 um.
+Total wire length on LAYER M3 = 11305 um.
+Total wire length on LAYER M4 = 4529 um.
+Total wire length on LAYER M5 = 1477 um.
+Total wire length on LAYER M6 = 1636 um.
+Total wire length on LAYER M7 = 1617 um.
+Total wire length on LAYER M8 = 6724 um.
+Total wire length on LAYER M9 = 2370 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 42365.
+Up-via summary (total 42365):
+
+----------------
+ Active        0
+     M1    14037
+     M2    21494
+     M3     3275
+     M4     1143
+     M5      804
+     M6      750
+     M7      512
+     M8      350
+     M9        0
+----------------
+       42365
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 45 violations.
+    elapsed time = 00:00:00, memory = 2790.37 (MB).
+    Completing 20% with 45 violations.
+    elapsed time = 00:00:00, memory = 2790.37 (MB).
+    Completing 30% with 39 violations.
+    elapsed time = 00:00:01, memory = 2790.40 (MB).
+    Completing 40% with 39 violations.
+    elapsed time = 00:00:01, memory = 2790.40 (MB).
+    Completing 50% with 39 violations.
+    elapsed time = 00:00:01, memory = 2790.40 (MB).
+    Completing 60% with 31 violations.
+    elapsed time = 00:00:02, memory = 2790.40 (MB).
+    Completing 70% with 31 violations.
+    elapsed time = 00:00:02, memory = 2790.40 (MB).
+    Completing 80% with 27 violations.
+    elapsed time = 00:00:03, memory = 2790.40 (MB).
+    Completing 90% with 27 violations.
+    elapsed time = 00:00:03, memory = 2790.40 (MB).
+    Completing 100% with 18 violations.
+    elapsed time = 00:00:04, memory = 2790.40 (MB).
+[INFO DRT-0199]   Number of violations = 18.
+Viol/Layer          M1     M3     V3     V4
+CutSpcTbl            0      0      1      1
+Metal Spacing        5      8      0      0
+Short                0      2      0      0
+eolKeepOut           0      1      0      0
+[INFO DRT-0267] cpu time = 00:00:23, elapsed time = 00:00:04, memory = 2793.40 (MB), peak = 5034.50 (MB)
+Total wire length = 42406 um.
+Total wire length on LAYER M1 = 0 um.
+Total wire length on LAYER M2 = 12774 um.
+Total wire length on LAYER M3 = 11312 um.
+Total wire length on LAYER M4 = 4517 um.
+Total wire length on LAYER M5 = 1473 um.
+Total wire length on LAYER M6 = 1624 um.
+Total wire length on LAYER M7 = 1611 um.
+Total wire length on LAYER M8 = 6721 um.
+Total wire length on LAYER M9 = 2371 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 41961.
+Up-via summary (total 41961):
+
+----------------
+ Active        0
+     M1    14033
+     M2    21260
+     M3     3196
+     M4     1104
+     M5      781
+     M6      731
+     M7      506
+     M8      350
+     M9        0
+----------------
+       41961
+
+
+[INFO DRT-0195] Start 3rd guides tiles iteration.
+    Completing 10% with 18 violations.
+    elapsed time = 00:00:00, memory = 3092.13 (MB).
+    Completing 20% with 18 violations.
+    elapsed time = 00:00:00, memory = 3018.80 (MB).
+    Completing 30% with 18 violations.
+    elapsed time = 00:00:00, memory = 2984.71 (MB).
+    Completing 40% with 8 violations.
+    elapsed time = 00:00:01, memory = 2811.95 (MB).
+    Completing 50% with 8 violations.
+    elapsed time = 00:00:01, memory = 2811.95 (MB).
+    Completing 60% with 8 violations.
+    elapsed time = 00:00:01, memory = 2850.96 (MB).
+    Completing 70% with 4 violations.
+    elapsed time = 00:00:01, memory = 2996.13 (MB).
+    Completing 80% with 4 violations.
+    elapsed time = 00:00:02, memory = 2811.95 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:02, memory = 2811.95 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:02, memory = 2811.95 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:02, memory = 2811.95 (MB), peak = 5034.50 (MB)
+Total wire length = 42404 um.
+Total wire length on LAYER M1 = 0 um.
+Total wire length on LAYER M2 = 12778 um.
+Total wire length on LAYER M3 = 11292 um.
+Total wire length on LAYER M4 = 4511 um.
+Total wire length on LAYER M5 = 1479 um.
+Total wire length on LAYER M6 = 1624 um.
+Total wire length on LAYER M7 = 1624 um.
+Total wire length on LAYER M8 = 6722 um.
+Total wire length on LAYER M9 = 2371 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 41946.
+Up-via summary (total 41946):
+
+----------------
+ Active        0
+     M1    14033
+     M2    21237
+     M3     3199
+     M4     1105
+     M5      783
+     M6      733
+     M7      506
+     M8      350
+     M9        0
+----------------
+       41946
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 42404 um.
+Total wire length on LAYER M1 = 0 um.
+Total wire length on LAYER M2 = 12778 um.
+Total wire length on LAYER M3 = 11292 um.
+Total wire length on LAYER M4 = 4511 um.
+Total wire length on LAYER M5 = 1479 um.
+Total wire length on LAYER M6 = 1624 um.
+Total wire length on LAYER M7 = 1624 um.
+Total wire length on LAYER M8 = 6722 um.
+Total wire length on LAYER M9 = 2371 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 41946.
+Up-via summary (total 41946):
+
+----------------
+ Active        0
+     M1    14033
+     M2    21237
+     M3     3199
+     M4     1105
+     M5      783
+     M6      733
+     M7      506
+     M8      350
+     M9        0
+----------------
+       41946
+
+
+[INFO DRT-0267] cpu time = 00:08:42, elapsed time = 00:00:31, memory = 2811.95 (MB), peak = 5034.50 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO DRT-0501] Runtime: 34.96s
+Took 35 seconds: detailed_route -output_drc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/aes-block/base/5_route_drc.rpt -output_maze /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Design area 5869 um^2 49% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/aes-block/base/5_2_route.odb
+Elapsed time: 0:36.53[h:]min:sec. CPU time: user 577.71 sys 14.62 (1621%). Peak memory: 5155332KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_2_route                 .odb           36           5034 d7763fe788b00a02c104

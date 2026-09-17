@@ -1,0 +1,448 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_slow_1p08V_125C.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+read_liberty -corner slow /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_slow.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib line 19, library sg13g2_io_slow_1p08V_3p0V_125C already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_fast_1p32V_m40C.lib
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+read_liberty -corner fast /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib
+[WARNING STA-1140] /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib line 1, library I2cDeviceCtrl already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib line 19, library sg13g2_io_fast_1p32V_3p6V_m40C already exists.
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/4_cts.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     15
+Number of macros:     108
+Number of vias:       95
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   I2cGpioExpanderTop
+Die area:                 ( 0 0 ) ( 1050240 1050840 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     927
+Number of terminals:      20
+Number of snets:          20
+Number of nets:           882
+
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/clock
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_data[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_payload_reg
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_ready
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_cmd_valid
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_clockDivider[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_deviceAddr[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_config_timeout[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_interrupts[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_scl_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_scl_write
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_sda_read
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_i2c_sda_write
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_interrupts[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_data[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_payload_error
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_ready
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/io_rsp_valid
+[WARNING DRT-0419] No routing tracks pass through the center of Term system_expander.i2cCtrl/reset
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_YX
+  Layer Via3
+    default via: Via3_XY
+  Layer Via4
+    default via: Via4_YX
+  Layer TopVia1
+    default via: TopVia1EWNS
+  Layer TopVia2
+    default via: TopVia2EWNS
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 134.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete GatPoly.
+[INFO DRT-0024]   Complete Cont.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0024]   Complete TopVia1.
+[INFO DRT-0024]   Complete TopMetal1.
+[INFO DRT-0024]   Complete TopVia2.
+[INFO DRT-0024]   Complete TopMetal2.
+[INFO DRT-0033] GatPoly shape region query size = 0.
+[INFO DRT-0033] Cont shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 24621.
+[INFO DRT-0033] Via1 shape region query size = 8162.
+[INFO DRT-0033] Metal2 shape region query size = 1459.
+[INFO DRT-0033] Via2 shape region query size = 8162.
+[INFO DRT-0033] Metal3 shape region query size = 1841.
+[INFO DRT-0033] Via3 shape region query size = 8114.
+[INFO DRT-0033] Metal4 shape region query size = 1770.
+[INFO DRT-0033] Via4 shape region query size = 8114.
+[INFO DRT-0033] Metal5 shape region query size = 2478.
+[INFO DRT-0033] TopVia1 shape region query size = 5996.
+[INFO DRT-0033] TopMetal1 shape region query size = 1357.
+[INFO DRT-0033] TopVia2 shape region query size = 3178.
+[INFO DRT-0033] TopMetal2 shape region query size = 647.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 614 pins.
+[INFO DRT-0081]   Complete 65 unique inst patterns.
+[INFO DRT-0084]   Complete 511 groups.
+#scanned instances     = 927
+#unique  instances     = 118
+#stdCellGenAp          = 2968
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 2269
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2562
+#instTermValidViaApCnt = 0
+#macroGenAp            = 2302
+#macroValidPlanarAp    = 394
+#macroValidViaAp       = 63
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:24, elapsed time = 00:00:01, memory = 121.57 (MB), peak = 115.71 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -use_cugr
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: TopMetal2
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4200  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.4200  line-2-Via Pitch: 0.6200
+[INFO GRT-0088] Layer TopMetal1 Track-Pitch = 3.2800  line-2-Via Pitch: 3.4100
+[INFO GRT-0088] Layer TopMetal2 Track-Pitch = 4.0000  line-2-Via Pitch: 3.9500
+[INFO GRT-0003] Macros: 1
+[INFO GRT-0004] Blockages: 412
+[INFO GRT-0019] Found 54 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 17
+Design statistics
+Nets:                882
+Special nets:        2
+Routing layers:      7
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       153630        145949          5.00%
+Metal3     Horizontal     178422        169501          5.00%
+Metal4     Vertical       154180        146471          5.00%
+Metal5     Horizontal     172718        164085          5.00%
+TopMetal1    Vertical        21927         20892          4.72%
+TopMetal2    Horizontal      18848         18078          4.09%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Stage 3: Pattern routing with detours.
+Stage 4: Maze routing on sparsified graph.
+Stage 5: Iterative rip-up and re-route.
+[WARNING GRT-0118] Iterative RRR finished with congestion remaining (3).
+Routing statistics
+Wire length:           74880
+Total via count:       4089
+Total congestion:      3.68
+Min resource:          -0.20
+Bottleneck:            (1, 63, 71)
+[INFO GRT-0130] CUGR congestion report:
+Layer   Dir     Resource     Wire Dmd      Via Dmd    Total Dmd  Usage (%)   Wire Ovf    Via Ovf  Max Edge Ovf
+--------------------------------------------------------------------------------------------------------------
+Metal1    H         0.00         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+Metal2    V    145948.88      2027.92       215.00      2242.92       1.54       0.00       2.42          0.20
+Metal3    H    169501.17      2199.92       151.82      2351.74       1.39       0.00       0.89          0.08
+Metal4    V    146471.14       637.00        18.56       655.56       0.45       0.00       0.34          0.08
+Metal5    H    164085.07       175.00         7.48       182.48       0.11       0.00       0.04          0.04
+TopMetal1   V     20892.36        49.00         1.67        50.67       0.24       0.00       0.00          0.00
+TopMetal2   H     18077.62         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+--------------------------------------------------------------------------------------------------------------
+Total          664976.24      5088.83       394.52      5483.35       0.82       0.00       3.68          0.20
+[INFO GRT-0018] Total wirelength: 50349 um
+[INFO GRT-0014] Routed nets: 882
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_clk_core can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       915
+       10 |     +0.0% |       0 |       0 |             0 |       905
+       20 |     +0.0% |       0 |       0 |             0 |       895
+       30 |     +0.0% |       0 |       0 |             0 |       885
+       40 |     +0.0% |       0 |       0 |             0 |       875
+       50 |     +0.0% |       0 |       0 |             0 |       865
+       60 |     +0.0% |       0 |       0 |             0 |       855
+       70 |     +0.0% |       0 |       0 |             0 |       845
+       80 |     +0.0% |       0 |       0 |             0 |       835
+       90 |     +0.0% |       0 |       0 |             0 |       825
+      100 |     +0.0% |       0 |       0 |             0 |       815
+      110 |     +0.0% |       0 |       0 |             0 |       805
+      120 |     +0.0% |       0 |       0 |             0 |       795
+      130 |     +0.0% |       0 |       0 |             0 |       785
+      140 |     +0.0% |       0 |       0 |             0 |       775
+      150 |     +0.0% |       0 |       0 |             0 |       765
+      160 |     +0.0% |       0 |       0 |             0 |       755
+      170 |     +0.0% |       0 |       0 |             0 |       745
+      180 |     +0.0% |       0 |       0 |             0 |       735
+      190 |     +0.0% |       0 |       0 |             0 |       725
+      200 |     +0.0% |       0 |       0 |             0 |       715
+      210 |     +0.0% |       0 |       0 |             0 |       705
+      220 |     +0.0% |       0 |       0 |             0 |       695
+      230 |     +0.0% |       0 |       0 |             0 |       685
+      240 |     +0.0% |       0 |       0 |             0 |       675
+      250 |     +0.0% |       0 |       0 |             0 |       665
+      260 |     +0.0% |       0 |       0 |             0 |       655
+      270 |     +0.0% |       0 |       0 |             0 |       645
+      280 |     +0.0% |       0 |       0 |             0 |       635
+      290 |     +0.0% |       0 |       0 |             0 |       625
+      300 |     +0.0% |       0 |       0 |             0 |       615
+      310 |     +0.0% |       0 |       0 |             0 |       605
+      320 |     +0.0% |       0 |       0 |             0 |       595
+      330 |     +0.0% |       0 |       0 |             0 |       585
+      340 |     +0.0% |       0 |       0 |             0 |       575
+      350 |     +0.0% |       0 |       0 |             0 |       565
+      360 |     +0.0% |       0 |       0 |             0 |       555
+      370 |     +0.0% |       0 |       0 |             0 |       545
+      380 |     +0.0% |       0 |       0 |             0 |       535
+      390 |     +0.0% |       0 |       0 |             0 |       525
+      400 |     +0.0% |       0 |       0 |             0 |       515
+      410 |     +0.0% |       0 |       0 |             0 |       505
+      420 |     +0.0% |       0 |       0 |             0 |       495
+      430 |     +0.0% |       0 |       0 |             0 |       485
+      440 |     +0.0% |       0 |       0 |             0 |       475
+      450 |     +0.0% |       0 |       0 |             0 |       465
+      460 |     +0.0% |       0 |       0 |             0 |       455
+      470 |     +0.0% |       0 |       0 |             0 |       445
+      480 |     +0.0% |       0 |       0 |             0 |       435
+      490 |     +0.0% |       0 |       0 |             0 |       425
+      500 |     +0.0% |       0 |       0 |             0 |       415
+      510 |     +0.0% |       0 |       0 |             0 |       405
+      520 |     +0.0% |       0 |       0 |             0 |       395
+      530 |     +0.0% |       0 |       0 |             0 |       385
+      540 |     +0.0% |       0 |       0 |             0 |       375
+      550 |     +0.0% |       0 |       0 |             0 |       365
+      560 |     +0.0% |       0 |       0 |             0 |       355
+      570 |     +0.0% |       0 |       0 |             0 |       345
+      580 |     +0.0% |       0 |       0 |             0 |       335
+      590 |     +0.0% |       0 |       0 |             0 |       325
+      600 |     +0.0% |       0 |       0 |             0 |       315
+      610 |     +0.0% |       0 |       0 |             0 |       305
+      620 |     +0.0% |       0 |       0 |             0 |       295
+      630 |     +0.0% |       0 |       0 |             0 |       285
+      640 |     +0.0% |       0 |       0 |             0 |       275
+      650 |     +0.0% |       0 |       0 |             0 |       265
+      660 |     +0.0% |       0 |       0 |             0 |       255
+      670 |     +0.0% |       0 |       0 |             0 |       245
+      680 |     +0.0% |       0 |       0 |             0 |       235
+      690 |     +0.0% |       0 |       0 |             0 |       225
+      700 |     +0.0% |       0 |       0 |             0 |       215
+      710 |     +0.0% |       0 |       0 |             0 |       205
+      720 |     +0.0% |       0 |       0 |             0 |       195
+      730 |     +0.0% |       0 |       0 |             0 |       185
+      740 |     +0.0% |       0 |       0 |             0 |       175
+      750 |     +0.0% |       0 |       0 |             0 |       165
+      760 |     +0.0% |       0 |       0 |             0 |       155
+      770 |     +0.0% |       0 |       0 |             0 |       145
+      780 |     +0.0% |       0 |       0 |             0 |       135
+      790 |     +0.0% |       0 |       0 |             0 |       125
+      800 |     +0.0% |       0 |       0 |             0 |       115
+      810 |     +0.0% |       0 |       0 |             0 |       105
+      820 |     +0.0% |       0 |       0 |             0 |        95
+      830 |     +0.0% |       0 |       0 |             0 |        85
+      840 |     +0.0% |       0 |       0 |             0 |        75
+      850 |     +0.0% |       0 |       0 |             0 |        65
+      860 |     +0.0% |       0 |       0 |             0 |        55
+      870 |     +0.0% |       0 |       0 |             0 |        45
+      880 |     +0.0% |       0 |       0 |             0 |        35
+      890 |     +0.0% |       0 |       0 |             0 |        25
+      900 |     +0.0% |       0 |       0 |             0 |        15
+      910 |     +0.0% |       0 |       0 |             0 |         5
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.11s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 121187.40 um^2
+[INFO DPL-0007] Movable instances area: 14769.22 um^2
+[INFO DPL-0008] Fixed instances area within core: 21794.57 um^2
+[INFO DPL-0009] Utilization: 30.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 858 cells
+[INFO DPL-0393]   height 39 row(s): 1 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           30835.6 u
+legalized HPWL          30835.6 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/congestion_post_repair_design.rpt
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.08s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.01s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 121187.40 um^2
+[INFO DPL-0007] Movable instances area: 14769.22 um^2
+[INFO DPL-0008] Fixed instances area within core: 21794.57 um^2
+[INFO DPL-0009] Utilization: 30.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 858 cells
+[INFO DPL-0393]   height 39 row(s): 1 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           30835.6 u
+legalized HPWL          30835.6 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/congestion_post_repair_timing.rpt
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/ihp-sg13g2/i2c-gpio-expander/base/congestion_post_recover_power.rpt
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+Repair antennas...
+[INFO GRT-0012] Found 8 antenna violations.
+[INFO GRT-0302] Inserted 7 jumpers for 6 nets.
+[INFO GRT-0012] Found 2 antenna violations.
+[INFO DPL-0006] Core area: 121187.40 um^2
+[INFO DPL-0007] Movable instances area: 14671.24 um^2
+[INFO DPL-0008] Fixed instances area within core: 21903.44 um^2
+[INFO DPL-0009] Utilization: 30.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 860 cells
+[INFO DPL-0393]   height 39 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.01s
+[INFO GRT-0015] Inserted 2 diodes.
+[WARNING GRT-0128] Incremental global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 36575 um^2 30% utilization.
+[INFO FLW-0007] clock clk_core period 20.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 180
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/5_1_grt.sdc
+Elapsed time: 0:03.30[h:]min:sec. CPU time: user 31.43 sys 0.71 (972%). Peak memory: 165576KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb            3            161 d1f8d9a1723635097b54
+5_1_grt                   .sdc                             c3b2b3d0b4bc4a0b5718

@@ -1,0 +1,26 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x32.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x64.lib
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_256x32.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x64.lef, created 1 library cells
+link_design mempool_group
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/1_2_yosys.sdc
+[WARNING STA-0345] current scale 1e-06 does not match library scale 1e-03.
+[WARNING STA-0345] power scale 1e-03 does not match library scale 1e-09.
+source ./platforms/nangate45/setRC.tcl
+eliminate_dead_logic
+Removed 3012 unused instances and 3212 unused nets.
+Design area 361760 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/1_synth.sdc
+Elapsed time: 0:03.68[h:]min:sec. CPU time: user 3.38 sys 0.30 (100%). Peak memory: 526668KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            3            514 21619ed3dbd91059fa22
+1_synth                   .sdc                             91acddb6f757bc21b1d1

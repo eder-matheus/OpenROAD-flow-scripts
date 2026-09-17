@@ -3,6 +3,19 @@
 .PHONY: metadata
 metadata: finish metadata-generate metadata-check
 
+# Synthesis-only metadata: generate and check QoR after just the synth
+# stage, without running the full flow. The synthesis-stage subset of
+# the design's regular rules file gates the run, so no per-variant
+# rules file needs to be committed. Sequential sub-makes rather than
+# prerequisites: each step consumes the previous one's outputs, which
+# plain prerequisites would race under make -j.
+.PHONY: metadata-synth
+metadata-synth: export RULES_JSON = $(DESIGN_DIR)/rules-base.json
+metadata-synth:
+	$(MAKE) synth
+	$(MAKE) metadata-generate
+	$(MAKE) metadata-check-synth
+
 .PHONY: metadata-generate
 metadata-generate:
 	mkdir -p $(REPORTS_DIR)
@@ -23,6 +36,16 @@ metadata-check:
 	$(PYTHON_EXE) $(UTILS_DIR)/checkMetadata.py \
 	    -m $(REPORTS_DIR)/metadata.json \
 	    -r $(RULES_JSON) 2>&1 \
+	    | tee $(abspath $(REPORTS_DIR)/metadata-check.log)
+
+# Check only the synthesis-stage subset of RULES_JSON, so a
+# synthesis-only run can be gated by the design's full-flow rules file.
+.PHONY: metadata-check-synth
+metadata-check-synth:
+	$(PYTHON_EXE) $(UTILS_DIR)/checkMetadata.py \
+	    -m $(REPORTS_DIR)/metadata.json \
+	    -r $(RULES_JSON) \
+	    --only-prefix synth__ constraints__ 2>&1 \
 	    | tee $(abspath $(REPORTS_DIR)/metadata-check.log)
 
 .PHONY: clean_metadata
@@ -84,27 +107,32 @@ update_metadata_autotuner:
 
 #-------------------------------------------------------------------------------
 
-.PHONY: write_net_rc
-write_net_rc: $(RESULTS_DIR)/6_net_rc.csv
+.PHONY: write_rc
+write_rc: $(RESULTS_DIR)/6_nets_rc.csv $(RESULTS_DIR)/6_segments_rc.csv
 
-#$(RESULTS_DIR)/6_net_rc.csv: $(RESULTS_DIR)/4_cts.odb $(RESULTS_DIR)/6_final.spef
-$(RESULTS_DIR)/6_net_rc.csv:
-	($(TIME_CMD) $(OPENROAD_CMD) $(UTILS_DIR)/write_net_rc_script.tcl) 2>&1 | tee $(LOG_DIR)/6_write_net_rc.log
+# A pattern rule to write both files with a single run, as the grouped target
+# syntax requires GNU Make 4.3.
+%_nets_rc.csv %_segments_rc.csv:
+	$(RUN_CMD) --log $(LOG_DIR)/6_write_rc.log --tee -- $(OPENROAD_CMD) $(UTILS_DIR)/write_rc.tcl
 
 .PHONY: correlate_rc
-correlate_rc: $(RESULTS_DIR)/6_net_rc.csv
-	$(PYTHON_EXE) $(UTILS_DIR)/correlateRC.py $(RESULTS_DIR)/6_net_rc.csv
+correlate_rc: $(RESULTS_DIR)/6_segments_rc.csv
+	$(PYTHON_EXE) $(UTILS_DIR)/correlateRC.py \
+	    -segments_rc_file $(RESULTS_DIR)/6_segments_rc.csv
 
 # TODO Make always wants to redo designs with this rule, regardless of which variations are tried.
-#	$(MAKE) DESIGN_CONFIG=$$config write_net_rc; \
-#$(foreach config,$(wildcard designs/$(PLATFORM)/*/config.mk),$(MAKE) DESIGN_CONFIG=$(config) write_net_rc; )
+#	$(MAKE) DESIGN_CONFIG=$$config write_rc; \
+#$(foreach config,$(wildcard designs/$(PLATFORM)/*/config.mk),$(MAKE) DESIGN_CONFIG=$(config) write_rc; )
 .PHONY: correlate_platform_rc
 correlate_platform_rc:
 	for config in designs/$(PLATFORM)/*/config.mk; do \
 	  design=$$(basename $$(dirname $$config)); \
-	  make DESIGN_CONFIG=./$$config results/$(PLATFORM)/$$design/base/6_net_rc.csv; \
+	  make DESIGN_CONFIG=./$$config \
+	    results/$(PLATFORM)/$$design/base/6_nets_rc.csv \
+	    results/$(PLATFORM)/$$design/base/6_segments_rc.csv; \
 	done
-	$(PYTHON_EXE) $(UTILS_DIR)/correlateRC.py $$(find results/$(PLATFORM)/*/base -name 6_net_rc.csv)
+	$(PYTHON_EXE) $(UTILS_DIR)/correlateRC.py \
+	    -segments_rc_file $$(find results/$(PLATFORM)/*/base -name 6_segments_rc.csv)
 
 # Run test using gnu parallel
 #-------------------------------------------------------------------------------
@@ -144,22 +172,27 @@ clean_issues:
 	rm -f vars*.sh vars*.tcl vars*.gdb run-me*.sh
 
 $(RESULTS_DIR)/6_final_only_clk.def: $(RESULTS_DIR)/6_final.def
-	$(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/deleteNonClkNets.tcl
+	$(RUN_CMD) --tee -- $(OPENROAD_CMD) $(SCRIPTS_DIR)/deleteNonClkNets.tcl
 
 $(RESULTS_DIR)/6_final_no_power.def: $(RESULTS_DIR)/6_final.def
-	$(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/deletePowerNets.tcl
+	$(RUN_CMD) --tee -- $(OPENROAD_CMD) $(SCRIPTS_DIR)/deletePowerNets.tcl
 
 
 .PHONY: gallery
-gallery: $(RESULTS_DIR)/6_final_no_power.def $(RESULTS_DIR)/6_final_only_clk.def
-	($(TIME_CMD) klayout -z -nc -rx -rd gallery_json=util/gallery.json \
+gallery: check-klayout $(RESULTS_DIR)/6_final_no_power.def $(RESULTS_DIR)/6_final_only_clk.def
+	$(RUN_CMD) --log $(LOG_DIR)/6_1_merge.log --tee -- \
+	        klayout -z -nc -rx -rd gallery_json=util/gallery.json \
 	        -rd results_path=$(RESULTS_DIR) \
 	        -rd tech_file=$(OBJECTS_DIR)/klayout.lyt \
-	        -rm $(UTILS_DIR)/createGallery.py) 2>&1 | tee $(LOG_DIR)/6_1_merge.log
+	        -rm $(UTILS_DIR)/createGallery.py
 
-.PHONY: view_cells
+.PHONY: view_cells view_cells_web
 view_cells:
 	$(OPENROAD_GUI_CMD) $(SCRIPTS_DIR)/view_cells.tcl
+
+.PHONY: view_cells_web
+view_cells_web:
+	$(OPENROAD_WEB_CMD) $(SCRIPTS_DIR)/view_cells.tcl
 
 ## Quick access to command line
 .PHONY: command

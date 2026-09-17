@@ -1,0 +1,801 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/1_synth.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/1_synth.sdc
+source ./platforms/gf180/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 11328
+[INFO IFP-0107] Defining die area using utilization: 45.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (1.000, 1.000) snapped to (1.120, 5.040).
+[INFO IFP-0001] Added 225 rows of 2032 site GF018hv5v_green_sc9.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 1140.385 1140.385 ) um
+[INFO IFP-0101] Core BBox: (  1.120  5.040 ) ( 1139.040 1139.040 ) um
+[INFO IFP-0102] Core area:                      1290401.280 um^2
+[INFO IFP-0103] Total instances area:            583164.288 um^2
+[INFO IFP-0104] Effective utilization:                0.452
+[INFO IFP-0105] Number of instances:                  11326
+source ./platforms/gf180/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 15 tie gf180mcu_fd_sc_mcu9t5v0__tiel instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 1 tie gf180mcu_fd_sc_mcu9t5v0__tieh instances.
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 1970 violating endpoints
+[INFO RSZ-0154] Identified 2 critical arithmetic instances
+[INFO ODB-0496] swapMaster sanity check passed (0 failures)
+[INFO ODB-0496] swapMaster sanity check passed (0 failures)
+[INFO RSZ-0160] 2 arithmetic instances have swapped to improve 'setup' target
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 1970 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1970 out of 1970 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -15.230 |    -3017.4 |   -17492.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      10* |       0 |       8 |        0 |      0 |     1 |    +0.0% |   -7.805 |     -721.9 |    -7166.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      20* |       0 |      14 |        0 |      0 |     5 |    +0.1% |   -6.890 |     -472.5 |    -6885.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      30* |       0 |      17 |        0 |      0 |    12 |    +0.1% |   -6.824 |     -466.1 |    -6866.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      40* |       0 |      21 |        0 |      0 |    18 |    +0.1% |   -6.743 |     -464.8 |    -6836.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      43* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      44* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      45* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      46* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      47* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      48* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      49* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      50* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      50* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      51* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      52* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      53* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      54* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      55* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      56* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      57* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      58* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      59* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      60* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      60* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      61* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      62* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      63* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      64* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      65* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      66* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      67* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      68* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      69* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      70* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      70* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      71* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      72* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      73* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      74* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      75* |       0 |      21 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.5 |    -6805.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      77* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      78* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      79* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      80* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      80* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      81* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      82* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      83* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      84* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      85* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      86* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      87* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      88* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      89* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      90* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      90* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      91* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      92* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      93* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      94* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      95* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      96* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      97* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      98* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+      99* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     100* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     100* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     101* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     102* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     103* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     104* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     105* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     106* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     107* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     108* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     109* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     110* |       0 |      22 |        0 |      0 |    21 |    +0.1% |   -6.623 |     -420.4 |    -6795.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     120* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6747.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     130* |       0 |      36 |        0 |      0 |    27 |    +0.1% |   -6.621 |     -420.2 |    -6717.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     140* |       0 |      42 |        0 |      0 |    31 |    +0.2% |   -6.621 |     -421.6 |    -6706.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     150* |       0 |      47 |        0 |      0 |    36 |    +0.2% |   -6.622 |     -419.4 |    -6710.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     160* |       0 |      51 |        0 |      0 |    42 |    +0.2% |   -6.622 |     -419.3 |    -6685.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     160* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     170* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     180* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     188* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     190* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     200* |       0 |      37 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     210* |       0 |      47 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6699.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     210* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     220* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     230* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     232* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     240* |       0 |      33 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6714.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     250* |       0 |      43 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6703.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     254* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     260* |       0 |      31 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6722.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     270* |       0 |      41 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     276* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     280* |       0 |      29 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.7 |    -6778.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     290* |       0 |      39 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6715.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     298* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     300* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     310* |       0 |      37 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     320* |       0 |      47 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6699.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     320* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     330* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     340* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     342* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     350* |       0 |      33 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6714.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     360* |       0 |      43 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6703.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     364* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     370* |       0 |      31 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6722.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     380* |       0 |      41 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     386* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     390* |       0 |      29 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.7 |    -6778.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     400* |       0 |      39 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6715.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     408* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     410* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     420* |       0 |      37 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     430* |       0 |      47 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6699.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     430* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     440* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     450* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     452* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     460* |       0 |      33 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6714.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     470* |       0 |      43 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6703.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     474* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     480* |       0 |      31 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6722.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     490* |       0 |      41 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     496* |       0 |      27 |        0 |      0 |    25 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     499* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     500* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     510* |       0 |      37 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     520* |       0 |      47 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6699.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     520* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     530* |       0 |      36 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     540* |       0 |      46 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     541* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     550* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     560* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     562* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     570* |       0 |      34 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6712.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     580* |       0 |      44 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6702.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     583* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     590* |       0 |      33 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6714.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     600* |       0 |      43 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6703.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     604* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     610* |       0 |      32 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6721.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     620* |       0 |      42 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     625* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     630* |       0 |      31 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6722.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     640* |       0 |      41 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     646* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     650* |       0 |      30 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.7 |    -6735.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     660* |       0 |      40 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6714.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     667* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     670* |       0 |      29 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.7 |    -6778.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     680* |       0 |      39 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6715.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     688* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     690* |       0 |      28 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.7 |    -6743.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     700* |       0 |      38 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6737.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     709* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     710* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     720* |       0 |      37 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -420.3 |    -6711.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     730* |       0 |      47 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6699.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     730* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     740* |       0 |      36 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     750* |       0 |      46 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     751* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     760* |       0 |      35 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6711.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     770* |       0 |      45 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6701.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     772* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     780* |       0 |      34 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6712.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     790* |       0 |      44 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6702.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     793* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     800* |       0 |      33 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6714.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     810* |       0 |      43 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.7 |    -6703.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     814* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     820* |       0 |      32 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.3 |    -6721.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     830* |       0 |      42 |        0 |      0 |    26 |    +0.2% |   -6.621 |     -421.0 |    -6709.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     835* |       0 |      27 |        0 |      0 |    26 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     837* |       0 |      27 |        0 |      0 |    27 |    +0.1% |   -6.621 |     -420.4 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     839* |       0 |      27 |        0 |      0 |    28 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     840* |       0 |      27 |        0 |      0 |    28 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     843* |       0 |      27 |        0 |      0 |    28 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     847* |       0 |      27 |        0 |      0 |    28 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     850* |       0 |      27 |        0 |      0 |    30 |    +0.1% |   -6.621 |     -420.2 |    -6746.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     850* |       0 |      27 |        0 |      0 |    29 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     852* |       0 |      27 |        0 |      0 |    29 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     854* |       0 |      27 |        0 |      0 |    29 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     856* |       0 |      27 |        0 |      0 |    29 |    +0.1% |   -6.620 |     -420.2 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     859* |       0 |      27 |        0 |      0 |    31 |    +0.1% |   -6.620 |     -420.0 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     860* |       0 |      27 |        0 |      0 |    31 |    +0.1% |   -6.620 |     -420.0 |    -6746.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     862* |       0 |      27 |        0 |      0 |    33 |    +0.1% |   -6.619 |     -419.8 |    -6746.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     865* |       0 |      27 |        0 |      0 |    35 |    +0.1% |   -6.619 |     -419.6 |    -6746.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     868* |       0 |      27 |        0 |      0 |    37 |    +0.1% |   -6.618 |     -419.3 |    -6746.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     870* |       0 |      27 |        0 |      0 |    38 |    +0.1% |   -6.618 |     -419.3 |    -6746.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     871* |       0 |      27 |        0 |      0 |    39 |    +0.1% |   -6.617 |     -419.1 |    -6746.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     874* |       0 |      27 |        0 |      0 |    41 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     877* |       0 |      27 |        0 |      0 |    41 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     879* |       0 |      27 |        0 |      0 |    42 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     880* |       0 |      27 |        0 |      0 |    42 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     881* |       0 |      27 |        0 |      0 |    43 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     883* |       0 |      27 |        0 |      0 |    44 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     885* |       0 |      27 |        0 |      0 |    45 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     887* |       0 |      27 |        0 |      0 |    46 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     889* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     890* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     890* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     891* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     892* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     893* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     894* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     895* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     896* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     897* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     898* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     899* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     900* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     900* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     902* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     903* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     904* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     905* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     906* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     907* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     908* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     909* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     910* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     910* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     911* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     912* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     913* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     914* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     915* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     916* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     917* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     918* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     919* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     920* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     920* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     921* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     922* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     923* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     924* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     925* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     926* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     927* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     928* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     929* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     930* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     930* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     931* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     932* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     933* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     934* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     935* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     936* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     937* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     938* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     939* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     940* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     940* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     941* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     942* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     943* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     944* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     945* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     946* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     947* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     948* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     949* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     950* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     950* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     951* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     952* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     953* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     954* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     955* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     956* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     957* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     958* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     959* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     960* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     960* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     961* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     962* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     963* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     964* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     965* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     966* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     967* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     968* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     969* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     970* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     970* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     971* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     972* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     973* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     974* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     975* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     976* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     977* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     978* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     979* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     980* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     980* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     981* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     982* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     983* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     984* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     985* |       0 |      27 |        0 |      0 |    47 |    +0.1% |   -6.617 |     -419.1 |    -6746.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     987* |       0 |      27 |        0 |      0 |    48 |    +0.1% |   -6.617 |     -419.1 |    -6746.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     990* |       0 |      28 |        0 |      0 |    49 |    +0.1% |   -6.616 |     -418.8 |    -6713.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     991* |       0 |      28 |        0 |      0 |    50 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     993* |       0 |      28 |        0 |      0 |    51 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     995* |       0 |      28 |        0 |      0 |    52 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     997* |       0 |      28 |        0 |      0 |    53 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+     999* |       0 |      28 |        0 |      0 |    54 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1000* |       0 |      28 |        0 |      0 |    54 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1001* |       0 |      28 |        0 |      0 |    54 |    +0.1% |   -6.616 |     -418.8 |    -6713.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1010* |       0 |      34 |        0 |      0 |    56 |    +0.1% |   -6.616 |     -418.7 |    -6681.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1020* |       0 |      44 |        0 |      0 |    56 |    +0.2% |   -6.616 |     -420.2 |    -6670.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1025* |       0 |      28 |        0 |      0 |    56 |    +0.1% |   -6.616 |     -418.8 |    -6713.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1030* |       0 |      31 |        0 |      0 |    57 |    +0.1% |   -6.616 |     -419.1 |    -6701.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1040* |       0 |      41 |        0 |      0 |    57 |    +0.2% |   -6.616 |     -418.7 |    -6681.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1048* |       0 |      28 |        0 |      0 |    57 |    +0.1% |   -6.616 |     -418.8 |    -6713.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1050* |       0 |      28 |        0 |      0 |    58 |    +0.1% |   -6.616 |     -418.8 |    -6713.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1060* |       0 |      38 |        0 |      0 |    58 |    +0.2% |   -6.616 |     -418.7 |    -6678.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1070* |       0 |      47 |        0 |      0 |    59 |    +0.2% |   -6.616 |     -420.1 |    -6666.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1071* |       0 |      28 |        0 |      0 |    58 |    +0.1% |   -6.616 |     -418.8 |    -6713.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1080* |       0 |      35 |        0 |      0 |    59 |    +0.1% |   -6.616 |     -418.7 |    -6679.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1090* |       0 |      45 |        0 |      0 |    59 |    +0.2% |   -6.616 |     -420.2 |    -6669.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1094* |       0 |      28 |        0 |      0 |    59 |    +0.1% |   -6.616 |     -418.8 |    -6713.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1100* |       0 |      32 |        0 |      0 |    60 |    +0.1% |   -6.616 |     -418.7 |    -6689.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1110* |       0 |      42 |        0 |      0 |    60 |    +0.2% |   -6.616 |     -419.5 |    -6676.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1117* |       0 |      28 |        0 |      0 |    60 |    +0.1% |   -6.616 |     -418.8 |    -6713.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1120* |       0 |      29 |        0 |      0 |    61 |    +0.1% |   -6.616 |     -419.1 |    -6710.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1130* |       0 |      39 |        0 |      0 |    61 |    +0.2% |   -6.616 |     -418.7 |    -6704.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1140* |       0 |      47 |        0 |      0 |    63 |    +0.2% |   -6.616 |     -420.1 |    -6666.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1140* |       0 |      28 |        0 |      0 |    61 |    +0.1% |   -6.616 |     -418.8 |    -6713.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1150* |       0 |      36 |        0 |      0 |    62 |    +0.2% |   -6.616 |     -418.7 |    -6678.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1160* |       0 |      46 |        0 |      0 |    62 |    +0.2% |   -6.616 |     -420.2 |    -6668.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1163* |       0 |      28 |        0 |      0 |    62 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1170* |       0 |      33 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.7 |    -6688.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1180* |       0 |      43 |        0 |      0 |    63 |    +0.2% |   -6.616 |     -419.5 |    -6676.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1186* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1187* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1188* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1189* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1190* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1190* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1191* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1192* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1193* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1194* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1195* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1196* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1197* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1198* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1199* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1200* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1200* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1201* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1202* |       0 |      28 |        0 |      0 |    63 |    +0.1% |   -6.616 |     -418.8 |    -6713.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1204* |       0 |      28 |        0 |      0 |    64 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1206* |       0 |      28 |        0 |      0 |    65 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1208* |       0 |      28 |        0 |      0 |    66 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1210* |       0 |      28 |        0 |      0 |    67 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1210* |       0 |      28 |        0 |      0 |    67 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1212* |       0 |      28 |        0 |      0 |    68 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1214* |       0 |      28 |        0 |      0 |    69 |    +0.1% |   -6.616 |     -418.8 |    -6712.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1216* |       0 |      28 |        0 |      0 |    70 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1218* |       0 |      28 |        0 |      0 |    71 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1220* |       0 |      28 |        0 |      0 |    72 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1220* |       0 |      28 |        0 |      0 |    72 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1222* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1230* |       0 |      35 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.7 |    -6678.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1240* |       0 |      45 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -420.2 |    -6669.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1242* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1250* |       0 |      35 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.7 |    -6678.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1260* |       0 |      45 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -420.2 |    -6669.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1263* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1270* |       0 |      34 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.7 |    -6680.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1280* |       0 |      44 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -420.2 |    -6669.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1284* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1290* |       0 |      33 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.7 |    -6688.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1300* |       0 |      43 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -419.5 |    -6676.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1305* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1310* |       0 |      32 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.7 |    -6689.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1320* |       0 |      42 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -419.5 |    -6675.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1326* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1330* |       0 |      31 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -419.1 |    -6701.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1340* |       0 |      41 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6680.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1347* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1350* |       0 |      30 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -419.1 |    -6745.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1360* |       0 |      40 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6682.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1368* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1370* |       0 |      29 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -419.1 |    -6710.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1380* |       0 |      39 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6704.5 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1389* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1390* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1400* |       0 |      38 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6678.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1400* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1410* |       0 |      37 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6677.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1420* |       0 |      47 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -420.1 |    -6666.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1421* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1430* |       0 |      36 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -418.7 |    -6678.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1440* |       0 |      46 |        0 |      0 |    73 |    +0.2% |   -6.616 |     -420.2 |    -6668.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1442* |       0 |      28 |        0 |      0 |    73 |    +0.1% |   -6.616 |     -418.8 |    -6712.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1448* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1449* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1450* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1450* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1451* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1452* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1453* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1454* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1455* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1456* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1457* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1458* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1459* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1460* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1460* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1461* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1462* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1463* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1464* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1465* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1466* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1467* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1468* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1469* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1470* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1470* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1471* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1472* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1473* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1474* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1475* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1476* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1477* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1478* |       0 |      29 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -418.3 |    -6709.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1480* |       0 |      30 |        0 |      0 |    76 |    +0.1% |   -6.615 |     -356.8 |    -6560.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1489* |       0 |      34 |        0 |      0 |    81 |    +0.2% |   -6.615 |     -349.7 |    -6557.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1490* |       0 |      34 |        0 |      0 |    81 |    +0.2% |   -6.615 |     -349.7 |    -6557.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1500* |       0 |      37 |        0 |      0 |    88 |    +0.2% |   -6.615 |     -347.5 |    -6544.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1502* |       0 |      38 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1505* |       0 |      38 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1507* |       0 |      38 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1508* |       0 |      38 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1510* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1510* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1514* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1515* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1517* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1518* |       0 |      39 |        0 |      0 |    89 |    +0.2% |   -6.615 |     -346.6 |    -6543.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1520* |       0 |      39 |        0 |      0 |    90 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1522* |       0 |      39 |        0 |      0 |    90 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1525* |       0 |      39 |        0 |      0 |    92 |    +0.2% |   -6.615 |     -346.6 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1527* |       0 |      39 |        0 |      0 |    93 |    +0.2% |   -6.615 |     -346.5 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1528* |       0 |      39 |        0 |      0 |    93 |    +0.2% |   -6.615 |     -346.5 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1530* |       0 |      39 |        0 |      0 |    94 |    +0.2% |   -6.615 |     -346.5 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1531* |       0 |      39 |        0 |      0 |    93 |    +0.2% |   -6.615 |     -346.5 |    -6543.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1540* |       0 |      42 |        0 |      0 |    98 |    +0.2% |   -6.615 |     -348.5 |    -6451.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1550* |       0 |      45 |        0 |      0 |   105 |    +0.2% |   -6.615 |     -350.2 |    -6437.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1560* |       0 |      48 |        0 |      0 |   112 |    +0.2% |   -6.615 |     -350.3 |    -6423.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1568* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1569* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1570* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1570* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1571* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1572* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1573* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1574* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1575* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1576* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1577* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1578* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1579* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1580* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1580* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1581* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1582* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1583* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1584* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1585* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1586* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1587* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1588* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1589* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1590* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1590* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1591* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1592* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1593* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1594* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1595* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1596* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1597* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1598* |       0 |      49 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6402.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1600* |       0 |      50 |        0 |      0 |   115 |    +0.2% |   -6.615 |     -351.8 |    -6403.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1601* |       0 |      50 |        0 |      0 |   116 |    +0.2% |   -6.615 |     -351.8 |    -6403.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1602* |       0 |      50 |        0 |      0 |   116 |    +0.2% |   -6.615 |     -351.8 |    -6403.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1605* |       0 |      50 |        0 |      0 |   116 |    +0.2% |   -6.615 |     -351.8 |    -6403.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1610* |       0 |      54 |        0 |      0 |   116 |    +0.3% |   -6.615 |     -352.0 |    -6382.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1620* |       0 |      64 |        0 |      0 |   116 |    +0.3% |   -6.615 |     -351.7 |    -6358.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1628* |       0 |      51 |        0 |      0 |   116 |    +0.3% |   -6.615 |     -351.8 |    -6397.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1630* |       0 |      52 |        0 |      0 |   116 |    +0.3% |   -6.615 |     -351.8 |    -6389.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1640* |       0 |      53 |        0 |      0 |   125 |    +0.3% |   -6.615 |     -351.8 |    -6402.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1650* |       0 |      53 |        0 |      0 |   135 |    +0.3% |   -6.615 |     -351.8 |    -6392.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1650* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1652* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1653* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1654* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1655* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1656* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1657* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1658* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1659* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1660* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1660* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1661* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1662* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1663* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1664* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1665* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1666* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1667* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1668* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1669* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1670* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1670* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1671* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1672* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1673* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1674* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1675* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1676* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1677* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1678* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1679* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1680* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1680* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1681* |       0 |      53 |        0 |      0 |   131 |    +0.3% |   -6.615 |     -351.8 |    -6393.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1690* |       0 |      56 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6387.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1696* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1698* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1700* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1700* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1702* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1704* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1706* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1708* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1710* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1710* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1712* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1714* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1716* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1718* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1720* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1720* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1722* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1724* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1726* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1728* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1730* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1730* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1732* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1734* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1736* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1738* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1740* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1740* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1742* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1744* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1746* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1748* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1750* |       0 |      56 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6386.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1750* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1752* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1754* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1756* |       0 |      55 |        0 |      0 |   132 |    +0.3% |   -6.615 |     -351.8 |    -6384.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1760* |       0 |      56 |        0 |      0 |   134 |    +0.3% |   -6.615 |     -351.8 |    -6377.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1770* |       0 |      57 |        0 |      0 |   143 |    +0.3% |   -6.615 |     -351.8 |    -6378.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1776* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1779* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1780* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1782* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1785* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1788* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1790* |       0 |      58 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1791* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1794* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1797* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1800* |       0 |      59 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1800* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1803* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1806* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1809* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1810* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1812* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1815* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1818* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1820* |       0 |      58 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1821* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1824* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1827* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1830* |       0 |      59 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1830* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1833* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1836* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1839* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1840* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1842* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1845* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1848* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1850* |       0 |      58 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.8 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1851* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1854* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1857* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1860* |       0 |      59 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6379.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1860* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1863* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1866* |       0 |      57 |        0 |      0 |   136 |    +0.3% |   -6.615 |     -351.8 |    -6376.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1868* |       0 |      57 |        0 |      0 |   137 |    +0.3% |   -6.615 |     -351.8 |    -6376.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1870* |       0 |      58 |        0 |      0 |   137 |    +0.3% |   -6.615 |     -351.8 |    -6370.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1877* |       0 |      58 |        0 |      0 |   139 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1879* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1880* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1880* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1881* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1882* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1883* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1884* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1885* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1886* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1887* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1888* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1889* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1890* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1890* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1891* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1892* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1893* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1894* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1895* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1896* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1897* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1898* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1899* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1900* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1900* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1901* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1902* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1903* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1904* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1905* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1906* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1907* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1908* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1909* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1910* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1910* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1920* |       0 |      67 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6263.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1930* |       0 |      77 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -353.4 |    -6243.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1934* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1940* |       0 |      63 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.4 |    -6293.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1950* |       0 |      73 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6261.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1958* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1960* |       0 |      59 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.1 |    -6317.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1970* |       0 |      69 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6291.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1980* |       0 |      78 |        0 |      0 |   141 |    +0.4% |   -6.623 |     -353.4 |    -6241.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1982* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    1990* |       0 |      65 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6275.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2000* |       0 |      75 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.7 |    -6253.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2003* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2010* |       0 |      64 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.4 |    -6295.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2020* |       0 |      74 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6260.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2024* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2030* |       0 |      63 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.4 |    -6293.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2040* |       0 |      73 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6261.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2045* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2050* |       0 |      62 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.1 |    -6300.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2060* |       0 |      72 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6262.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2066* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2070* |       0 |      61 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.1 |    -6351.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2080* |       0 |      71 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6265.2 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2087* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2090* |       0 |      60 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.1 |    -6311.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2100* |       0 |      70 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6268.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2100* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2110* |       0 |      67 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6263.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2120* |       0 |      77 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -353.4 |    -6243.4 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2121* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2130* |       0 |      66 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6272.3 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2140* |       0 |      76 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.7 |    -6252.6 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2142* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2150* |       0 |      65 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6275.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2160* |       0 |      75 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.7 |    -6253.0 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2163* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2170* |       0 |      64 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.4 |    -6295.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2180* |       0 |      74 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6260.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2184* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2190* |       0 |      63 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.4 |    -6293.1 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2200* |       0 |      73 |        0 |      0 |   140 |    +0.3% |   -6.623 |     -352.0 |    -6261.7 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2200* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    2200* |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1970 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+    final |       0 |      58 |        0 |      0 |   140 |    +0.3% |   -6.615 |     -351.8 |    -6368.9 |   1887 | if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.err_q\[0\]$_DFFE_PP_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 58 instances: 58 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 140 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 84.61s
+Took 85 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1ohm
+ voltage 1v
+ current 1mA
+ power 1uW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |        (ohm/um) |          (pF/um)
+------------------------------------------------
+    Metal1 |        3.91e-01 |         9.06e-06
+    Metal2 |        2.26e-04 |         1.35e-04
+    Metal3 |        2.26e-04 |         1.46e-04
+    Metal4 |        2.26e-04 |         1.51e-04
+    Metal5 |        5.86e-05 |         1.56e-04
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |          (ohm) 
+----------------------------
+      Via1 |       4.23e+00 
+      Via2 |       4.23e+00 
+      Via3 |       4.23e+00 
+      Via4 |       4.23e+00 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 590912 um^2 46% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/2_1_floorplan.sdc
+Elapsed time: 1:28.08[h:]min:sec. CPU time: user 308.85 sys 167.61 (540%). Peak memory: 214488KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb           88            209 61f0707f48518fb8b3fa
+2_1_floorplan             .sdc                             29a17c42a9cb87df4792

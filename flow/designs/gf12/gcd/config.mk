@@ -5,9 +5,11 @@ export PLATFORM    = gf12
 export VERILOG_FILES = $(DESIGN_HOME)/src/$(DESIGN_NAME)/gcd.v
 export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/constraint.sdc
 
-# These values must be multiples of placement site
-export DIE_AREA    = 0 0 99.96 100.128
-export CORE_AREA   = 9.996 10.08 89.964 90.048
+export CORE_UTILIZATION  = 20
+export CORE_ASPECT_RATIO = 1
+export CORE_MARGIN       = 2
+
+export PLACE_DENSITY_LB_ADDON = 0.20
 
 export GLOBAL_PLACEMENT_ARGS = -skip_initial_place
 
@@ -19,3 +21,5 @@ endif
 
 export SKIP_GATE_CLONING = 1
 
+export SWAP_ARITH_OPERATORS = 1
+export OPENROAD_HIERARCHICAL = 1

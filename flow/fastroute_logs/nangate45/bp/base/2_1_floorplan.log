@@ -1,0 +1,211 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x95.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/1_synth.sdc
+source ./platforms/nangate45/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 206989
+[INFO IFP-0001] Added 913 rows of 6999 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 1350.000 1300.000 ) um
+[INFO IFP-0101] Core BBox: ( 10.070 11.200 ) ( 1339.880 1289.400 ) um
+[INFO IFP-0102] Core area:                      1699763.142 um^2
+[INFO IFP-0103] Total instances area:            630856.772 um^2
+[INFO IFP-0104] Effective utilization:                0.371
+[INFO IFP-0105] Number of instances:                 206989
+source ./platforms/nangate45/make_tracks.tcl
+source ./platforms/nangate45/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 4755 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 573 tie LOGIC1_X1 instances.
+repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 97 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 97 out of 97 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -2.283 |     -271.1 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      10* |       0 |       5 |        0 |      0 |     4 |    +0.0% |   -2.279 |     -270.4 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      20* |       0 |      15 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.4 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      30* |       0 |      16 |        0 |      0 |    13 |    +0.0% |   -2.270 |     -269.0 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      40* |       0 |      16 |        0 |      0 |    23 |    +0.0% |   -2.292 |     -271.4 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      50* |       0 |      16 |        0 |      0 |    33 |    +0.0% |   -2.314 |     -274.7 |      -12.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      60* |       0 |      16 |        0 |      0 |    43 |    +0.0% |   -2.334 |     -277.6 |      -12.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      70* |       0 |      16 |        0 |      0 |    53 |    +0.0% |   -2.356 |     -280.7 |      -12.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      70* |       0 |      15 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.4 |      -12.2 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      72* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      73* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      74* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      75* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      76* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      77* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      78* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      79* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      80* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      80* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      81* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      82* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      83* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      84* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      85* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      86* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      87* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      88* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      89* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      90* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      90* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      91* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      92* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      93* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      94* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      95* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      96* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      97* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      98* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      99* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     100* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     100* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     101* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     102* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     103* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     104* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     105* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     106* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     107* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     108* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     109* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     110* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     110* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     111* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     112* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     113* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     114* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     115* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     116* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     117* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     118* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     119* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     120* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     120* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     121* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     122* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     123* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     124* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     125* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     126* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     127* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     128* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     129* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     130* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     130* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     131* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     132* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     133* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     134* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     135* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     136* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     137* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     138* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     139* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     140* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     140* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     141* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     142* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     143* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     144* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     145* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     146* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     147* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     148* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     149* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     150* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     150* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     151* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     152* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     153* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     154* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     155* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     156* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     157* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     158* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     159* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     160* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     160* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     161* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     162* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     163* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     164* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     165* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     166* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     167* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     167* |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |     97 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    final |       0 |      16 |        0 |      0 |     4 |    +0.0% |   -2.258 |     -267.3 |       -2.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 16 instances: 16 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 4 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 20.15s
+Took 20 seconds: repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+    metal1 |        5.43e-03 |         7.42e-02
+    metal2 |        3.57e-03 |         8.34e-02
+    metal3 |        3.57e-03 |         1.04e-01
+    metal4 |        1.50e-03 |         1.19e-01
+    metal5 |        1.50e-03 |         1.09e-01
+    metal6 |        1.50e-03 |         1.14e-01
+    metal7 |        1.88e-04 |         1.17e-01
+    metal8 |        1.88e-04 |         9.45e-02
+    metal9 |        3.75e-05 |         1.06e-01
+   metal10 |        3.75e-05 |         7.37e-01
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      via1 |       5.00e-03 
+      via2 |       5.00e-03 
+      via3 |       5.00e-03 
+      via4 |       3.00e-03 
+      via5 |       3.00e-03 
+      via6 |       3.00e-03 
+      via7 |       1.00e-03 
+      via8 |       1.00e-03 
+      via9 |       5.00e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 633684 um^2 37% utilization.
+source /OpenROAD-flow-scripts/flow/designs/nangate45/black_parrot/io.tcl
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/2_1_floorplan.sdc
+Elapsed time: 0:45.67[h:]min:sec. CPU time: user 54.17 sys 28.02 (179%). Peak memory: 978808KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb           45            955 cf06ab086a1cb2b9ef22
+2_1_floorplan             .sdc                             ad6fd750914d10bffa08

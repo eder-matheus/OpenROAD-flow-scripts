@@ -1,0 +1,68 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/mock-cpu/base/clock_period.txt
+Setting clock period to 333
+1. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+2. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+3. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+4. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+5. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+6. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+7. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+8. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+9. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+10. Executing Liberty frontend: ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+11. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/fifo.v
+12. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/fifo1.v
+13. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/fifomem.v
+14. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/mock_cpu.v
+15. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/mock_cpu_tb.v
+16. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/rptr_empty.v
+17. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/sync_r2w.v
+18. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/sync_w2r.v
+19. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/fifo/wptr_full.v
+20. Executing Verilog-2005 frontend: ./platforms/asap7/yoSys/cells_clkgate_R.v
+21. Executing HIERARCHY pass (managing design hierarchy).
+22. Executing AST frontend in derive mode using pre-parsed AST for module `\mock_cpu'.
+Warning: Replacing memory \winc_out with list of registers. See /OpenROAD-flow-scripts/flow/designs/src/fifo/mock_cpu.v:62
+Warning: Replacing memory \mult_result with list of registers. See /OpenROAD-flow-scripts/flow/designs/src/fifo/mock_cpu.v:61
+22.1. Analyzing design hierarchy..
+22.2. Executing AST frontend in derive mode using pre-parsed AST for module `\fifo1'.
+22.3. Executing AST frontend in derive mode using pre-parsed AST for module `\fifo1'.
+22.4. Analyzing design hierarchy..
+22.5. Analyzing design hierarchy..
+22.6. Executing AST frontend in derive mode using pre-parsed AST for module `\wptr_full'.
+/OpenROAD-flow-scripts/flow/designs/src/fifo/wptr_full.v:28: Warning: Identifier `\wfull_val' is implicitly declared.
+22.7. Executing AST frontend in derive mode using pre-parsed AST for module `\rptr_empty'.
+/OpenROAD-flow-scripts/flow/designs/src/fifo/rptr_empty.v:27: Warning: Identifier `\rempty_val' is implicitly declared.
+22.8. Executing AST frontend in derive mode using pre-parsed AST for module `\fifomem'.
+22.9. Executing AST frontend in derive mode using pre-parsed AST for module `\sync_w2r'.
+22.10. Executing AST frontend in derive mode using pre-parsed AST for module `\sync_r2w'.
+22.11. Executing AST frontend in derive mode using pre-parsed AST for module `\wptr_full'.
+/OpenROAD-flow-scripts/flow/designs/src/fifo/wptr_full.v:28: Warning: Range [0:-1] select out of bounds on signal `\wq2_rptr': Setting 1 LSB bits to undef.
+22.12. Executing AST frontend in derive mode using pre-parsed AST for module `\rptr_empty'.
+22.13. Executing AST frontend in derive mode using pre-parsed AST for module `\fifomem'.
+22.14. Executing AST frontend in derive mode using pre-parsed AST for module `\sync_w2r'.
+22.15. Executing AST frontend in derive mode using pre-parsed AST for module `\sync_r2w'.
+22.16. Analyzing design hierarchy..
+22.17. Analyzing design hierarchy..
+23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module mock_cpu because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\sync_r2w\ADDRSIZE=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\sync_w2r\ADDRSIZE=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$75ce5a72ae5024fa7116cdc32fde1d129bf3c962\fifomem because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\rptr_empty\ADDRSIZE=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\wptr_full\ADDRSIZE=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\sync_r2w\ADDRSIZE=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\sync_w2r\ADDRSIZE=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$9d78fcbc7384b1d36bc42a1cda608fd8eb80348e\fifomem because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\rptr_empty\ADDRSIZE=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\wptr_full\ADDRSIZE=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+24. Executing RTLIL backend.
+Warnings: 16 unique messages, 20 total
+End of script. Logfile hash: 8bc27714fa, time: 1.00s, user: 0.94s, system: 0.04s, MEM: 82.43 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 67% 12x read_liberty (0 sec), 29% 1x hierarchy (0 sec), ...
+Elapsed time: 0:01.01[h:]min:sec. CPU time: user 0.96 sys 0.05 (99%). Peak memory: 87204KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          1             85 7ea8b2cecb490a111d58

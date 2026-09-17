@@ -1,0 +1,1250 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_SLVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_SLVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x256.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_128x64.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x28.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x25.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/cva6/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/cva6/base/4_cts.sdc
+source ./platforms/asap7/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     640
+Number of vias:       21
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   cva6
+Die area:                 ( 0 0 ) ( 156706 156706 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     122528
+Number of terminals:      964
+Number of snets:          2
+Number of nets:           125449
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+  Complete 100000 instances.
+[INFO DRT-0164] Number of unique instances = 303.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0018]   Complete 100000 insts.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 1966573.
+[INFO DRT-0033] V1 shape region query size = 2073329.
+[INFO DRT-0033] M2 shape region query size = 79431.
+[INFO DRT-0033] V2 shape region query size = 38646.
+[INFO DRT-0033] M3 shape region query size = 38669.
+[INFO DRT-0033] V3 shape region query size = 25769.
+[INFO DRT-0033] M4 shape region query size = 30462.
+[INFO DRT-0033] V4 shape region query size = 30209.
+[INFO DRT-0033] M5 shape region query size = 17371.
+[INFO DRT-0033] V5 shape region query size = 3372.
+[INFO DRT-0033] M6 shape region query size = 1802.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0076]   Complete 2000 pins.
+[INFO DRT-0078]   Complete 2812 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0081]   Complete 293 unique inst patterns.
+[INFO DRT-0082]   Complete 10000 groups.
+[INFO DRT-0082]   Complete 20000 groups.
+[INFO DRT-0082]   Complete 30000 groups.
+[INFO DRT-0082]   Complete 40000 groups.
+[INFO DRT-0082]   Complete 50000 groups.
+[INFO DRT-0082]   Complete 60000 groups.
+[INFO DRT-0084]   Complete 67574 groups.
+#scanned instances     = 122528
+#unique  instances     = 299
+#stdCellGenAp          = 8205
+#stdCellValidPlanarAp  = 68
+#stdCellValidViaAp     = 6828
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 405268
+#instTermValidViaApCnt = 0
+#macroGenAp            = 980
+#macroValidPlanarAp    = 980
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:24:52, elapsed time = 00:00:47, memory = 946.05 (MB), peak = 975.73 (MB)
+Took 49 seconds: pin_access
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/cva6/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -resistance_aware -use_cugr
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0003] Macros: 8
+[INFO GRT-0004] Blockages: 45450
+[INFO GRT-0019] Found 1011 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 65
+Design statistics
+Nets:                124741
+Special nets:        2
+Routing layers:      7
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal     749091        561847          25.00%
+M3         Vertical       971962        728972          25.00%
+M4         Horizontal     726977        545233          25.00%
+M5         Vertical       813822        610433          24.99%
+M6         Horizontal     565665        424517          24.95%
+M7         Vertical       668577        501433          25.00%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Stage 2: Resistance-aware re-route of critical nets.
+Stage 3: Pattern routing with detours.
+Stage 4: Maze routing on sparsified graph.
+Stage 5: Iterative rip-up and re-route.
+[INFO GRT-0117] Start extra iteration 1/10
+[WARNING GRT-0305] Demoted 1 NDR net(s) to default rule to reduce congestion (use debug 'softNDR' for net list).
+[INFO GRT-0117] Start extra iteration 2/10
+[INFO GRT-0117] Start extra iteration 3/10
+[INFO GRT-0117] Start extra iteration 4/10
+[INFO GRT-0117] Start extra iteration 5/10
+[INFO GRT-0117] Start extra iteration 6/10
+[INFO GRT-0117] Start extra iteration 7/10
+[INFO GRT-0117] Start extra iteration 8/10
+[INFO GRT-0117] Start extra iteration 9/10
+[INFO GRT-0117] Start extra iteration 10/10
+[INFO GRT-0306] Iterative RRR soft-demoted 1 NDR net(s) total.
+[WARNING GRT-0118] Iterative RRR finished with congestion remaining (2812).
+Routing statistics
+Wire length:           15469539
+Total via count:       899338
+Total congestion:      2811.28
+Min resource:          -2.23
+Bottleneck:            (2, 179, 109)
+[INFO GRT-0130] CUGR congestion report:
+Layer   Dir     Resource     Wire Dmd      Via Dmd    Total Dmd  Usage (%)   Wire Ovf    Via Ovf  Max Edge Ovf
+--------------------------------------------------------------------------------------------------------------
+M1        V         0.00         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+M2        H    561847.12    263290.00     67279.61    330569.61      58.84    1177.37     247.27          1.92
+M3        V    728972.03    378454.00     45491.06    423945.06      58.16     674.15     132.22          2.23
+M4        H    545233.00    176596.00     25252.49    201848.49      37.02     120.44      94.15          1.23
+M5        V    610432.71    121348.00     15059.18    136407.18      22.35     146.94      29.95          1.63
+M6        H    424516.75     72806.50      7514.76     80321.26      18.92      40.40     143.12          1.43
+M7        V    501432.75     46100.00      3121.59     49221.59       9.82       5.05       0.21          0.72
+--------------------------------------------------------------------------------------------------------------
+Total         3372434.35   1058594.50    163718.69   1222313.19      36.24    2164.36     646.92          2.23
+[INFO GRT-0018] Total wirelength: 801776 um
+[INFO GRT-0014] Routed nets: 124741
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO GRT-0303] Global routing runtime = 00:02:45
+Took 166 seconds: global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/cva6/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -resistance_aware -use_cugr
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |    125501
+     1000 |     +0.0% |       0 |       0 |             0 |    124501
+     2000 |     +0.0% |       0 |       0 |             0 |    123501
+     3000 |     +0.0% |       0 |       0 |             0 |    122501
+     4000 |     +0.0% |       0 |       0 |             0 |    121501
+     5000 |     +0.0% |       0 |       0 |             0 |    120501
+     6000 |     +0.0% |       0 |       0 |             0 |    119501
+     7000 |     +0.0% |       0 |       0 |             0 |    118501
+     8000 |     +0.0% |       0 |       0 |             0 |    117501
+     9000 |     +0.0% |       0 |       0 |             0 |    116501
+    10000 |     +0.0% |       0 |       0 |             0 |    115501
+    11000 |     +0.0% |       0 |       0 |             0 |    114501
+    12000 |     +0.0% |       0 |       0 |             0 |    113501
+    13000 |     +0.0% |       0 |       0 |             0 |    112501
+    14000 |     +0.0% |       0 |       0 |             0 |    111501
+    15000 |     +0.0% |       0 |       0 |             0 |    110501
+    16000 |     +0.0% |       0 |       0 |             0 |    109501
+    17000 |     +0.0% |       0 |       0 |             0 |    108501
+    18000 |     +0.0% |       0 |       0 |             0 |    107501
+    19000 |     +0.0% |       0 |       0 |             0 |    106501
+    20000 |     +0.0% |       0 |       0 |             0 |    105501
+    21000 |     +0.0% |       0 |       0 |             0 |    104501
+    22000 |     +0.0% |       0 |       0 |             0 |    103501
+    23000 |     +0.0% |       0 |       0 |             0 |    102501
+[WARNING RSZ-0104] Net _012825_ only has one pin. Check if it is intended to be dangling.
+    24000 |     +0.0% |       0 |       0 |             0 |    101501
+    25000 |     +0.0% |       0 |       0 |             0 |    100501
+[WARNING RSZ-0104] Net _095140_/_0192_ only has one pin. Check if it is intended to be dangling.
+    26000 |     +0.0% |       0 |       0 |             0 |     99501
+    27000 |     +0.0% |       0 |       0 |             0 |     98501
+    28000 |     +0.0% |       0 |       0 |             0 |     97501
+    29000 |     +0.0% |       0 |       0 |             0 |     96501
+    30000 |     +0.0% |       0 |       0 |             0 |     95501
+    31000 |     +0.0% |       0 |       0 |             0 |     94501
+    32000 |     +0.0% |       0 |       0 |             0 |     93501
+    33000 |     +0.0% |       0 |       0 |             0 |     92501
+    34000 |     +0.0% |       0 |       0 |             0 |     91501
+    35000 |     +0.0% |       0 |       0 |             0 |     90501
+    36000 |     +0.0% |       0 |       0 |             0 |     89501
+    37000 |     +0.0% |       0 |       0 |             0 |     88501
+    38000 |     +0.0% |       0 |       0 |             0 |     87501
+    39000 |     +0.0% |       0 |       0 |             0 |     86501
+    40000 |     +0.0% |       0 |       0 |             0 |     85501
+    41000 |     +0.0% |       0 |       0 |             0 |     84501
+    42000 |     +0.0% |       0 |       0 |             0 |     83501
+    43000 |     +0.0% |       0 |       0 |             0 |     82501
+    44000 |     +0.0% |       0 |       0 |             0 |     81501
+[WARNING RSZ-0104] Net _012845_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012620_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012584_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012506_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012466_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012450_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012444_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012432_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012414_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012361_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012341_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012198_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012116_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012057_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011956_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011918_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011874_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011810_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011627_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011454_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011426_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011376_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011352_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011282_ only has one pin. Check if it is intended to be dangling.
+    45000 |     +0.0% |       0 |       0 |             0 |     80501
+    46000 |     +0.0% |       0 |       0 |             0 |     79501
+    47000 |     +0.0% |       0 |       0 |             0 |     78501
+[WARNING RSZ-0104] Net _012843_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012662_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012618_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012582_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012504_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012464_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012448_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012442_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012430_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012422_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012412_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012395_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012359_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012339_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012196_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012126_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012114_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012110_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012055_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012018_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011954_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011916_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011896_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011872_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011808_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011674_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011625_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011452_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011424_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011382_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011374_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011350_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011340_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011280_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011268_ only has one pin. Check if it is intended to be dangling.
+    48000 |     +0.0% |       0 |       0 |             0 |     77501
+    49000 |     +0.0% |       0 |       0 |             0 |     76501
+    50000 |     +0.0% |       0 |       0 |             0 |     75501
+[WARNING RSZ-0104] Net _012897_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012764_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012664_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012578_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012420_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012393_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012331_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012314_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012291_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012204_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012124_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012108_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012022_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012016_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012006_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011990_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011898_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011856_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011848_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011746_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011672_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011380_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011344_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011338_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011320_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011272_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011266_ only has one pin. Check if it is intended to be dangling.
+    51000 |     +0.0% |       0 |       0 |             0 |     74501
+    52000 |     +0.0% |       0 |       0 |             0 |     73501
+    53000 |     +0.0% |       0 |       0 |             0 |     72501
+[WARNING RSZ-0104] Net _012851_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012835_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012829_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012793_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012709_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012668_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012590_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012566_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012539_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012474_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012403_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012373_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012367_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012349_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012323_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012298_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012295_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012287_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012283_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012279_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012273_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012270_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012254_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012186_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012168_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012154_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012148_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012132_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012102_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012086_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012082_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011974_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011962_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011948_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011944_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011906_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011860_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011852_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011844_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011832_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011824_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011802_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011782_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011728_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011588_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011442_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011436_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011406_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011392_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011388_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011364_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011302_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011276_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011250_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011243_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011237_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011225_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011201_ only has one pin. Check if it is intended to be dangling.
+    54000 |     +0.0% |       0 |       0 |             0 |     71501
+    55000 |     +0.0% |       0 |       0 |             0 |     70501
+    56000 |     +0.0% |       0 |       0 |             0 |     69501
+    57000 |     +0.0% |       0 |       0 |             0 |     68501
+[WARNING RSZ-0104] Net _012849_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012839_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012833_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012791_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012763_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012594_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012588_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012572_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012537_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012527_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012472_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012379_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012371_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012365_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012345_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012297_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012293_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012277_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012272_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012268_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012252_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012248_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012222_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012216_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012172_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012166_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012152_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012136_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012100_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012080_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011972_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011966_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011942_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011926_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011904_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011886_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011864_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011842_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011830_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011800_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011586_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011440_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011434_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011430_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011404_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011400_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011386_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011370_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011362_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011256_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011241_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011235_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011223_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011199_ only has one pin. Check if it is intended to be dangling.
+    58000 |     +0.0% |       0 |       0 |             0 |     67501
+    59000 |     +0.0% |       0 |       0 |             0 |     66501
+[WARNING RSZ-0104] Net _011790_ only has one pin. Check if it is intended to be dangling.
+    60000 |     +0.0% |       0 |       0 |             0 |     65501
+[WARNING RSZ-0104] Net _012787_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012494_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012142_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011982_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011878_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011838_ only has one pin. Check if it is intended to be dangling.
+    61000 |     +0.0% |       0 |       0 |             0 |     64501
+    62000 |     +0.0% |       0 |       0 |             0 |     63501
+    63000 |     +0.0% |       0 |       0 |             0 |     62501
+[WARNING RSZ-0104] Net _011792_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011788_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012798_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011777_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011027_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011025_ only has one pin. Check if it is intended to be dangling.
+    64000 |     +0.0% |       0 |       0 |             0 |     61501
+    65000 |     +0.0% |       0 |       0 |             0 |     60501
+    66000 |     +0.0% |       0 |       0 |             0 |     59501
+    67000 |     +0.0% |       0 |       0 |             0 |     58501
+    68000 |     +0.0% |       0 |       0 |             0 |     57501
+    69000 |     +0.0% |       0 |       0 |             0 |     56501
+    70000 |     +0.0% |       0 |       0 |             0 |     55501
+    71000 |     +0.0% |       0 |       0 |             0 |     54501
+[WARNING RSZ-0104] Net _011572_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011568_ only has one pin. Check if it is intended to be dangling.
+    72000 |     +0.0% |       0 |       0 |             0 |     53501
+[WARNING RSZ-0104] Net _011564_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011560_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011556_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011552_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011524_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011512_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011472_ only has one pin. Check if it is intended to be dangling.
+    73000 |     +0.0% |       0 |       0 |             0 |     52501
+    74000 |     +0.0% |       0 |       0 |             0 |     51501
+    75000 |     +0.0% |       0 |       0 |             0 |     50501
+    76000 |     +0.0% |       0 |       0 |             0 |     49501
+[WARNING RSZ-0104] Net _011548_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011544_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011532_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011528_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011516_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011508_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011504_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011500_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011496_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011492_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011488_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011484_ only has one pin. Check if it is intended to be dangling.
+    77000 |     +0.0% |       0 |       0 |             0 |     48501
+    78000 |     +0.0% |       0 |       0 |             0 |     47501
+    79000 |     +0.0% |       0 |       0 |             0 |     46501
+    80000 |     +0.0% |       0 |       0 |             0 |     45501
+    81000 |     +0.0% |       0 |       0 |             0 |     44501
+[WARNING RSZ-0104] Net _012993_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012989_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012875_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011580_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011576_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011540_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011536_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011520_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011480_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011476_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011468_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011464_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011460_ only has one pin. Check if it is intended to be dangling.
+    82000 |     +0.0% |       0 |       0 |             0 |     43501
+    83000 |     +0.0% |       0 |       0 |             0 |     42501
+    84000 |     +0.0% |       0 |       0 |             0 |     41501
+    85000 |     +0.0% |       0 |       0 |             0 |     40501
+[WARNING RSZ-0104] Net _012991_ only has one pin. Check if it is intended to be dangling.
+    86000 |     +0.0% |       0 |       0 |             0 |     39501
+    87000 |     +0.0% |       0 |       0 |             0 |     38501
+    88000 |     +0.0% |       0 |       0 |             0 |     37501
+    89000 |     +0.0% |       0 |       0 |             0 |     36501
+    90000 |     +0.0% |       0 |       0 |             0 |     35501
+[WARNING RSZ-0104] Net _010875_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013033_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013017_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013015_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013013_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012869_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012747_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011820_ only has one pin. Check if it is intended to be dangling.
+    91000 |     +0.0% |       0 |       0 |             0 |     34501
+    92000 |     +0.0% |       0 |       0 |             0 |     33501
+    93000 |     +0.0% |       0 |       0 |             0 |     32501
+    94000 |     +0.0% |       0 |       0 |             0 |     31501
+[WARNING RSZ-0104] Net _012952_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012951_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012949_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012947_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012945_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012745_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012743_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012739_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012453_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _010984_ only has one pin. Check if it is intended to be dangling.
+    95000 |     +0.0% |       0 |       0 |             0 |     30501
+    96000 |     +0.0% |       0 |       0 |             0 |     29501
+[WARNING RSZ-0104] Net _011817_ only has one pin. Check if it is intended to be dangling.
+    97000 |     +0.0% |       0 |       0 |             0 |     28501
+[WARNING RSZ-0104] Net _013047_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013045_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013043_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013025_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013001_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012965_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012941_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012927_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012923_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012917_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012907_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012860_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012813_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012781_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012779_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012777_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012741_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012737_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012731_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012729_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012727_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012722_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012720_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012718_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012694_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012560_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012556_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012552_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012523_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012514_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012486_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012484_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012482_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012408_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012266_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012076_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012074_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012072_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011772_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011767_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011765_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011763_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011682_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011645_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011416_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011414_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011412_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011246_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011211_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011209_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011207_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011195_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011193_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011191_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011185_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011183_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011181_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011175_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011173_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011171_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011163_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011161_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011159_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011153_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011151_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011149_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011115_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011084_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011020_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _010911_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _010909_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _010907_ only has one pin. Check if it is intended to be dangling.
+    98000 |     +0.0% |       0 |       0 |             0 |     27501
+    99000 |     +0.0% |       0 |       0 |             0 |     26501
+   100000 |     +0.0% |       0 |       0 |             0 |     25501
+[WARNING RSZ-0104] Net _012541_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012059_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _010880_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _013023_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _012070_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011680_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011410_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011205_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011189_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011179_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011169_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011157_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _011147_ only has one pin. Check if it is intended to be dangling.
+   101000 |     +0.0% |       0 |       0 |             0 |     24501
+   102000 |     +0.0% |       0 |       0 |             0 |     23501
+   103000 |     +0.0% |       0 |       0 |             0 |     22501
+   104000 |     +0.0% |       0 |       0 |             0 |     21501
+   105000 |     +0.0% |       0 |       0 |             0 |     20501
+   106000 |     +0.0% |       0 |       0 |             0 |     19501
+   107000 |     +0.0% |       0 |       0 |             0 |     18501
+   108000 |     +0.0% |       0 |       0 |             0 |     17501
+   109000 |     +0.0% |       0 |       0 |             0 |     16501
+   110000 |     +0.0% |       0 |       0 |             0 |     15501
+   111000 |     +0.0% |       0 |       0 |             0 |     14501
+   112000 |     +0.0% |       0 |       0 |             0 |     13501
+   113000 |     +0.0% |       0 |       0 |             0 |     12501
+   114000 |     +0.0% |       0 |       0 |             0 |     11501
+   115000 |     +0.0% |       0 |       0 |             0 |     10501
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[9\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[99\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[98\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[97\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[96\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[95\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[94\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[93\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[92\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[91\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[90\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[8\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[89\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[88\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[87\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[86\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[85\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[84\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[83\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[82\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[81\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[80\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[7\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[79\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[78\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[77\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[76\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[75\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[74\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[73\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[72\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[71\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[70\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[6\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[69\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[68\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[67\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[66\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[65\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[64\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[63\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[62\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[61\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[60\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[5\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[59\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[58\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[57\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[56\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[55\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[54\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[53\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[52\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[51\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[50\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[4\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[49\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[48\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[47\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[46\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[45\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[44\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[43\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[42\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[41\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[40\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[3\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[39\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[38\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[37\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[36\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[35\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[34\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[33\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[32\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[31\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[30\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[2\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[29\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[28\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[27\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[26\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[25\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[24\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[23\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[22\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[21\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[20\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[1\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[19\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[18\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[17\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[16\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[15\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[14\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[13\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[12\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[127\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[126\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[125\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[124\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[123\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[122\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[121\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[120\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[11\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[119\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[118\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[117\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[116\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[115\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[114\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[113\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[112\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[111\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[110\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[10\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[109\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[108\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[107\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[106\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[105\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[104\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[103\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[102\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[101\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[100\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[1\].data_sram.gen_techno_cut.genblk1.rdata_user\[0\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[9\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[99\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[98\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[97\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[96\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[95\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[94\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[93\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[92\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[91\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[90\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[8\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[89\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[88\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[87\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[86\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[85\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[84\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[83\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[82\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[81\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[80\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[7\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[79\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[78\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[77\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[76\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[75\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[74\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[73\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[72\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[71\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[70\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[6\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[69\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[68\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[67\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[66\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[65\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[64\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[63\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[62\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[61\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[60\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[5\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[59\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[58\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[57\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[56\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[55\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[54\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[53\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[52\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[51\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[50\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[4\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[49\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[48\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[47\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[46\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[45\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[44\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[43\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[42\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[41\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[40\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[3\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[39\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[38\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[37\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[36\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[35\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[34\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[33\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[32\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[31\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[30\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[2\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[29\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[28\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[27\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[26\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[25\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[24\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[23\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[22\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[21\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[20\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[1\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[19\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[18\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[17\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[16\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[15\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[14\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[13\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[12\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[127\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[126\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[125\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[124\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[123\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[122\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[121\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[120\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[11\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[119\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[118\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[117\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[116\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[115\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[114\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[113\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[112\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[111\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[110\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[10\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[109\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[108\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[107\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[106\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[105\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[104\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[103\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[102\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[101\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[100\] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram\[0\].data_sram.gen_techno_cut.genblk1.rdata_user\[0\] only has one pin. Check if it is intended to be dangling.
+   116000 |     +0.0% |       0 |       0 |             0 |      9501
+   117000 |     +0.0% |       0 |       0 |             0 |      8501
+   118000 |     +0.0% |       0 |       0 |             0 |      7501
+   119000 |     +0.0% |       0 |       0 |             0 |      6501
+   120000 |     +0.0% |       0 |       0 |             0 |      5501
+   121000 |     +0.0% |       0 |       0 |             0 |      4501
+   122000 |     +0.0% |       0 |       0 |             0 |      3501
+   123000 |     +0.0% |       0 |       0 |             0 |      2501
+   124000 |     +0.0% |       0 |       0 |             0 |      1501
+   125000 |     +0.0% |       0 |       0 |             0 |       501
+[WARNING RSZ-0104] Net noc_resp_i[9] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[8] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[7] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[6] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[5] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[4] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[3] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[33] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[31] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[30] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[2] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[29] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[28] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[27] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[26] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[25] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[24] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[23] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[22] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[21] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[20] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[1] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[19] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[18] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[17] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[16] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[15] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[14] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[13] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[135] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[134] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[133] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[132] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[131] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[130] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[12] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[129] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[128] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[127] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[126] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[125] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[124] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[123] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[122] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[121] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[120] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[11] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[119] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[118] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[117] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[116] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[115] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[114] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[113] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[112] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[111] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[110] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[10] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[109] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[108] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[107] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[106] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[105] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[104] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net noc_resp_i[0] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net ipi_i only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net debug_req_i only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[74] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[72] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[71] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[70] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[69] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[68] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[67] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[66] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[65] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[64] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[63] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[62] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[61] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[60] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[59] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[58] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[57] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[56] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[55] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[54] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[53] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[52] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[51] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[50] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[49] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[48] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[47] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[46] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[45] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[44] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[43] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[42] only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net cvxif_resp_i[41] only has one pin. Check if it is intended to be dangling.
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 11.05s
+Took 11 seconds: repair_design -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 23238.54 um^2
+[INFO DPL-0007] Movable instances area: 14066.08 um^2
+[INFO DPL-0008] Fixed instances area within core: 4242.82 um^2
+[INFO DPL-0009] Utilization: 78.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 122520 cells
+[INFO DPL-0393]   height 23 row(s): 4 cells
+[INFO DPL-0393]   height 80 row(s): 2 cells
+[INFO DPL-0393]   height 174 row(s): 2 cells
+[INFO DPL-0500] Runtime: 0.68s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          536172.0 u
+legalized HPWL         536172.0 u
+delta HPWL                    0 %
+
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/cva6/base/congestion_post_repair_design.rpt
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove VtSwapMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 52 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 52 out of 52 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -29.094 |     -197.4 |     -890.7 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1025\]$_DFF_PN0_/D
+      10* |       0 |       6 |        1 |      0 |     2 |    +0.0% |  -21.531 |     -125.3 |     -659.3 |     52 | issue_stage_i.i_scoreboard.fwd_o\[753\]$_DFF_PN0_/D
+      20* |       0 |      13 |        2 |      0 |     4 |    +0.0% |  -15.716 |      -94.2 |     -432.3 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1836\]$_DFF_PN0_/D
+      30* |       0 |      21 |        2 |      0 |     6 |    +0.0% |   -8.044 |      -45.2 |     -123.8 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+      40* |       0 |      25 |        4 |      0 |    11 |    +0.0% |   -6.075 |      -34.6 |      -73.7 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1025\]$_DFF_PN0_/D
+      49* |       0 |      28 |        7 |      0 |    15 |    +0.0% |   -3.756 |      -16.2 |      -18.2 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      50* |       0 |      28 |        7 |      0 |    15 |    +0.0% |   -3.756 |      -16.2 |      -18.2 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      60* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      60* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      61* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      62* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      63* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      64* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      65* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      66* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      67* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      68* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      69* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      70* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      70* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      71* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      72* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      73* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      74* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      75* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      76* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      77* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      78* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      79* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      80* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      80* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      81* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      82* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      83* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      84* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      85* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      86* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      87* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      88* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      89* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      90* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      90* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      91* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      92* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      93* |       0 |      36 |        8 |      0 |    16 |    +0.0% |   -3.756 |       -6.0 |       -3.8 |     52 | ex_stage_i.i_mult.i_multiplier.mult_result_q\[62\]$_DFF_PN0_/D
+      97* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+      98* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+      99* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     100* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     100* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     101* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     102* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     103* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     104* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     105* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     106* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     107* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     108* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     109* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     110* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     110* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     111* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     112* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     113* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+     113* |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |     52 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+    final |       0 |      36 |       12 |      0 |    17 |    +0.0% |    0.663 |        0.0 |        0.0 |      0 | issue_stage_i.i_scoreboard.fwd_o\[1839\]$_DFF_PN0_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 12 buffers.
+[INFO RSZ-0051] Resized 36 instances: 5 up, 0 up match, 0 down, 31 VT
+[INFO RSZ-0043] Swapped pins on 17 instances.
+[WARNING GRT-0128] Incremental global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO RSZ-0505] Runtime: 17.21s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.60s
+Took 18 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 23238.54 um^2
+[INFO DPL-0007] Movable instances area: 14067.22 um^2
+[INFO DPL-0008] Fixed instances area within core: 4242.82 um^2
+[INFO DPL-0009] Utilization: 78.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 122532 cells
+[INFO DPL-0393]   height 23 row(s): 4 cells
+[INFO DPL-0393]   height 80 row(s): 2 cells
+[INFO DPL-0393]   height 174 row(s): 2 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         54 |        12 |        42
+        1 |         33 |         7 |        26
+        2 |         30 |         4 |        26
+        3 |         32 |         4 |        28
+        4 |         31 |         5 |        26
+        5 |         32 |         7 |        25
+        6 |         20 |         2 |        18
+        7 |         28 |         2 |        26
+        8 |         16 |         2 |        14
+        9 |         16 |         2 |        14
+       10 |          8 |         2 |         6
+       12 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 12.
+[INFO DPL-0500] Runtime: 1.70s
+Placement Analysis
+---------------------------------
+total displacement         22.6 u
+average displacement        0.0 u
+max displacement            2.9 u
+original HPWL          536176.8 u
+legalized HPWL         536197.7 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/cva6/base/congestion_post_repair_timing.rpt
+[WARNING GRT-0128] Incremental global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+estimate_parasitics -global_routing
+repair_timing -setup -sequence "vt_swap reroute" -skip_last_gasp -repair_tns 0 -verbose
+[INFO RSZ-0100] Repair move sequence: VtSwapMove RerouteMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 2.87s
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 18310 um^2 79% utilization.
+[INFO FLW-0007] clock main_clk period 1000.000000
+[INFO FLW-0008] Clock main_clk period 949.400
+[INFO FLW-0009] Clock main_clk slack 0.631
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/cva6/base/updated_clks.sdc
+[INFO FLW-0011] Path endpoint path count 16987
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/cva6/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/cva6/base/5_1_grt.sdc
+Elapsed time: 5:19.13[h:]min:sec. CPU time: user 2236.32 sys 285.53 (790%). Peak memory: 2676300KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb          319           2613 288e23e4f35c785e7604
+5_1_grt                   .sdc                             67b5b10889f7acd0d38c

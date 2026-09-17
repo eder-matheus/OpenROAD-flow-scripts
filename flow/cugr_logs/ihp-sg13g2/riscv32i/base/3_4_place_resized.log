@@ -1,0 +1,75 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/2_floorplan.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 0 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.480  3.780 ) um
+[INFO GPL-0004] CoreBBox: ( 17.760 18.900 ) ( 603.840 601.020 ) um
+[INFO GPL-0016] Core area:                  341168.890 um^2
+[INFO GPL-0036] Movable instances area:     136529.971 um^2
+[INFO GPL-0037] Total instances area:       136529.971 um^2
+[INFO GPL-0035] Pin density area adjust:     11447.899 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:              9270
+[INFO GPL-0007] Movable instances:                9270
+[INFO GPL-0008] Fixed instances:                     0
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                   9336
+[INFO GPL-0011] Number of pins:                  30696
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 621.715 621.715 ) um
+[INFO GPL-0013] Placement BBox: ( 17.760 18.900 ) ( 603.840 601.020 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                341168.890 um^2
+[INFO GPL-0017] Fixed instances area:            0.000 um^2
+[INFO GPL-0018] Movable instances area:     147977.870 um^2
+[INFO GPL-0019] Utilization:                    43.374 %
+[INFO GPL-0020] Standard cells area:        147977.870 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 9270 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      9336
+     1000 |     +0.0% |       0 |       0 |             0 |      8336
+     2000 |     +0.0% |       0 |       0 |             0 |      7336
+     3000 |     +0.0% |       0 |       0 |             0 |      6336
+     4000 |     +0.0% |       0 |       0 |             0 |      5336
+     5000 |     +0.0% |       0 |       0 |             0 |      4336
+     6000 |     +0.0% |       0 |       0 |             0 |      3336
+     7000 |     +0.0% |       0 |       0 |             0 |      2336
+     8000 |     +0.0% |       0 |       0 |             0 |      1336
+     9000 |     +0.0% |       0 |       0 |             0 |       336
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.48s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 136530 um^2 40% utilization.
+Instance count before 9270, after 9270
+Pin count before 30531, after 30531
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/riscv32i/base/3_4_place_resized.odb
+Elapsed time: 0:03.88[h:]min:sec. CPU time: user 5.79 sys 1.80 (195%). Peak memory: 168180KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            3            164 cfd26e7b4528cd891b9f

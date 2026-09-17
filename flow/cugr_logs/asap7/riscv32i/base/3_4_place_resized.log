@@ -1,0 +1,82 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_256x32.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/riscv32i/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/riscv32i/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 736 violating endpoints
+[INFO RSZ-0154] Identified 1 critical arithmetic instances
+[INFO RSZ-0160] 0 arithmetic instances have swapped to improve 'setup' target
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: (  5.022  5.130 ) ( 68.094 68.040 ) um
+[INFO GPL-0016] Core area:                    3967.860 um^2
+[INFO GPL-0036] Movable instances area:       1170.934 um^2
+[INFO GPL-0037] Total instances area:         2603.624 um^2
+[INFO GPL-0035] Pin density area adjust:       176.147 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:             10995
+[INFO GPL-0007] Movable instances:                9666
+[INFO GPL-0008] Fixed instances:                   542
+[INFO GPL-0009] Dummy instances:                   787
+[INFO GPL-0010] Number of nets:                  10025
+[INFO GPL-0011] Number of pins:                  35386
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 73.147 73.147 ) um
+[INFO GPL-0013] Placement BBox: (  5.022  5.130 ) ( 68.094 68.040 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                  3967.860 um^2
+[INFO GPL-0017] Fixed instances area:         2189.027 um^2
+[INFO GPL-0018] Movable instances area:       1347.082 um^2
+[INFO GPL-0019] Utilization:                    75.728 %
+[INFO GPL-0020] Standard cells area:          1347.082 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 9666 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     10025
+     1000 |     +0.0% |       0 |       0 |             0 |      9025
+     2000 |     +0.0% |       0 |       0 |             0 |      8025
+     3000 |     +0.0% |       0 |       0 |             0 |      7025
+     4000 |     +0.0% |       0 |       0 |             0 |      6025
+     5000 |     +0.0% |       0 |       0 |             0 |      5025
+     6000 |     +0.0% |       0 |       0 |             0 |      4025
+     7000 |     +0.0% |       0 |       0 |             0 |      3025
+     8000 |     +0.0% |       0 |       0 |             0 |      2025
+     9000 |     +0.0% |       0 |       0 |             0 |      1025
+    10000 |     +0.0% |       0 |       0 |             0 |        25
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.76s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 2591 um^2 65% utilization.
+Instance count before 10208, after 10208
+Pin count before 35251, after 35251
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/riscv32i/base/3_4_place_resized.odb
+Elapsed time: 0:06.58[h:]min:sec. CPU time: user 9.68 sys 3.56 (201%). Peak memory: 272304KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            6            265 90878e6f01ddc8bc47ce

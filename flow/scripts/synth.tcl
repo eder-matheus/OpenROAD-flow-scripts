@@ -32,7 +32,37 @@ proc get_dfflegalize_args { file_path } {
 }
 
 source $::env(SCRIPTS_DIR)/synth_preamble.tcl
-read_checkpoint $::env(RESULTS_DIR)/1_1_yosys_canonicalize.rtlil
+if { [env_var_exists_and_non_empty SYNTH_CHECKPOINT] } {
+  read_checkpoint $::env(SYNTH_CHECKPOINT)
+} else {
+  read_checkpoint $::env(RESULTS_DIR)/1_1_yosys_canonicalize.rtlil
+}
+
+# When this synthesis run is one partition of a parallel split (driven by
+# an external orchestrator), `SYNTH_BLACKBOXES` lists modules outside this
+# partition.  Blackboxing them before the hierarchy check lets each
+# partition load the same canonical RTLIL checkpoint while only synthesising
+# its own subhierarchy.  Names not present in the loaded design are skipped
+# silently so the same list can be passed to every partition.
+#
+# This deliberately differs from the SYNTH_BLACKBOXES handling in
+# synth_preamble.tcl's `read_design_sources`, and the difference is correct
+# in both places — do not "harmonise" the two:
+#   * Order: here the design is already elaborated (read from RTLIL), so
+#     `blackbox` operates on resolved modules and must run before the
+#     hierarchy check.  In synth_preamble.tcl the verilog frontend uses
+#     `read_verilog -defer`, so `hierarchy -check -top` must run first to
+#     elaborate from the top before `blackbox` sees a populated module table.
+#   * Catch: here a missing name is expected because the same list is
+#     reused across partitions, and only this partition's portion exists in
+#     the checkpoint.  In synth_preamble.tcl a single design is being
+#     synthesised, so an unknown name is almost certainly a user typo and
+#     should fail loudly — `blackbox $m` without `catch` is intentional.
+if { [env_var_exists_and_non_empty SYNTH_BLACKBOXES] } {
+  foreach m $::env(SYNTH_BLACKBOXES) {
+    catch { blackbox $m }
+  }
+}
 
 hierarchy -check -top $::env(DESIGN_NAME)
 
@@ -44,7 +74,20 @@ if { $::env(SYNTH_GUT) } {
 
 if { [env_var_exists_and_non_empty SYNTH_KEEP_MODULES] } {
   foreach module $::env(SYNTH_KEEP_MODULES) {
-    select -module $module
+    # Two patterns so both frontends work:
+    #  - `$module` matches the bare name produced by verilog.
+    #  - `$module\$*` matches the `$`-suffixed canonical names the
+    #    slang frontend generates for parameterized instances
+    #    (e.g. `\foo$1`); yosys's match_ids retries the pattern with
+    #    the id's leading `\` stripped, so no `\`-prefix is needed
+    #    here -- see tools/yosys/passes/cmds/select.cc match_ids().
+    # Multiple patterns on one `select` are unioned at the end of the
+    # command (select.cc: `while (work_stack.size() > 1) union`), so
+    # when a pattern matches nothing it degrades to a warning and the
+    # other pattern still applies -- no regression for non-slang.
+    # `-module <name>` would error if the module doesn't exist, which
+    # is why we use bare patterns instead.
+    select "$module" "$module\\\$*"
     setattr -mod -set keep_hierarchy 1
     select -clear
   }
@@ -61,11 +104,23 @@ if { [env_var_exists_and_non_empty SYNTH_OPERATIONS_ARGS] } {
   set synth_full_args [concat $synth_full_args \
     "-extra-map $::env(FLOW_HOME)/platforms/common/lcu_kogge_stone.v"]
 }
-if { [env_var_exists_and_non_empty SYNTH_OPT_HIER] } {
+if { [env_var_equals SYNTH_OPT_HIER 1] } {
   set synth_full_args [concat $synth_full_args -hieropt]
 }
 
-if { !$::env(SYNTH_HIERARCHICAL) } {
+if {
+  [env_var_exists_and_non_empty SYNTH_CHECKPOINT] &&
+  $::env(SYNTH_SKIP_KEEP)
+} {
+  # Partition mode where the checkpoint is still canonical RTLIL (the keep
+  # decision for this partition is driven externally). Run the full
+  # coarse+fine synthesis, flattened.
+  synth -flatten -run :fine {*}$synth_full_args
+} elseif { [env_var_exists_and_non_empty SYNTH_CHECKPOINT] } {
+  # Partition mode where the checkpoint already holds coarse synth +
+  # keep_hierarchy output. Just flatten and continue from coarse.
+  synth -flatten -run coarse:fine {*}$synth_full_args
+} elseif { !$::env(SYNTH_HIERARCHICAL) } {
   # Perform standard coarse-level synthesis script, flatten right away
   synth -flatten -run :fine {*}$synth_full_args
 } else {
@@ -122,7 +177,7 @@ exec -- $::env(PYTHON_EXE) $::env(SCRIPTS_DIR)/mem_dump.py \
   --max-bits $::env(SYNTH_MEMORY_MAX_BITS) $::env(RESULTS_DIR)/mem.json
 
 if { [env_var_exists_and_non_empty SYNTH_RETIME_MODULES] } {
-  select $::env(SYNTH_RETIME_MODULES)
+  select {*}$::env(SYNTH_RETIME_MODULES)
   opt -fast -full
   memory_map
   opt -full
@@ -132,12 +187,12 @@ if { [env_var_exists_and_non_empty SYNTH_RETIME_MODULES] } {
 }
 
 if {
-  [env_var_exists_and_non_empty SYNTH_WRAPPED_OPERATORS] ||
-  [env_var_exists_and_non_empty SWAP_ARITH_OPERATORS]
+  [env_var_equals SYNTH_WRAPPED_OPERATORS 1] ||
+  [env_var_equals SWAP_ARITH_OPERATORS 1]
 } {
-  source $::env(SCRIPTS_DIR)/synth_wrap_operators.tcl
+  log_cmd source $::env(SCRIPTS_DIR)/synth_wrap_operators.tcl
 } else {
-  synth -top $::env(DESIGN_NAME) -run fine: {*}$synth_full_args
+  synth -top $::env(DESIGN_NAME) -run fine: -noabc {*}$synth_full_args
 }
 
 # Get rid of indigestibles
@@ -155,8 +210,13 @@ opt -purge
 # Technology mapping of adders
 if {
   [env_var_exists_and_non_empty ADDER_MAP_FILE] &&
-  ![env_var_exists_and_non_empty SYNTH_WRAPPED_OPERATORS] &&
-  ![env_var_exists_and_non_empty SWAP_ARITH_OPERATORS]
+  (
+    (![env_var_equals SYNTH_WRAPPED_OPERATORS 1] &&
+      ![env_var_equals SWAP_ARITH_OPERATORS 1]) ||
+    (([env_var_equals SYNTH_WRAPPED_OPERATORS 1] ||
+        [env_var_equals SWAP_ARITH_OPERATORS 1]) &&
+      ![design_has_extracted_operators])
+  )
 } {
   # extract the full adders
   extract_fa
@@ -169,7 +229,32 @@ if {
 
 # Technology mapping of latches
 if { [env_var_exists_and_non_empty LATCH_MAP_FILE] } {
+  # Legalize async set/reset latches into the latches this map file provides
+  # (soft-logic emulation); the trailing selection keeps dfflegalize off FFs.
+  dfflegalize {*}[get_dfflegalize_args $::env(LATCH_MAP_FILE)] {t:$_DLATCH_*}
   techmap -map $::env(LATCH_MAP_FILE)
+}
+
+# Clock gate inference.
+if { [env_var_equals INFER_CLKGATES 1] } {
+  set clkgate_args {}
+  if {
+    [env_var_exists_and_non_empty POS_CLKGATE_AND_PORTS] ||
+    [env_var_exists_and_non_empty NEG_CLKGATE_AND_PORTS]
+  } {
+    if { [env_var_exists_and_non_empty POS_CLKGATE_AND_PORTS] } {
+      lappend clkgate_args "-pos"
+      lappend clkgate_args {*}$::env(POS_CLKGATE_AND_PORTS)
+    }
+    if { [env_var_exists_and_non_empty NEG_CLKGATE_AND_PORTS] } {
+      lappend clkgate_args "-neg"
+      lappend clkgate_args {*}$::env(NEG_CLKGATE_AND_PORTS)
+    }
+  } else {
+    # Let yosys decide on which clock gating cell to use
+    lappend clkgate_args {*}$lib_args
+  }
+  log_cmd clockgate {*}$clkgate_args
 }
 
 # Technology mapping of flip-flops
@@ -189,8 +274,8 @@ opt
 setundef -zero
 
 if {
-  ![env_var_exists_and_non_empty SYNTH_WRAPPED_OPERATORS] &&
-  ![env_var_exists_and_non_empty SWAP_ARITH_OPERATORS]
+  ![env_var_equals SYNTH_WRAPPED_OPERATORS 1] &&
+  ![env_var_equals SWAP_ARITH_OPERATORS 1]
 } {
   log_cmd abc {*}$abc_args
 } else {
@@ -213,19 +298,21 @@ hilomap -singleton \
   -hicell {*}$::env(TIEHI_CELL_AND_PORT) \
   -locell {*}$::env(TIELO_CELL_AND_PORT)
 
-# Insert buffer cells for pass through wires
-insbuf -buf {*}$::env(MIN_BUF_CELL_AND_PORTS)
+if { $::env(SYNTH_INSBUF) } {
+  # Insert buffer cells for pass through wires
+  insbuf -buf {*}$::env(MIN_BUF_CELL_AND_PORTS)
+}
 
 # Reports
 tee -o $::env(REPORTS_DIR)/synth_check.txt check
 
-tee -o $::env(REPORTS_DIR)/synth_stat.txt stat {*}$lib_args
+tee -o $::env(REPORTS_DIR)/synth_stat.txt stat -hierarchy {*}$lib_args
 
 # check the design is composed exclusively of target cells, and
 # check for other problems
 if {
-  ![env_var_exists_and_non_empty SYNTH_WRAPPED_OPERATORS] &&
-  ![env_var_exists_and_non_empty SWAP_ARITH_OPERATORS]
+  ![env_var_equals SYNTH_WRAPPED_OPERATORS 1] &&
+  ![env_var_equals SWAP_ARITH_OPERATORS 1]
 } {
   check -assert -mapped
 } else {
@@ -237,7 +324,3 @@ if {
 
 # Write synthesized design
 write_verilog -nohex -nodec $::env(RESULTS_DIR)/1_2_yosys.v
-# One day a more sophisticated synthesis will write out a modified
-# .sdc file after synthesis. For now, just copy the input .sdc file,
-# making synthesis more consistent with other stages.
-log_cmd exec cp $::env(SDC_FILE) $::env(RESULTS_DIR)/1_synth.sdc

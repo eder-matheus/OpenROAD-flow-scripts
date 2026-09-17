@@ -1,0 +1,73 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_liberty ./platforms/gf180/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib.gz
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gf180/aes-hybrid/base/6_1_fill.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gf180/aes-hybrid/base/6_1_fill.sdc
+source ./platforms/gf180/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gf180/aes-hybrid/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gf180/aes-hybrid/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/gf180/openROAD/rcx/gf180mcu_1p5m_1tm_9k_sp_smim_OPTB_bst.rules ...
+[INFO RCX-0436] RC segment generation aes_cipher_top (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 56195 rc segments
+[INFO RCX-0439] Coupling Cap extraction aes_cipher_top ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 22% of 137243 wires extracted
+[INFO RCX-0442] 48% of 137243 wires extracted
+[INFO RCX-0442] 74% of 137243 wires extracted
+[INFO RCX-0442] 100% of 137243 wires extracted
+[INFO RCX-0045] Extract 17819 nets, 74014 rsegs, 74014 caps, 178233 ccs
+[INFO RCX-0443] 17819 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.22e+01 W
+Supply voltage   : 5.50e+00 V
+Worstcase voltage: 5.49e+00 V
+Average voltage  : 5.50e+00 V
+Average IR drop  : 2.94e-03 V
+Worstcase IR drop: 5.87e-03 V
+Percentage drop  : 0.11 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 1.22e+01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 4.49e-03 V
+Average voltage  : 2.76e-03 V
+Average IR drop  : 2.76e-03 V
+Worstcase IR drop: 4.49e-03 V
+Percentage drop  : 0.08 %
+######################################
+Cell type report:                       Count        Area
+  Endcap cell                             256     1445.07
+  Tap cell                                778     4391.65
+  Antenna cell                              6       33.87
+  Clock buffer                             43     6837.73
+  Timing Repair Buffer                   2879   179971.59
+  Inverter                               1016    20047.19
+  Clock inverter                           19     1037.39
+  Sequential cell                         562    41990.41
+  Multi-Input combinational cell        13067   392875.88
+  Total                                 18626   648630.80
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 648631 um^2 49% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:21.41[h:]min:sec. CPU time: user 26.17 sys 8.21 (160%). Peak memory: 664376KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                 21            648                  N/A

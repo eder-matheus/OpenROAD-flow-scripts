@@ -142,7 +142,7 @@ module APB_UART(
                                                         32'hDEADDEAD;
     
     wire tx_less_threshold = (tx_level < TXFIFOTR);
-    wire rx_more_threshold = (rx_level > TXFIFOTR);
+    wire rx_more_threshold = (rx_level > RXFIFOTR);
     
 
     assign uart_irq = IMASK[0] & (  (~rx_empty & IMASK[2])  | 

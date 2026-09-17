@@ -1,0 +1,213 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_lef ./platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7_tech_1x_201209.lef, created 30 layers, 9 vias
+read_lef ./platforms/asap7/lef/asap7sc7p5t_28_L_1x_220121a.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7sc7p5t_28_L_1x_220121a.lef, created 212 library cells
+set_dont_use "*x1p*_ASAP7* *xp*_ASAP7* SDF* ICG*"
+sv_elaborate -D SYNTHESIS --compat=vcs --ignore-assertions --no-implicit-memories --top aes_cipher_top /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_cipher_top.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_inv_cipher_top.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_inv_sbox.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_key_expand_128.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_rcon.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/aes_sbox.v /OpenROAD-flow-scripts/flow/designs/src/aes_lvt/timescale.v --std=1364-2005
+Top level design units:
+    aes_cipher_top
+
+Build succeeded: 0 errors, 0 warnings
+syn::stats
+  adc: 2 cells, 10 bits
+  and: 2 cells, 2 bits
+  dff: 42 cells, 554 bits
+  input: 5 cells, 259 bits
+  mux: 256 cells, 256 bits
+  name (tentative): 159 cells, 0 bits
+  not: 3 cells, 3 bits
+  or: 5 cells, 5 bits
+  output: 2 cells, 0 bits
+  ushr: 27 cells, 41824 bits
+  xor: 1040 cells, 1440 bits
+  total: 1543 cells, 44353 bits
+synthesize
+[INFO SYN-0056] liveness: replaced 24 register bits, 0 combinational bits
+[INFO SYN-0020] abc_roundtrip: exported 21628 ANDs, 813 CIs, 529 COs
+[1;37msyn     [0m : i/o =    813/    529  [1;36mand =   21628[0m  [1;35mlev =   28[0m [1;35m(15.44)[0m  mem = 0.27 MB
+Simulating 4 words for 10 rounds. SAT solving with 1000000 conflicts.
+cst =   21628  cls =      0  lit =   21628  unused =     813  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+[1;37msyn     [0m : i/o =    813/    769  [1;36mand =    4481[0m  [1;35mlev =   11[0m [1;35m(5.22)[0m  mem = 0.08 MB
+SAT solver statistics:
+CO =      769  AND =     4481  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    769  (100.00 %)   Ave conf =      4.1   Time =     0.00 sec ( 84.08 %)
+Sat   calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.01 sec
+  1 : P =    769. D =      0. F =     0. M =       0. And =   20776. Time =     0.01 sec
+[1;37msyn     [0m : i/o =    813/      0  [1;36mand =       0[0m  [1;35mlev =    0[0m [1;35m(-nan)[0m  mem = 0.01 MB
+Considered all available candidate equivalences.
+Performed 769 SAT calls: P = 769  D = 0  F = 0
+NBeg = 21628. NEnd = 20776. (Gain =   3.94 %).  RBeg = 0. REnd = 0. (Gain =   0.00 %).
+Sim  =     0.01 sec ( 40.89 %)
+Sat  =     0.01 sec ( 40.53 %)
+Pat  =     0.00 sec (  0.09 %)
+Time =     0.01 sec
+[INFO SYN-0023] abc_roundtrip: after ABC: 20776 ANDs, 813 CIs, 529 COs
+[INFO SYN-0020] abc_roundtrip: exported 20776 ANDs, 789 CIs, 529 COs
+[1;37msyn     [0m : i/o =    789/    529  [1;36mand =   20776[0m  [1;35mlev =   28[0m [1;35m(15.50)[0m  mem = 0.26 MB
+Starting:  syn             : pi =   789  po =   529  and =   20776  lev =  28
+Rewrite:   syn             : pi =   789  po =   529  and =   19245  lev =  28
+Refactor:  syn             : pi =   789  po =   529  and =   19245  lev =  28
+Balance:   syn             : pi =   789  po =   529  and =   19245  lev =  28
+Rewrite:   syn             : pi =   789  po =   529  and =   19064  lev =  28
+RewriteZ:  syn             : pi =   789  po =   529  and =   18426  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   18310  lev =  25
+RefactorZ: syn             : pi =   789  po =   529  and =   18179  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17873  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17826  lev =  25
+Starting:  syn             : pi =   789  po =   529  and =   17826  lev =  25
+Rewrite:   syn             : pi =   789  po =   529  and =   17724  lev =  25
+Refactor:  syn             : pi =   789  po =   529  and =   17724  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17724  lev =  25
+Rewrite:   syn             : pi =   789  po =   529  and =   17723  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17625  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17619  lev =  25
+RefactorZ: syn             : pi =   789  po =   529  and =   17607  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17491  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17476  lev =  25
+Starting:  syn             : pi =   789  po =   529  and =   18872  lev =  20
+Rewrite:   syn             : pi =   789  po =   529  and =   17824  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17779  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17777  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17761  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17714  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17702  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17697  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17619  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17586  lev =  23
+Starting:  syn             : pi =   789  po =   529  and =   17586  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17552  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17546  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17546  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17546  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17519  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17514  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17510  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17485  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17479  lev =  23
+Starting:  syn             : pi =   789  po =   529  and =   17479  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17469  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17469  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17468  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17468  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17449  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17446  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17445  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17430  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17423  lev =  23
+[1;37msyn     [0m : i/o =    789/    529  [1;36mand =   17423[0m  [1;35mlev =   23[0m [1;35m(13.51)[0m  mem = 0.22 MB
+[INFO SYN-0023] abc_roundtrip: after ABC: 17423 ANDs, 789 CIs, 529 COs
+[INFO SYN-0017] mapCombinationals: done
+[INFO SYN-0040] gatefusion: 191 fusions applied, area delta -10.7455
+[INFO SYN-0044]   -AO21x1_ASAP7_75t_L 48
+[INFO SYN-0044]   -AO22x1_ASAP7_75t_L 2
+[INFO SYN-0044]   -AOI21x1_ASAP7_75t_L 3
+[INFO SYN-0044]   -AO32x1_ASAP7_75t_L 2
+[INFO SYN-0044]   -AO221x1_ASAP7_75t_L 2
+[INFO SYN-0044]   -OA33x2_ASAP7_75t_L 4
+[INFO SYN-0044]   -OA21x2_ASAP7_75t_L 3
+[INFO SYN-0044]   -AO33x2_ASAP7_75t_L 4
+[INFO SYN-0044]   -OR2x2_ASAP7_75t_L 144
+[INFO SYN-0044]   -OA331x1_ASAP7_75t_L 1
+[INFO SYN-0044]   -OAI21x1_ASAP7_75t_L 143
+[INFO SYN-0044]   -OR3x1_ASAP7_75t_L 1
+[INFO SYN-0044]   -AND3x1_ASAP7_75t_L 22
+[INFO SYN-0044]   -AND2x2_ASAP7_75t_L 3
+[INFO SYN-0045]   +AO32x1_ASAP7_75t_L 20
+[INFO SYN-0045]   +AO221x1_ASAP7_75t_L 10
+[INFO SYN-0045]   +AO222x2_ASAP7_75t_L 2
+[INFO SYN-0045]   +AO322x2_ASAP7_75t_L 2
+[INFO SYN-0045]   +AO331x1_ASAP7_75t_L 1
+[INFO SYN-0045]   +AO332x1_ASAP7_75t_L 3
+[INFO SYN-0045]   +AOI221x1_ASAP7_75t_L 3
+[INFO SYN-0045]   +AO33x2_ASAP7_75t_L 2
+[INFO SYN-0045]   +OA331x1_ASAP7_75t_L 1
+[INFO SYN-0045]   +OA332x1_ASAP7_75t_L 3
+[INFO SYN-0045]   +OAI22x1_ASAP7_75t_L 143
+[INFO SYN-0045]   +OA333x1_ASAP7_75t_L 1
+  input: 5 cells, 259 bits
+  name (tentative): 74 cells, 0 bits
+  not: 1 cells, 1 bits
+  output: 2 cells, 0 bits
+  target: AND2x2_ASAP7_75t_L: 917 cells, 917 bits, area 80.2185
+  target: AND3x1_ASAP7_75t_L: 408 cells, 408 bits, area 35.6918
+  target: AND4x1_ASAP7_75t_L: 116 cells, 116 bits, area 11.839
+  target: AND5x1_ASAP7_75t_L: 4 cells, 4 bits, area 0.46656
+  target: AO21x1_ASAP7_75t_L: 1386 cells, 1386 bits, area 121.246
+  target: AO221x1_ASAP7_75t_L: 510 cells, 510 bits, area 74.3581
+  target: AO222x2_ASAP7_75t_L: 5 cells, 5 bits, area 0.8748
+  target: AO22x1_ASAP7_75t_L: 35 cells, 35 bits, area 4.5927
+  target: AO322x2_ASAP7_75t_L: 2 cells, 2 bits, area 0.4374
+  target: AO32x1_ASAP7_75t_L: 412 cells, 412 bits, area 48.0555
+  target: AO331x1_ASAP7_75t_L: 1 cells, 1 bits, area 0.1458
+  target: AO332x1_ASAP7_75t_L: 3 cells, 3 bits, area 0.48114
+  target: AO33x2_ASAP7_75t_L: 41 cells, 41 bits, area 5.9778
+  target: AOI211x1_ASAP7_75t_L: 13 cells, 13 bits, area 2.27448
+  target: AOI21x1_ASAP7_75t_L: 162 cells, 162 bits, area 18.8957
+  target: AOI221x1_ASAP7_75t_L: 13 cells, 13 bits, area 2.65356
+  target: AOI22x1_ASAP7_75t_L: 17 cells, 17 bits, area 2.4786
+  target: DFFHQNx1_ASAP7_75t_L: 530 cells, 530 bits, area 154.548
+  target: INVx1_ASAP7_75t_L: 170 cells, 170 bits, area 7.43579
+  target: NAND2x1_ASAP7_75t_L: 1498 cells, 1498 bits, area 131.044
+  target: NAND3x1_ASAP7_75t_L: 34 cells, 34 bits, area 5.45292
+  target: NOR2x1_ASAP7_75t_L: 379 cells, 379 bits, area 33.155
+  target: NOR3x1_ASAP7_75t_L: 7 cells, 7 bits, area 1.12266
+  target: OA211x2_ASAP7_75t_L: 556 cells, 556 bits, area 64.8514
+  target: OA21x2_ASAP7_75t_L: 579 cells, 579 bits, area 59.0924
+  target: OA222x2_ASAP7_75t_L: 3 cells, 3 bits, area 0.52488
+  target: OA22x2_ASAP7_75t_L: 17 cells, 17 bits, area 2.4786
+  target: OA332x1_ASAP7_75t_L: 3 cells, 3 bits, area 0.48114
+  target: OA333x1_ASAP7_75t_L: 1 cells, 1 bits, area 0.17496
+  target: OA33x2_ASAP7_75t_L: 31 cells, 31 bits, area 4.5198
+  target: OAI21x1_ASAP7_75t_L: 233 cells, 233 bits, area 27.1771
+  target: OAI22x1_ASAP7_75t_L: 156 cells, 156 bits, area 22.7448
+  target: OR2x2_ASAP7_75t_L: 287 cells, 287 bits, area 25.1068
+  target: OR3x1_ASAP7_75t_L: 516 cells, 516 bits, area 45.1395
+  target: OR4x1_ASAP7_75t_L: 129 cells, 129 bits, area 13.1658
+  target: OR5x1_ASAP7_75t_L: 8 cells, 8 bits, area 0.93312
+  target: XNOR2x2_ASAP7_75t_L: 419 cells, 419 bits, area 67.1994
+  target: XOR2x2_ASAP7_75t_L: 426 cells, 426 bits, area 68.322
+  total: 10109 cells, 10287 bits, area 1145.36
+[INFO SYN-0031] Export to ODB: created 10027 instances, 9497 nets, 388 ports
+read_sdc /OpenROAD-flow-scripts/flow/designs/asap7/aes_lvt/constraint.sdc
+repair_design -pre_placement
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |    +22.5% |       0 |    1043 |          1575 |     11329
+    final |    +22.5% |       0 |    1043 |          1575 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0038] Inserted 1043 buffers in 1575 nets.
+[INFO RSZ-0504] Runtime: 2.00s
+Report metrics stage 1, synth...
+
+==========================================================================
+synth report_design_area
+--------------------------------------------------------------------------
+Design area 1403 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes_lvt/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes_lvt/base/1_synth.sdc
+Elapsed time: 0:07.29[h:]min:sec. CPU time: user 8.93 sys 7.69 (228%). Peak memory: 258532KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .v              7            252 db949dba6a5cbfa4c283
+1_synth                   .odb                             f9acfb75f54497c70ebc
+1_synth                   .sdc                             90eda039c75482599df9

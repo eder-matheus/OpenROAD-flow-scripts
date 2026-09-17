@@ -2,6 +2,7 @@ utl::set_metrics_stage "floorplan__{}"
 source $::env(SCRIPTS_DIR)/load.tcl
 erase_non_stage_variables floorplan
 load_design 1_synth.odb 1_synth.sdc
+source_step_tcl PRE FLOORPLAN
 
 proc report_unused_masters { } {
   set db [ord::get_db]
@@ -79,7 +80,7 @@ if { $use_floorplan_def } {
     {*}$additional_args
   # Method 4: Calculate core area from utilization, aspect ratio, and margins
 } elseif { $use_core_utilization } {
-  initialize_floorplan -utilization $::env(CORE_UTILIZATION) \
+  log_cmd initialize_floorplan -utilization $::env(CORE_UTILIZATION) \
     -aspect_ratio $::env(CORE_ASPECT_RATIO) \
     -core_space $::env(CORE_MARGIN) \
     -site $::env(PLACE_SITE) \
@@ -95,7 +96,7 @@ if { [env_var_exists_and_non_empty MAKE_TRACKS] } {
 } elseif { [file exists $::env(PLATFORM_DIR)/make_tracks.tcl] } {
   log_cmd source $::env(PLATFORM_DIR)/make_tracks.tcl
 } else {
-  make_tracks
+  log_cmd make_tracks
 }
 
 # Configure global routing: FASTROUTE_TCL script or
@@ -110,45 +111,62 @@ if { [env_var_exists_and_non_empty FASTROUTE_TCL] } {
 }
 
 source_env_var_if_exists FOOTPRINT_TCL
+log_cmd set_dont_use $::env(DONT_USE_CELLS)
 
+# The transforms below (repair_tie_fanout, replace_arith_modules,
+# remove_buffers, repair_timing_helper) look like synthesis-stage
+# operations: they all act on the netlist and don't touch placement.
+# But they DO depend on having a floorplan in place — initialize_floorplan
+# above placed the bterms on the die boundary and set_routing_layers
+# configured the layer stack used for parasitic estimation. Without that
+# context, top-level ports look like they're at (0,0) and timing analysis
+# misjudges paths into/out of I/O.
+#
+# PR #4187 tried moving this block to synth_odb.tcl. It regressed setup
+# TNS by 1.7-46x on I/O-heavy designs (asap7/aes-block 2.5x, asap7/jpeg_lvt
+# 37x, asap7/swerv_wrapper 46x finish-hold-TNS, nangate45/ariane133 1.7x)
+# while leaving internal-logic-dominated designs like asap7/ibex
+# unchanged. The move was reverted; only eliminate_dead_logic stayed in
+# synth_odb.tcl because it is a pure netlist transform that doesn't
+# depend on placement or routing-layer context.
 if { !$::env(SKIP_REPAIR_TIE_FANOUT) } {
   # This needs to come before any call to remove_buffers.  You could have one
   # tie driving multiple buffers that drive multiple outputs.
   # Repair tie lo fanout
-  puts "Repair tie lo fanout..."
   set tielo_cell_name [lindex $::env(TIELO_CELL_AND_PORT) 0]
   set tielo_lib_name [get_name [get_property [lindex [get_lib_cell $tielo_cell_name] 0] library]]
   set tielo_pin $tielo_lib_name/$tielo_cell_name/[lindex $::env(TIELO_CELL_AND_PORT) 1]
-  repair_tie_fanout -separation $::env(TIE_SEPARATION) $tielo_pin
+  log_cmd repair_tie_fanout -separation $::env(TIE_SEPARATION) $tielo_pin
 
   # Repair tie hi fanout
-  puts "Repair tie hi fanout..."
   set tiehi_cell_name [lindex $::env(TIEHI_CELL_AND_PORT) 0]
   set tiehi_lib_name [get_name [get_property [lindex [get_lib_cell $tiehi_cell_name] 0] library]]
   set tiehi_pin $tiehi_lib_name/$tiehi_cell_name/[lindex $::env(TIEHI_CELL_AND_PORT) 1]
-  repair_tie_fanout -separation $::env(TIE_SEPARATION) $tiehi_pin
+  log_cmd repair_tie_fanout -separation $::env(TIE_SEPARATION) $tiehi_pin
 }
 
-if { [env_var_exists_and_non_empty SWAP_ARITH_OPERATORS] } {
-  estimate_parasitics -placement
-  replace_arith_modules
+if { [env_var_equals SWAP_ARITH_OPERATORS 1] } {
+  # Enable sanity checker until replace_arith_modules becomes stable
+  set_debug_level ODB replace_design_check_sanity 1
+  log_cmd replace_arith_modules
 }
 
 if { $::env(REMOVE_ABC_BUFFERS) } {
   # remove buffers inserted by yosys/abc
-  remove_buffers
+  log_cmd remove_buffers
 } else {
   # Skip clone & split
-  repair_timing_helper -setup -skip_last_gasp -sequence "unbuffer,sizeup,swap,buffer,vt_swap"
+  repair_timing_helper -setup -skip_last_gasp -sequence "unbuffer,sizeup,swap,vt_swap"
 }
 
 puts "Default units for flow"
 report_units
 report_units_metric
+report_layer_rc
 report_metrics 2 "floorplan final" false false
 
-source_env_var_if_exists POST_FLOORPLAN_TCL
+source_step_tcl POST FLOORPLAN
 source_env_var_if_exists IO_CONSTRAINTS
 
-write_db $::env(RESULTS_DIR)/2_1_floorplan.odb
-write_sdc -no_timestamp $::env(RESULTS_DIR)/2_1_floorplan.sdc
+orfs_write_db $::env(RESULTS_DIR)/2_1_floorplan.odb
+orfs_write_sdc $::env(RESULTS_DIR)/2_1_floorplan.sdc

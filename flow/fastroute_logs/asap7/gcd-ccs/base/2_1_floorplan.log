@@ -1,0 +1,125 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/1_synth.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 304
+[INFO IFP-0107] Defining die area using utilization: 60.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (0.500, 0.500) snapped to (0.540, 0.540).
+[INFO IFP-0001] Added 30 rows of 151 site asap7sc7p5t.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) (  9.211  9.211 ) um
+[INFO IFP-0101] Core BBox: (  0.540  0.540 ) (  8.694  8.640 ) um
+[INFO IFP-0102] Core area:                           66.047 um^2
+[INFO IFP-0103] Total instances area:                40.459 um^2
+[INFO IFP-0104] Effective utilization:                0.613
+[INFO IFP-0105] Number of instances:                    304
+source ./platforms/asap7/openRoad/make_tracks.tcl
+source ./platforms/asap7/fastroute.tcl
+Repair tie lo fanout...
+Repair tie hi fanout...
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_last_gasp -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 21 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 21 out of 21 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -66.659 |     -476.4 |     -506.1 |     21 | resp_msg[15]
+      10* |       0 |       3 |        0 |      0 |     6 |    +0.2% |  -67.095 |     -506.3 |     -458.6 |     21 | resp_msg[15]
+      12* |       0 |       3 |        0 |      0 |     4 |    +0.2% |  -64.056 |     -466.7 |     -444.9 |     21 | resp_msg[15]
+      14* |       0 |       3 |        0 |      0 |     4 |    +0.2% |  -64.056 |     -466.7 |     -444.9 |     21 | resp_msg[15]
+      16* |       0 |       3 |        0 |      0 |     5 |    +0.2% |  -63.947 |     -465.2 |     -443.8 |     21 | resp_msg[15]
+      18* |       0 |       3 |        0 |      0 |     5 |    +0.2% |  -63.947 |     -465.2 |     -443.8 |     21 | resp_msg[15]
+      20* |       0 |       3 |        0 |      0 |     6 |    +0.2% |  -63.995 |     -465.5 |     -433.7 |     21 | resp_msg[15]
+      28* |       0 |       3 |        0 |      0 |     5 |    +0.2% |  -63.947 |     -465.2 |     -443.8 |     21 | resp_msg[15]
+      30* |       0 |       4 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -426.2 |     21 | resp_msg[15]
+      32* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      34* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      36* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      38* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      40* |       0 |       5 |        0 |      0 |     6 |    +0.3% |  -63.947 |     -465.2 |     -401.6 |     21 | resp_msg[15]
+      40* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      42* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      44* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      46* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      48* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      50* |       0 |       5 |        0 |      0 |     6 |    +0.3% |  -63.947 |     -465.2 |     -401.6 |     21 | resp_msg[15]
+      50* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      52* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      54* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      56* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      58* |       0 |       5 |        0 |      0 |     5 |    +0.3% |  -63.947 |     -465.2 |     -400.0 |     21 | resp_msg[15]
+      60* |       0 |       6 |        0 |      0 |     5 |    +0.5% |  -63.947 |     -465.2 |     -407.0 |     21 | resp_msg[15]
+      60* |       0 |       6 |        0 |      0 |     5 |    +0.5% |  -63.947 |     -465.2 |     -407.0 |     21 | resp_msg[15]
+      61* |       0 |       6 |        0 |      0 |     5 |    +0.5% |  -63.947 |     -465.2 |     -407.0 |     21 | resp_msg[15]
+      61* |       0 |       6 |        0 |      0 |     5 |    +0.5% |  -63.947 |     -465.2 |     -407.0 |     21 | resp_msg[15]
+    final |       0 |       6 |        0 |      0 |     5 |    +0.5% |  -63.947 |     -465.2 |     -407.0 |     19 | resp_msg[15]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 6 instances: 6 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 5 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.18s
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+        M1 |        7.04e-02 |         1.00e-10
+        M2 |        2.97e-02 |         1.75e-01
+        M3 |        3.13e-02 |         1.56e-01
+        M4 |        1.80e-02 |         1.78e-01
+        M5 |        1.90e-02 |         1.64e-01
+        M6 |        1.19e-02 |         1.87e-01
+        M7 |        1.25e-02 |         1.63e-01
+        M8 |        8.45e-03 |         1.04e-01
+        M9 |        8.90e-03 |         9.28e-02
+       Pad |        0.00e+00 |         0.00e+00
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+        V1 |       1.72e-02 
+        V2 |       1.72e-02 
+        V3 |       1.72e-02 
+        V4 |       1.18e-02 
+        V5 |       1.18e-02 
+        V6 |       8.20e-03 
+        V7 |       8.20e-03 
+        V8 |       6.30e-03 
+        V9 |       6.30e-03 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 41 um^2 62% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/gcd-ccs/base/2_1_floorplan.sdc
+Elapsed time: 0:06.75[h:]min:sec. CPU time: user 6.70 sys 0.10 (100%). Peak memory: 452704KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            6            442 157454ec200f2cbba9f8
+2_1_floorplan             .sdc                             5011e5aed360886d25f2

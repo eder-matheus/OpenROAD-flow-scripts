@@ -1,0 +1,296 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/3_place.sdc
+source ./platforms/gf180/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_16.
+[INFO CTS-0051] Sink buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    gf180mcu_fd_sc_mcu9t5v0__clkbuf_16
+                    gf180mcu_fd_sc_mcu9t5v0__clkbuf_20
+[INFO CTS-0049] Characterization buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 1056 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 1056.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 50400  dbu (25 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 35 and max clustering diameter of 265.
+[INFO CTS-0019]  Total number of sinks after clustering: 39.
+[INFO CTS-0024]  Normalized sink region: [(2.61878, 1.48542), (27.8941, 28.1201)].
+[INFO CTS-0025]     Width:  25.2754.
+[INFO CTS-0026]     Height: 26.6347.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 20
+    Sub-region size: 25.2754 X 13.3173
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 12.6377 X 13.3173
+[INFO CTS-0034]     Segment length (rounded): 6.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (160112.454 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 39.
+[INFO CTS-0018]     Created 44 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 44 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 5:1, 9:2, 10:1, 11:2, 18:1, 19:1, 20:1, 24:1, 25:2, 26:1, 27:8, 28:7, 30:6, 31:2, 32:4, 33:2, 35:1..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 1094
+[INFO CTS-0100]  Leaf buffers 39
+[INFO CTS-0101]  Average sink wire length 1199.07 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 38
+[INFO CTS-0500] Runtime: 2.36s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 544757.07 um^2
+[INFO DPL-0007] Movable instances area: 367470.84 um^2
+[INFO DPL-0008] Fixed instances area within core: 4572.29 um^2
+[INFO DPL-0009] Utilization: 68.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 8094 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        861 |        97 |       764
+        1 |        381 |        53 |       328
+        2 |        224 |        20 |       204
+        3 |        123 |        14 |       109
+        4 |         56 |         6 |        50
+        5 |         29 |         3 |        26
+        6 |         12 |         2 |        10
+        7 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 7.
+[INFO DPL-0500] Runtime: 0.13s
+Placement Analysis
+---------------------------------
+total displacement      24530.6 u
+average displacement        3.0 u
+max displacement           62.7 u
+original HPWL          436777.9 u
+legalized HPWL         449781.7 u
+delta HPWL                    3 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 32 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 32 out of 32 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -1.155 |      -12.5 |      -30.2 |     32 | aluout[0]
+      10* |       0 |       3 |        3 |      0 |     3 |    +0.1% |   -1.188 |      -12.5 |      -30.3 |     32 | aluout[27]
+      20* |       0 |       6 |        5 |      0 |     8 |    +0.1% |   -1.146 |      -12.1 |      -31.7 |     32 | aluout[0]
+      30* |       0 |      12 |        6 |      0 |    11 |    +0.1% |   -1.072 |       -9.9 |      -28.7 |     32 | aluout[27]
+      40* |       0 |      21 |        6 |      0 |    12 |    +0.2% |   -1.035 |       -9.2 |      -27.2 |     32 | aluout[0]
+      50* |       0 |      26 |        7 |      0 |    16 |    +0.2% |   -1.025 |       -8.6 |      -27.1 |     32 | aluout[27]
+      60* |       0 |      31 |       12 |      0 |    17 |    +0.3% |   -0.994 |       -8.6 |      -26.4 |     32 | aluout[0]
+      70* |       0 |      35 |       13 |      0 |    22 |    +0.4% |   -0.980 |       -8.7 |      -26.0 |     32 | aluout[0]
+      80* |       0 |      40 |       17 |      0 |    24 |    +0.4% |   -0.604 |       -6.1 |      -11.6 |     32 | aluout[0]
+      90* |       0 |      45 |       17 |      0 |    29 |    +0.5% |   -0.546 |       -5.9 |      -10.9 |     32 | aluout[0]
+     100* |       0 |      48 |       18 |      0 |    35 |    +0.5% |   -0.526 |       -5.3 |      -10.6 |     32 | aluout[29]
+     110* |       0 |      54 |       20 |      0 |    38 |    +0.6% |   -0.461 |       -5.2 |       -9.0 |     32 | aluout[29]
+     120* |       0 |      63 |       22 |      0 |    38 |    +0.7% |   -0.443 |       -5.1 |       -8.7 |     32 | aluout[0]
+     130* |       0 |      66 |       24 |      0 |    43 |    +0.7% |   -0.416 |       -4.5 |       -8.5 |     32 | aluout[0]
+     140* |       0 |      71 |       29 |      0 |    45 |    +0.8% |   -0.401 |       -4.4 |       -7.9 |     32 | aluout[0]
+     150* |       0 |      75 |       31 |      0 |    49 |    +0.8% |   -0.392 |       -4.3 |       -7.8 |     32 | aluout[0]
+     160* |       0 |      82 |       33 |      0 |    50 |    +0.9% |   -0.372 |       -3.8 |       -6.9 |     32 | aluout[0]
+     170* |       0 |      88 |       37 |      0 |    51 |    +1.0% |   -0.359 |       -3.8 |       -6.7 |     32 | aluout[0]
+     180* |       0 |      95 |       39 |      0 |    52 |    +1.0% |   -0.345 |       -3.6 |       -6.1 |     32 | aluout[0]
+     190* |       0 |     101 |       41 |      0 |    54 |    +1.1% |   -0.332 |       -3.2 |       -5.5 |     32 | aluout[0]
+     200* |       0 |     104 |       43 |      0 |    59 |    +1.1% |   -0.317 |       -3.1 |       -5.4 |     32 | aluout[0]
+     210* |       0 |     108 |       45 |      0 |    63 |    +1.2% |   -0.308 |       -3.1 |       -5.1 |     32 | aluout[0]
+     220* |       0 |     117 |       47 |      0 |    63 |    +1.3% |   -0.301 |       -3.0 |       -5.0 |     32 | aluout[0]
+     230* |       0 |     122 |       49 |      0 |    66 |    +1.3% |   -0.346 |       -3.1 |       -5.3 |     32 | aluout[31]
+     240* |       0 |     129 |       50 |      0 |    68 |    +1.4% |   -0.300 |       -3.0 |       -5.1 |     32 | aluout[0]
+     250* |       0 |     135 |       51 |      0 |    71 |    +1.4% |   -0.309 |       -2.9 |       -4.9 |     32 | aluout[0]
+     260* |       0 |     138 |       51 |      0 |    78 |    +1.5% |   -0.323 |       -2.7 |       -4.8 |     32 | aluout[27]
+     270* |       0 |     142 |       52 |      0 |    83 |    +1.5% |   -0.293 |       -2.6 |       -4.8 |     32 | aluout[25]
+     280* |       0 |     151 |       52 |      0 |    84 |    +1.5% |   -0.259 |       -2.5 |       -4.4 |     32 | aluout[31]
+     290* |       0 |     160 |       52 |      0 |    85 |    +1.6% |   -0.248 |       -2.5 |       -4.2 |     32 | aluout[0]
+     300* |       0 |     164 |       52 |      0 |    91 |    +1.6% |   -0.251 |       -2.5 |       -4.2 |     32 | aluout[0]
+     304* |       0 |     161 |       52 |      0 |    90 |    +1.6% |   -0.238 |       -2.5 |       -4.2 |     32 | aluout[0]
+     310* |       0 |     166 |       52 |      0 |    90 |    +1.6% |   -0.271 |       -2.6 |       -4.3 |     32 | aluout[27]
+     316* |       0 |     164 |       52 |      0 |    90 |    +1.6% |   -0.237 |       -2.5 |       -4.1 |     32 | aluout[0]
+     320* |       0 |     165 |       52 |      0 |    92 |    +1.6% |   -0.240 |       -2.5 |       -4.1 |     32 | aluout[27]
+     330* |       0 |     169 |       54 |      0 |    96 |    +1.7% |   -0.240 |       -2.5 |       -4.0 |     32 | aluout[27]
+     340* |       0 |     174 |       55 |      0 |   100 |    +1.7% |   -0.241 |       -2.5 |       -4.0 |     32 | aluout[27]
+     350* |       3 |     176 |       59 |      0 |   101 |    +1.7% |   -0.271 |       -2.5 |       -4.0 |     32 | aluout[27]
+     360* |       8 |     176 |       64 |      0 |   101 |    +1.7% |   -0.271 |       -2.5 |       -4.0 |     32 | aluout[27]
+     367* |       0 |     164 |       52 |      0 |    90 |    +1.6% |   -0.237 |       -2.5 |       -4.1 |     32 | aluout[0]
+     370* |       0 |     166 |       52 |      0 |    90 |    +1.6% |   -0.243 |       -2.5 |       -4.2 |     32 | aluout[28]
+     372* |       0 |     164 |       52 |      0 |    90 |    +1.6% |   -0.237 |       -2.5 |       -4.1 |     32 | aluout[0]
+     380* |       0 |     169 |       52 |      0 |    92 |    +1.7% |   -0.237 |       -2.5 |       -4.2 |     32 | aluout[0]
+     390* |       0 |     175 |       52 |      0 |    96 |    +1.7% |   -0.255 |       -2.5 |       -4.1 |     32 | aluout[0]
+     400* |       0 |     182 |       54 |      0 |    97 |    +1.8% |   -0.377 |       -2.8 |       -5.4 |     32 | aluout[30]
+     410* |       0 |     187 |       58 |      0 |    99 |    +1.9% |   -0.338 |       -2.7 |       -4.6 |     32 | aluout[0]
+     420* |       0 |     194 |       58 |      0 |   102 |    +1.9% |   -0.262 |       -2.5 |       -4.0 |     32 | aluout[28]
+     420* |       0 |     171 |       52 |      0 |    93 |    +1.7% |   -0.237 |       -2.5 |       -4.2 |     32 | aluout[0]
+     423* |       0 |     172 |       52 |      0 |    94 |    +1.7% |   -0.237 |       -2.5 |       -4.0 |     32 | aluout[0]
+     430* |       0 |     177 |       52 |      0 |    95 |    +1.7% |   -0.275 |       -2.6 |       -4.0 |     32 | aluout[0]
+     437* |       0 |     173 |       52 |      0 |    94 |    +1.7% |   -0.237 |       -2.5 |       -4.0 |     32 | aluout[0]
+     440* |       0 |     175 |       52 |      0 |    94 |    +1.7% |   -0.237 |       -2.5 |       -3.9 |     32 | aluout[0]
+     450* |       0 |     181 |       54 |      0 |    96 |    +1.7% |   -0.238 |       -2.5 |       -3.8 |     32 | aluout[0]
+     460* |       0 |     187 |       54 |      0 |   100 |    +1.8% |   -0.257 |       -2.5 |       -3.8 |     32 | aluout[0]
+     460* |       0 |     179 |       54 |      0 |    94 |    +1.7% |   -0.237 |       -2.5 |       -3.8 |     32 | aluout[0]
+     470* |       0 |     184 |       55 |      0 |    97 |    +1.8% |   -0.238 |       -2.4 |       -3.7 |     32 | aluout[0]
+     475* |       0 |     179 |       54 |      0 |    94 |    +1.7% |   -0.237 |       -2.5 |       -3.8 |     32 | aluout[0]
+     480* |       0 |     183 |       54 |      0 |    94 |    +1.8% |   -0.237 |       -2.5 |       -3.6 |     32 | aluout[0]
+     489* |       0 |     183 |       54 |      0 |    94 |    +1.8% |   -0.237 |       -2.5 |       -3.6 |     32 | aluout[0]
+     490* |       0 |     183 |       54 |      0 |    94 |    +1.8% |   -0.237 |       -2.5 |       -3.6 |     32 | aluout[0]
+     500* |       0 |     189 |       55 |      0 |    97 |    +1.8% |   -0.255 |       -2.5 |       -3.7 |     32 | aluout[0]
+     510* |       0 |     194 |       57 |      0 |   100 |    +1.8% |   -0.255 |       -2.5 |       -3.6 |     32 | aluout[0]
+     517* |       0 |     183 |       54 |      0 |    96 |    +1.8% |   -0.237 |       -2.5 |       -3.6 |     32 | aluout[0]
+     520* |       0 |     184 |       54 |      0 |    97 |    +1.8% |   -0.237 |       -2.5 |       -3.6 |     32 | aluout[0]
+     530* |       0 |     191 |       55 |      0 |    99 |    +1.8% |   -0.237 |       -2.4 |       -3.6 |     32 | aluout[0]
+     539* |       0 |     192 |       55 |      0 |   100 |    +1.8% |   -0.237 |       -2.4 |       -3.6 |     32 | aluout[0]
+     540* |       0 |     192 |       55 |      0 |   100 |    +1.8% |   -0.237 |       -2.4 |       -3.6 |     32 | aluout[0]
+     550* |       0 |     195 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.4 |     32 | aluout[0]
+     550* |       0 |     195 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.4 |     32 | aluout[0]
+     560* |       0 |     199 |       60 |      0 |   107 |    +1.9% |   -0.314 |       -2.7 |       -4.4 |     32 | aluout[0]
+     570* |       0 |     207 |       60 |      0 |   109 |    +2.0% |   -0.271 |       -2.5 |       -3.4 |     32 | aluout[31]
+     580* |       0 |     216 |       61 |      0 |   109 |    +2.1% |   -0.254 |       -2.5 |       -3.5 |     32 | aluout[0]
+     590* |       0 |     222 |       64 |      0 |   110 |    +2.1% |   -0.258 |       -2.5 |       -3.6 |     32 | aluout[31]
+     595* |       0 |     195 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.4 |     32 | aluout[0]
+     600* |       0 |     196 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     605* |       0 |     195 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.4 |     32 | aluout[0]
+     610* |       0 |     197 |       57 |      0 |   107 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     614* |       0 |     195 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.4 |     32 | aluout[0]
+     620* |       0 |     199 |       57 |      0 |   106 |    +1.9% |   -0.243 |       -2.4 |       -3.1 |     32 | aluout[0]
+     620* |       0 |     197 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     630* |       0 |     205 |       57 |      0 |   106 |    +1.9% |   -0.243 |       -2.4 |       -3.1 |     32 | aluout[0]
+     640* |       0 |     213 |       57 |      0 |   108 |    +2.0% |   -0.275 |       -2.5 |       -3.2 |     32 | aluout[28]
+     650* |       0 |     219 |       59 |      0 |   110 |    +2.1% |   -0.315 |       -2.6 |       -3.9 |     32 | aluout[0]
+     660* |       0 |     225 |       62 |      0 |   113 |    +2.1% |   -0.311 |       -2.6 |       -4.2 |     32 | aluout[27]
+     668* |       0 |     199 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     670* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.243 |       -2.4 |       -3.1 |     32 | aluout[0]
+     674* |       0 |     199 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     680* |       0 |     202 |       58 |      0 |   106 |    +1.9% |   -0.275 |       -2.6 |       -3.3 |     32 | aluout[0]
+     689* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     690* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     691* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     700* |       0 |     205 |       58 |      0 |   107 |    +1.9% |   -0.252 |       -2.5 |       -3.1 |     32 | aluout[0]
+     700* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     710* |       0 |     206 |       59 |      0 |   106 |    +2.0% |   -0.268 |       -2.5 |       -3.3 |     32 | aluout[31]
+     720* |       0 |     213 |       61 |      0 |   107 |    +2.1% |   -0.250 |       -2.5 |       -3.2 |     32 | aluout[31]
+     723* |       0 |     200 |       57 |      0 |   105 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     730* |       0 |     203 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     730* |       0 |     203 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     733* |       0 |     203 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.4 |       -3.3 |     32 | aluout[0]
+     736* |       0 |     205 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     737* |       0 |     205 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     739* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     740* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     740* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     742* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     743* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     744* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     744* |       0 |     206 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     32 | aluout[0]
+     746+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     747+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     748+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     749+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     750+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     750+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     751+ |       0 |     207 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     753+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     754+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     755+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     756+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     757+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     758+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     759+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     760+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     760+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     761+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     762+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     763+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     764+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     765+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     766+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     767+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     768+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+     769+ |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+    final |       0 |     208 |       57 |      0 |   108 |    +1.9% |   -0.237 |       -2.2 |       -3.2 |     23 | aluout[0]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0045] Inserted 57 buffers, 8 to split loads.
+[INFO RSZ-0051] Resized 208 instances: 208 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 108 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 23.26s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.01s
+Took 24 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 544757.07 um^2
+[INFO DPL-0007] Movable instances area: 374670.78 um^2
+[INFO DPL-0008] Fixed instances area within core: 4572.29 um^2
+[INFO DPL-0009] Utilization: 69.6%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 8151 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1097 |       139 |       958
+        1 |        903 |       100 |       803
+        2 |        456 |        51 |       405
+        3 |        420 |        34 |       386
+        4 |        259 |        19 |       240
+        5 |        269 |        22 |       247
+        6 |        117 |        12 |       105
+        7 |        156 |        12 |       144
+        8 |        134 |        17 |       117
+        9 |        112 |        10 |       102
+       10 |         49 |         3 |        46
+       15 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 15.
+[INFO DPL-0500] Runtime: 0.22s
+Placement Analysis
+---------------------------------
+total displacement       4441.2 u
+average displacement        0.5 u
+max displacement           73.9 u
+original HPWL          455785.2 u
+legalized HPWL         459567.5 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 379243 um^2 70% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/4_cts.sdc
+Elapsed time: 0:59.13[h:]min:sec. CPU time: user 113.79 sys 37.42 (255%). Peak memory: 229416KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           59            224 806eedfb023e6b9d4219
