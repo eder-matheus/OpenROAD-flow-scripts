@@ -1,0 +1,84 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_2048x39.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x34.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x21.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/swerv_wrapper/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/swerv_wrapper/base/6_1_fill.sdc
+source ./platforms/nangate45/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/swerv_wrapper/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/swerv_wrapper/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/nangate45/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation swerv_wrapper (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 511726 rc segments
+[INFO RCX-0439] Coupling Cap extraction swerv_wrapper ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 8% of 819201 wires extracted
+[INFO RCX-0442] 17% of 819201 wires extracted
+[INFO RCX-0442] 25% of 819201 wires extracted
+[INFO RCX-0442] 33% of 819201 wires extracted
+[INFO RCX-0442] 39% of 819201 wires extracted
+[INFO RCX-0442] 48% of 819201 wires extracted
+[INFO RCX-0442] 57% of 819201 wires extracted
+[INFO RCX-0442] 68% of 819201 wires extracted
+[INFO RCX-0442] 82% of 819201 wires extracted
+[INFO RCX-0442] 92% of 819201 wires extracted
+[INFO RCX-0442] 100% of 819201 wires extracted
+[INFO RCX-0045] Extract 106029 nets, 607045 rsegs, 607045 caps, 1379368 ccs
+[INFO RCX-0042] 100000 nets finished
+[INFO RCX-0443] 106029 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 2.86e-01 W
+Supply voltage   : 1.10e+00 V
+Worstcase voltage: 1.06e+00 V
+Average voltage  : 1.10e+00 V
+Average IR drop  : 1.73e-03 V
+Worstcase IR drop: 3.50e-02 V
+Percentage drop  : 3.18 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 2.86e-01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 3.68e-02 V
+Average voltage  : 1.58e-03 V
+Average IR drop  : 1.58e-03 V
+Worstcase IR drop: 3.68e-02 V
+Percentage drop  : 3.35 %
+######################################
+Cell type report:                        Count         Area
+  Macro                                     28    471244.54
+  Fill cell                             165856    402208.49
+  Tap cell                                5031      1338.25
+  Clock buffer                            2817      3401.34
+  Timing Repair Buffer                   11089     12455.18
+  Inverter                                3911      2092.09
+  Clock inverter                           832       621.64
+  Sequential cell                        11308     60214.69
+  Multi-Input combinational cell         61717     87348.81
+  Total                                 262589   1040925.03
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 638717 um^2 60% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 2:16.89[h:]min:sec. CPU time: user 193.98 sys 63.60 (188%). Peak memory: 2423404KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                136           2366                  N/A

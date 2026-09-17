@@ -1,0 +1,327 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x16.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/1_synth.sdc
+source ./platforms/nangate45/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 4 unclocked register/latch pins.
+Warning: There are 4 unconstrained endpoints.
+number instances in verilog is 155373
+[INFO IFP-0107] Defining die area using utilization: 50.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (5.000, 5.000) snapped to (5.130, 5.600).
+[INFO IFP-0001] Added 850 rows of 6271 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 1201.750 1201.750 ) um
+[INFO IFP-0101] Core BBox: (  5.130  5.600 ) ( 1196.620 1195.600 ) um
+[INFO IFP-0102] Core area:                      1417873.100 um^2
+[INFO IFP-0103] Total instances area:            710134.614 um^2
+[INFO IFP-0104] Effective utilization:                0.501
+[INFO IFP-0105] Number of instances:                 155373
+source ./platforms/nangate45/make_tracks.tcl
+source ./platforms/nangate45/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 910 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 2130 tie LOGIC1_X1 instances.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 3336 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 3336 out of 3336 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -1.369 |     -121.5 |    -3778.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -1.218 |     -104.3 |    -3303.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      20* |       0 |      18 |        0 |      0 |     1 |    +0.0% |   -1.099 |      -89.2 |    -2910.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      30* |       0 |      27 |        0 |      0 |     2 |    +0.0% |   -1.051 |      -84.5 |    -2750.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      40* |       0 |      35 |        0 |      0 |     4 |    +0.0% |   -0.961 |      -73.4 |    -2453.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      50* |       0 |      45 |        0 |      0 |     4 |    +0.0% |   -0.882 |      -64.6 |    -2195.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1606\]$_DFF_PN0_/D
+      60* |       0 |      54 |        0 |      0 |     5 |    +0.0% |   -0.835 |      -58.0 |    -2042.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+      70* |       0 |      64 |        0 |      0 |     5 |    +0.0% |   -0.806 |      -54.4 |    -1943.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+      80* |       0 |      72 |        0 |      0 |     7 |    +0.0% |   -0.780 |      -51.7 |    -1850.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+      90* |       0 |      81 |        0 |      0 |     8 |    +0.0% |   -0.753 |      -49.0 |    -1761.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     100* |       0 |      87 |        0 |      0 |    12 |    +0.0% |   -0.743 |      -48.5 |    -1730.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     110* |       0 |      96 |        0 |      0 |    13 |    +0.0% |   -0.705 |      -44.5 |    -1638.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     120* |       0 |     102 |        0 |      0 |    17 |    +0.0% |   -0.690 |      -42.9 |    -1588.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     130* |       0 |     108 |        0 |      0 |    21 |    +0.0% |   -0.667 |      -40.1 |    -1516.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     140* |       0 |     116 |        0 |      0 |    23 |    +0.0% |   -0.645 |      -38.9 |    -1445.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     150* |       0 |     126 |        0 |      0 |    23 |    +0.0% |   -0.638 |      -38.6 |    -1414.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1648\]$_DFF_PN0_/D
+     160* |       0 |     134 |        0 |      0 |    25 |    +0.0% |   -0.588 |      -32.8 |    -1271.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     170* |       0 |     141 |        0 |      0 |    28 |    +0.0% |   -0.576 |      -31.7 |    -1235.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     180* |       0 |     150 |        0 |      0 |    29 |    +0.0% |   -0.555 |      -31.1 |    -1167.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     190* |       0 |     160 |        0 |      0 |    29 |    +0.0% |   -0.541 |      -29.7 |    -1123.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     200* |       0 |     170 |        0 |      0 |    29 |    +0.0% |   -0.522 |      -28.6 |    -1063.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     210* |       0 |     178 |        0 |      0 |    31 |    +0.0% |   -0.525 |      -28.9 |    -1072.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     220* |       0 |     185 |        0 |      0 |    34 |    +0.0% |   -0.523 |      -28.4 |    -1065.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     230* |       0 |     193 |        0 |      0 |    36 |    +0.0% |   -0.519 |      -28.1 |    -1053.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1595\]$_DFF_PN0_/D
+     240* |       0 |     199 |        0 |      0 |    40 |    +0.0% |   -0.512 |      -27.8 |    -1030.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     250* |       0 |     206 |        0 |      0 |    43 |    +0.0% |   -0.499 |      -26.3 |     -988.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     260* |       0 |     215 |        0 |      0 |    44 |    +0.0% |   -0.494 |      -25.7 |     -972.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     270* |       0 |     222 |        0 |      0 |    47 |    +0.0% |   -0.490 |      -25.5 |     -962.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     280* |       0 |     230 |        0 |      0 |    49 |    +0.0% |   -0.489 |      -25.4 |     -956.8 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     290* |       0 |     237 |        0 |      0 |    52 |    +0.0% |   -0.492 |      -25.7 |     -967.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     300* |       0 |     246 |        0 |      0 |    53 |    +0.0% |   -0.491 |      -25.6 |     -954.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1648\]$_DFF_PN0_/D
+     310* |       0 |     253 |        0 |      0 |    56 |    +0.0% |   -0.467 |      -23.1 |     -900.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     320* |       0 |     262 |        0 |      0 |    57 |    +0.0% |   -0.462 |      -22.7 |     -888.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     330* |       0 |     269 |        0 |      0 |    60 |    +0.0% |   -0.451 |      -22.1 |     -857.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     340* |       0 |     275 |        0 |      0 |    64 |    +0.0% |   -0.446 |      -21.4 |     -820.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     350* |       0 |     284 |        0 |      0 |    65 |    +0.0% |   -0.451 |      -21.9 |     -811.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     360* |       0 |     294 |        0 |      0 |    65 |    +0.0% |   -0.457 |      -22.5 |     -828.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     370* |       0 |     303 |        0 |      0 |    66 |    +0.0% |   -0.446 |      -21.6 |     -796.8 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     380* |       0 |     313 |        0 |      0 |    66 |    +0.0% |   -0.437 |      -21.5 |     -772.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     390* |       0 |     322 |        0 |      0 |    67 |    +0.1% |   -0.436 |      -21.5 |     -768.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     400* |       0 |     329 |        0 |      0 |    70 |    +0.1% |   -0.434 |      -20.7 |     -763.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     410* |       0 |     329 |        0 |      0 |    80 |    +0.1% |   -0.434 |      -20.7 |     -763.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1596\]$_DFF_PN0_/D
+     420* |       0 |     329 |        0 |      0 |    90 |    +0.1% |   -0.434 |      -20.7 |     -763.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1619\]$_DFF_PN0_/D
+     430* |       0 |     329 |        0 |      0 |   100 |    +0.1% |   -0.434 |      -20.7 |     -763.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1591\]$_DFF_PN0_/D
+     440* |       0 |     329 |        0 |      0 |   110 |    +0.1% |   -0.434 |      -20.7 |     -763.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1593\]$_DFF_PN0_/D
+     446* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     449* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     450* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     452* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     455* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     458* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     460* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     461* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     464* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     467* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     470* |       0 |     329 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     470* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     473* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     476* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     479* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     480* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     482* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     485* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     488* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     490* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     492* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     495* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     498* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     500* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     501* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     504* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     507* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     510* |       0 |     329 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     510* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     513* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     516* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     519* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     520* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     523* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     526* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     529* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     530* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     532* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     536* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     539* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     540* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     542* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     545* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     548* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     550* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     551* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     554* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     557* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     560* |       0 |     329 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     560* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     563* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     566* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     569* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     570* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     572* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     575* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     578* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     580* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     581* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     584* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     587* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     590* |       0 |     329 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     590* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     593* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     596* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     600* |       0 |     329 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     600* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     604* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     608* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     610* |       0 |     328 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     611* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     614* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     617* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     620* |       0 |     329 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -761.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     620* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     623* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     626* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     629* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     630* |       0 |     327 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -760.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     640* |       0 |     337 |        0 |      0 |    68 |    +0.1% |   -0.433 |      -20.6 |     -757.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     650* |       0 |     346 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -757.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     660* |       0 |     354 |        0 |      0 |    71 |    +0.1% |   -0.436 |      -20.9 |     -757.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     670* |       0 |     363 |        0 |      0 |    72 |    +0.1% |   -0.437 |      -21.1 |     -759.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     670* |       0 |     343 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     680* |       0 |     352 |        0 |      0 |    69 |    +0.1% |   -0.435 |      -20.8 |     -756.8 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     690* |       0 |     360 |        0 |      0 |    71 |    +0.1% |   -0.437 |      -21.0 |     -757.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     696* |       0 |     344 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     700* |       0 |     347 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     710* |       0 |     356 |        0 |      0 |    70 |    +0.1% |   -0.435 |      -20.8 |     -757.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     718* |       0 |     346 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     720* |       0 |     347 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     730* |       0 |     357 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     740* |       0 |     366 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     742* |       0 |     347 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     750* |       0 |     354 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -757.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     760* |       0 |     363 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     767* |       0 |     350 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     770* |       0 |     352 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     780* |       0 |     361 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     790* |       0 |     371 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -759.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     790* |       0 |     351 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     800* |       0 |     360 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     810* |       0 |     369 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     812* |       0 |     351 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     820* |       0 |     358 |        0 |      0 |    69 |    +0.1% |   -0.435 |      -20.8 |     -757.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     830* |       0 |     367 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     834* |       0 |     351 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     840* |       0 |     356 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -757.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     850* |       0 |     365 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     856* |       0 |     351 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     860* |       0 |     354 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -757.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     870* |       0 |     363 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -757.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     878* |       0 |     351 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     880* |       0 |     352 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -757.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     890* |       0 |     362 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     900* |       0 |     372 |        0 |      0 |    69 |    +0.1% |   -0.435 |      -20.8 |     -755.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     910* |       0 |     381 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     914* |       0 |     362 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     920* |       0 |     367 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     930* |       0 |     376 |        0 |      0 |    70 |    +0.1% |   -0.435 |      -20.8 |     -755.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     939* |       0 |     363 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     940* |       0 |     363 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     950* |       0 |     372 |        0 |      0 |    70 |    +0.1% |   -0.434 |      -20.8 |     -755.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     960* |       0 |     382 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -756.8 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     961* |       0 |     365 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     970* |       0 |     373 |        0 |      0 |    69 |    +0.1% |   -0.434 |      -20.8 |     -755.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     980* |       0 |     382 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     987* |       0 |     366 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+     990* |       0 |     368 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1000* |       0 |     378 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1010* |       0 |     387 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1013* |       0 |     369 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1020* |       0 |     375 |        0 |      0 |    69 |    +0.1% |   -0.434 |      -20.8 |     -756.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1030* |       0 |     384 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1037* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1040* |       0 |     372 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1050* |       0 |     381 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.8 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1060* |       0 |     391 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -758.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1060* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1070* |       0 |     379 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1080* |       0 |     388 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1083* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1090* |       0 |     376 |        0 |      0 |    69 |    +0.1% |   -0.434 |      -20.8 |     -756.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1100* |       0 |     385 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1100* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1110* |       0 |     379 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1120* |       0 |     388 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -756.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1123* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1130* |       0 |     376 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1140* |       0 |     385 |        0 |      0 |    70 |    +0.1% |   -0.433 |      -20.7 |     -754.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1150* |       0 |     395 |        0 |      0 |    70 |    +0.1% |   -0.434 |      -20.7 |     -753.6 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1160* |       0 |     404 |        0 |      0 |    71 |    +0.1% |   -0.437 |      -21.0 |     -754.3 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1167* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1170* |       0 |     372 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1180* |       0 |     382 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1190* |       0 |     392 |        0 |      0 |    69 |    +0.1% |   -0.434 |      -20.7 |     -755.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1200* |       0 |     401 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.0 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1209* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1210* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1220* |       0 |     380 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1230* |       0 |     390 |        0 |      0 |    69 |    +0.1% |   -0.434 |      -20.7 |     -755.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1240* |       0 |     400 |        0 |      0 |    69 |    +0.1% |   -0.437 |      -21.1 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1250* |       0 |     409 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -756.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1251* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1260* |       0 |     378 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.5 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1270* |       0 |     388 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1280* |       0 |     398 |        0 |      0 |    69 |    +0.1% |   -0.436 |      -21.0 |     -755.9 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1290* |       0 |     407 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -756.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1293* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1300* |       0 |     376 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1300* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1310* |       0 |     379 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1320* |       0 |     389 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.2 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1330* |       0 |     399 |        0 |      0 |    69 |    +0.1% |   -0.437 |      -21.1 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1340* |       0 |     408 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -756.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1342* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1350* |       0 |     377 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.0 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1360* |       0 |     387 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1370* |       0 |     397 |        0 |      0 |    69 |    +0.1% |   -0.435 |      -20.9 |     -755.7 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1380* |       0 |     406 |        0 |      0 |    70 |    +0.1% |   -0.437 |      -21.1 |     -756.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1384* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1390* |       0 |     375 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -756.1 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1400* |       0 |     385 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.7 |     -755.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1400* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    1400* |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   3336 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+    final |       0 |     370 |        0 |      0 |    69 |    +0.1% |   -0.433 |      -20.6 |     -756.4 |   2813 | issue_stage_i.i_scoreboard/mem_q\[1642\]$_DFF_PN0_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 370 instances: 370 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 69 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 315.12s
+Took 315 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+    metal1 |        5.43e-03 |         7.42e-02
+    metal2 |        3.57e-03 |         8.34e-02
+    metal3 |        3.57e-03 |         1.04e-01
+    metal4 |        1.50e-03 |         1.19e-01
+    metal5 |        1.50e-03 |         1.09e-01
+    metal6 |        1.50e-03 |         1.14e-01
+    metal7 |        1.88e-04 |         1.17e-01
+    metal8 |        1.88e-04 |         9.45e-02
+    metal9 |        3.75e-05 |         1.06e-01
+   metal10 |        3.75e-05 |         7.37e-01
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      via1 |       5.00e-03 
+      via2 |       5.00e-03 
+      via3 |       5.00e-03 
+      via4 |       3.00e-03 
+      via5 |       3.00e-03 
+      via6 |       3.00e-03 
+      via7 |       1.00e-03 
+      via8 |       1.00e-03 
+      via9 |       5.00e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 712121 um^2 50% utilization.
+source /OpenROAD-flow-scripts/flow/designs/nangate45/ariane133/io.tcl
+[WARNING ODB-0011] Region 1000-1500 on edge west modified to 1000-1201.75 to respect the die area limits.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/2_1_floorplan.sdc
+Elapsed time: 5:36.34[h:]min:sec. CPU time: user 1424.64 sys 695.13 (630%). Peak memory: 835124KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb          336            815 cb1552a18de763385e9d
+2_1_floorplan             .sdc                             f691ea8fd0bbca74571d

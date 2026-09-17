@@ -1,0 +1,34 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x32.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x64.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/mempool_group/base/2_1_floorplan.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/mempool_group/base/2_1_floorplan.sdc
+source ./platforms/nangate45/setRC.tcl
+rtl_macro_placer -max_num_level 2 -halo_width 10 -halo_height 10 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/nangate45/mempool_group/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+Die Area: (0.00, 0.00) (1100.00, 1100.00),  Floorplan Area: (10.07, 12.60) (1089.84, 1089.20)
+	Number of std cell instances: 141752
+	Area of std cell instances: 262298.61
+	Number of macros: 20
+	Macros to be placed: 20
+	Area of macros: 100432.78
+	Base halo (L, B, R, T): (10.00, 10.00, 10.00, 10.00)
+	Area of macros with halos: 113900.30
+	Area of std cell instances + Area of macros: 362731.39
+	Floorplan area: 1162480.38
+	Design Utilization: 0.31
+	Floorplan Utilization: 0.25
+	Manufacturing Grid: 10
+
+[INFO MPL-0500] Runtime: 17.80s
+Took 18 seconds: rtl_macro_placer -max_num_level 2 -halo_width 10 -halo_height 10 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/nangate45/mempool_group/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+Design area 362731 um^2 31% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/mempool_group/base/2_2_floorplan_macro.odb
+Elapsed time: 0:18.62[h:]min:sec. CPU time: user 38.61 sys 28.52 (360%). Peak memory: 508764KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb           18            496 45eeec25b7959b4e0627

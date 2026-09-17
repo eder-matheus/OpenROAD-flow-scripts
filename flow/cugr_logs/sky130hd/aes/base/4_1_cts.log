@@ -1,0 +1,363 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/aes/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/aes/base/3_place.sdc
+source ./platforms/sky130hd/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets -sink_clustering_size 20 -sink_clustering_max_diameter 50
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 562 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 562.
+[INFO CTS-0029]  Register sinks will be clustered in groups of up to 20 and with maximum cluster diameter of 50.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 20 and clustering diameter of 50.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 93.
+[INFO CTS-0024]  Normalized sink region: [(0.244976, 0.631863), (34.6497, 34.4)].
+[INFO CTS-0025]     Width:  34.4047.
+[INFO CTS-0026]     Height: 33.7681.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 47
+    Sub-region size: 17.2024 X 33.7681
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 24
+    Sub-region size: 17.2024 X 16.8841
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 12
+    Sub-region size: 8.6012 X 16.8841
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1911.535 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 93.
+[INFO CTS-0018]     Created 102 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 102 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:3, 2:20, 3:12, 4:6, 5:6, 6:5, 7:6, 8:10, 9:4, 10:11, 11:8, 12:3, 13:3, 14:2, 15:1, 18:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 654
+[INFO CTS-0100]  Leaf buffers 93
+[INFO CTS-0101]  Average sink wire length 701.89 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 92
+[INFO CTS-0500] Runtime: 1.32s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 119054.18 um^2
+[INFO DPL-0008] Fixed instances area within core: 3701.05 um^2
+[INFO DPL-0009] Utilization: 55.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18309 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        394 |        61 |       333
+        1 |        220 |        24 |       196
+        2 |        104 |        16 |        88
+        3 |         94 |        10 |        84
+        4 |        103 |         9 |        94
+        5 |         56 |         7 |        49
+        6 |         10 |         2 |         8
+        7 |         16 |         2 |        14
+        8 |         12 |         2 |        10
+        9 |          6 |         2 |         4
+       10 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 10.
+[INFO DPL-0500] Runtime: 0.21s
+Placement Analysis
+---------------------------------
+total displacement      16930.9 u
+average displacement        0.9 u
+max displacement           27.7 u
+original HPWL          455105.1 u
+legalized HPWL         464826.4 u
+delta HPWL                    2 %
+
+estimate_parasitics -placement
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 130 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 130 out of 130 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -1.148 |      -67.6 |      -41.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -0.717 |      -44.1 |      -38.6 |    130 | sa30_sr\[7\]$_DFF_P_/D
+      20* |       0 |      19 |        0 |      0 |     0 |    +0.1% |   -0.577 |      -35.9 |      -33.2 |    130 | sa21_sr\[3\]$_DFF_P_/D
+      30* |       0 |      29 |        0 |      0 |     0 |    +0.1% |   -0.467 |      -29.7 |      -28.8 |    130 | sa22_sr\[0\]$_DFF_P_/D
+      40* |       0 |      37 |        0 |      0 |     2 |    +0.1% |   -0.440 |      -27.2 |      -26.4 |    130 | sa23_sr\[1\]$_DFF_P_/D
+      50* |       0 |      43 |        7 |      0 |     4 |    +0.2% |   -0.383 |      -25.0 |      -25.8 |    130 | sa32_sr\[3\]$_DFF_P_/D
+      60* |       0 |      53 |        7 |      0 |     4 |    +0.3% |   -0.350 |      -23.1 |      -23.0 |    130 | sa21_sr\[3\]$_DFF_P_/D
+      70* |       0 |      63 |        7 |      0 |     4 |    +0.3% |   -0.317 |      -20.5 |      -21.5 |    130 | sa02_sr\[4\]$_DFF_P_/D
+      80* |       0 |      71 |        8 |      0 |     5 |    +0.3% |   -0.297 |      -19.5 |      -19.7 |    130 | sa20_sr\[4\]$_DFF_P_/D
+      90* |       0 |      81 |        8 |      0 |     5 |    +0.4% |   -0.277 |      -17.7 |      -18.3 |    130 | sa30_sr\[7\]$_DFF_P_/D
+     100* |       0 |      90 |        8 |      0 |     6 |    +0.4% |   -0.259 |      -16.2 |      -16.9 |    130 | sa10_sr\[7\]$_DFF_P_/D
+     110* |       0 |     100 |        8 |      0 |     6 |    +0.5% |   -0.249 |      -15.3 |      -15.8 |    130 | sa03_sr\[1\]$_DFF_P_/D
+     120* |       0 |     110 |        8 |      0 |     6 |    +0.5% |   -0.231 |      -13.7 |      -14.8 |    130 | sa12_sr\[0\]$_DFF_P_/D
+     130* |       0 |     119 |        8 |      0 |     7 |    +0.5% |   -0.214 |      -12.0 |      -11.9 |    130 | sa21_sr\[0\]$_DFF_P_/D
+     140* |       0 |     127 |        8 |      0 |     9 |    +0.5% |   -0.199 |      -11.4 |      -11.0 |    130 | sa21_sr\[3\]$_DFF_P_/D
+     150* |       0 |     136 |       10 |      0 |     9 |    +0.6% |   -0.187 |      -10.4 |       -9.7 |    130 | sa21_sr\[3\]$_DFF_P_/D
+     160* |       0 |     146 |       10 |      0 |     9 |    +0.7% |   -0.171 |       -9.5 |       -8.7 |    130 | sa22_sr\[3\]$_DFF_P_/D
+     170* |       0 |     156 |       10 |      0 |     9 |    +0.7% |   -0.152 |       -8.2 |       -8.4 |    130 | sa32_sr\[7\]$_DFF_P_/D
+     180* |       0 |     165 |       12 |      0 |     9 |    +0.7% |   -0.140 |       -7.4 |       -7.4 |    130 | sa01_sr\[7\]$_DFF_P_/D
+     190* |       0 |     175 |       12 |      0 |     9 |    +0.8% |   -0.129 |       -6.4 |       -6.9 |    130 | sa13_sr\[4\]$_DFF_P_/D
+     200* |       0 |     184 |       12 |      0 |    10 |    +0.8% |   -0.122 |       -5.6 |       -6.2 |    130 | sa21_sr\[0\]$_DFF_P_/D
+     210* |       0 |     192 |       15 |      0 |    11 |    +0.8% |   -0.109 |       -4.8 |       -5.6 |    130 | sa20_sr\[7\]$_DFF_P_/D
+     220* |       0 |     201 |       15 |      0 |    12 |    +0.9% |   -0.258 |       -4.7 |       -5.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     230* |       0 |     207 |       19 |      1 |    12 |    +1.0% |   -0.228 |       -4.8 |       -5.3 |    130 | sa23_sr\[7\]$_DFF_P_/D
+     240* |       0 |     213 |       22 |      1 |    14 |    +1.0% |   -0.097 |       -4.1 |       -5.0 |    130 | sa12_sr\[4\]$_DFF_P_/D
+     241* |       0 |     214 |       22 |      1 |    14 |    +1.0% |   -0.095 |       -4.1 |       -4.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     250* |       0 |     218 |       22 |      1 |    18 |    +1.0% |   -0.100 |       -4.2 |       -4.9 |    130 | sa21_sr\[0\]$_DFF_P_/D
+     254* |       0 |     220 |       23 |      2 |    18 |    +1.1% |   -0.095 |       -4.0 |       -4.8 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     260* |       0 |     224 |       25 |      2 |    18 |    +1.1% |   -0.095 |       -3.9 |       -4.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     260* |       0 |     224 |       25 |      2 |    18 |    +1.1% |   -0.095 |       -3.9 |       -4.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     262* |       0 |     225 |       25 |      2 |    18 |    +1.1% |   -0.095 |       -3.8 |       -4.5 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     270* |       0 |     230 |       27 |      2 |    19 |    +1.1% |   -0.095 |       -3.8 |       -4.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     272* |       0 |     232 |       27 |      2 |    19 |    +1.1% |   -0.095 |       -3.7 |       -4.3 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     274* |       0 |     233 |       27 |      2 |    19 |    +1.1% |   -0.095 |       -3.7 |       -4.3 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     280* |       0 |     238 |       27 |      2 |    19 |    +1.2% |   -0.095 |       -3.5 |       -4.2 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     284* |       0 |     240 |       28 |      2 |    20 |    +1.2% |   -0.095 |       -3.4 |       -4.2 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     288* |       0 |     243 |       28 |      2 |    20 |    +1.2% |   -0.095 |       -3.2 |       -3.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     290* |       0 |     244 |       28 |      2 |    20 |    +1.2% |   -0.095 |       -3.2 |       -3.8 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     291* |       0 |     245 |       28 |      2 |    20 |    +1.2% |   -0.095 |       -3.1 |       -3.7 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     294* |       0 |     247 |       28 |      2 |    20 |    +1.2% |   -0.095 |       -3.1 |       -3.7 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     300* |       0 |     250 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -3.0 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     300* |       0 |     250 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -3.0 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     301* |       0 |     250 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -3.0 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     302* |       0 |     250 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -3.0 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     303* |       0 |     250 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -3.0 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     305* |       0 |     251 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -2.9 |       -3.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     307* |       0 |     252 |       29 |      2 |    21 |    +1.2% |   -0.095 |       -2.9 |       -3.5 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     310* |       0 |     253 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     310* |       0 |     253 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     311* |       0 |     253 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     312* |       0 |     253 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     320* |       0 |     257 |       30 |      2 |    24 |    +1.3% |   -0.101 |       -2.9 |       -3.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     330* |       0 |     262 |       32 |      4 |    25 |    +1.3% |   -0.124 |       -2.9 |       -3.4 |    130 | sa23_sr\[2\]$_DFF_P_/D
+     332* |       0 |     253 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     334* |       0 |     254 |       29 |      2 |    22 |    +1.2% |   -0.095 |       -2.9 |       -3.4 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     340* |       0 |     254 |       31 |      2 |    26 |    +1.2% |   -0.195 |       -3.3 |       -4.2 |    130 | sa13_sr\[4\]$_DFF_P_/D
+     345* |       0 |     259 |       31 |      2 |    26 |    +1.3% |   -0.095 |       -2.7 |       -3.3 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     346* |       0 |     259 |       31 |      2 |    26 |    +1.3% |   -0.095 |       -2.7 |       -3.3 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     350* |       0 |     262 |       31 |      2 |    26 |    +1.3% |   -0.095 |       -2.6 |       -3.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     353* |       0 |     263 |       32 |      2 |    27 |    +1.3% |   -0.095 |       -2.6 |       -3.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     356* |       0 |     264 |       32 |      2 |    28 |    +1.3% |   -0.095 |       -2.6 |       -3.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     360* |       0 |     267 |       32 |      2 |    28 |    +1.3% |   -0.098 |       -2.6 |       -3.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     360* |       0 |     265 |       32 |      2 |    28 |    +1.3% |   -0.095 |       -2.6 |       -3.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     362* |       0 |     266 |       32 |      2 |    28 |    +1.3% |   -0.095 |       -2.6 |       -3.0 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     369* |       0 |     270 |       33 |      2 |    29 |    +1.3% |   -0.095 |       -2.6 |       -2.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     370* |       0 |     270 |       33 |      2 |    29 |    +1.3% |   -0.095 |       -2.6 |       -2.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     370* |       0 |     270 |       33 |      2 |    29 |    +1.3% |   -0.095 |       -2.6 |       -2.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     371* |       0 |     270 |       33 |      2 |    29 |    +1.3% |   -0.095 |       -2.6 |       -2.9 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     380* |       0 |     274 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.3 |       -2.7 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     381* |       0 |     275 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.3 |       -2.7 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     382* |       0 |     275 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.3 |       -2.7 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     384* |       0 |     276 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.2 |       -2.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     388* |       0 |     277 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.2 |       -2.6 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     390* |       0 |     278 |       37 |      2 |    31 |    +1.3% |   -0.095 |       -2.2 |       -2.5 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     396* |       0 |     284 |       37 |      2 |    31 |    +1.4% |   -0.095 |       -2.1 |       -2.3 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     400* |       0 |     286 |       39 |      2 |    31 |    +1.4% |   -0.095 |       -1.9 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     403* |       0 |     287 |       40 |      3 |    31 |    +1.4% |   -0.095 |       -2.0 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     404* |       0 |     287 |       40 |      3 |    31 |    +1.4% |   -0.095 |       -2.0 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     406* |       0 |     288 |       40 |      3 |    31 |    +1.4% |   -0.095 |       -1.9 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     407* |       0 |     288 |       40 |      3 |    31 |    +1.4% |   -0.095 |       -1.9 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     408* |       0 |     288 |       40 |      3 |    31 |    +1.4% |   -0.095 |       -1.9 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     410* |       0 |     289 |       40 |      3 |    31 |    +1.5% |   -0.095 |       -1.9 |       -2.1 |    130 | sa32_sr\[5\]$_DFF_P_/D
+     413* |       0 |     291 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.8 |       -1.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     414* |       0 |     291 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.8 |       -1.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     416* |       0 |     292 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.8 |       -1.7 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     420* |       0 |     295 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.7 |       -1.7 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     420* |       0 |     295 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.7 |       -1.7 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     421* |       0 |     295 |       40 |      3 |    32 |    +1.5% |   -0.095 |       -1.7 |       -1.7 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     427* |       0 |     297 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.7 |       -1.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     428* |       0 |     297 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.7 |       -1.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     429* |       0 |     297 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.7 |       -1.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     430* |       0 |     297 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.7 |       -1.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     431* |       0 |     298 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.7 |       -1.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     433* |       0 |     299 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     435* |       0 |     300 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     436* |       0 |     300 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     437* |       0 |     300 |       41 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     439* |       0 |     300 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     440* |       0 |     300 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     441* |       0 |     301 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.3 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     442* |       0 |     301 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.3 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     443* |       0 |     301 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.3 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     445* |       0 |     302 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.6 |       -1.3 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     447* |       0 |     303 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.5 |       -1.3 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     450* |       0 |     305 |       44 |      3 |    34 |    +1.5% |   -0.095 |       -1.5 |       -1.2 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     452* |       0 |     306 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.5 |       -1.2 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     453* |       0 |     306 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.5 |       -1.2 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     454* |       0 |     306 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.5 |       -1.2 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     455* |       0 |     306 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.5 |       -1.2 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     458* |       0 |     308 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     460* |       0 |     309 |       44 |      3 |    35 |    +1.5% |   -0.096 |       -1.4 |       -1.1 |    130 | sa23_sr\[7\]$_DFF_P_/D
+     461* |       0 |     308 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     462* |       0 |     308 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     464* |       0 |     309 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     465* |       0 |     309 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     466* |       0 |     309 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     468* |       0 |     310 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     469* |       0 |     310 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     470* |       0 |     310 |       44 |      3 |    35 |    +1.5% |   -0.095 |       -1.4 |       -1.1 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     472* |       0 |     311 |       45 |      3 |    35 |    +1.5% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     473* |       0 |     311 |       45 |      3 |    35 |    +1.5% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     474* |       0 |     311 |       45 |      3 |    35 |    +1.5% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     475* |       0 |     311 |       45 |      3 |    35 |    +1.5% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     478* |       0 |     313 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     479* |       0 |     313 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     480* |       0 |     313 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     480* |       0 |     313 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     482* |       0 |     314 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.3 |       -1.0 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     484* |       0 |     315 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.2 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     485* |       0 |     315 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.2 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     487* |       0 |     316 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.2 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     489* |       0 |     317 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     490* |       0 |     317 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     490* |       0 |     317 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     491* |       0 |     317 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     493* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     494* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     495* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     496* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     497* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     498* |       0 |     318 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.1 |       -0.9 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     500* |       0 |     319 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     500* |       0 |     319 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     501* |       0 |     319 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     502* |       0 |     319 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     504* |       0 |     320 |       45 |      3 |    35 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     506* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     507* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     508* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     509* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     510* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     510* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     511* |       0 |     320 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     514* |       0 |     322 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -1.0 |       -0.8 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     516* |       0 |     323 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     517* |       0 |     323 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     519* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     520* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     520* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     521* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     522* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     523* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     524* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     525* |       0 |     324 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.6 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     527* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     528* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     529* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     530* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     530* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     531* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     532* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     533* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     534* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     535* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     536* |       0 |     325 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.9 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     539* |       0 |     327 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.7 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     540* |       0 |     327 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.7 |       -0.5 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     541* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     542* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     543* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     544* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     545* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     546* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     547* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     548* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     548* |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |    130 | sa23_sr\[5\]$_DFF_P_/D
+     549+ |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     550+ |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     550+ |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     551+ |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     552+ |       0 |     328 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     553+ |       0 |     329 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     554+ |       0 |     330 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     555+ |       0 |     331 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+     556+ |       0 |     331 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      8 | sa23_sr\[5\]$_DFF_P_/D
+    final |       0 |     331 |       45 |      3 |    36 |    +1.6% |   -0.095 |       -0.6 |       -0.4 |      5 | sa23_sr\[5\]$_DFF_P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0045] Inserted 45 buffers, 1 to split loads.
+[INFO RSZ-0051] Resized 331 instances: 331 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 36 instances.
+[INFO RSZ-0049] Cloned 3 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 8.07s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.01s
+Took 8 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -verbose
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 220156.15 um^2
+[INFO DPL-0007] Movable instances area: 121023.57 um^2
+[INFO DPL-0008] Fixed instances area within core: 3701.05 um^2
+[INFO DPL-0009] Utilization: 56.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18357 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        534 |        98 |       436
+        1 |        174 |        30 |       144
+        2 |         63 |         9 |        54
+        3 |         55 |         5 |        50
+        4 |         23 |         5 |        18
+        5 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 5.
+[INFO DPL-0500] Runtime: 0.18s
+Placement Analysis
+---------------------------------
+total displacement       1771.0 u
+average displacement        0.1 u
+max displacement           22.3 u
+original HPWL          466595.5 u
+legalized HPWL         468347.6 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 124725 um^2 57% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/aes/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/aes/base/4_cts.sdc
+Elapsed time: 0:23.09[h:]min:sec. CPU time: user 35.75 sys 14.44 (217%). Peak memory: 241964KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           23            236 7d7cc02a4935a1ddeda1

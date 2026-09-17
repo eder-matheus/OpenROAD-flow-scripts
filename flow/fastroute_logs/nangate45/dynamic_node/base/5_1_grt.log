@@ -1,0 +1,1312 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/dynamic_node/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/dynamic_node/base/4_cts.sdc
+source ./platforms/nangate45/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     21
+Number of macros:     135
+Number of vias:       33
+Number of viarulegen: 19
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net net2102 has 133 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net2033 has 120 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net2032 has 138 pins which may impact routing performance. Consider optimization.
+
+Design:                   dynamic_node_top_wrap
+Die area:                 ( 0 0 ) ( 485500 485500 )
+Number of track patterns: 20
+Number of DEF vias:       0
+Number of components:     11920
+Number of terminals:      695
+Number of snets:          2
+Number of nets:           13865
+
+[INFO DRT-0167] List of default vias:
+  Layer via2
+    default via: via2_5
+  Layer via3
+    default via: via3_2
+  Layer via4
+    default via: via4_0
+  Layer via5
+    default via: via5_0
+  Layer via6
+    default via: via6_0
+  Layer via7
+    default via: via7_0
+  Layer via8
+    default via: via8_0
+  Layer via9
+    default via: via9_0
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 124.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete active.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete metal1.
+[INFO DRT-0024]   Complete via1.
+[INFO DRT-0024]   Complete metal2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete metal3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete metal4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete metal5.
+[INFO DRT-0024]   Complete via5.
+[INFO DRT-0024]   Complete metal6.
+[INFO DRT-0024]   Complete via6.
+[INFO DRT-0024]   Complete metal7.
+[INFO DRT-0024]   Complete via7.
+[INFO DRT-0024]   Complete metal8.
+[INFO DRT-0024]   Complete via8.
+[INFO DRT-0024]   Complete metal9.
+[INFO DRT-0024]   Complete via9.
+[INFO DRT-0024]   Complete metal10.
+[INFO DRT-0033] active shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] metal1 shape region query size = 246026.
+[INFO DRT-0033] via1 shape region query size = 2241.
+[INFO DRT-0033] metal2 shape region query size = 1494.
+[INFO DRT-0033] via2 shape region query size = 2241.
+[INFO DRT-0033] metal3 shape region query size = 1494.
+[INFO DRT-0033] via3 shape region query size = 2241.
+[INFO DRT-0033] metal4 shape region query size = 828.
+[INFO DRT-0033] via4 shape region query size = 720.
+[INFO DRT-0033] metal5 shape region query size = 461.
+[INFO DRT-0033] via5 shape region query size = 720.
+[INFO DRT-0033] metal6 shape region query size = 520.
+[INFO DRT-0033] via6 shape region query size = 288.
+[INFO DRT-0033] metal7 shape region query size = 104.
+[INFO DRT-0033] via7 shape region query size = 0.
+[INFO DRT-0033] metal8 shape region query size = 0.
+[INFO DRT-0033] via8 shape region query size = 0.
+[INFO DRT-0033] metal9 shape region query size = 0.
+[INFO DRT-0033] via9 shape region query size = 0.
+[INFO DRT-0033] metal10 shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 729 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 124 unique inst patterns.
+[INFO DRT-0084]   Complete 7070 groups.
+#scanned instances     = 11920
+#unique  instances     = 124
+#stdCellGenAp          = 4385
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 3081
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 41891
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:59, elapsed time = 00:00:04, memory = 167.58 (MB), peak = 166.08 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/nangate45/dynamic_node/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 367 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 138
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       105066         49330          53.05%
+metal3     Horizontal     144878         71074          50.94%
+metal4     Vertical        71279         50511          29.14%
+metal5     Horizontal      72437         51105          29.45%
+metal6     Vertical        72671         51315          29.39%
+metal7     Horizontal      22418         15606          30.39%
+metal8     Vertical        25452         18312          28.05%
+metal9     Horizontal      12684          7140          43.71%
+metal10    Vertical        12684          7140          43.71%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove congestion.
+[INFO GRT-0102] Start extra iteration 1/30
+[INFO GRT-0197] Via related to pin nodes: 73160
+[INFO GRT-0198] Via related Steiner nodes: 1712
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 94241
+[INFO GRT-0112] Final usage 3D: 353800
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           49330         22021           44.64%             0 /  0 /  0
+metal3           71074         27491           38.68%             0 /  0 /  0
+metal4           50511         11535           22.84%             0 /  0 /  0
+metal5           51105          6996           13.69%             0 /  0 /  0
+metal6           51315          2887            5.63%             0 /  0 /  0
+metal7           15606           147            0.94%             0 /  0 /  0
+metal8           18312             0            0.00%             0 /  0 /  0
+metal9            7140             0            0.00%             0 /  0 /  0
+metal10           7140             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           321533         71077           22.11%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 5860398 um
+[INFO GRT-0014] Routed nets: 11620
+[INFO GRT-0303] Global routing runtime = 00:00:01
+[WARNING STA-0450] virtual clock vclk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     14114
+     1000 |     +0.0% |       0 |       0 |             1 |     13114
+     2000 |     +0.0% |       0 |       0 |             1 |     12114
+     3000 |     +0.0% |       0 |       0 |             1 |     11114
+     4000 |     +0.0% |       0 |       0 |             1 |     10114
+     5000 |     +0.0% |       0 |       0 |             1 |      9114
+     6000 |     +0.0% |       0 |       0 |             1 |      8114
+     7000 |     +0.0% |       0 |       0 |             3 |      7114
+     8000 |     +0.0% |       0 |       0 |             3 |      6114
+[WARNING RSZ-0104] Net n1389 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1386 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1383 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1378 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1376 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1372 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1369 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1365 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1363 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1359 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1356 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1352 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9459 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9455 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9453 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n138 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9440 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9438 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1348 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9431 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9428 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9422 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1345 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1343 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9389 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9387 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9385 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1340 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1338 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9362 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9359 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9356 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9353 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1335 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9350 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9348 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9346 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9339 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1331 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9307 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9305 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9303 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1326 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9281 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9279 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9277 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1323 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9253 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9250 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9247 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9244 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9241 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1320 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n135 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9238 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9236 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9228 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1317 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9194 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1313 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9192 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9190 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1310 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9166 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9163 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9160 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9157 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9154 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9151 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9149 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1307 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9143 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1304 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9110 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1298 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9107 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9104 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9101 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9098 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9095 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9093 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9087 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1295 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1291 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9056 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9054 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n9052 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1288 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1283 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1280 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n131 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1277 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1274 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1269 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n129 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1265 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1262 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1260 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1257 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1255 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1252 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n14 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1248 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1244 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1242 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1238 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1235 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1230 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1227 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1224 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1222 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n125 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1217 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1214 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1211 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1208 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1204 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1201 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1198 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1195 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n122 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1189 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1186 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1182 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1179 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1174 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1171 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1167 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1164 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1159 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1157 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1153 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1150 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1146 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1144 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1140 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n117 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1137 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1133 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1129 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1126 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1124 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1121 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1119 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1116 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1112 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n114 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n12 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1105 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1102 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1098 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1095 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1090 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1087 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1084 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n111 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1081 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1075 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1072 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1068 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1065 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1060 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1057 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n108 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1054 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1051 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1046 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1044 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1040 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1037 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1033 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1031 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1027 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1024 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1020 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1016 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n104 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1013 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1011 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1008 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1006 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n1003 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n999 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n994 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n991 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n988 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n101 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n985 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n981 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n978 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n975 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n972 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n966 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n963 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n959 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n98 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8717 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8715 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8712 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8708 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n956 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8684 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8682 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n951 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8667 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8665 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n948 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8650 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8648 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n945 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n96 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8633 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8631 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n942 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n937 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n935 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n931 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n928 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n924 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n922 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8473 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8467 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8464 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8458 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8453 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8451 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8443 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n918 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8436 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8431 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8429 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8421 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8419 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8416 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n915 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8413 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8405 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8403 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8402 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8401 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8400 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8395 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8390 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8388 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8384 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8382 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n911 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n909 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n905 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n902 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8300 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8298 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8295 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8292 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8289 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8287 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8283 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8281 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8274 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n897 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8272 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8268 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8266 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n894 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n891 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n889 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8178 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8176 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8173 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8170 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8167 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8165 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8161 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8159 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n882 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n879 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n90 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n875 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n872 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8066 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8064 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8061 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8058 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n867 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8024 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n864 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8018 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8013 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8005 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n8002 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7998 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7995 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n861 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7991 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7983 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7980 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7972 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n858 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7968 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7961 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7957 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7951 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7946 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7941 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7938 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7935 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7932 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7928 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7925 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7922 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7919 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7914 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7911 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7908 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7905 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7902 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n852 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7899 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7894 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7892 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7889 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7886 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7883 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7881 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7877 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7875 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n849 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n87 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7871 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7869 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7867 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7864 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7862 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7860 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7856 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7854 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7852 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7849 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7847 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7845 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7841 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7839 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7834 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7831 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7829 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n845 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n842 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n837 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n834 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n831 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n828 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n823 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n821 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n817 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n814 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n810 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7628 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7626 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7624 only has one pin. Check if it is intended to be dangling.
+     9000 |     +0.0% |       0 |       1 |             4 |      5114
+[WARNING RSZ-0104] Net n808 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n83 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n804 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n801 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n797 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n81 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n793 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n790 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n788 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n785 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n783 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n780 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n776 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7429 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7427 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7424 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n771 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n768 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n765 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n762 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n758 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n755 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n752 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n77 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n749 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n743 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n740 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7259 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7256 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7253 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n75 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n736 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n733 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n728 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n725 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n721 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n718 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7117 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7114 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7111 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n713 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7106 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7104 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7100 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7097 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n711 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7093 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7091 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7087 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7084 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7080 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7078 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7074 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7071 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7066 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7063 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7060 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7058 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n707 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7053 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7050 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7047 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7044 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7040 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7037 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7034 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7031 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n704 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7025 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7022 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7018 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7015 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7010 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7007 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7003 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7000 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6995 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6992 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6989 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6986 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n700 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6982 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6979 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6976 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6973 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n698 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6968 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6965 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6962 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6959 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6955 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6952 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6949 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6946 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6940 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6938 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6934 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6931 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n694 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6927 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6925 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6921 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6918 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6914 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6912 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6908 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6905 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n691 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6900 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6897 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6894 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6892 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6887 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6885 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6881 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6878 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6874 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6872 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6868 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6865 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6861 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6859 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n687 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6855 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6852 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6847 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6844 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6841 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6839 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6834 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6831 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6828 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6825 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6821 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6818 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n683 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6815 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6812 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6806 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6803 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6799 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6796 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6791 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n680 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6788 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6785 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6782 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6777 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n678 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6775 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6771 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6768 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6764 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6762 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6758 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6755 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6751 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6749 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6745 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6742 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6737 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6734 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n674 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6731 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6729 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6724 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6721 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n672 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6718 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6715 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6711 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6708 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6705 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6702 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6696 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6693 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n669 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6689 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6686 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6681 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6678 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n69 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6674 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6671 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6666 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6662 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6659 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6657 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6654 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6652 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n665 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6649 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6645 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6641 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6639 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6635 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6632 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6627 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6624 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6621 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6619 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6614 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6611 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6608 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6605 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6601 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6598 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6595 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n660 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6592 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6586 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6583 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6579 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6576 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6571 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6568 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n657 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6565 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6562 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6557 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6555 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6551 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6548 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6544 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6542 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n654 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6538 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6535 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6531 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6529 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6525 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6522 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6517 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6514 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6511 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n651 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6509 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6504 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6501 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6498 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6495 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6491 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6488 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6485 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6482 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6476 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6473 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6469 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n647 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6466 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6461 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6458 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6454 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6451 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6445 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n644 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6442 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6438 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6435 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6431 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6428 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6425 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6422 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6417 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n641 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6414 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6411 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6408 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6404 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6401 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n66 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6398 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6395 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6389 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6387 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n638 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6383 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6380 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6376 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6374 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6370 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6367 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6363 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6361 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6357 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6354 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6349 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6346 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6343 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6341 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6336 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6334 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6330 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6327 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6323 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6321 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6317 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n632 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6314 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6310 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6308 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6304 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6301 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6296 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6293 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6290 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6288 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n629 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6283 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6280 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6277 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6274 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6270 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6267 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6264 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6261 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6255 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6252 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6248 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n625 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6245 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6240 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6237 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6234 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6231 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6226 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6224 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6220 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n622 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6217 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6213 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6211 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6207 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6204 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6200 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6196 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6193 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6191 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6188 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6186 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6183 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6179 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6174 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6171 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6168 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6165 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n617 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6161 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6158 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6155 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6152 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6146 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6143 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6139 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6136 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n614 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6131 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6128 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6124 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6121 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6116 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6114 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6110 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6107 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6103 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6101 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6097 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6094 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n610 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6090 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6086 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6083 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6081 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6078 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6076 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6073 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6069 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n607 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6064 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6061 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6058 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6055 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6051 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6048 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6045 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6042 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6036 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6033 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6029 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6026 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6021 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6018 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6015 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6012 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6007 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6005 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n6001 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5998 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n602 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5994 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5992 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5988 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5985 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n600 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n62 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5981 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5977 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5974 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5972 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5969 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5967 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5964 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5960 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5955 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5952 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5949 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5946 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5942 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5939 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n596 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5936 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5933 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5927 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5924 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5920 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5917 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5912 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n593 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5909 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5906 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5903 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5898 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5896 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5892 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5889 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5885 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5883 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5879 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5876 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5872 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5870 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n589 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5866 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5863 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5858 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n587 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5855 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5852 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5850 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5845 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5842 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n60 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5839 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5836 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5832 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5829 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5826 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5823 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5817 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5814 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n583 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5810 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5807 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5802 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5799 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5796 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5793 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5788 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n580 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5786 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5782 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5779 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5775 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5773 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5769 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5766 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5762 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5758 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5755 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5753 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5750 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5748 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5745 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n576 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5741 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5736 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5733 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5730 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n574 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5727 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5723 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5720 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5717 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5714 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5708 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5705 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5701 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5698 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5693 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5690 only has one pin. Check if it is intended to be dangling.
+    10000 |     +0.0% |       0 |       1 |             4 |      4114
+[WARNING RSZ-0104] Net n570 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5686 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5683 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5678 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5676 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5672 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5669 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5665 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5663 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n567 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5659 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5656 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5652 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5650 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5646 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5643 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5638 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5635 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5632 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5630 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5625 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5622 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5619 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5616 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5612 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5609 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5606 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n562 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5603 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5597 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5594 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5590 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5587 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5582 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5579 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n559 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5576 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5573 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5568 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5566 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n7 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5562 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5559 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5555 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5553 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n556 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5549 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5546 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5542 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5538 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n554 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5535 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5533 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5530 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5528 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5525 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5521 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5516 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5513 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5510 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5507 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5503 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5500 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5497 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5494 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5488 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5485 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5481 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n549 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5478 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5473 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5470 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5466 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5463 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5458 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5456 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n546 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5452 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5449 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5445 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5443 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5439 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5436 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5432 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5428 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5425 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n543 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n56 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5423 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5420 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5418 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5415 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5411 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5406 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5403 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5400 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5397 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n540 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5393 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5390 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5387 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5384 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5378 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5375 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5371 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5368 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5363 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5360 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5356 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n536 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5353 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5348 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5346 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5342 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5339 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5335 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5333 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5329 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n533 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5326 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5322 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5318 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5315 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5313 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5310 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5308 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5305 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5301 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n530 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5296 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5293 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5290 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5287 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n54 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5283 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5280 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5277 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5274 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n527 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5268 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net n5265 only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] message limit (1000) reached. This message will no longer print.
+    11000 |     +0.0% |       0 |       1 |             4 |      3114
+    12000 |     +0.0% |       0 |       1 |             4 |      2114
+    13000 |     +0.0% |       0 |       1 |             4 |      1114
+    14000 |     +0.0% |       0 |       1 |             4 |       114
+    final |     +0.0% |       0 |       1 |             4 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0036] Found 4 capacitance violations.
+[INFO RSZ-0038] Inserted 1 buffers in 4 nets.
+[INFO RSZ-0504] Runtime: 1.87s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 53721.36 um^2
+[INFO DPL-0007] Movable instances area: 22189.19 um^2
+[INFO DPL-0008] Fixed instances area within core: 109.86 um^2
+[INFO DPL-0009] Utilization: 41.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 11921 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.05s
+Placement Analysis
+---------------------------------
+total displacement          2.8 u
+average displacement        0.0 u
+max displacement            2.8 u
+original HPWL          162025.1 u
+legalized HPWL         162029.2 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/nangate45/dynamic_node/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 1 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1 out of 1 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.016 |       -0.0 |       -0.0 |      1 | thanksIn_P
+      10* |       0 |       7 |        4 |      0 |     1 |    +0.0% |   -0.002 |       -0.0 |       -0.0 |      1 | thanksIn_P
+      11* |       0 |       8 |        4 |      0 |     1 |    +0.0% |    0.003 |        0.0 |        0.0 |      1 | thanksIn_P
+      11* |       0 |       8 |        4 |      0 |     1 |    +0.0% |    0.003 |        0.0 |        0.0 |      1 | thanksIn_P
+    final |       0 |       8 |        4 |      0 |     1 |    +0.0% |    0.003 |        0.0 |        0.0 |      0 | thanksIn_P
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 4 buffers.
+[INFO RSZ-0051] Resized 8 instances: 8 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 1 instances.
+[INFO RSZ-0505] Runtime: 1.19s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.06s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 53721.36 um^2
+[INFO DPL-0007] Movable instances area: 22198.76 um^2
+[INFO DPL-0008] Fixed instances area within core: 109.86 um^2
+[INFO DPL-0009] Utilization: 41.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 11925 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.06s
+Placement Analysis
+---------------------------------
+total displacement         21.1 u
+average displacement        0.0 u
+max displacement            6.0 u
+original HPWL          162035.7 u
+legalized HPWL         162063.6 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/nangate45/dynamic_node/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/nangate45/dynamic_node/base/congestion_post_recover_power.rpt
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 22309 um^2 42% utilization.
+[INFO FLW-0007] clock clk period 6.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 5070
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/dynamic_node/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/dynamic_node/base/5_1_grt.sdc
+Elapsed time: 0:17.57[h:]min:sec. CPU time: user 179.42 sys 12.69 (1093%). Peak memory: 485056KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           17            473 17dd272bd67e5db988c5
+5_1_grt                   .sdc                             7997dc0f2c01c6315e2d

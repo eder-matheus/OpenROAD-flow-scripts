@@ -1,0 +1,219 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/3_place.sdc
+source ./platforms/asap7/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is BUFx16f_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx16f_ASAP7_75t_R
+                    BUFx24_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 530 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 530.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 27 and max clustering diameter of 17.
+[INFO CTS-0019]  Total number of sinks after clustering: 29.
+[INFO CTS-0024]  Normalized sink region: [(2.84663, 2.86), (33.2062, 32.5636)].
+[INFO CTS-0025]     Width:  30.3595.
+[INFO CTS-0026]     Height: 29.7036.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 15
+    Sub-region size: 15.1798 X 29.7036
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 8
+    Sub-region size: 15.1798 X 14.8518
+[INFO CTS-0034]     Segment length (rounded): 8.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (137.460 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 29.
+[INFO CTS-0018]     Created 34 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 34 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 6:1, 7:1, 8:2, 9:1, 10:1, 12:1, 13:2, 15:1, 16:2, 17:3, 18:3, 19:3, 20:3, 21:3, 22:2, 23:2, 24:1, 27:1..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 556
+[INFO CTS-0100]  Leaf buffers 29
+[INFO CTS-0101]  Average sink wire length 59.91 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 26
+[INFO CTS-0500] Runtime: 1.72s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 1975.07 um^2
+[INFO DPL-0007] Movable instances area: 1410.45 um^2
+[INFO DPL-0008] Fixed instances area within core: 11.98 um^2
+[INFO DPL-0009] Utilization: 72.0%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 12656 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        263 |        43 |       220
+        1 |         62 |        14 |        48
+        2 |         30 |         2 |        28
+        3 |         42 |         2 |        40
+        4 |         24 |         2 |        22
+        5 |         16 |         2 |        14
+        6 |         16 |         2 |        14
+        7 |         17 |         4 |        13
+        8 |         36 |         2 |        34
+        9 |         19 |         3 |        16
+       10 |         20 |         2 |        18
+       13 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 13.
+[INFO DPL-0500] Runtime: 0.11s
+Placement Analysis
+---------------------------------
+total displacement       1665.0 u
+average displacement        0.1 u
+max displacement            2.2 u
+original HPWL           40949.9 u
+legalized HPWL          41831.7 u
+delta HPWL                    2 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 43 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 43 out of 43 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -15.911 |     -123.4 |     -244.2 |     43 | u2643/D
+      10* |       0 |       7 |        2 |      0 |     1 |    +0.0% |   -7.989 |      -79.2 |      -76.9 |     43 | u2643/D
+      20* |       0 |      13 |        4 |      0 |     3 |    +0.0% |   -5.127 |      -60.0 |      -66.4 |     43 | u144/D
+      23* |       0 |      16 |        4 |      0 |     3 |    +0.1% |   -4.987 |      -54.9 |      -54.8 |     43 | u1386/D
+      30* |       0 |      16 |        7 |      0 |     7 |    +0.1% |   -4.987 |      -47.6 |      -53.5 |     43 | u1386/D
+      35* |       0 |      16 |        7 |      0 |    12 |    +0.1% |   -4.987 |      -45.9 |      -48.6 |     43 | u1386/D
+      36* |       0 |      16 |        7 |      0 |    12 |    +0.1% |   -4.987 |      -45.9 |      -48.6 |     43 | u1386/D
+      40* |       0 |      17 |        8 |      0 |    13 |    +0.1% |   -4.509 |      -42.4 |      -41.6 |     43 | u1381/D
+      40* |       0 |      17 |        8 |      0 |    13 |    +0.1% |   -4.509 |      -42.4 |      -41.6 |     43 | u1381/D
+      43* |       0 |      17 |        9 |      0 |    14 |    +0.1% |   -4.509 |      -42.3 |      -40.9 |     43 | u1381/D
+      44* |       0 |      17 |        9 |      0 |    14 |    +0.1% |   -4.509 |      -42.3 |      -40.9 |     43 | u1381/D
+      50* |       0 |      19 |       11 |      0 |    15 |    +0.1% |   -4.405 |      -39.0 |      -34.3 |     43 | u5161/D
+      53* |       0 |      20 |       11 |      0 |    17 |    +0.1% |   -4.405 |      -37.8 |      -33.1 |     43 | u5161/D
+      58* |       0 |      22 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -31.9 |      -22.7 |     43 | u5574/D
+      59* |       0 |      22 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -31.9 |      -22.7 |     43 | u5574/D
+      60* |       0 |      22 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -31.9 |      -22.7 |     43 | u5574/D
+      62* |       0 |      24 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -26.5 |      -19.1 |     43 | u5574/D
+      63* |       0 |      24 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -26.5 |      -19.1 |     43 | u5574/D
+      64* |       0 |      24 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -26.5 |      -19.1 |     43 | u5574/D
+      65* |       0 |      24 |       14 |      0 |    18 |    +0.1% |   -4.144 |      -26.5 |      -19.1 |     43 | u5574/D
+      68* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      69* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      70* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      70* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      71* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      72* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      73* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      74* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      75* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      76* |       0 |      26 |       14 |      0 |    18 |    +0.2% |   -4.144 |      -25.7 |      -17.1 |     43 | u5574/D
+      79* |       0 |      28 |       14 |      0 |    18 |    +0.2% |   -3.401 |      -18.6 |      -13.0 |     43 | u6426/D
+      80* |       0 |      28 |       14 |      0 |    18 |    +0.2% |   -3.401 |      -18.6 |      -13.0 |     43 | u6426/D
+      80* |       0 |      28 |       14 |      0 |    18 |    +0.2% |   -3.401 |      -18.6 |      -13.0 |     43 | u6426/D
+      82* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      83* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      84* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      85* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      86* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      87* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      88* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      89* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      90* |       0 |      29 |       14 |      0 |    18 |    +0.2% |   -2.191 |      -12.4 |       -9.0 |     43 | u6017/D
+      91* |       0 |      30 |       14 |      0 |    18 |    +0.2% |   -1.591 |      -10.2 |       -6.8 |     43 | u2643/D
+      93* |       0 |      31 |       14 |      0 |    18 |    +0.2% |   -1.591 |       -9.6 |       -6.2 |     43 | u2643/D
+      94* |       0 |      31 |       14 |      0 |    18 |    +0.2% |   -1.591 |       -9.6 |       -6.2 |     43 | u2643/D
+      95* |       0 |      31 |       14 |      0 |    18 |    +0.2% |   -1.591 |       -9.6 |       -6.2 |     43 | u2643/D
+      97* |       0 |      32 |       14 |      0 |    18 |    +0.2% |   -1.591 |       -8.7 |       -5.3 |     43 | u2643/D
+      99* |       0 |      32 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -7.6 |       -4.3 |     43 | u2643/D
+     100* |       0 |      32 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -7.6 |       -4.3 |     43 | u2643/D
+     101* |       0 |      33 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -6.6 |       -3.2 |     43 | u2643/D
+     102* |       0 |      33 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -6.6 |       -3.2 |     43 | u2643/D
+     103* |       0 |      33 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -6.6 |       -3.2 |     43 | u2643/D
+     104* |       0 |      33 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -6.6 |       -3.2 |     43 | u2643/D
+     106* |       0 |      34 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -7.2 |       -3.9 |     43 | u2643/D
+     106* |       0 |      34 |       16 |      0 |    18 |    +0.2% |   -1.591 |       -7.2 |       -3.9 |     43 | u2643/D
+     108+ |       0 |      36 |       16 |      0 |    18 |    +0.2% |   -1.252 |       -4.2 |       -2.1 |      3 | u2643/D
+     109+ |       0 |      36 |       16 |      0 |    18 |    +0.2% |   -1.252 |       -4.2 |       -2.1 |      3 | u2643/D
+     110+ |       0 |      36 |       16 |      0 |    18 |    +0.2% |   -1.252 |       -4.2 |       -2.1 |      3 | u2643/D
+     110+ |       0 |      37 |       16 |      0 |    18 |    +0.2% |   -1.252 |       -3.4 |       -1.3 |      3 | u2643/D
+    final |       0 |      37 |       16 |      0 |    18 |    +0.2% |   -1.252 |       -3.4 |       -1.3 |      1 | u2643/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 16 buffers.
+[INFO RSZ-0051] Resized 37 instances: 37 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 18 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 1.37s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.00s
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 1975.07 um^2
+[INFO DPL-0007] Movable instances area: 1412.95 um^2
+[INFO DPL-0008] Fixed instances area within core: 11.98 um^2
+[INFO DPL-0009] Utilization: 72.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 12672 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         30 |         6 |        24
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.06s
+Placement Analysis
+---------------------------------
+total displacement         15.8 u
+average displacement        0.0 u
+max displacement            1.1 u
+original HPWL           41857.3 u
+legalized HPWL          41867.3 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 1425 um^2 72% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/4_cts.sdc
+Elapsed time: 0:11.90[h:]min:sec. CPU time: user 16.37 sys 9.77 (219%). Peak memory: 300432KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           11            293 35ee1764bf6c35828bcd

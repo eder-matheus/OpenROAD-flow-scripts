@@ -1,0 +1,47 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes_lvt/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes_lvt/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     11191
+     1000 |     +0.0% |       0 |       0 |             0 |     10191
+     2000 |     +0.0% |       0 |       0 |             0 |      9191
+     3000 |     +0.0% |       0 |       0 |             0 |      8191
+     4000 |     +0.0% |       0 |       0 |             0 |      7191
+     5000 |     +0.0% |       0 |       0 |             0 |      6191
+     6000 |     +0.0% |       0 |       0 |             0 |      5191
+     7000 |     +0.0% |       0 |       0 |             0 |      4191
+     8000 |     +0.0% |       0 |       0 |             0 |      3191
+     9000 |     +0.0% |       0 |       0 |             0 |      2191
+    10000 |     +0.0% |       0 |       0 |             0 |      1191
+    11000 |     +0.0% |       0 |       0 |             0 |       191
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.75s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 1288 um^2 37% utilization.
+Instance count before 11588, after 11588
+Pin count before 40343, after 40343
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes_lvt/base/3_4_place_resized.odb
+Elapsed time: 0:03.78[h:]min:sec. CPU time: user 5.11 sys 3.77 (234%). Peak memory: 267808KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            3            261 f0ae0b8680f051906f75

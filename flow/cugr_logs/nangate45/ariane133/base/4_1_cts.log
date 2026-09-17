@@ -1,0 +1,567 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x16.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/3_place.sdc
+source ./platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk_i" found for clock "core_clock".
+[INFO CTS-0011]  Clock net "clk_i" for macros has 132 sinks.
+[INFO CTS-0011]  Clock net "clk_i_regs" for registers has 20636 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 12 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i.
+[INFO CTS-0028]  Total number of sinks: 132.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 155.4 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 4 and clustering diameter of 155.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 38.
+[INFO CTS-0024]  Normalized sink region: [(11.8543, 0.635), (159.689, 163.39)].
+[INFO CTS-0025]     Width:  147.8343.
+[INFO CTS-0026]     Height: 162.7550.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 19
+    Sub-region size: 147.8343 X 81.3775
+[INFO CTS-0034]     Segment length (rounded): 40.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 73.9171 X 81.3775
+[INFO CTS-0034]     Segment length (rounded): 36.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 5
+    Sub-region size: 73.9171 X 40.6887
+[INFO CTS-0034]     Segment length (rounded): 20.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 38.
+[INFO CTS-0201] 12 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i_regs.
+[INFO CTS-0028]  Total number of sinks: 20636.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 77.
+[INFO CTS-0019]  Total number of sinks after clustering: 3378.
+[INFO CTS-0024]  Normalized sink region: [(1.2025, 1.374), (140.419, 170.357)].
+[INFO CTS-0025]     Width:  139.2167.
+[INFO CTS-0026]     Height: 168.9827.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 1689
+    Sub-region size: 139.2167 X 84.4913
+[INFO CTS-0034]     Segment length (rounded): 42.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 845
+    Sub-region size: 69.6084 X 84.4913
+[INFO CTS-0034]     Segment length (rounded): 34.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 423
+    Sub-region size: 69.6084 X 42.2457
+[INFO CTS-0034]     Segment length (rounded): 22.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 212
+    Sub-region size: 34.8042 X 42.2457
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 106
+    Sub-region size: 34.8042 X 21.1228
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 53
+    Sub-region size: 17.4021 X 21.1228
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 27
+    Sub-region size: 17.4021 X 10.5614
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 8
+    Direction: Horizontal
+    Sinks per sub-region: 14
+    Sub-region size: 8.7010 X 10.5614
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 3378.
+[INFO CTS-0018]     Created 53 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 5.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 5.
+[INFO CTS-0015]     Created 53 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:5, 3:10, 4:28, 5:1, 6:1, 7:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0018]     Created 3729 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 8.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 8.
+[INFO CTS-0015]     Created 3729 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:4, 3:30, 4:96, 5:606, 6:1523, 7:1019, 8:145, 9:22, 10:22, 11:24, 12:20, 13:15, 14:17, 15:14, 16:15, 17:16, 18:6, 19:8, 20:4, 21:4, 22:9, 23:2, 24:5, 25:5, 27:3..
+[INFO CTS-0017]     Max level of the clock tree: 8.
+[INFO CTS-0098] Clock net "clk_i"
+[INFO CTS-0099]  Sinks 132
+[INFO CTS-0100]  Leaf buffers 38
+[INFO CTS-0101]  Average sink wire length 1883.18 um
+[INFO CTS-0102]  Path depth 5 - 5
+[INFO CTS-0207]  Dummy loads inserted 17
+[INFO CTS-0098] Clock net "clk_i_regs"
+[INFO CTS-0099]  Sinks 23455
+[INFO CTS-0100]  Leaf buffers 3378
+[INFO CTS-0101]  Average sink wire length 922.90 um
+[INFO CTS-0102]  Path depth 7 - 8
+[INFO CTS-0207]  Dummy loads inserted 2819
+[INFO RSZ-0047] Found 1 long wires.
+[INFO RSZ-0048] Inserted 1 buffers in 1 nets.
+[INFO CTS-0033] Balancing latency for clock core_clock
+[INFO CTS-0036]  inserted 1 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 1
+[INFO CTS-0500] Runtime: 12.96s
+Took 13 seconds: clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+estimate_parasitics -placement
+Took 6 seconds: estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 1417873.10 um^2
+[INFO DPL-0007] Movable instances area: 301379.86 um^2
+[INFO DPL-0008] Fixed instances area within core: 419097.36 um^2
+[INFO DPL-0009] Utilization: 50.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 166723 cells
+[INFO DPL-0393]   height 29 row(s): 132 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 1.65s
+Placement Analysis
+---------------------------------
+total displacement      80678.6 u
+average displacement        0.5 u
+max displacement           39.2 u
+original HPWL         5120748.8 u
+legalized HPWL        5160043.1 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+Took 6 seconds: estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 2779 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 2779 out of 2779 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.393 |      -20.1 |     -653.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2326\]$_DFF_PN0_/D
+      10* |       0 |       2 |        5 |      0 |     4 |    +0.0% |   -0.365 |      -17.4 |     -646.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+      20* |       0 |       7 |       11 |      0 |     6 |    +0.0% |   -0.334 |      -14.7 |     -606.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+      30* |       0 |      14 |       12 |      0 |     8 |    +0.0% |   -0.318 |      -13.4 |     -587.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+      40* |       0 |      21 |       12 |      0 |    11 |    +0.0% |   -0.308 |      -12.7 |     -563.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2065\]$_DFF_PN0_/D
+      50* |       0 |      26 |       15 |      0 |    13 |    +0.0% |   -0.318 |      -13.4 |     -558.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1967\]$_DFF_PN0_/D
+      60* |       0 |      30 |       20 |      0 |    16 |    +0.0% |   -0.321 |      -13.6 |     -573.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1967\]$_DFF_PN0_/D
+      70* |       0 |      37 |       21 |      0 |    18 |    +0.0% |   -0.322 |      -13.6 |     -592.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1992\]$_DFF_PN0_/D
+      80* |       0 |      42 |       23 |      0 |    21 |    +0.0% |   -0.344 |      -15.5 |     -657.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1992\]$_DFF_PN0_/D
+      90* |       0 |      45 |       25 |      0 |    26 |    +0.0% |   -0.355 |      -16.4 |     -676.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1992\]$_DFF_PN0_/D
+      91* |       0 |      22 |       12 |      0 |    11 |    +0.0% |   -0.307 |      -12.6 |     -559.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     100* |       0 |      28 |       14 |      0 |    11 |    +0.0% |   -0.357 |      -16.7 |     -569.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     110* |       0 |      34 |       18 |      0 |    11 |    +0.0% |   -0.331 |      -14.4 |     -556.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     120* |       0 |      40 |       21 |      0 |    12 |    +0.0% |   -0.323 |      -13.8 |     -569.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     130* |       0 |      45 |       23 |      0 |    15 |    +0.0% |   -0.355 |      -16.3 |     -650.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     140* |       0 |      51 |       28 |      0 |    16 |    +0.0% |   -0.327 |      -14.4 |     -580.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     144* |       0 |      23 |       13 |      0 |    11 |    +0.0% |   -0.307 |      -12.6 |     -559.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     150* |       0 |      28 |       13 |      0 |    11 |    +0.0% |   -0.310 |      -12.8 |     -558.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     160* |       0 |      33 |       18 |      0 |    11 |    +0.0% |   -0.332 |      -14.4 |     -557.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     170* |       0 |      40 |       21 |      0 |    11 |    +0.0% |   -0.341 |      -15.2 |     -618.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     180* |       0 |      44 |       23 |      0 |    15 |    +0.0% |   -0.347 |      -15.7 |     -628.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     190* |       0 |      49 |       25 |      0 |    19 |    +0.0% |   -0.343 |      -15.3 |     -623.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     195* |       0 |      23 |       13 |      0 |    11 |    +0.0% |   -0.307 |      -12.6 |     -559.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     200* |       0 |      27 |       13 |      0 |    11 |    +0.0% |   -0.309 |      -12.7 |     -558.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     210* |       0 |      32 |       18 |      0 |    11 |    +0.0% |   -0.332 |      -14.4 |     -557.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1963\]$_DFF_PN0_/D
+     220* |       0 |      40 |       20 |      0 |    11 |    +0.0% |   -0.307 |      -12.6 |     -525.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     230* |       0 |      47 |       23 |      0 |    11 |    +0.0% |   -0.315 |      -13.2 |     -548.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     240* |       0 |      52 |       27 |      0 |    13 |    +0.0% |   -0.310 |      -12.8 |     -531.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     250* |       0 |      58 |       30 |      0 |    14 |    +0.0% |   -0.292 |      -11.8 |     -490.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     260* |       0 |      63 |       31 |      0 |    18 |    +0.0% |   -0.294 |      -11.7 |     -494.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     270* |       0 |      69 |       35 |      0 |    18 |    +0.0% |   -0.297 |      -11.5 |     -510.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     280* |       0 |      78 |       35 |      0 |    19 |    +0.0% |   -0.291 |      -11.4 |     -501.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     290* |       0 |      81 |       37 |      0 |    24 |    +0.0% |   -0.296 |      -11.9 |     -518.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     300* |       0 |      89 |       38 |      0 |    25 |    +0.0% |   -0.309 |      -12.8 |     -552.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     307* |       0 |      63 |       30 |      0 |    16 |    +0.0% |   -0.288 |      -11.5 |     -478.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     310* |       0 |      63 |       32 |      0 |    16 |    +0.0% |   -0.287 |      -11.4 |     -476.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     320* |       0 |      71 |       34 |      0 |    16 |    +0.0% |   -0.286 |      -11.5 |     -490.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     330* |       1 |      79 |       35 |      0 |    16 |    +0.0% |   -0.282 |      -11.2 |     -480.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     340* |       1 |      87 |       35 |      0 |    18 |    +0.0% |   -0.283 |      -11.2 |     -482.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     350* |       1 |      92 |       37 |      0 |    21 |    +0.0% |   -0.281 |      -11.3 |     -477.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     360* |       1 |     100 |       38 |      0 |    22 |    +0.0% |   -0.279 |      -10.9 |     -473.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     370* |       1 |     108 |       39 |      0 |    23 |    +0.0% |   -0.280 |      -10.9 |     -475.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     380* |       1 |     113 |       41 |      0 |    26 |    +0.0% |   -0.282 |      -11.1 |     -479.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     390* |       1 |     117 |       44 |      0 |    29 |    +0.0% |   -0.278 |      -10.9 |     -467.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     400* |       1 |     121 |       50 |      0 |    32 |    +0.0% |   -0.279 |      -10.8 |     -471.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     410* |       2 |     127 |       52 |      0 |    33 |    +0.0% |   -0.273 |      -10.6 |     -457.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     420* |       2 |     133 |       53 |      0 |    36 |    +0.0% |   -0.273 |      -10.5 |     -456.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     430* |       2 |     140 |       56 |      0 |    36 |    +0.0% |   -0.283 |      -11.2 |     -460.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     434* |       2 |     132 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     440* |       2 |     134 |       55 |      0 |    35 |    +0.0% |   -0.281 |      -11.1 |     -457.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     450* |       2 |     141 |       58 |      0 |    35 |    +0.0% |   -0.280 |      -11.0 |     -455.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     451* |       2 |     132 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     460* |       2 |     137 |       55 |      0 |    35 |    +0.0% |   -0.281 |      -11.1 |     -457.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     470* |       2 |     144 |       58 |      0 |    35 |    +0.0% |   -0.280 |      -11.0 |     -455.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     470* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     480* |       2 |     137 |       53 |      0 |    39 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     490* |       2 |     143 |       57 |      0 |    40 |    +0.0% |   -0.288 |      -11.5 |     -453.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     500* |       2 |     149 |       59 |      0 |    42 |    +0.0% |   -0.286 |      -11.4 |     -454.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     510* |       2 |     153 |       64 |      0 |    45 |    +0.0% |   -0.283 |      -11.2 |     -464.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     520* |       2 |     158 |       70 |      0 |    45 |    +0.0% |   -0.310 |      -13.2 |     -461.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2689\]$_DFF_PN0_/D
+     521* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     530* |       2 |     138 |       56 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -452.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     540* |       2 |     147 |       56 |      0 |    37 |    +0.0% |   -0.275 |      -10.7 |     -452.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     550* |       2 |     151 |       63 |      0 |    38 |    +0.0% |   -0.277 |      -10.8 |     -457.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     560* |       2 |     156 |       68 |      0 |    38 |    +0.0% |   -0.288 |      -11.6 |     -454.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2689\]$_DFF_PN0_/D
+     561* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     570* |       2 |     138 |       56 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -452.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     580* |       2 |     147 |       59 |      0 |    36 |    +0.0% |   -0.275 |      -10.6 |     -453.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     590* |       2 |     152 |       64 |      0 |    37 |    +0.0% |   -0.300 |      -12.4 |     -457.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     600* |       2 |     157 |       70 |      0 |    37 |    +0.0% |   -0.297 |      -12.2 |     -457.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     610* |       2 |     162 |       75 |      0 |    37 |    +0.0% |   -0.321 |      -14.0 |     -466.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2706\]$_DFF_PN0_/D
+     610* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     620* |       2 |     139 |       57 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -452.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     630* |       2 |     147 |       60 |      0 |    36 |    +0.0% |   -0.275 |      -10.6 |     -453.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     640* |       2 |     151 |       67 |      0 |    37 |    +0.0% |   -0.277 |      -10.8 |     -457.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     650* |       2 |     156 |       72 |      0 |    37 |    +0.0% |   -0.289 |      -11.6 |     -455.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2696\]$_DFF_PN0_/D
+     652* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     660* |       2 |     137 |       57 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -452.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     670* |       2 |     146 |       57 |      0 |    36 |    +0.0% |   -0.275 |      -10.6 |     -452.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     680* |       2 |     150 |       64 |      0 |    37 |    +0.0% |   -0.278 |      -10.9 |     -454.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     690* |       2 |     153 |       73 |      0 |    37 |    +0.0% |   -0.297 |      -12.2 |     -461.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2691\]$_DFF_PN0_/D
+     696* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     700* |       2 |     135 |       53 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     710* |       2 |     143 |       56 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -452.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     720* |       2 |     149 |       61 |      0 |    37 |    +0.0% |   -0.282 |      -11.2 |     -453.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     730* |       2 |     154 |       68 |      0 |    37 |    +0.0% |   -0.275 |      -10.7 |     -454.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     738* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     740* |       2 |     134 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     750* |       2 |     141 |       57 |      0 |    35 |    +0.0% |   -0.275 |      -10.7 |     -453.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     760* |       2 |     148 |       61 |      0 |    36 |    +0.0% |   -0.282 |      -11.2 |     -453.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     770* |       2 |     151 |       69 |      0 |    37 |    +0.0% |   -0.275 |      -10.7 |     -454.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     778* |       2 |     133 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     780* |       2 |     134 |       52 |      0 |    35 |    +0.0% |   -0.272 |      -10.5 |     -453.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     790* |       2 |     141 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     800* |       2 |     150 |       55 |      0 |    36 |    +0.0% |   -0.276 |      -10.7 |     -450.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     810* |       2 |     157 |       58 |      0 |    37 |    +0.0% |   -0.277 |      -10.8 |     -450.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     820* |       2 |     163 |       62 |      0 |    38 |    +0.0% |   -0.279 |      -11.0 |     -452.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     830* |       2 |     170 |       65 |      0 |    39 |    +0.0% |   -0.277 |      -10.8 |     -448.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     830* |       2 |     146 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     840* |       2 |     153 |       57 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -450.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     850* |       2 |     159 |       59 |      0 |    38 |    +0.0% |   -0.283 |      -11.2 |     -452.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     860* |       2 |     162 |       68 |      0 |    38 |    +0.0% |   -0.274 |      -10.6 |     -453.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     870* |       2 |     167 |       73 |      0 |    38 |    +0.0% |   -0.298 |      -12.3 |     -459.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2706\]$_DFF_PN0_/D
+     872* |       2 |     146 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     880* |       2 |     151 |       57 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     890* |       2 |     158 |       59 |      0 |    37 |    +0.0% |   -0.283 |      -11.2 |     -452.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2690\]$_DFF_PN0_/D
+     900* |       2 |     161 |       67 |      0 |    38 |    +0.0% |   -0.275 |      -10.6 |     -456.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2705\]$_DFF_PN0_/D
+     910* |       2 |     165 |       73 |      0 |    38 |    +0.0% |   -0.297 |      -12.2 |     -459.2 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2691\]$_DFF_PN0_/D
+     914* |       2 |     146 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     920* |       2 |     149 |       57 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2334\]$_DFF_PN0_/D
+     930* |       2 |     156 |       59 |      0 |    37 |    +0.0% |   -0.283 |      -11.2 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     940* |       2 |     160 |       66 |      0 |    38 |    +0.0% |   -0.276 |      -10.7 |     -456.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2695\]$_DFF_PN0_/D
+     950* |       2 |     163 |       73 |      0 |    38 |    +0.0% |   -0.295 |      -12.0 |     -459.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2691\]$_DFF_PN0_/D
+     956* |       2 |     146 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     960* |       2 |     149 |       54 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -450.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     970* |       2 |     153 |       61 |      0 |    36 |    +0.0% |   -0.276 |      -10.7 |     -454.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     972* |       2 |     149 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     980* |       2 |     152 |       60 |      0 |    36 |    +0.0% |   -0.276 |      -10.7 |     -452.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     982* |       2 |     149 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+     990* |       2 |     152 |       60 |      0 |    36 |    +0.0% |   -0.276 |      -10.7 |     -452.9 |   2779 | issue_stage_i.i_scoreboard/mem_q\[863\]$_DFF_PN0_/D
+     994* |       2 |     149 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1000* |       2 |     152 |       58 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1006* |       2 |     149 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -451.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1010* |       2 |     152 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -450.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1020* |       2 |     160 |       55 |      0 |    38 |    +0.0% |   -0.275 |      -10.7 |     -451.7 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2325\]$_DFF_PN0_/D
+    1030* |       2 |     167 |       58 |      0 |    39 |    +0.0% |   -0.278 |      -10.9 |     -457.6 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2325\]$_DFF_PN0_/D
+    1040* |       2 |     173 |       65 |      0 |    39 |    +0.0% |   -0.278 |      -10.9 |     -458.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2325\]$_DFF_PN0_/D
+    1050* |       2 |     177 |       70 |      0 |    41 |    +0.0% |   -0.278 |      -10.9 |     -459.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[2325\]$_DFF_PN0_/D
+    1053* |       2 |     158 |       55 |      0 |    36 |    +0.0% |   -0.272 |      -10.5 |     -450.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1060* |       2 |     161 |       59 |      0 |    36 |    +0.0% |   -0.270 |      -10.4 |     -448.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1063* |       2 |     162 |       59 |      0 |    36 |    +0.0% |   -0.270 |      -10.4 |     -448.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1070* |       2 |     168 |       59 |      0 |    36 |    +0.0% |   -0.270 |      -10.4 |     -448.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1080* |       2 |     176 |       61 |      0 |    37 |    +0.0% |   -0.273 |      -10.6 |     -448.8 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1082* |       2 |     169 |       59 |      0 |    36 |    +0.0% |   -0.270 |      -10.4 |     -448.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1090* |       2 |     175 |       59 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1100* |       2 |     182 |       63 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1100* |       2 |     178 |       60 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.0 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1110* |       2 |     184 |       64 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -449.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1120* |       2 |     188 |       69 |      0 |    39 |    +0.0% |   -0.279 |      -11.0 |     -453.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1973\]$_DFF_PN0_/D
+    1130* |       2 |     194 |       74 |      0 |    39 |    +0.0% |   -0.275 |      -10.7 |     -453.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1969\]$_DFF_PN0_/D
+    1140* |       2 |     200 |       79 |      0 |    39 |    +0.0% |   -0.274 |      -10.6 |     -454.1 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1150* |       2 |     204 |       84 |      0 |    40 |    +0.0% |   -0.311 |      -13.2 |     -462.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1973\]$_DFF_PN0_/D
+    1152* |       2 |     178 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1159* |       2 |     181 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1160* |       2 |     181 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1170* |       2 |     189 |       64 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -449.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1180* |       2 |     195 |       68 |      0 |    38 |    +0.0% |   -0.273 |      -10.6 |     -450.5 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1973\]$_DFF_PN0_/D
+    1190* |       2 |     201 |       72 |      0 |    38 |    +0.0% |   -0.274 |      -10.6 |     -450.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1980\]$_DFF_PN0_/D
+    1200* |       2 |     206 |       76 |      0 |    39 |    +0.0% |   -0.294 |      -12.0 |     -457.4 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1971\]$_DFF_PN0_/D
+    1200* |       2 |     181 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1200* |       2 |     181 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2779 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1200+ |       2 |     181 |       61 |      0 |    37 |    +0.0% |   -0.270 |      -10.4 |     -452.3 |   2577 | issue_stage_i.i_scoreboard/mem_q\[1607\]$_DFF_PN0_/D
+    1205+ |       2 |     184 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -447.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1207+ |       2 |     185 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -447.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1208+ |       2 |     185 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -447.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1210+ |       2 |     186 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1210+ |       2 |     186 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1212+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1213+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1214+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1215+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1216+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1217+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1218+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1219+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1220+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1220+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1221+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1222+ |       2 |     187 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.7 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1225+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1226+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1227+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1228+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1229+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1230+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1230+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1231+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1232+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1233+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1234+ |       2 |     189 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1236+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1237+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1238+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1239+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1240+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1240+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1241+ |       2 |     190 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.6 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1243+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1244+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1245+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1246+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1247+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1248+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1249+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1250+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1250+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1251+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1252+ |       2 |     191 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.5 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1254+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1255+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1256+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1257+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1258+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1259+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1260+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1260+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1261+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1262+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1263+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1264+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1265+ |       2 |     192 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1270+ |       2 |     196 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1271+ |       2 |     197 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1273+ |       2 |     198 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1274+ |       2 |     198 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1275+ |       2 |     198 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1277+ |       2 |     199 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1278+ |       2 |     199 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1280+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1280+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1281+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1282+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1283+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1284+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1285+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1286+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1287+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1288+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1289+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1290+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1290+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1291+ |       2 |     200 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1294+ |       2 |     202 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1296+ |       2 |     203 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1297+ |       2 |     203 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1298+ |       2 |     203 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1300+ |       2 |     204 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1301+ |       2 |     204 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1302+ |       2 |     204 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1303+ |       2 |     204 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1305+ |       2 |     205 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1308+ |       2 |     207 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.3 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1309+ |       2 |     207 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.3 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1310+ |       2 |     207 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.3 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1311+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1312+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1313+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1314+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1315+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1316+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1317+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1318+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1319+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1320+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1320+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1321+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1322+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1323+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1324+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1325+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1326+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1327+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1328+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1329+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1330+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1330+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1331+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1332+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1333+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1334+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1335+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1336+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1337+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1338+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1339+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1340+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1340+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1341+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1342+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1343+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1344+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1345+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1346+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1347+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1348+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1349+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1350+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1350+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1351+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1352+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1353+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1354+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1355+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1356+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1357+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1358+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1359+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1360+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1360+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1361+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1362+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1363+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1364+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1365+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1366+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1367+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1368+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1369+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1370+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1370+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1371+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1372+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1373+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1374+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1375+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1376+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1377+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1378+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1379+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1380+ |       2 |     208 |       61 |      0 |    38 |    +0.0% |   -0.264 |       -9.9 |     -437.2 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1383+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1384+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1385+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1386+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1387+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1388+ |       2 |     210 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1390+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1390+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1391+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1392+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1393+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1394+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1395+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1396+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1397+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1398+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1399+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    1400+ |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+    final |       2 |     211 |       61 |      0 |    39 |    +0.0% |   -0.264 |       -9.9 |     -435.4 |   2577 | issue_stage_i.i_scoreboard/mem_q\[2375\]$_DFF_PN0_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 2 buffers.
+[INFO RSZ-0045] Inserted 61 buffers, 7 to split loads.
+[INFO RSZ-0051] Resized 211 instances: 211 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 39 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 226.11s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.41s
+Took 226 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 1417873.10 um^2
+[INFO DPL-0007] Movable instances area: 301695.07 um^2
+[INFO DPL-0008] Fixed instances area within core: 419097.36 um^2
+[INFO DPL-0009] Utilization: 50.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 166782 cells
+[INFO DPL-0393]   height 29 row(s): 132 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          4 |         2 |         2
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 1.79s
+Placement Analysis
+---------------------------------
+total displacement        229.2 u
+average displacement        0.0 u
+max displacement            6.4 u
+original HPWL         5160849.5 u
+legalized HPWL        5161088.2 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Took 6 seconds: estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 720792 um^2 51% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/ariane133/base/4_cts.sdc
+Elapsed time: 8:39.64[h:]min:sec. CPU time: user 1462.68 sys 676.66 (411%). Peak memory: 1907920KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb          519           1863 55de9ae003f3f71c6bfa

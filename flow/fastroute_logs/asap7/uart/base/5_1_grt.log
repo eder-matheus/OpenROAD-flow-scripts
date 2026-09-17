@@ -1,0 +1,557 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_TT_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_TT_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib.gz
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/uart/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/uart/base/4_cts.sdc
+source ./platforms/asap7/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   uart
+Die area:                 ( 0 0 ) ( 17000 17000 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     902
+Number of terminals:      46
+Number of snets:          2
+Number of nets:           824
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 163.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 14308.
+[INFO DRT-0033] V1 shape region query size = 23903.
+[INFO DRT-0033] M2 shape region query size = 521.
+[INFO DRT-0033] V2 shape region query size = 504.
+[INFO DRT-0033] M3 shape region query size = 504.
+[INFO DRT-0033] V3 shape region query size = 336.
+[INFO DRT-0033] M4 shape region query size = 363.
+[INFO DRT-0033] V4 shape region query size = 336.
+[INFO DRT-0033] M5 shape region query size = 209.
+[INFO DRT-0033] V5 shape region query size = 36.
+[INFO DRT-0033] M6 shape region query size = 30.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 930 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 163 unique inst patterns.
+[INFO DRT-0084]   Complete 500 groups.
+#scanned instances     = 902
+#unique  instances     = 163
+#stdCellGenAp          = 4191
+#stdCellValidPlanarAp  = 7
+#stdCellValidViaAp     = 3542
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2588
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:21, elapsed time = 00:00:00, memory = 217.60 (MB), peak = 214.53 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/uart/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose -resistance_aware
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 237
+[INFO GRT-0019] Found 10 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 19
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal      11132          7924          28.82%
+M3         Vertical        12791          9511          25.64%
+M4         Horizontal       9793          7273          25.73%
+M5         Vertical         9487          7020          26.00%
+M6         Horizontal       6638          4554          31.40%
+M7         Vertical         7448          5040          32.33%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 5780
+[INFO GRT-0198] Via related Steiner nodes: 120
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 7592
+[INFO GRT-0112] Final usage 3D: 26020
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+M1                   0             0            0.00%             0 /  0 /  0
+M2                7924          1135           14.32%             0 /  0 /  0
+M3                9511          1081           11.37%             0 /  0 /  0
+M4                7273           130            1.79%             0 /  0 /  0
+M5                7020           187            2.66%             0 /  0 /  0
+M6                4554           392            8.61%             0 /  0 /  0
+M7                5040           319            6.33%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            41322          3244            7.85%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 2908 um
+[INFO GRT-0014] Routed nets: 819
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       831
+       10 |     +0.0% |       0 |       0 |             0 |       821
+       20 |     +0.0% |       0 |       0 |             0 |       811
+       30 |     +0.0% |       0 |       0 |             0 |       801
+       40 |     +0.0% |       0 |       0 |             0 |       791
+       50 |     +0.0% |       0 |       0 |             0 |       781
+       60 |     +0.0% |       0 |       0 |             0 |       771
+       70 |     +0.0% |       0 |       0 |             0 |       761
+       80 |     +0.0% |       0 |       0 |             0 |       751
+       90 |     +0.0% |       0 |       0 |             0 |       741
+      100 |     +0.0% |       0 |       0 |             0 |       731
+      110 |     +0.0% |       0 |       0 |             0 |       721
+      120 |     +0.0% |       0 |       0 |             0 |       711
+      130 |     +0.0% |       0 |       0 |             0 |       701
+      140 |     +0.0% |       0 |       0 |             0 |       691
+      150 |     +0.0% |       0 |       0 |             0 |       681
+      160 |     +0.0% |       0 |       0 |             0 |       671
+      170 |     +0.0% |       0 |       0 |             0 |       661
+      180 |     +0.0% |       0 |       0 |             0 |       651
+      190 |     +0.0% |       0 |       0 |             0 |       641
+      200 |     +0.0% |       0 |       0 |             0 |       631
+      210 |     +0.0% |       0 |       0 |             0 |       621
+      220 |     +0.0% |       0 |       0 |             0 |       611
+      230 |     +0.0% |       0 |       0 |             0 |       601
+      240 |     +0.0% |       0 |       0 |             0 |       591
+      250 |     +0.0% |       0 |       0 |             0 |       581
+      260 |     +0.0% |       0 |       0 |             0 |       571
+      270 |     +0.0% |       0 |       0 |             0 |       561
+      280 |     +0.0% |       0 |       0 |             0 |       551
+      290 |     +0.0% |       0 |       0 |             0 |       541
+      300 |     +0.0% |       0 |       0 |             0 |       531
+      310 |     +0.0% |       0 |       0 |             0 |       521
+      320 |     +0.0% |       0 |       0 |             0 |       511
+      330 |     +0.0% |       0 |       0 |             0 |       501
+      340 |     +0.0% |       0 |       0 |             0 |       491
+      350 |     +0.0% |       0 |       0 |             0 |       481
+      360 |     +0.0% |       0 |       0 |             0 |       471
+      370 |     +0.0% |       0 |       0 |             0 |       461
+      380 |     +0.0% |       0 |       0 |             0 |       451
+      390 |     +0.0% |       0 |       0 |             0 |       441
+      400 |     +0.0% |       0 |       0 |             0 |       431
+      410 |     +0.0% |       0 |       0 |             0 |       421
+      420 |     +0.0% |       0 |       0 |             0 |       411
+      430 |     +0.0% |       0 |       0 |             0 |       401
+      440 |     +0.0% |       0 |       0 |             0 |       391
+      450 |     +0.0% |       0 |       0 |             0 |       381
+[WARNING RSZ-0104] Net _0611_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0607_ only has one pin. Check if it is intended to be dangling.
+      460 |     +0.0% |       0 |       0 |             0 |       371
+      470 |     +0.0% |       0 |       0 |             0 |       361
+      480 |     +0.0% |       0 |       0 |             0 |       351
+      490 |     +0.0% |       0 |       0 |             0 |       341
+      500 |     +0.0% |       0 |       0 |             0 |       331
+      510 |     +0.0% |       0 |       0 |             0 |       321
+      520 |     +0.0% |       0 |       0 |             0 |       311
+      530 |     +0.0% |       0 |       0 |             0 |       301
+[WARNING RSZ-0104] Net _0610_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0609_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0608_ only has one pin. Check if it is intended to be dangling.
+      540 |     +0.0% |       0 |       0 |             0 |       291
+      550 |     +0.0% |       0 |       0 |             0 |       281
+      560 |     +0.0% |       0 |       0 |             0 |       271
+      570 |     +0.0% |       0 |       0 |             0 |       261
+      580 |     +0.0% |       0 |       0 |             0 |       251
+      590 |     +0.0% |       0 |       0 |             0 |       241
+      600 |     +0.0% |       0 |       0 |             0 |       231
+      610 |     +0.0% |       0 |       0 |             0 |       221
+      620 |     +0.0% |       0 |       0 |             0 |       211
+      630 |     +0.0% |       0 |       0 |             0 |       201
+      640 |     +0.0% |       0 |       0 |             0 |       191
+      650 |     +0.0% |       0 |       0 |             0 |       181
+      660 |     +0.0% |       0 |       0 |             0 |       171
+      670 |     +0.0% |       0 |       0 |             0 |       161
+      680 |     +0.0% |       0 |       0 |             0 |       151
+      690 |     +0.0% |       0 |       0 |             0 |       141
+      700 |     +0.0% |       0 |       0 |             0 |       131
+      710 |     +0.0% |       0 |       0 |             0 |       121
+      720 |     +0.0% |       0 |       0 |             0 |       111
+      730 |     +0.0% |       0 |       0 |             0 |       101
+      740 |     +0.0% |       0 |       0 |             0 |        91
+      750 |     +0.0% |       0 |       0 |             0 |        81
+      760 |     +0.0% |       0 |       0 |             0 |        71
+      770 |     +0.0% |       0 |       0 |             0 |        61
+      780 |     +0.0% |       0 |       0 |             0 |        51
+      790 |     +0.0% |       0 |       0 |             0 |        41
+      800 |     +0.0% |       0 |       0 |             0 |        31
+      810 |     +0.0% |       0 |       0 |             0 |        21
+      820 |     +0.0% |       0 |       0 |             0 |        11
+      830 |     +0.0% |       0 |       0 |             0 |         1
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.11s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 221.32 um^2
+[INFO DPL-0007] Movable instances area: 97.60 um^2
+[INFO DPL-0008] Fixed instances area within core: 3.21 um^2
+[INFO DPL-0009] Utilization: 45.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 902 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            1584.0 u
+legalized HPWL           1584.0 u
+delta HPWL                    0 %
+
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/uart/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 69 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 69 out of 69 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -35.563 |     -564.1 |    -1445.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      10* |       0 |       2 |        7 |      0 |     2 |    +0.8% |  -39.730 |     -607.1 |    -1579.8 |     69 | uart_rx_inst.data_reg\[0\]$_SDFFCE_PP0P_/D
+      11* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -35.563 |     -564.1 |    -1445.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      16* |       0 |       0 |        1 |      0 |     3 |    +0.1% |  -35.563 |     -520.9 |    -1535.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      20* |       0 |       0 |        6 |      0 |     3 |    +0.6% |  -42.132 |     -601.1 |    -1628.2 |     69 | uart_rx_inst.data_reg\[0\]$_SDFFCE_PP0P_/D
+      24* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      25* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      29* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      30* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      30* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      31* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      35* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      39* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      40* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      44* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      46* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      48* |       0 |       1 |        8 |      0 |     3 |    +0.8% |  -34.796 |     -540.9 |    -1623.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      50* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      53* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      56* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      59* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      60* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      62* |       0 |       1 |        9 |      0 |     3 |    +0.9% |  -34.796 |     -538.8 |    -1608.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      66* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      69* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      70* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      72* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      75* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      77* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      79* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      80* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      80* |       0 |       3 |        9 |      0 |     3 |    +1.1% |  -34.796 |     -558.8 |    -1613.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      84* |       0 |       3 |       10 |      0 |     3 |    +1.2% |  -34.796 |     -558.8 |    -1620.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      87* |       0 |       3 |       10 |      0 |     3 |    +1.2% |  -34.796 |     -558.8 |    -1620.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      90* |       0 |       4 |       11 |      0 |     3 |    +1.3% |  -34.975 |     -560.3 |    -1602.1 |     69 | uart_rx_inst.prescale_reg\[2\]$_SDFFE_PP0P_/D
+      92* |       0 |       3 |       10 |      0 |     3 |    +1.2% |  -34.796 |     -558.8 |    -1620.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      93* |       0 |       3 |       10 |      0 |     3 |    +1.2% |  -34.796 |     -558.8 |    -1620.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+      97* |       0 |       3 |       10 |      0 |     3 |    +1.2% |  -34.796 |     -558.8 |    -1620.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     100* |       0 |       3 |       10 |      0 |     5 |    +1.2% |  -34.796 |     -561.0 |    -1619.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     107* |       0 |       4 |       11 |      0 |    10 |    +1.4% |  -34.796 |     -552.3 |    -1612.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     110* |       0 |       5 |       11 |      0 |    11 |    +1.4% |  -36.841 |     -560.6 |    -1616.3 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     113* |       0 |       4 |       11 |      0 |    10 |    +1.4% |  -34.796 |     -552.3 |    -1612.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     118* |       0 |       4 |       11 |      0 |    11 |    +1.4% |  -34.796 |     -552.6 |    -1610.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     120* |       0 |       4 |       11 |      0 |    12 |    +1.4% |  -36.141 |     -553.9 |    -1618.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     123* |       0 |       4 |       11 |      0 |    11 |    +1.4% |  -34.796 |     -552.6 |    -1610.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     126* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     130* |       0 |       6 |       11 |      0 |    14 |    +1.4% |  -36.841 |     -562.1 |    -1602.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     130* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     134* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     139* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     140* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     143* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     147* |       0 |       4 |       11 |      0 |    13 |    +1.4% |  -34.796 |     -552.5 |    -1610.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     150* |       0 |       5 |       11 |      0 |    14 |    +1.4% |  -34.796 |     -552.5 |    -1610.1 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     150* |       0 |       5 |       11 |      0 |    14 |    +1.4% |  -34.796 |     -552.5 |    -1610.1 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     156* |       0 |       5 |       12 |      0 |    16 |    +1.5% |  -34.796 |     -552.2 |    -1604.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     160* |       0 |       7 |       12 |      0 |    17 |    +1.6% |  -36.841 |     -560.5 |    -1604.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     162* |       0 |       5 |       12 |      0 |    16 |    +1.5% |  -34.796 |     -552.2 |    -1604.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     163* |       0 |       5 |       12 |      0 |    16 |    +1.5% |  -34.796 |     -552.2 |    -1604.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     168* |       0 |       5 |       12 |      0 |    16 |    +1.5% |  -34.796 |     -552.2 |    -1604.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     170* |       0 |       5 |       12 |      0 |    17 |    +1.5% |  -34.796 |     -552.1 |    -1605.9 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     175* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     179* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     180* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     182* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     184* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     186* |       1 |       5 |       12 |      0 |    18 |    +1.4% |  -34.796 |     -549.2 |    -1474.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     188* |       1 |       6 |       12 |      0 |    18 |    +1.5% |  -34.796 |     -549.2 |    -1475.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     190* |       1 |       6 |       12 |      0 |    19 |    +1.5% |  -34.796 |     -549.2 |    -1477.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     190* |       1 |       6 |       12 |      0 |    18 |    +1.5% |  -34.796 |     -549.2 |    -1475.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     197* |       2 |       7 |       12 |      0 |    20 |    +1.4% |  -34.796 |     -540.8 |    -1456.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     200* |       2 |       7 |       12 |      0 |    22 |    +1.4% |  -34.796 |     -540.7 |    -1458.3 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     200* |       2 |       7 |       12 |      0 |    20 |    +1.4% |  -34.796 |     -540.8 |    -1456.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     207* |       2 |       8 |       12 |      0 |    21 |    +1.5% |  -34.796 |     -540.8 |    -1455.3 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     210* |       2 |      10 |       12 |      0 |    21 |    +1.6% |  -34.796 |     -553.4 |    -1557.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     217* |       2 |      11 |       12 |      0 |    21 |    +1.6% |  -34.796 |     -553.4 |    -1554.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     220* |       2 |      11 |       12 |      0 |    23 |    +1.6% |  -34.796 |     -553.4 |    -1556.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     220* |       2 |      11 |       12 |      0 |    21 |    +1.6% |  -34.796 |     -553.4 |    -1554.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     223* |       2 |      11 |       12 |      0 |    21 |    +1.6% |  -34.796 |     -553.4 |    -1554.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     226* |       2 |      11 |       12 |      0 |    21 |    +1.6% |  -34.796 |     -553.4 |    -1554.7 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     229* |       2 |      12 |       12 |      0 |    22 |    +1.6% |  -34.796 |     -561.0 |    -1546.4 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     230* |       2 |      12 |       12 |      0 |    22 |    +1.6% |  -34.796 |     -561.0 |    -1546.4 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     232* |       2 |      13 |       12 |      0 |    22 |    +1.6% |  -34.796 |     -561.0 |    -1545.2 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     236* |       2 |      13 |       12 |      0 |    24 |    +1.6% |  -34.796 |     -560.5 |    -1545.1 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     240* |       2 |      14 |       15 |      0 |    24 |    +2.1% |  -34.796 |     -560.5 |    -1567.5 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     245* |       2 |      14 |       13 |      0 |    24 |    +1.8% |  -34.796 |     -560.5 |    -1564.2 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     250* |       2 |      15 |       17 |      0 |    24 |    +2.3% |  -34.796 |     -562.3 |    -1660.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     251* |       2 |      15 |       17 |      0 |    25 |    +2.3% |  -34.796 |     -562.3 |    -1658.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     254* |       2 |      15 |       17 |      0 |    25 |    +2.3% |  -34.796 |     -562.3 |    -1658.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     259* |       3 |      15 |       17 |      0 |    26 |    +2.2% |  -34.796 |     -562.3 |    -1657.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     260* |       3 |      15 |       17 |      0 |    26 |    +2.2% |  -34.796 |     -562.3 |    -1657.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     266* |       3 |      18 |       17 |      0 |    29 |    +2.3% |  -34.796 |     -562.3 |    -1654.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     270* |       3 |      20 |       17 |      0 |    30 |    +2.4% |  -36.841 |     -570.6 |    -1659.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     272* |       3 |      18 |       17 |      0 |    29 |    +2.3% |  -34.796 |     -562.3 |    -1654.0 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     278* |       3 |      21 |       17 |      0 |    31 |    +2.5% |  -34.796 |     -564.1 |    -1661.6 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     280* |       3 |      22 |       17 |      0 |    31 |    +2.5% |  -34.796 |     -564.1 |    -1646.4 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     285* |       3 |      24 |       17 |      0 |    34 |    +2.7% |  -34.796 |     -564.1 |    -1625.3 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     288* |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     288* |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     289+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     290+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     290+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     291+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     292+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     293+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     294+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     295+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     296+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     297+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     298+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     299+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     300+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     300+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     301+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     302+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     303+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     304+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     305+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     306+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     307+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     308+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     309+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     310+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     310+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     311+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     312+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     313+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     314+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     315+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     316+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     317+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     318+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     319+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     320+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     320+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     321+ |       4 |      24 |       17 |      0 |    35 |    +2.6% |  -34.796 |     -564.1 |    -1621.8 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     326+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     327+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     328+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     329+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     330+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     330+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     331+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     332+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     333+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     334+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     335+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     336+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     337+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     338+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     339+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     340+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     340+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     341+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     342+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     343+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     344+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     345+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     346+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     347+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     348+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     349+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     350+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     350+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     351+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     352+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     353+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     354+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     355+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     356+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     357+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     358+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     359+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     360+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     360+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     361+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+     362+ |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     70 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+    final |       4 |      28 |       17 |      0 |    35 |    +2.8% |  -34.796 |     -564.1 |    -1605.3 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 4 buffers.
+[INFO RSZ-0045] Inserted 17 buffers, 3 to split loads.
+[INFO RSZ-0051] Resized 28 instances: 28 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 35 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 5.79s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.00s
+Took 6 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 221.32 um^2
+[INFO DPL-0007] Movable instances area: 100.43 um^2
+[INFO DPL-0008] Fixed instances area within core: 3.21 um^2
+[INFO DPL-0009] Utilization: 46.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 915 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         44 |        14 |        30
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.01s
+Placement Analysis
+---------------------------------
+total displacement         22.9 u
+average displacement        0.0 u
+max displacement            1.7 u
+original HPWL            1608.7 u
+legalized HPWL           1631.0 u
+delta HPWL                    1 %
+
+check_placement -verbose
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/asap7/uart/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+repair_timing -setup -sequence "vt_swap reroute" -skip_last_gasp -repair_tns 0 -verbose
+[INFO RSZ-0100] Repair move sequence: RerouteMove 
+[INFO RSZ-0094] Found 69 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1 out of 69 (0.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -37.075 |     -590.0 |    -1691.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -37.075 |     -590.0 |    -1691.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -37.075 |     -590.0 |    -1691.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+    final |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -37.075 |     -590.0 |    -1691.8 |     69 | uart_rx_inst.data_reg\[1\]$_SDFFCE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.07s
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 104 um^2 47% utilization.
+[INFO FLW-0007] clock clk period 270.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 106
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/uart/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/uart/base/5_1_grt.sdc
+Elapsed time: 0:09.33[h:]min:sec. CPU time: user 105.92 sys 1.00 (1146%). Peak memory: 370208KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb            9            361 ffdeb65f1aa3f44352b6
+5_1_grt                   .sdc                             4142be2a8790fdbc6465

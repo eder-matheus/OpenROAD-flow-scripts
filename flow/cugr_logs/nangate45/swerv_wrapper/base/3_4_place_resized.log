@@ -1,0 +1,179 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_2048x39.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x34.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x21.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/2_floorplan.sdc
+source ./platforms/nangate45/setRC.tcl
+estimate_parasitics -placement
+Took 5 seconds: estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 1915 violating endpoints
+[INFO RSZ-0154] Identified 1 critical arithmetic instances
+[WARNING ODB-0453] The modules cannot be swapped because module ALU_32_0_32_0_32_unused_CO_X_HAN_CARLSON has 111 ports but module ALU_32_0_32_0_32_unused_CO_X_KOGGE_STONE has 101 ports.
+[INFO RSZ-0160] 0 arithmetic instances have swapped to improve 'setup' target
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 10.070 11.200 ) ( 1089.840 989.800 ) um
+[INFO GPL-0016] Core area:                  1056662.922 um^2
+[INFO GPL-0036] Movable instances area:     160296.122 um^2
+[INFO GPL-0037] Total instances area:       638076.544 um^2
+[INFO GPL-0035] Pin density area adjust:     14539.560 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:             97990
+[INFO GPL-0007] Movable instances:               87431
+[INFO GPL-0008] Fixed instances:                  5059
+[INFO GPL-0009] Dummy instances:                  5500
+[INFO GPL-0010] Number of nets:                 103294
+[INFO GPL-0011] Number of pins:                 339939
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 1100.000 1000.000 ) um
+[INFO GPL-0013] Placement BBox: ( 10.070 11.200 ) ( 1089.840 989.800 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                1056662.922 um^2
+[INFO GPL-0017] Fixed instances area:       517994.036 um^2
+[INFO GPL-0018] Movable instances area:     174835.682 um^2
+[INFO GPL-0019] Utilization:                    32.457 %
+[INFO GPL-0020] Standard cells area:        174835.682 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 87431 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |    103294
+     1000 |     +0.0% |       0 |       2 |             2 |    102294
+     2000 |     +0.0% |       0 |       4 |             4 |    101294
+     3000 |     +0.0% |       0 |       4 |             4 |    100294
+     4000 |     +0.0% |       0 |       4 |             4 |     99294
+     5000 |     +0.0% |       0 |       5 |             5 |     98294
+     6000 |     +0.0% |       0 |       5 |             5 |     97294
+     7000 |     +0.0% |       0 |       5 |             5 |     96294
+     8000 |     +0.0% |       0 |       5 |             5 |     95294
+     9000 |     +0.0% |       0 |       7 |             7 |     94294
+    10000 |     +0.0% |       0 |       7 |             7 |     93294
+    11000 |     +0.0% |       0 |       7 |             7 |     92294
+    12000 |     +0.0% |       0 |       9 |             9 |     91294
+    13000 |     +0.0% |       0 |      14 |            14 |     90294
+    14000 |     +0.0% |       0 |      17 |            17 |     89294
+    15000 |     +0.0% |       0 |      20 |            20 |     88294
+    16000 |     +0.0% |       0 |      21 |            21 |     87294
+    17000 |     +0.0% |       0 |      25 |            25 |     86294
+    18000 |     +0.0% |       0 |      25 |            25 |     85294
+    19000 |     +0.0% |       0 |      27 |            27 |     84294
+    20000 |     +0.0% |       0 |      29 |            29 |     83294
+    21000 |     +0.0% |       0 |      32 |            32 |     82294
+    22000 |     +0.0% |       0 |      45 |            45 |     81294
+    23000 |     +0.0% |       0 |      47 |            47 |     80294
+    24000 |     +0.0% |       0 |      55 |            55 |     79294
+    25000 |     +0.0% |       0 |      61 |            61 |     78294
+    26000 |     +0.0% |       0 |      62 |            62 |     77294
+    27000 |     +0.0% |       0 |      67 |            67 |     76294
+    28000 |     +0.0% |       0 |      76 |            76 |     75294
+    29000 |     +0.0% |       1 |      81 |            82 |     74294
+    30000 |     +0.0% |       1 |      87 |            88 |     73294
+    31000 |     +0.0% |       1 |      94 |            95 |     72294
+    32000 |     +0.0% |       1 |      96 |           100 |     71294
+    33000 |     +0.0% |       1 |      96 |           100 |     70294
+    34000 |     +0.0% |       1 |     103 |           107 |     69294
+    35000 |     +0.0% |       1 |     105 |           109 |     68294
+    36000 |     +0.0% |       1 |     121 |           125 |     67294
+    37000 |     +0.0% |       1 |     122 |           126 |     66294
+    38000 |     +0.0% |       1 |     126 |           130 |     65294
+    39000 |     +0.0% |       1 |     127 |           131 |     64294
+    40000 |     +0.0% |       1 |     128 |           132 |     63294
+    41000 |     +0.0% |       1 |     130 |           134 |     62294
+    42000 |     +0.0% |       1 |     131 |           135 |     61294
+    43000 |     +0.0% |       1 |     133 |           137 |     60294
+    44000 |     +0.0% |       1 |     135 |           139 |     59294
+    45000 |     +0.0% |       1 |     137 |           141 |     58294
+    46000 |     +0.0% |       1 |     141 |           145 |     57294
+    47000 |     +0.0% |       1 |     145 |           149 |     56294
+    48000 |     +0.0% |       1 |     149 |           153 |     55294
+    49000 |     +0.0% |       1 |     155 |           159 |     54294
+    50000 |     +0.0% |       1 |     158 |           162 |     53294
+    51000 |     +0.0% |       1 |     158 |           162 |     52294
+    52000 |     +0.0% |       1 |     165 |           169 |     51294
+    53000 |     +0.0% |       1 |     166 |           170 |     50294
+    54000 |     +0.0% |       1 |     167 |           171 |     49294
+    55000 |     +0.0% |       1 |     171 |           175 |     48294
+    56000 |     +0.0% |       1 |     171 |           175 |     47294
+    57000 |     +0.0% |       1 |     172 |           176 |     46294
+    58000 |     +0.0% |       1 |     173 |           177 |     45294
+    59000 |     +0.0% |       1 |     179 |           183 |     44294
+    60000 |     +0.0% |       1 |     183 |           187 |     43294
+    61000 |     +0.0% |       1 |     185 |           189 |     42294
+    62000 |     +0.0% |       1 |     196 |           200 |     41294
+    63000 |     +0.0% |       1 |     203 |           207 |     40294
+    64000 |     +0.0% |       1 |     203 |           207 |     39294
+    65000 |     +0.1% |       1 |     208 |           212 |     38294
+    66000 |     +0.1% |       1 |     221 |           225 |     37294
+    67000 |     +0.1% |       1 |     223 |           227 |     36294
+    68000 |     +0.1% |       1 |     223 |           227 |     35294
+    69000 |     +0.1% |       1 |     224 |           228 |     34294
+    70000 |     +0.1% |       1 |     228 |           232 |     33294
+    71000 |     +0.1% |       1 |     231 |           235 |     32294
+    72000 |     +0.1% |       1 |     232 |           236 |     31294
+    73000 |     +0.1% |       1 |     233 |           237 |     30294
+    74000 |     +0.1% |       1 |     233 |           237 |     29294
+    75000 |     +0.1% |       1 |     233 |           237 |     28294
+    76000 |     +0.1% |       1 |     235 |           239 |     27294
+    77000 |     +0.1% |       1 |     235 |           239 |     26294
+    78000 |     +0.1% |       1 |     235 |           239 |     25294
+    79000 |     +0.1% |       1 |     235 |           239 |     24294
+    80000 |     +0.1% |       1 |     235 |           239 |     23294
+    81000 |     +0.1% |       1 |     241 |           245 |     22294
+    82000 |     +0.1% |       1 |     242 |           246 |     21294
+    83000 |     +0.1% |       1 |     242 |           246 |     20294
+    84000 |     +0.1% |       1 |     242 |           246 |     19294
+    85000 |     +0.1% |       1 |     242 |           246 |     18294
+    86000 |     +0.1% |       1 |     242 |           246 |     17294
+    87000 |     +0.1% |       1 |     242 |           246 |     16294
+    88000 |     +0.1% |       1 |     242 |           246 |     15294
+    89000 |     +0.1% |       1 |     242 |           246 |     14294
+    90000 |     +0.1% |       1 |     242 |           246 |     13294
+    91000 |     +0.1% |       1 |     243 |           247 |     12294
+    92000 |     +0.1% |       1 |     243 |           247 |     11294
+    93000 |     +0.1% |       1 |     243 |           247 |     10294
+    94000 |     +0.1% |       1 |     247 |           251 |      9294
+    95000 |     +0.1% |       1 |     247 |           251 |      8294
+    96000 |     +0.1% |       1 |     247 |           251 |      7294
+    97000 |     +0.1% |       1 |     247 |           251 |      6294
+    98000 |     +0.1% |       1 |     247 |           251 |      5294
+    99000 |     +0.1% |       1 |     247 |           251 |      4294
+   100000 |     +0.1% |       1 |     247 |           251 |      3294
+   101000 |     +0.1% |       1 |     249 |           253 |      2294
+   102000 |     +0.1% |       1 |     249 |           253 |      1294
+   103000 |     +0.1% |       1 |     249 |           253 |       294
+    final |     +0.1% |       1 |     249 |           253 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 22 slew violations.
+[INFO RSZ-0036] Found 243 capacitance violations.
+[INFO RSZ-0039] Resized 1 instances.
+[INFO RSZ-0038] Inserted 249 buffers in 253 nets.
+[INFO RSZ-0504] Runtime: 9.55s
+Took 9 seconds: repair_design -verbose
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 633269 um^2 60% utilization.
+Instance count before 92490, after 92739
+Pin count before 338523, after 339021
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/swerv_wrapper/base/3_4_place_resized.odb
+Elapsed time: 0:54.46[h:]min:sec. CPU time: user 81.67 sys 44.26 (231%). Peak memory: 731380KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb           54            714 ce80bada9b2e2b151d83

@@ -1,0 +1,75 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/6_1_fill.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation aes_cipher_top (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 100159 rc segments
+[INFO RCX-0439] Coupling Cap extraction aes_cipher_top ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 54% of 111253 wires extracted
+[INFO RCX-0442] 100% of 111253 wires extracted
+[INFO RCX-0045] Extract 12645 nets, 112804 rsegs, 112804 caps, 171951 ccs
+[INFO RCX-0443] 12645 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 8.32e-02 W
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.46e-01 V
+Average voltage  : 7.62e-01 V
+Average IR drop  : 7.52e-03 V
+Worstcase IR drop: 2.41e-02 V
+Percentage drop  : 3.13 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 8.32e-02 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 2.35e-02 V
+Average voltage  : 7.43e-03 V
+Average IR drop  : 7.43e-03 V
+Worstcase IR drop: 2.35e-02 V
+Percentage drop  : 3.06 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                             10865     529.30
+  Tap cell                                411      11.98
+  Clock buffer                             42      15.73
+  Timing Repair Buffer                   2323     221.00
+  Inverter                                170      10.35
+  Clock inverter                           18       3.32
+  Timing Repair inverter                    2       0.10
+  Sequential cell                         530     154.83
+  Multi-Input combinational cell         9327    1028.44
+  Total                                 23688    1975.07
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 1446 um^2 73% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:09.44[h:]min:sec. CPU time: user 11.88 sys 6.71 (196%). Peak memory: 540696KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                  9            528                  N/A

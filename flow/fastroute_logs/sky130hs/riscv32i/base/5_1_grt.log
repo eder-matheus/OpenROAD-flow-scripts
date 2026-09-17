@@ -1,0 +1,782 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hs/lib/sky130_fd_sc_hs__tt_025C_1v80.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/riscv32i/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/riscv32i/base/4_cts.sdc
+source ./platforms/sky130hs/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     390
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net net1535 has 101 pins which may impact routing performance. Consider optimization.
+
+Design:                   riscv
+Die area:                 ( 0 0 ) ( 380825 380825 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     7280
+Number of terminals:      167
+Number of snets:          2
+Number of nets:           5876
+
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 212.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 232167.
+[INFO DRT-0033] mcon shape region query size = 132935.
+[INFO DRT-0033] met1 shape region query size = 31375.
+[INFO DRT-0033] via shape region query size = 7695.
+[INFO DRT-0033] met2 shape region query size = 4706.
+[INFO DRT-0033] via2 shape region query size = 6156.
+[INFO DRT-0033] met3 shape region query size = 4693.
+[INFO DRT-0033] via3 shape region query size = 6156.
+[INFO DRT-0033] met4 shape region query size = 1931.
+[INFO DRT-0033] via4 shape region query size = 365.
+[INFO DRT-0033] met5 shape region query size = 419.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0078]   Complete 1716 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0081]   Complete 212 unique inst patterns.
+[INFO DRT-0084]   Complete 3690 groups.
+#scanned instances     = 7280
+#unique  instances     = 212
+#stdCellGenAp          = 6281
+#stdCellValidPlanarAp  = 132
+#stdCellValidViaAp     = 4912
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 21330
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:02:43, elapsed time = 00:00:07, memory = 211.26 (MB), peak = 206.46 (MB)
+Took 8 seconds: pin_access
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hs/riscv32i/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4800  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3700  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4800  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.7400  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9600  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.3300  line-2-Via Pitch: 3.1100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 5254
+[INFO GRT-0019] Found 101 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 101
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal      42552         32799          22.92%
+met2       Vertical        34833         26775          23.13%
+met3       Horizontal      24810         19404          21.79%
+met4       Vertical        17187         12291          28.49%
+met5       Horizontal       4131          2805          32.10%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove congestion.
+[INFO GRT-0102] Start extra iteration 1/30
+[INFO GRT-0102] Start extra iteration 2/30
+[INFO GRT-0102] Start extra iteration 3/30
+[INFO GRT-0197] Via related to pin nodes: 39571
+[INFO GRT-0198] Via related Steiner nodes: 1459
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 51820
+[INFO GRT-0112] Final usage 3D: 195638
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1             32799         18300           55.79%             0 /  0 /  0
+met2             26775         17788           66.44%             0 /  0 /  0
+met3             19404          1346            6.94%             0 /  0 /  0
+met4             12291          2744           22.33%             0 /  0 /  0
+met5              2805             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            94074         40178           42.71%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 418701 um
+[INFO GRT-0014] Routed nets: 5837
+[INFO GRT-0303] Global routing runtime = 00:00:01
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      5994
+     1000 |     +0.0% |       0 |       1 |             1 |      4994
+[WARNING RSZ-0104] Net _0090_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0084_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0081_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0027_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0024_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0015_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0087_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0075_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0060_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0039_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0036_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0012_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0112_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0078_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0072_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0066_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0063_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0057_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0054_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0048_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0018_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0006_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0003_ only has one pin. Check if it is intended to be dangling.
+     2000 |     +0.0% |       0 |       1 |             1 |      3994
+[WARNING RSZ-0104] Net _0093_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0069_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0051_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0045_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0042_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0033_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0030_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0021_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0009_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0097_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0095_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0101_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0099_ only has one pin. Check if it is intended to be dangling.
+     3000 |     +0.1% |       4 |       1 |             5 |      2994
+     4000 |     +0.1% |       4 |       2 |             6 |      1994
+[WARNING RSZ-0104] Net _0109_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0107_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _0105_ only has one pin. Check if it is intended to be dangling.
+     5000 |     +0.1% |       4 |       2 |             6 |       994
+    final |     +0.1% |       4 |       2 |             6 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 4 slew violations.
+[INFO RSZ-0036] Found 2 capacitance violations.
+[INFO RSZ-0039] Resized 4 instances.
+[INFO RSZ-0038] Inserted 2 buffers in 6 nets.
+[INFO RSZ-0504] Runtime: 0.98s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 142327.93 um^2
+[INFO DPL-0007] Movable instances area: 100350.75 um^2
+[INFO DPL-0008] Fixed instances area within core: 2480.72 um^2
+[INFO DPL-0009] Utilization: 72.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 7282 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          4 |         2 |         2
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.04s
+Placement Analysis
+---------------------------------
+total displacement         65.2 u
+average displacement        0.0 u
+max displacement           14.8 u
+original HPWL          217965.6 u
+legalized HPWL         218026.4 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hs/riscv32i/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 1057 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1057 out of 1057 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.611 |     -245.4 |     -464.1 |   1057 | aluout[23]
+      10* |       0 |       7 |        0 |      0 |     2 |    +0.0% |   -0.536 |     -232.9 |     -457.7 |   1057 | aluout[26]
+      20* |       0 |      15 |        1 |      0 |     3 |    +0.1% |   -0.515 |     -231.3 |     -434.6 |   1057 | dp.rf.rf\[7\]\[24\]$_DFFE_PP_/D
+      30* |       0 |      21 |        4 |      1 |     4 |    +0.2% |   -0.491 |     -235.5 |     -414.4 |   1057 | aluout[26]
+      40* |       0 |      23 |        6 |      1 |    10 |    +0.2% |   -0.521 |     -237.1 |     -421.6 |   1057 | aluout[10]
+      50* |       1 |      29 |        6 |      1 |    13 |    +0.3% |   -0.490 |     -235.8 |     -391.9 |   1057 | dp.rf.rf\[26\]\[27\]$_DFFE_PP_/D
+      55* |       1 |      31 |        7 |      1 |    15 |    +0.3% |   -0.467 |     -234.0 |     -386.7 |   1057 | aluout[26]
+      60* |       1 |      34 |        8 |      1 |    15 |    +0.3% |   -0.476 |     -252.1 |     -381.0 |   1057 | aluout[27]
+      70* |       1 |      42 |        9 |      1 |    16 |    +0.4% |   -0.477 |     -251.2 |     -375.2 |   1057 | aluout[27]
+      80* |       1 |      50 |        9 |      1 |    18 |    +0.4% |   -0.458 |     -231.1 |     -364.2 |   1057 | aluout[26]
+      90* |       1 |      57 |       10 |      1 |    20 |    +0.5% |   -0.483 |     -231.5 |     -375.2 |   1057 | aluout[26]
+     100* |       1 |      62 |       13 |      1 |    22 |    +0.5% |   -0.457 |     -225.6 |     -370.6 |   1057 | aluout[26]
+     110* |       1 |      68 |       15 |      1 |    24 |    +0.5% |   -0.457 |     -224.9 |     -365.8 |   1057 | aluout[26]
+     120* |       1 |      74 |       15 |      2 |    27 |    +0.6% |   -0.457 |     -224.8 |     -367.4 |   1057 | aluout[26]
+     125* |       1 |      75 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.4 |   1057 | aluout[26]
+     128* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     130* |       1 |      77 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -225.0 |     -364.8 |   1057 | aluout[26]
+     130* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     132* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     134* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     136* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     138* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     140* |       1 |      77 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -225.0 |     -364.8 |   1057 | aluout[26]
+     140* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     142* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     144* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     146* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     148* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     150* |       1 |      77 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -225.0 |     -364.8 |   1057 | aluout[26]
+     150* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     152* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     154* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     156* |       1 |      76 |       15 |      2 |    28 |    +0.6% |   -0.456 |     -224.7 |     -367.2 |   1057 | aluout[26]
+     160* |       1 |      76 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.6 |   1057 | aluout[26]
+     162* |       1 |      76 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.6 |   1057 | aluout[26]
+     165* |       1 |      76 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.6 |   1057 | aluout[26]
+     168* |       1 |      76 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.6 |   1057 | aluout[26]
+     170* |       1 |      76 |       17 |      3 |    29 |    +0.6% |   -0.456 |     -224.4 |     -367.5 |   1057 | aluout[26]
+     171* |       1 |      76 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.6 |   1057 | aluout[26]
+     175* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     178* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     180* |       1 |      77 |       17 |      3 |    29 |    +0.6% |   -0.456 |     -224.4 |     -367.3 |   1057 | aluout[26]
+     181* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     184* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     187* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     190* |       1 |      78 |       17 |      3 |    29 |    +0.6% |   -0.456 |     -224.8 |     -365.0 |   1057 | aluout[26]
+     190* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     193* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     196* |       1 |      77 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     200* |       1 |      80 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.8 |     -364.5 |   1057 | aluout[26]
+     210* |       1 |      86 |       17 |      4 |    31 |    +0.7% |   -0.457 |     -224.9 |     -363.3 |   1057 | aluout[26]
+     218* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     220* |       1 |      79 |       17 |      3 |    29 |    +0.6% |   -0.456 |     -224.4 |     -367.2 |   1057 | aluout[26]
+     221* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     224* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     227* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     230* |       1 |      81 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.9 |     -363.5 |   1057 | aluout[26]
+     240* |       1 |      89 |       16 |      5 |    29 |    +0.7% |   -0.459 |     -225.1 |     -361.6 |   1057 | aluout[26]
+     240* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     243* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     250* |       1 |      85 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.5 |   1057 | aluout[26]
+     256* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     260* |       1 |      82 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.9 |     -363.6 |   1057 | aluout[26]
+     269* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     270* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     280* |       1 |      87 |       16 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.3 |   1057 | aluout[26]
+     282* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     290* |       1 |      86 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.1 |   1057 | aluout[26]
+     295* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     300* |       1 |      83 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     308* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     310* |       1 |      80 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.8 |     -364.5 |   1057 | aluout[26]
+     320* |       1 |      88 |       16 |      5 |    29 |    +0.7% |   -0.464 |     -225.5 |     -362.3 |   1057 | aluout[26]
+     321* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     330* |       1 |      86 |       16 |      4 |    29 |    +0.7% |   -0.457 |     -225.0 |     -365.2 |   1057 | aluout[26]
+     334* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     340* |       1 |      84 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     350* |       1 |      91 |       17 |      5 |    29 |    +0.7% |   -0.459 |     -225.1 |     -363.2 |   1057 | aluout[26]
+     350* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     360* |       1 |      86 |       16 |      5 |    29 |    +0.7% |   -0.458 |     -225.1 |     -365.6 |   1057 | dp.rf.rf\[21\]\[18\]$_DFFE_PP_/D
+     366* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     370* |       1 |      82 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.9 |     -363.6 |   1057 | aluout[26]
+     380* |       1 |      89 |       17 |      5 |    29 |    +0.7% |   -0.464 |     -225.5 |     -364.0 |   1057 | aluout[26]
+     382* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     390* |       1 |      86 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.1 |   1057 | aluout[26]
+     398* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     400* |       1 |      80 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.8 |     -364.5 |   1057 | aluout[26]
+     410* |       1 |      88 |       16 |      5 |    29 |    +0.7% |   -0.464 |     -225.5 |     -362.3 |   1057 | aluout[26]
+     411* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     420* |       1 |      86 |       16 |      4 |    29 |    +0.7% |   -0.457 |     -225.0 |     -365.2 |   1057 | aluout[26]
+     424* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     430* |       1 |      84 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     440* |       1 |      91 |       17 |      5 |    29 |    +0.7% |   -0.459 |     -225.1 |     -363.2 |   1057 | aluout[26]
+     440* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     450* |       1 |      86 |       16 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -366.1 |   1057 | dp.rf.rf\[7\]\[18\]$_DFFE_PP_/D
+     453* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     460* |       1 |      85 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.5 |   1057 | aluout[26]
+     466* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     470* |       1 |      82 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.9 |     -363.6 |   1057 | aluout[26]
+     479* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     480* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     490* |       1 |      87 |       16 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.3 |   1057 | aluout[26]
+     492* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     500* |       1 |      86 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -225.0 |     -362.1 |   1057 | aluout[26]
+     505* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     510* |       1 |      83 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     520* |       1 |      90 |       17 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -363.8 |   1057 | aluout[26]
+     524* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     530* |       1 |      84 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     540* |       1 |      91 |       17 |      5 |    29 |    +0.7% |   -0.459 |     -225.1 |     -363.2 |   1057 | aluout[26]
+     540* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     550* |       1 |      86 |       16 |      5 |    29 |    +0.7% |   -0.458 |     -225.1 |     -365.6 |   1057 | dp.rf.rf\[21\]\[18\]$_DFFE_PP_/D
+     559* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     560* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     570* |       1 |      86 |       17 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -363.8 |   1057 | aluout[26]
+     578* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     580* |       1 |      80 |       16 |      3 |    29 |    +0.6% |   -0.457 |     -224.8 |     -364.5 |   1057 | aluout[26]
+     590* |       1 |      87 |       17 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -364.2 |   1057 | aluout[26]
+     594* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     600* |       1 |      84 |       16 |      3 |    29 |    +0.7% |   -0.457 |     -224.9 |     -362.5 |   1057 | aluout[26]
+     610* |       1 |      91 |       17 |      5 |    29 |    +0.7% |   -0.457 |     -225.0 |     -363.7 |   1057 | aluout[26]
+     613* |       1 |      79 |       16 |      3 |    29 |    +0.6% |   -0.456 |     -224.7 |     -365.4 |   1057 | aluout[26]
+     620* |       1 |      82 |       18 |      3 |    31 |    +0.7% |   -0.456 |     -224.2 |     -362.4 |   1057 | aluout[26]
+     627* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     630* |       1 |      84 |       16 |      3 |    30 |    +0.7% |   -0.457 |     -224.5 |     -360.2 |   1057 | aluout[26]
+     640* |       1 |      91 |       17 |      5 |    30 |    +0.7% |   -0.457 |     -224.6 |     -360.7 |   1057 | aluout[26]
+     646* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     650* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.457 |     -224.5 |     -360.4 |   1057 | aluout[26]
+     660* |       1 |      92 |       17 |      5 |    30 |    +0.7% |   -0.457 |     -224.6 |     -360.4 |   1057 | aluout[26]
+     665* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     670* |       1 |      86 |       16 |      3 |    30 |    +0.7% |   -0.457 |     -224.5 |     -359.2 |   1057 | aluout[26]
+     680* |       1 |      93 |       17 |      5 |    30 |    +0.7% |   -0.459 |     -224.7 |     -359.9 |   1057 | aluout[26]
+     681* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     690* |       1 |      89 |       16 |      4 |    30 |    +0.7% |   -0.457 |     -224.6 |     -361.9 |   1057 | aluout[26]
+     700* |       1 |      97 |       17 |      5 |    30 |    +0.8% |   -0.459 |     -224.7 |     -359.7 |   1057 | aluout[26]
+     700* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     710* |       1 |      89 |       16 |      5 |    30 |    +0.7% |   -0.458 |     -224.7 |     -362.3 |   1057 | dp.rf.rf\[21\]\[18\]$_DFFE_PP_/D
+     719* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     720* |       1 |      82 |       16 |      3 |    30 |    +0.6% |   -0.456 |     -224.3 |     -362.1 |   1057 | aluout[26]
+     730* |       1 |      88 |       18 |      4 |    31 |    +0.7% |   -0.456 |     -223.4 |     -359.0 |   1057 | aluout[26]
+     740* |       2 |      92 |       19 |      4 |    35 |    +0.7% |   -0.456 |     -222.2 |     -357.0 |   1057 | aluout[26]
+     742* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     750* |       1 |      89 |       18 |      4 |    30 |    +0.7% |   -0.456 |     -223.4 |     -358.8 |   1057 | aluout[26]
+     758* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     760* |       1 |      85 |       17 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -359.8 |   1057 | aluout[26]
+     770* |       2 |      91 |       19 |      4 |    30 |    +0.7% |   -0.456 |     -223.3 |     -354.9 |   1057 | aluout[26]
+     774* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     780* |       1 |      88 |       17 |      4 |    30 |    +0.7% |   -0.456 |     -223.4 |     -360.4 |   1057 | aluout[26]
+     790* |       2 |      95 |       19 |      4 |    30 |    +0.7% |   -0.456 |     -222.8 |     -355.8 |   1057 | aluout[26]
+     790* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     800* |       1 |      90 |       19 |      4 |    30 |    +0.7% |   -0.456 |     -223.2 |     -356.4 |   1057 | aluout[26]
+     806* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     810* |       1 |      87 |       17 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -359.7 |   1057 | aluout[26]
+     820* |       2 |      93 |       19 |      4 |    30 |    +0.7% |   -0.456 |     -223.3 |     -355.4 |   1057 | aluout[26]
+     822* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     830* |       1 |      89 |       18 |      4 |    30 |    +0.7% |   -0.456 |     -223.4 |     -358.8 |   1057 | aluout[26]
+     838* |       1 |      85 |       16 |      3 |    30 |    +0.7% |   -0.456 |     -223.3 |     -358.5 |   1057 | aluout[26]
+     840* |       1 |      85 |       16 |      3 |    31 |    +0.7% |   -0.456 |     -223.3 |     -357.6 |   1057 | aluout[26]
+     850* |       1 |      92 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -227.7 |     -356.1 |   1057 | aluout[26]
+     854* |       1 |      87 |       17 |      3 |    31 |    +0.7% |   -0.456 |     -223.4 |     -355.7 |   1057 | aluout[26]
+     860* |       1 |      90 |       18 |      4 |    31 |    +0.7% |   -0.456 |     -223.5 |     -357.6 |   1057 | aluout[26]
+     870* |       2 |      97 |       20 |      4 |    31 |    +0.8% |   -0.456 |     -222.8 |     -352.9 |   1057 | aluout[26]
+     870* |       1 |      87 |       17 |      3 |    31 |    +0.7% |   -0.456 |     -223.4 |     -355.7 |   1057 | aluout[26]
+     874* |       1 |      87 |       17 |      3 |    31 |    +0.7% |   -0.456 |     -223.4 |     -355.7 |   1057 | aluout[26]
+     880* |       1 |      89 |       17 |      3 |    34 |    +0.7% |   -0.456 |     -218.0 |     -355.3 |   1057 | aluout[26]
+     881* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     882* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     890* |       1 |      91 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -356.6 |   1057 | aluout[26]
+     900* |       2 |      99 |       20 |      4 |    32 |    +0.8% |   -0.456 |     -223.7 |     -352.9 |   1057 | aluout[26]
+     900* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     910* |       1 |      93 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -356.1 |   1057 | aluout[26]
+     918* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     920* |       1 |      87 |       18 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -357.2 |   1057 | aluout[26]
+     930* |       1 |      95 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -352.1 |   1057 | aluout[26]
+     936* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     940* |       1 |      89 |       18 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -357.1 |   1057 | aluout[26]
+     950* |       2 |      95 |       20 |      4 |    32 |    +0.7% |   -0.456 |     -224.1 |     -352.1 |   1057 | aluout[26]
+     954* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     960* |       1 |      90 |       18 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -357.8 |   1057 | aluout[26]
+     970* |       2 |      97 |       20 |      4 |    32 |    +0.8% |   -0.456 |     -224.2 |     -352.5 |   1057 | aluout[26]
+     972* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+     980* |       1 |      91 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -356.6 |   1057 | aluout[26]
+     990* |       2 |      99 |       20 |      4 |    32 |    +0.8% |   -0.456 |     -223.7 |     -352.9 |   1057 | aluout[26]
+     990* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+    1000* |       1 |      93 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -356.1 |   1057 | aluout[26]
+    1008* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+    1010* |       1 |      87 |       18 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -357.2 |   1057 | aluout[26]
+    1020* |       1 |      95 |       19 |      4 |    32 |    +0.7% |   -0.456 |     -224.4 |     -352.1 |   1057 | aluout[26]
+    1026* |       1 |      87 |       17 |      3 |    32 |    +0.7% |   -0.456 |     -224.3 |     -356.0 |   1057 | aluout[26]
+    1030* |       1 |      88 |       17 |      3 |    34 |    +0.7% |   -0.456 |     -224.3 |     -354.2 |   1057 | aluout[26]
+    1040* |       1 |      95 |       18 |      3 |    36 |    +0.7% |   -0.457 |     -224.5 |     -353.5 |   1057 | aluout[26]
+    1047* |       1 |      87 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.3 |     -355.3 |   1057 | aluout[26]
+    1050* |       1 |      89 |       17 |      3 |    33 |    +0.7% |   -0.457 |     -224.4 |     -354.8 |   1057 | aluout[26]
+    1060* |       1 |      98 |       18 |      3 |    33 |    +0.8% |   -0.457 |     -224.6 |     -352.6 |   1057 | aluout[26]
+    1060* |       1 |      88 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.3 |     -354.7 |   1057 | aluout[26]
+    1070* |       1 |      96 |       18 |      3 |    33 |    +0.7% |   -0.457 |     -224.5 |     -352.4 |   1057 | aluout[26]
+    1072* |       1 |      88 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.3 |     -354.7 |   1057 | aluout[26]
+    1080* |       1 |      94 |       18 |      3 |    33 |    +0.7% |   -0.457 |     -224.5 |     -353.1 |   1057 | aluout[26]
+    1084* |       1 |      88 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.3 |     -354.7 |   1057 | aluout[26]
+    1090* |       1 |      92 |       18 |      3 |    33 |    +0.7% |   -0.457 |     -224.5 |     -352.6 |   1057 | aluout[26]
+    1096* |       1 |      88 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.3 |     -354.7 |   1057 | aluout[26]
+    1100* |       1 |      91 |       17 |      3 |    33 |    +0.7% |   -0.456 |     -224.1 |     -355.3 |   1057 | aluout[26]
+    1110* |       1 |      97 |       19 |      4 |    34 |    +0.7% |   -0.457 |     -219.4 |     -358.5 |   1057 | aluout[26]
+    1113* |       1 |      95 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -362.7 |   1057 | aluout[26]
+    1120* |       1 |     100 |       19 |      4 |    33 |    +0.8% |   -0.457 |     -219.8 |     -360.8 |   1057 | aluout[26]
+    1125* |       1 |      95 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -362.7 |   1057 | aluout[26]
+    1130* |       1 |      99 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.6 |     -360.5 |   1057 | aluout[26]
+    1140* |       1 |     103 |       21 |      5 |    36 |    +0.8% |   -0.456 |     -221.4 |     -367.3 |   1057 | aluout[26]
+    1150* |       1 |     108 |       21 |      6 |    40 |    +0.8% |   -0.456 |     -219.8 |     -366.4 |   1057 | aluout[26]
+    1152* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1160* |       1 |     104 |       19 |      4 |    33 |    +0.8% |   -0.457 |     -219.8 |     -359.4 |   1057 | aluout[26]
+    1164* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1170* |       1 |     102 |       19 |      4 |    33 |    +0.8% |   -0.457 |     -219.8 |     -358.8 |   1057 | aluout[26]
+    1176* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1180* |       1 |     101 |       18 |      4 |    33 |    +0.8% |   -0.456 |     -218.1 |     -357.9 |   1057 | aluout[26]
+    1190* |       1 |     107 |       19 |      6 |    34 |    +0.8% |   -0.456 |     -218.2 |     -361.8 |   1057 | aluout[26]
+    1194* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1200* |       1 |     102 |       18 |      5 |    33 |    +0.8% |   -0.474 |     -238.5 |     -363.4 |   1057 | dp.rf.rf\[8\]\[23\]$_DFFE_PP_/D
+    1200* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1210* |       1 |     106 |       19 |      4 |    33 |    +0.8% |   -0.457 |     -219.8 |     -358.6 |   1057 | aluout[26]
+    1212* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1220* |       1 |     103 |       18 |      6 |    33 |    +0.8% |   -0.456 |     -223.4 |     -361.8 |   1057 | aluout[26]
+    1227* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1230* |       1 |     100 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -218.1 |     -358.2 |   1057 | aluout[26]
+    1240* |       1 |     106 |       21 |      6 |    33 |    +0.8% |   -0.456 |     -218.6 |     -359.7 |   1057 | aluout[26]
+    1242* |       1 |      98 |       18 |      4 |    33 |    +0.7% |   -0.456 |     -219.4 |     -360.9 |   1057 | aluout[26]
+    1250* |       1 |     103 |       19 |      5 |    33 |    +0.8% |   -0.467 |     -219.8 |     -367.0 |   1057 | aluout[8]
+    1260* |       1 |     107 |       22 |      5 |    36 |    +0.8% |   -0.457 |     -219.5 |     -360.2 |   1057 | aluout[26]
+    1270* |       1 |     114 |       22 |      5 |    39 |    +0.8% |   -0.457 |     -219.4 |     -357.5 |   1057 | aluout[26]
+    1280* |       1 |     122 |       23 |      6 |    39 |    +0.9% |   -0.483 |     -220.5 |     -351.7 |   1057 | aluout[26]
+    1283* |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1057 | aluout[26]
+    1290* |       1 |     128 |       25 |      7 |    39 |    +0.9% |   -0.455 |     -221.6 |     -349.8 |   1057 | aluout[26]
+    1300* |       1 |     132 |       31 |      8 |    39 |    +1.0% |   -0.492 |     -219.5 |     -383.6 |   1057 | aluout[31]
+    1300* |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1057 | aluout[26]
+    1300* |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1057 | aluout[26]
+    1300+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1301+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1302+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1303+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1304+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1305+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1306+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1307+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1308+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1309+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1310+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1310+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1311+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1312+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1313+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1314+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1315+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1316+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1317+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1318+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1319+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1320+ |       1 |     123 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.6 |     -349.3 |   1056 | aluout[26]
+    1323+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1324+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1325+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1326+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1327+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1328+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1329+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1330+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1330+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1331+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1332+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1333+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1334+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1335+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1336+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1337+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1338+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1339+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1340+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1340+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1341+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1342+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1343+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1344+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1345+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1346+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1347+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1348+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1349+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1350+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1350+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1351+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1352+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1353+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1354+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1355+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1356+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1357+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1358+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1359+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1360+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1360+ |       1 |     126 |       25 |      6 |    39 |    +0.9% |   -0.455 |     -219.3 |     -345.7 |   1056 | aluout[26]
+    1362+ |       1 |     126 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -345.4 |   1056 | aluout[26]
+    1363+ |       1 |     126 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -345.4 |   1056 | aluout[26]
+    1364+ |       1 |     126 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -345.4 |   1056 | aluout[26]
+    1365+ |       1 |     126 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -345.4 |   1056 | aluout[26]
+    1366+ |       1 |     126 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -345.4 |   1056 | aluout[26]
+    1368+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1369+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1370+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1370+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1371+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1372+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1373+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1374+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1375+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1376+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1377+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1378+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1379+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1380+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1380+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1381+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1382+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1383+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1384+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1385+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1386+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1387+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1388+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1389+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1390+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1390+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1391+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1392+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1393+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1394+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1395+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1396+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1397+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1398+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1399+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1400+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1401+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1402+ |       1 |     127 |       25 |      6 |    40 |    +0.9% |   -0.455 |     -219.3 |     -344.8 |   1056 | aluout[26]
+    1405+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1406+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1407+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1408+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1409+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1410+ |       1 |     128 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.3 |   1056 | aluout[26]
+    1411+ |       1 |     129 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.0 |   1056 | aluout[26]
+    1412+ |       1 |     129 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -344.0 |   1056 | aluout[26]
+    1414+ |       1 |     130 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -343.3 |   1056 | aluout[26]
+    1415+ |       1 |     130 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -219.3 |     -343.3 |   1056 | aluout[26]
+    1419+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1420+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1420+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1421+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1422+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1423+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1424+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1425+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1426+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1427+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1428+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1429+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1430+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1430+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1431+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1432+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1433+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1434+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1435+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1436+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1437+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1438+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1439+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1440+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1440+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1441+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1442+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1443+ |       1 |     133 |       25 |      6 |    41 |    +0.9% |   -0.455 |     -217.5 |     -338.9 |   1056 | aluout[26]
+    1445+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1446+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1447+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1448+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1449+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1450+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1450+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1451+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1452+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1453+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1454+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1455+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1456+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1457+ |       1 |     133 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -338.4 |   1056 | aluout[26]
+    1459+ |       1 |     134 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -335.8 |   1056 | aluout[26]
+    1460+ |       1 |     134 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -335.8 |   1056 | aluout[26]
+    1460+ |       1 |     134 |       25 |      6 |    42 |    +0.9% |   -0.455 |     -217.5 |     -335.8 |   1056 | aluout[26]
+    1463+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1464+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1465+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1466+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1467+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1468+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1469+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1470+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1470+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1471+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1472+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1473+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1474+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1475+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1476+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1477+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1478+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1479+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1480+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1480+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1481+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1482+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1483+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1484+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1485+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1486+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1487+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1488+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1489+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1490+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1490+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1491+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1492+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1493+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1494+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1495+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1496+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1497+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1498+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1499+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    1500+ |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+    final |       1 |     136 |       25 |      6 |    42 |    +1.0% |   -0.455 |     -217.5 |     -334.1 |   1056 | aluout[26]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 1 buffers.
+[INFO RSZ-0040] Inserted 25 buffers.
+[INFO RSZ-0051] Resized 136 instances: 136 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 42 instances.
+[INFO RSZ-0049] Cloned 6 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 110.48s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.03s
+Took 110 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 142327.93 um^2
+[INFO DPL-0007] Movable instances area: 101330.57 um^2
+[INFO DPL-0008] Fixed instances area within core: 2480.72 um^2
+[INFO DPL-0009] Utilization: 72.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 7312 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         75 |        16 |        59
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.05s
+Placement Analysis
+---------------------------------
+total displacement        580.2 u
+average displacement        0.1 u
+max displacement           20.0 u
+original HPWL          219355.3 u
+legalized HPWL         219996.8 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hs/riscv32i/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/sky130hs/riscv32i/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 12 antenna violations.
+[INFO GRT-0302] Inserted 11 jumpers for 11 nets.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO DPL-0006] Core area: 142327.93 um^2
+[INFO DPL-0007] Movable instances area: 101324.17 um^2
+[INFO DPL-0008] Fixed instances area within core: 2490.31 um^2
+[INFO DPL-0009] Utilization: 72.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 7313 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.03s
+[INFO GRT-0015] Inserted 1 diodes.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 103814 um^2 73% utilization.
+[INFO FLW-0007] clock clk period 4.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 2302
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/riscv32i/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/riscv32i/base/5_1_grt.sdc
+Elapsed time: 2:08.03[h:]min:sec. CPU time: user 803.94 sys 62.49 (676%). Peak memory: 460784KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb          128            449 709160ad0956d23b7c3f
+5_1_grt                   .sdc                             37fec68ca9953a42f2e7

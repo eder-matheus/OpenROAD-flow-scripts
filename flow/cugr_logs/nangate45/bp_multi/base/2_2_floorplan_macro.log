@@ -1,0 +1,41 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x96.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_32x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_multi/base/2_1_floorplan.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_multi/base/2_1_floorplan.sdc
+source ./platforms/nangate45/setRC.tcl
+[INFO GPL-0022] Initialize gpl and calculate uniform density.
+Placement density is 0.420999995470047, computed from PLACE_DENSITY_LB_ADDON  0.05 and lower bound 0.3799999952316284
+rtl_macro_placer -max_num_level 2 -halo_width 20 -halo_height 20 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/objects/nangate45/bp_multi/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.420999995470047
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+Die Area: (0.00, 0.00) (1100.00, 1100.00),  Floorplan Area: (10.07, 9.80) (1089.84, 1089.20)
+	Number of std cell instances: 77430
+	Area of std cell instances: 158811.58
+	Number of macros: 26
+	Macros to be placed: 26
+	Area of macros: 332943.12
+	Base halo (L, B, R, T): (20.00, 20.00, 20.00, 20.00)
+	Area of macros with halos: 386775.35
+	Area of std cell instances + Area of macros: 491754.69
+	Floorplan area: 1165503.74
+	Design Utilization: 0.42
+	Floorplan Utilization: 0.19
+	Manufacturing Grid: 10
+
+[INFO MPL-0500] Runtime: 6.89s
+Took 7 seconds: rtl_macro_placer -max_num_level 2 -halo_width 20 -halo_height 20 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/objects/nangate45/bp_multi/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.420999995470047
+Design area 491755 um^2 42% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_multi/base/2_2_floorplan_macro.odb
+Elapsed time: 0:08.27[h:]min:sec. CPU time: user 59.10 sys 0.21 (716%). Peak memory: 496412KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            8            484 3c98fa7575c2eb787f3b

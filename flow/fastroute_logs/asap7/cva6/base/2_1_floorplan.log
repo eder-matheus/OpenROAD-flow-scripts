@@ -1,0 +1,481 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_SLVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_SLVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_SLVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x256.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_128x64.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x28.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_64x25.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/1_synth.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/1_synth.sdc
+source ./platforms/asap7/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 330 input ports missing set_input_delay.
+Warning: There are 429 output ports missing set_output_delay.
+Warning: There are 431 unconstrained endpoints.
+number instances in verilog is 98513
+[INFO IFP-0107] Defining die area using utilization: 70.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (2.000, 2.000) snapped to (2.052, 2.160).
+[INFO IFP-0001] Added 564 rows of 2826 site asap7sc7p5t.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 156.706 156.706 ) um
+[INFO IFP-0101] Core BBox: (  2.052  2.160 ) ( 154.656 154.440 ) um
+[INFO IFP-0102] Core area:                        23238.537 um^2
+[INFO IFP-0103] Total instances area:             16323.459 um^2
+[INFO IFP-0104] Effective utilization:                0.702
+[INFO IFP-0105] Number of instances:                  98448
+source ./platforms/asap7/openRoad/make_tracks.tcl
+source ./platforms/asap7/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 1021 tie TIELOx1_ASAP7_75t_R instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 6822 tie TIEHIx1_ASAP7_75t_R instances.
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 6505 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove VtSwapMove 
+[INFO RSZ-0094] Found 6505 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 6505 out of 6505 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% | -3901.310 | -2119006.2 | -8811990.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      10* |       0 |       3 |        0 |      0 |     6 |    +0.0% | -3358.268 | -1208129.5 | -8681404.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      20* |       0 |       8 |        0 |      0 |    11 |    +0.0% | -3348.294 | -1203994.9 | -8668558.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      23* |       0 |       9 |        0 |      0 |    13 |    +0.0% | -3344.113 | -1203974.6 | -8663787.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      25* |       0 |       9 |        0 |      0 |    14 |    +0.0% | -3344.067 | -1203896.2 | -8663764.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      27* |       0 |       9 |        0 |      0 |    15 |    +0.0% | -3344.021 | -1203814.6 | -8663741.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      29* |       0 |       9 |        0 |      0 |    16 |    +0.0% | -3343.975 | -1203735.4 | -8663717.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      30* |       0 |       9 |        0 |      0 |    16 |    +0.0% | -3343.975 | -1203735.4 | -8663717.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      31* |       0 |       9 |        0 |      0 |    17 |    +0.0% | -3343.930 | -1203655.0 | -8663695.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      33* |       0 |       9 |        0 |      0 |    18 |    +0.0% | -3343.884 | -1203573.9 | -8663671.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      35* |       0 |       9 |        0 |      0 |    19 |    +0.0% | -3343.838 | -1203495.2 | -8663648.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      37* |       0 |       9 |        0 |      0 |    20 |    +0.0% | -3343.793 | -1203413.5 | -8663625.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      39* |       0 |       9 |        0 |      0 |    21 |    +0.0% | -3343.747 | -1203333.8 | -8663601.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      40* |       0 |       9 |        0 |      0 |    21 |    +0.0% | -3343.747 | -1203333.8 | -8663601.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      41* |       0 |       9 |        0 |      0 |    22 |    +0.0% | -3343.701 | -1203253.6 | -8663578.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      43* |       0 |       9 |        0 |      0 |    23 |    +0.0% | -3343.655 | -1203172.8 | -8663555.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      45* |       0 |       9 |        0 |      0 |    24 |    +0.0% | -3343.609 | -1203093.8 | -8663532.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      47* |       0 |       9 |        0 |      0 |    25 |    +0.0% | -3343.563 | -1203011.6 | -8663508.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      49* |       0 |       9 |        0 |      0 |    26 |    +0.0% | -3343.518 | -1202933.1 | -8663485.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      50* |       0 |       9 |        0 |      0 |    26 |    +0.0% | -3343.518 | -1202933.1 | -8663485.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      51* |       0 |       9 |        0 |      0 |    27 |    +0.0% | -3343.472 | -1202852.8 | -8663462.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      53* |       0 |       9 |        0 |      0 |    28 |    +0.0% | -3343.426 | -1202771.2 | -8663439.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      55* |       0 |       9 |        0 |      0 |    29 |    +0.0% | -3343.380 | -1202692.6 | -8663415.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      57* |       0 |       9 |        0 |      0 |    30 |    +0.0% | -3343.334 | -1202609.9 | -8663393.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      59* |       0 |       9 |        0 |      0 |    31 |    +0.0% | -3343.289 | -1202532.2 | -8663369.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      60* |       0 |       9 |        0 |      0 |    31 |    +0.0% | -3343.289 | -1202532.2 | -8663369.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      61* |       0 |       9 |        0 |      0 |    32 |    +0.0% | -3343.243 | -1202451.8 | -8663346.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      63* |       0 |       9 |        0 |      0 |    33 |    +0.0% | -3343.197 | -1202370.0 | -8663323.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      65* |       0 |       9 |        0 |      0 |    34 |    +0.0% | -3343.151 | -1202290.8 | -8663299.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      67* |       0 |       9 |        0 |      0 |    35 |    +0.0% | -3343.105 | -1202208.6 | -8663276.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      69* |       0 |       9 |        0 |      0 |    36 |    +0.0% | -3343.060 | -1202130.9 | -8663253.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      70* |       0 |       9 |        0 |      0 |    36 |    +0.0% | -3343.060 | -1202130.9 | -8663253.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      71* |       0 |       9 |        0 |      0 |    37 |    +0.0% | -3343.014 | -1202049.9 | -8663230.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      73* |       0 |       9 |        0 |      0 |    38 |    +0.0% | -3342.968 | -1201968.5 | -8663207.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      75* |       0 |       9 |        0 |      0 |    39 |    +0.0% | -3342.922 | -1201888.8 | -8663184.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      77* |       0 |       9 |        0 |      0 |    40 |    +0.0% | -3342.877 | -1201807.0 | -8663161.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      79* |       0 |       9 |        0 |      0 |    41 |    +0.0% | -3342.831 | -1201729.2 | -8663137.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      80* |       0 |       9 |        0 |      0 |    41 |    +0.0% | -3342.831 | -1201729.2 | -8663137.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      81* |       0 |       9 |        0 |      0 |    42 |    +0.0% | -3342.785 | -1201648.2 | -8663114.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      83* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      85* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      87* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      89* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      90* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      91* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      93* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      95* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      97* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+      99* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     100* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     101* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     103* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     105* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     107* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     109* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     110* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     111* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     113* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     115* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     117* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     119* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     120* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     121* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     123* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     125* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     127* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     129* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     130* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     131* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     133* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     135* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     137* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     139* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     140* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     141* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.4 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     143* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     145* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     147* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     149* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     150* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.5 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     151* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.6 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     153* |       0 |       9 |        0 |      0 |    43 |    +0.0% | -3342.740 | -1201567.6 | -8663091.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     155* |       0 |       9 |        0 |      0 |    44 |    +0.0% | -3342.505 | -1201157.6 | -8663082.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     157* |       0 |       9 |        0 |      0 |    45 |    +0.0% | -3342.271 | -1200747.0 | -8663073.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     159* |       0 |       9 |        0 |      0 |    46 |    +0.0% | -3342.036 | -1200337.8 | -8663063.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     160* |       0 |       9 |        0 |      0 |    46 |    +0.0% | -3342.036 | -1200337.8 | -8663063.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     161* |       0 |       9 |        0 |      0 |    47 |    +0.0% | -3341.802 | -1199927.0 | -8663054.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     163* |       0 |       9 |        0 |      0 |    48 |    +0.0% | -3341.568 | -1199516.4 | -8663045.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     165* |       0 |       9 |        0 |      0 |    48 |    +0.0% | -3341.568 | -1199516.4 | -8663045.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     167* |       0 |       9 |        0 |      0 |    48 |    +0.0% | -3341.568 | -1199516.4 | -8663045.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     169* |       0 |       9 |        0 |      0 |    49 |    +0.0% | -3341.425 | -1199266.2 | -8662989.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     170* |       0 |       9 |        0 |      0 |    49 |    +0.0% | -3341.425 | -1199266.2 | -8662989.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     171* |       0 |       9 |        0 |      0 |    50 |    +0.0% | -3341.282 | -1199014.5 | -8662933.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     173* |       0 |       9 |        0 |      0 |    51 |    +0.0% | -3341.138 | -1198765.1 | -8662877.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     175* |       0 |       9 |        0 |      0 |    52 |    +0.0% | -3340.996 | -1198515.2 | -8662821.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     177* |       0 |       9 |        0 |      0 |    53 |    +0.0% | -3340.853 | -1198264.0 | -8662765.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     179* |       0 |       9 |        0 |      0 |    54 |    +0.0% | -3340.709 | -1198011.9 | -8662709.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     180* |       0 |       9 |        0 |      0 |    54 |    +0.0% | -3340.709 | -1198011.9 | -8662709.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     181* |       0 |       9 |        0 |      0 |    55 |    +0.0% | -3340.566 | -1197762.8 | -8662653.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     183* |       0 |       9 |        0 |      0 |    56 |    +0.0% | -3340.423 | -1197512.8 | -8662597.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     185* |       0 |       9 |        0 |      0 |    57 |    +0.0% | -3340.280 | -1197261.4 | -8662541.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     187* |       0 |       9 |        0 |      0 |    58 |    +0.0% | -3340.137 | -1197011.2 | -8662485.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     189* |       0 |       9 |        0 |      0 |    59 |    +0.0% | -3339.994 | -1196762.4 | -8662430.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     190* |       0 |       9 |        0 |      0 |    59 |    +0.0% | -3339.994 | -1196762.4 | -8662430.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     191* |       0 |       9 |        0 |      0 |    60 |    +0.0% | -3339.851 | -1196511.0 | -8662392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     193* |       0 |       9 |        0 |      0 |    61 |    +0.0% | -3339.708 | -1196260.4 | -8662337.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     195* |       0 |       9 |        0 |      0 |    62 |    +0.0% | -3339.565 | -1196010.9 | -8662281.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     197* |       0 |       9 |        0 |      0 |    63 |    +0.0% | -3339.421 | -1195762.4 | -8662225.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     199* |       0 |       9 |        0 |      0 |    64 |    +0.0% | -3339.278 | -1195510.6 | -8662169.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     200* |       0 |       9 |        0 |      0 |    64 |    +0.0% | -3339.278 | -1195510.6 | -8662169.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     201* |       0 |       9 |        0 |      0 |    65 |    +0.0% | -3339.135 | -1195259.0 | -8662114.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     203* |       0 |       9 |        0 |      0 |    66 |    +0.0% | -3338.992 | -1195010.0 | -8662058.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     205* |       0 |       9 |        0 |      0 |    67 |    +0.0% | -3338.849 | -1194761.0 | -8662002.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     207* |       0 |       9 |        0 |      0 |    68 |    +0.0% | -3338.706 | -1194510.9 | -8661947.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     209* |       0 |       9 |        0 |      0 |    69 |    +0.0% | -3338.563 | -1194258.6 | -8661891.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     210* |       0 |       9 |        0 |      0 |    69 |    +0.0% | -3338.563 | -1194258.6 | -8661891.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     211* |       0 |       9 |        0 |      0 |    70 |    +0.0% | -3338.419 | -1194009.1 | -8661835.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     213* |       0 |       9 |        0 |      0 |    71 |    +0.0% | -3338.276 | -1193759.9 | -8661779.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     215* |       0 |       9 |        0 |      0 |    72 |    +0.0% | -3338.133 | -1193509.5 | -8661724.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     217* |       0 |       9 |        0 |      0 |    73 |    +0.0% | -3337.990 | -1193257.1 | -8661668.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     219* |       0 |       9 |        0 |      0 |    74 |    +0.0% | -3337.847 | -1193009.0 | -8661613.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     220* |       0 |       9 |        0 |      0 |    74 |    +0.0% | -3337.847 | -1193009.0 | -8661613.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     221* |       0 |       9 |        0 |      0 |    75 |    +0.0% | -3337.704 | -1192757.9 | -8661556.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     223* |       0 |       9 |        0 |      0 |    76 |    +0.0% | -3337.561 | -1192507.6 | -8661501.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     225* |       0 |       9 |        0 |      0 |    77 |    +0.0% | -3337.466 | -1192341.6 | -8661515.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     227* |       0 |       9 |        0 |      0 |    78 |    +0.0% | -3337.371 | -1192176.9 | -8661529.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     229* |       0 |       9 |        0 |      0 |    79 |    +0.0% | -3337.277 | -1192009.9 | -8661543.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     230* |       0 |       9 |        0 |      0 |    79 |    +0.0% | -3337.277 | -1192009.9 | -8661543.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     231* |       0 |       9 |        0 |      0 |    80 |    +0.0% | -3337.182 | -1191843.6 | -8661556.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     233* |       0 |       9 |        0 |      0 |    81 |    +0.0% | -3337.087 | -1191677.0 | -8661570.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     235* |       0 |       9 |        0 |      0 |    82 |    +0.0% | -3336.992 | -1191512.6 | -8661584.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     237* |       0 |       9 |        0 |      0 |    83 |    +0.0% | -3336.897 | -1191346.8 | -8661597.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     239* |       0 |       9 |        0 |      0 |    84 |    +0.0% | -3336.802 | -1191181.5 | -8661612.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     240* |       0 |       9 |        0 |      0 |    84 |    +0.0% | -3336.802 | -1191181.5 | -8661612.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     241* |       0 |       9 |        0 |      0 |    85 |    +0.0% | -3336.708 | -1191015.0 | -8661626.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     243* |       0 |       9 |        0 |      0 |    86 |    +0.0% | -3336.613 | -1190848.2 | -8661639.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     245* |       0 |       9 |        0 |      0 |    87 |    +0.0% | -3336.518 | -1190682.2 | -8661653.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     247* |       0 |       9 |        0 |      0 |    88 |    +0.0% | -3336.423 | -1190517.5 | -8661667.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     249* |       0 |       9 |        0 |      0 |    89 |    +0.0% | -3336.328 | -1190351.4 | -8661680.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     250* |       0 |       9 |        0 |      0 |    89 |    +0.0% | -3336.328 | -1190351.4 | -8661680.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     251* |       0 |       9 |        0 |      0 |    90 |    +0.0% | -3336.233 | -1190186.9 | -8661694.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     253* |       0 |       9 |        0 |      0 |    91 |    +0.0% | -3336.138 | -1190019.9 | -8661707.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     255* |       0 |       9 |        0 |      0 |    92 |    +0.0% | -3336.044 | -1189853.2 | -8661721.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     257* |       0 |       9 |        0 |      0 |    93 |    +0.0% | -3335.949 | -1189687.2 | -8661735.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     259* |       0 |       9 |        0 |      0 |    94 |    +0.0% | -3335.854 | -1189522.9 | -8661748.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     260* |       0 |       9 |        0 |      0 |    94 |    +0.0% | -3335.854 | -1189522.9 | -8661748.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     261* |       0 |       9 |        0 |      0 |    95 |    +0.0% | -3335.759 | -1189356.0 | -8661763.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     263* |       0 |       9 |        0 |      0 |    96 |    +0.0% | -3335.664 | -1189191.5 | -8661776.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     265* |       0 |       9 |        0 |      0 |    97 |    +0.0% | -3335.570 | -1189024.9 | -8661790.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     267* |       0 |       9 |        0 |      0 |    98 |    +0.0% | -3335.475 | -1188858.0 | -8661804.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     269* |       0 |       9 |        0 |      0 |    99 |    +0.0% | -3335.380 | -1188692.1 | -8661817.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     270* |       0 |       9 |        0 |      0 |    99 |    +0.0% | -3335.380 | -1188692.1 | -8661817.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     271* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188527.8 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     273* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188527.8 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     275* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.0 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     277* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.0 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     279* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     280* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     281* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     283* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     285* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     287* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     289* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     290* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     291* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     293* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     295* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     297* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     299* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     300* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     301* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.4 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     303* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     305* |       0 |       9 |        0 |      0 |   100 |    +0.0% | -3335.285 | -1188528.2 | -8661831.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     307* |       0 |       9 |        0 |      0 |   101 |    +0.0% | -3335.072 | -1188154.9 | -8661843.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     309* |       0 |       9 |        0 |      0 |   102 |    +0.0% | -3334.860 | -1187783.5 | -8661856.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     310* |       0 |       9 |        0 |      0 |   102 |    +0.0% | -3334.860 | -1187783.5 | -8661856.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     311* |       0 |       9 |        0 |      0 |   103 |    +0.0% | -3334.647 | -1187411.9 | -8661868.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     313* |       0 |       9 |        0 |      0 |   104 |    +0.0% | -3334.434 | -1187038.8 | -8661881.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     315* |       0 |       9 |        0 |      0 |   105 |    +0.0% | -3334.221 | -1186665.9 | -8661893.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     317* |       0 |       9 |        0 |      0 |   106 |    +0.0% | -3334.009 | -1186293.2 | -8661906.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     320* |       0 |      10 |        0 |      0 |   107 |    +0.0% | -3333.890 | -1186086.8 | -8659151.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     321* |       0 |      10 |        0 |      0 |   108 |    +0.0% | -3333.890 | -1186086.8 | -8659143.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     323* |       0 |      10 |        0 |      0 |   109 |    +0.0% | -3333.890 | -1186086.8 | -8659134.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     325* |       0 |      10 |        0 |      0 |   110 |    +0.0% | -3333.890 | -1186086.8 | -8659127.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     327* |       0 |      10 |        0 |      0 |   111 |    +0.0% | -3333.890 | -1186086.8 | -8659119.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     329* |       0 |      10 |        0 |      0 |   112 |    +0.0% | -3333.890 | -1186086.8 | -8659111.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     330* |       0 |      10 |        0 |      0 |   112 |    +0.0% | -3333.890 | -1186086.8 | -8659111.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     331* |       0 |      10 |        0 |      0 |   113 |    +0.0% | -3333.890 | -1186086.8 | -8659103.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     333* |       0 |      10 |        0 |      0 |   114 |    +0.0% | -3333.890 | -1186086.8 | -8659095.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     335* |       0 |      10 |        0 |      0 |   115 |    +0.0% | -3333.890 | -1186086.8 | -8659087.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     337* |       0 |      10 |        0 |      0 |   116 |    +0.0% | -3333.890 | -1186086.8 | -8659079.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     339* |       0 |      10 |        0 |      0 |   117 |    +0.0% | -3333.890 | -1186086.8 | -8659072.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     340* |       0 |      10 |        0 |      0 |   117 |    +0.0% | -3333.890 | -1186086.8 | -8659072.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     341* |       0 |      10 |        0 |      0 |   118 |    +0.0% | -3333.890 | -1186086.8 | -8659064.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     343* |       0 |      10 |        0 |      0 |   119 |    +0.0% | -3333.890 | -1186086.8 | -8659055.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     345* |       0 |      10 |        0 |      0 |   120 |    +0.0% | -3333.890 | -1186086.8 | -8659047.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     347* |       0 |      10 |        0 |      0 |   121 |    +0.0% | -3333.890 | -1186086.8 | -8659040.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     349* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     350* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     351* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     353* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     355* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     357* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     359* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     360* |       0 |      10 |        0 |      0 |   122 |    +0.0% | -3333.890 | -1186086.8 | -8659032.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     370* |       0 |      14 |        0 |      0 |   128 |    +0.0% | -3334.188 | -1186263.8 | -8619073.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     380* |       0 |      20 |        0 |      0 |   132 |    +0.0% | -3334.188 | -1186263.8 | -8618960.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     390* |       0 |      26 |        0 |      0 |   136 |    +0.0% | -3334.188 | -1186263.8 | -8618783.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     400* |       0 |      31 |        0 |      0 |   141 |    +0.0% | -3334.188 | -1186263.8 | -8618712.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     410* |       0 |      36 |        0 |      0 |   146 |    +0.0% | -3334.188 | -1186263.8 | -8618644.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     411* |       0 |      10 |        0 |      0 |   123 |    +0.0% | -3333.890 | -1186086.8 | -8637825.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     420* |       0 |      15 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.6 | -8610179.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     430* |       0 |      21 |        0 |      0 |   130 |    +0.0% | -3333.867 | -1186170.1 | -8608755.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     436* |       0 |      15 |        0 |      0 |   124 |    +0.0% | -3333.768 | -1186168.9 | -8606655.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     440* |       0 |      18 |        0 |      0 |   124 |    +0.0% | -3333.874 | -1186169.0 | -8605923.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     447* |       0 |      16 |        0 |      0 |   124 |    +0.0% | -3333.768 | -1186168.9 | -8606643.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     450* |       0 |      18 |        0 |      0 |   124 |    +0.0% | -3333.874 | -1186169.0 | -8605923.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     457* |       0 |      16 |        0 |      0 |   124 |    +0.0% | -3333.768 | -1186168.9 | -8606643.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     460* |       0 |      18 |        0 |      0 |   124 |    +0.0% | -3333.874 | -1186169.0 | -8605923.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     467* |       0 |      16 |        0 |      0 |   124 |    +0.0% | -3333.768 | -1186168.9 | -8606643.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     470* |       0 |      18 |        0 |      0 |   124 |    +0.0% | -3333.768 | -1186168.9 | -8606527.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     480* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605713.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     490* |       0 |      32 |        0 |      0 |   130 |    +0.0% | -3333.985 | -1186170.5 | -8604455.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     494* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     500* |       0 |      29 |        0 |      0 |   127 |    +0.0% | -3333.874 | -1186169.4 | -8605862.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     505* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     510* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.5 | -8604470.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     515* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     520* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.5 | -8604470.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     525* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     530* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.5 | -8604470.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     535* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     540* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     545* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     550* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     555* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     560* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     565* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     570* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     575* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     580* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     585* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     590* |       0 |      28 |        0 |      0 |   127 |    +0.0% | -3333.874 | -1186169.4 | -8605881.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     597* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     600* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605883.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     607* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     610* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605700.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     617* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     620* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605700.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     627* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     630* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605700.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     637* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     640* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605700.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     647* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     650* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605700.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     657* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     660* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.874 | -1186169.0 | -8605716.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     670* |       0 |      34 |        0 |      0 |   129 |    +0.0% | -3333.985 | -1186170.5 | -8603575.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     670* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     680* |       0 |      33 |        0 |      0 |   127 |    +0.0% | -3333.985 | -1186170.5 | -8603593.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     681* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     690* |       0 |      30 |        0 |      0 |   129 |    +0.0% | -3333.985 | -1186170.5 | -8604490.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     694* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     700* |       0 |      29 |        0 |      0 |   127 |    +0.0% | -3333.985 | -1186170.5 | -8604496.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     704* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     710* |       0 |      30 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.5 | -8604478.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     715* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     720* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605858.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     726* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     730* |       0 |      28 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605875.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     736* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     740* |       0 |      28 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605875.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     746* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     750* |       0 |      28 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.5 | -8604503.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     755* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     760* |       0 |      29 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605863.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     766* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     770* |       0 |      28 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.4 | -8605868.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     777* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     780* |       0 |      27 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605698.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     788* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     790* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.874 | -1186169.0 | -8605713.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     799* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     800* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     810* |       0 |      30 |        0 |      0 |   131 |    +0.0% | -3333.768 | -1186169.0 | -8623909.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     812* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     820* |       0 |      31 |        0 |      0 |   127 |    +0.0% | -3333.985 | -1186170.1 | -8604311.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     824* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     830* |       0 |      30 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.1 | -8604316.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     836* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     840* |       0 |      28 |        0 |      0 |   126 |    +0.0% | -3333.985 | -1186170.1 | -8604329.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     848* |       0 |      25 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606399.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     850* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     860* |       0 |      32 |        0 |      0 |   130 |    +0.0% | -3333.985 | -1186170.5 | -8604494.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     863* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     870* |       0 |      29 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606386.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     875* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     880* |       0 |      27 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606388.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     887* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     890* |       0 |      26 |        0 |      0 |   128 |    +0.0% | -3333.768 | -1186168.9 | -8606387.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     899* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     900* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     910* |       0 |      31 |        0 |      0 |   131 |    +0.0% | -3333.768 | -1186168.9 | -8606383.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     911* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     920* |       0 |      30 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606385.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     923* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     930* |       0 |      29 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606386.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     935* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     940* |       0 |      27 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606384.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     946* |       0 |      26 |        0 |      0 |   126 |    +0.0% | -3333.768 | -1186168.9 | -8606395.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     950* |       0 |      27 |        0 |      0 |   128 |    +0.0% | -3333.874 | -1186169.0 | -8605705.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     960* |       0 |      34 |        0 |      0 |   131 |    +0.0% | -3333.985 | -1186170.1 | -8603463.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     962* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     970* |       0 |      30 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606379.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     973* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     980* |       0 |      29 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606381.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     984* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     990* |       0 |      28 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606382.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+     995* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1000* |       0 |      27 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606383.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1006* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1010* |       0 |      26 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606385.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1017* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1020* |       0 |      26 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606386.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1028* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1030* |       0 |      26 |        0 |      0 |   128 |    +0.0% | -3333.768 | -1186168.9 | -8606385.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1039* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1040* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1050* |       0 |      32 |        0 |      0 |   131 |    +0.0% | -3333.768 | -1186168.9 | -8606377.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1050* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1060* |       0 |      31 |        0 |      0 |   131 |    +0.0% | -3333.768 | -1186168.9 | -8606378.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1061* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1070* |       0 |      31 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606377.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1072* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1080* |       0 |      30 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606379.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1083* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1090* |       0 |      29 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606381.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1094* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1100* |       0 |      28 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606382.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1100* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1110* |       0 |      31 |        0 |      0 |   131 |    +0.0% | -3333.768 | -1186168.9 | -8606378.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1111* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1120* |       0 |      31 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606377.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1122* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1130* |       0 |      30 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606379.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1133* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1140* |       0 |      29 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606381.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1144* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1150* |       0 |      28 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606382.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1155* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1160* |       0 |      27 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606383.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1166* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1170* |       0 |      26 |        0 |      0 |   130 |    +0.0% | -3333.768 | -1186168.9 | -8606385.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1177* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1180* |       0 |      26 |        0 |      0 |   129 |    +0.0% | -3333.768 | -1186168.9 | -8606386.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1188* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1190* |       0 |      26 |        0 |      0 |   128 |    +0.0% | -3333.768 | -1186168.9 | -8606385.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1199* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1200* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1200* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    1200* |       0 |      26 |        0 |      0 |   127 |    +0.0% | -3333.768 | -1186168.9 | -8606392.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+    final |       0 |     350 |        0 |      0 |   127 |    +0.0% | -3333.374 | -1178722.6 | -8604688.0 |   6505 | id_stage_i.issue_entry_o\[491\]$_DFFE_PN0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 350 instances: 10 up, 0 up match, 0 down, 340 VT
+[INFO RSZ-0043] Swapped pins on 127 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 66.95s
+Took 67 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+        M1 |        7.04e-02 |         1.00e-10
+        M2 |        2.97e-02 |         1.75e-01
+        M3 |        3.13e-02 |         1.56e-01
+        M4 |        1.80e-02 |         1.78e-01
+        M5 |        1.90e-02 |         1.64e-01
+        M6 |        1.19e-02 |         1.87e-01
+        M7 |        1.25e-02 |         1.63e-01
+        M8 |        8.45e-03 |         1.04e-01
+        M9 |        8.90e-03 |         9.28e-02
+       Pad |        0.00e+00 |         0.00e+00
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+        V1 |       1.72e-02 
+        V2 |       1.72e-02 
+        V3 |       1.72e-02 
+        V4 |       1.18e-02 
+        V5 |       1.18e-02 
+        V6 |       8.20e-03 
+        V7 |       8.20e-03 
+        V8 |       6.30e-03 
+        V9 |       6.30e-03 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 16667 um^2 72% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/cva6/base/2_1_floorplan.sdc
+Elapsed time: 1:30.48[h:]min:sec. CPU time: user 201.70 sys 138.63 (376%). Peak memory: 907992KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb           90            886 fa1d5e8773e0ca1b5343
+2_1_floorplan             .sdc                             d0187f6e78466b387185

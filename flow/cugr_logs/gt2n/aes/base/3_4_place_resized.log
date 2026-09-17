@@ -1,0 +1,99 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gt2n/aes/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gt2n/aes/base/2_floorplan.sdc
+source ./platforms/gt2n/setRC.tcl
+estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 0 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.042  0.144 ) um
+[INFO GPL-0004] CoreBBox: (  2.016  2.016 ) ( 39.732 39.744 ) um
+[INFO GPL-0016] Core area:                    1422.949 um^2
+[INFO GPL-0036] Movable instances area:        465.696 um^2
+[INFO GPL-0037] Total instances area:          483.247 um^2
+[INFO GPL-0035] Pin density area adjust:        89.066 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:             17813
+[INFO GPL-0007] Movable instances:               14911
+[INFO GPL-0008] Fixed instances:                  2902
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                  15170
+[INFO GPL-0011] Number of pins:                  54485
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 41.746 41.746 ) um
+[INFO GPL-0013] Placement BBox: (  2.016  2.016 ) ( 39.732 39.744 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                  1422.949 um^2
+[INFO GPL-0017] Fixed instances area:           17.551 um^2
+[INFO GPL-0018] Movable instances area:        554.762 um^2
+[INFO GPL-0019] Utilization:                    39.474 %
+[INFO GPL-0020] Standard cells area:           554.762 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 14911 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     15170
+     1000 |     +0.0% |       0 |       0 |             0 |     14170
+     2000 |     +0.0% |       0 |       0 |             0 |     13170
+     3000 |     +0.0% |       0 |       0 |             0 |     12170
+     4000 |     +0.0% |       0 |       0 |             0 |     11170
+     5000 |     +0.0% |       0 |       0 |             0 |     10170
+     6000 |     +0.0% |       0 |       0 |             0 |      9170
+     7000 |     +0.0% |       0 |       0 |             0 |      8170
+     8000 |     +0.0% |       0 |       0 |             0 |      7170
+     9000 |     +0.0% |       0 |       0 |             0 |      6170
+    10000 |     +0.0% |       0 |       0 |             0 |      5170
+    11000 |     +0.0% |       0 |       0 |             0 |      4170
+    12000 |     +0.0% |       0 |       0 |             0 |      3170
+    13000 |     +0.0% |       0 |       0 |             0 |      2170
+    14000 |     +0.0% |       0 |       0 |             0 |      1170
+    15000 |     +0.0% |       0 |       0 |             0 |       170
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.66s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 483 um^2 34% utilization.
+Instance count before 17813, after 17813
+Pin count before 54097, after 54097
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/gt2n/aes/base/3_4_place_resized.odb
+Elapsed time: 0:03.54[h:]min:sec. CPU time: user 5.10 sys 3.97 (256%). Peak memory: 310100KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            3            302 06970949482715eb6cd8

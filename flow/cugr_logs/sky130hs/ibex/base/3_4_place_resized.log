@@ -1,0 +1,45 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hs/lib/sky130_fd_sc_hs__tt_025C_1v80.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/ibex/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/ibex/base/2_floorplan.sdc
+source ./platforms/sky130hs/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     14148
+     1000 |     +0.0% |       0 |       0 |             0 |     13148
+     2000 |     +0.0% |       0 |       0 |             0 |     12148
+     3000 |     +0.0% |       0 |       0 |             0 |     11148
+     4000 |     +0.0% |       0 |       0 |             0 |     10148
+     5000 |     +0.0% |       0 |       0 |             0 |      9148
+     6000 |     +0.0% |       0 |       0 |             0 |      8148
+     7000 |     +0.0% |       0 |       0 |             0 |      7148
+     8000 |     +0.0% |       0 |       0 |             0 |      6148
+     9000 |     +0.0% |       0 |       0 |             0 |      5148
+    10000 |     +0.0% |       0 |       0 |             0 |      4148
+    11000 |     +0.0% |       0 |       0 |             0 |      3148
+    12000 |     +0.0% |       0 |       0 |             0 |      2148
+    13000 |     +0.0% |       0 |       0 |             0 |      1148
+    14000 |     +0.0% |       0 |       0 |             0 |       148
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 1.97s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 206358 um^2 50% utilization.
+Instance count before 17879, after 17879
+Pin count before 51175, after 51175
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hs/ibex/base/3_4_place_resized.odb
+Elapsed time: 0:09.88[h:]min:sec. CPU time: user 15.17 sys 7.11 (225%). Peak memory: 251984KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            9            246 0bfbee3ab0ef4c3f91c9

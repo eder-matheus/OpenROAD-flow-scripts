@@ -1,0 +1,453 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+Took 5 seconds: read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_2048x39.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_256x34.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_64x21.lib
+read_lef ./platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7_tech_1x_201209.lef, created 30 layers, 9 vias
+read_lef ./platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+[INFO ODB-0227] LEF file: ./platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef, created 212 library cells
+read_lef /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_2048x39.lef
+[INFO ODB-0227] LEF file: /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_2048x39.lef, created 1 library cells
+read_lef /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_256x34.lef
+[INFO ODB-0227] LEF file: /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_256x34.lef, created 1 library cells
+read_lef /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_64x21.lef
+[INFO ODB-0227] LEF file: /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lef/fakeram7_64x21.lef, created 1 library cells
+set_dont_use "*x1p*_ASAP7* *xp*_ASAP7* SDF* ICG*"
+sv_elaborate -D SYNTHESIS --compat=vcs --ignore-assertions --no-implicit-memories --top swerv_wrapper /OpenROAD-flow-scripts/flow/designs/src/swerv/swerv_wrapper.sv2v.v /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/macros.v ./platforms/asap7/yoSys/cells_clkgate_R.v --std=1364-2005
+Top level design units:
+    swerv_wrapper
+
+Build succeeded: 0 errors, 0 warnings
+Took 5 seconds: sv_elaborate -D SYNTHESIS --compat=vcs --ignore-assertions --no-implicit-memories --top swerv_wrapper /OpenROAD-flow-scripts/flow/designs/src/swerv/swerv_wrapper.sv2v.v /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/macros.v ./platforms/asap7/yoSys/cells_clkgate_R.v --std=1364-2005
+syn::stats
+  adc: 250 cells, 2742 bits
+  and: 59762 cells, 59762 bits
+  dff: 13993 cells, 13993 bits
+  eq: 263 cells, 263 bits
+  input: 76 cells, 534 bits
+  mul: 1 cells, 64 bits
+  mux: 32562 cells, 37382 bits
+  name (tentative): 139825 cells, 0 bits
+  not: 10856 cells, 10856 bits
+  or: 39191 cells, 39191 bits
+  output: 114 cells, 0 bits
+  shl: 34 cells, 722 bits
+  sshr: 4 cells, 128 bits
+  target: fakeram7_2048x39: 8 cells, 312 bits, area 26830.9
+  target: fakeram7_256x34: 16 cells, 544 bits, area 5847.74
+  target: fakeram7_64x21: 4 cells, 84 bits, area 225.74
+  ult: 24 cells, 24 bits
+  ushr: 57 cells, 787 bits
+  xor: 1305 cells, 1305 bits
+  total: 298345 cells, 168693 bits, area 32904.3
+synthesize
+[INFO SYN-0056] liveness: replaced 22 register bits, 0 combinational bits
+[INFO SYN-0020] abc_roundtrip: exported 166804 ANDs, 15509 CIs, 9521 COs
+[1;37msyn     [0m : i/o =  15509/   9521  [1;36mand =  166804[0m  [1;35mlev =  156[0m [1;35m(47.51)[0m  mem = 2.29 MB
+Simulating 4 words for 10 rounds. SAT solving with 1000000 conflicts.
+cst =  166804  cls =      0  lit =  166804  unused =   15509  proof =     0
+cst =   43915  cls =  15171  lit =   82305  unused =   84837  proof =     0
+cst =   34374  cls =  15514  lit =   64402  unused =  102397  proof =     0
+cst =   31300  cls =  15687  lit =   57441  unused =  109185  proof =     0
+cst =   30209  cls =  15209  lit =   54437  unused =  112667  proof =     0
+cst =   29820  cls =  14771  lit =   52932  unused =  114610  proof =     0
+cst =   29336  cls =  14659  lit =   51950  unused =  115704  proof =     0
+cst =   29160  cls =  14460  lit =   51456  unused =  116397  proof =     0
+[1;37msyn     [0m : i/o =  15509/  16630  [1;36mand =  133546[0m  [1;35mlev =   81[0m [1;35m(24.00)[0m  mem = 2.02 MB
+SAT solver statistics:
+CO =    16630  AND =   133546  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls  10445  ( 62.81 %)   Ave conf =      3.2   Time =     0.22 sec ( 18.23 %)
+Sat   calls   6185  ( 37.19 %)   Ave conf =      1.1   Time =     0.85 sec ( 68.62 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.23 sec
+  1 : P =   6294. D =   1217. F =     0. M =       0. And =  160305. Time =     1.28 sec
+[1;37msyn     [0m : i/o =  15509/  11612  [1;36mand =  100642[0m  [1;35mlev =   91[0m [1;35m(32.64)[0m  mem = 1.57 MB
+SAT solver statistics:
+CO =    11612  AND =   100642  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   5011  ( 43.15 %)   Ave conf =      3.8   Time =     0.14 sec ( 12.80 %)
+Sat   calls   6601  ( 56.85 %)   Ave conf =      0.8   Time =     0.84 sec ( 74.25 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.13 sec
+  2 : P =    815. D =   1138. F =     0. M =       0. And =  159470. Time =     1.18 sec
+[1;37msyn     [0m : i/o =  15509/  10056  [1;36mand =   94713[0m  [1;35mlev =  100[0m [1;35m(33.67)[0m  mem = 1.48 MB
+SAT solver statistics:
+CO =    10056  AND =    94713  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4480  ( 44.55 %)   Ave conf =      3.8   Time =     0.14 sec ( 13.57 %)
+Sat   calls   5576  ( 55.45 %)   Ave conf =      0.8   Time =     0.77 sec ( 74.06 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.05 sec
+  3 : P =     85. D =    804. F =     0. M =       0. And =  159346. Time =     1.08 sec
+[1;37msyn     [0m : i/o =  15509/  10370  [1;36mand =   96021[0m  [1;35mlev =  103[0m [1;35m(31.59)[0m  mem = 1.49 MB
+SAT solver statistics:
+CO =    10370  AND =    96021  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4547  ( 43.85 %)   Ave conf =      3.6   Time =     0.14 sec ( 12.89 %)
+Sat   calls   5823  ( 56.15 %)   Ave conf =      0.8   Time =     0.83 sec ( 75.45 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.10 sec
+  4 : P =    706. D =    766. F =     0. M =       0. And =  158613. Time =     1.13 sec
+[1;37msyn     [0m : i/o =  15509/   8822  [1;36mand =   89319[0m  [1;35mlev =  116[0m [1;35m(33.35)[0m  mem = 1.39 MB
+SAT solver statistics:
+CO =     8822  AND =    89319  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   3976  ( 45.07 %)   Ave conf =      3.7   Time =     0.12 sec ( 13.33 %)
+Sat   calls   4846  ( 54.93 %)   Ave conf =      0.6   Time =     0.69 sec ( 74.02 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.93 sec
+  5 : P =    174. D =    582. F =     0. M =       0. And =  158431. Time =     0.96 sec
+[1;37msyn     [0m : i/o =  15509/   8050  [1;36mand =   85158[0m  [1;35mlev =  109[0m [1;35m(39.10)[0m  mem = 1.34 MB
+SAT solver statistics:
+CO =     8050  AND =    85158  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   3964  ( 49.24 %)   Ave conf =      3.9   Time =     0.12 sec ( 12.73 %)
+Sat   calls   4086  ( 50.76 %)   Ave conf =      0.9   Time =     0.69 sec ( 74.11 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.93 sec
+  6 : P =    735. D =    531. F =     0. M =       0. And =  157594. Time =     0.96 sec
+[1;37msyn     [0m : i/o =  15509/   8410  [1;36mand =   81888[0m  [1;35mlev =  106[0m [1;35m(40.65)[0m  mem = 1.30 MB
+SAT solver statistics:
+CO =     8410  AND =    81888  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   3920  ( 46.61 %)   Ave conf =      3.4   Time =     0.11 sec (  9.18 %)
+Sat   calls   4490  ( 53.39 %)   Ave conf =      0.7   Time =     0.92 sec ( 76.71 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.20 sec
+  7 : P =      5. D =    735. F =     0. M =       0. And =  157589. Time =     1.23 sec
+[1;37msyn     [0m : i/o =  15509/   9200  [1;36mand =   89134[0m  [1;35mlev =  104[0m [1;35m(32.85)[0m  mem = 1.40 MB
+SAT solver statistics:
+CO =     9200  AND =    89134  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   5252  ( 57.09 %)   Ave conf =      4.0   Time =     0.14 sec ( 13.45 %)
+Sat   calls   3948  ( 42.91 %)   Ave conf =      1.1   Time =     0.77 sec ( 72.69 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.05 sec
+  8 : P =   1170. D =   1016. F =     0. M =       0. And =  156339. Time =     1.09 sec
+[1;37msyn     [0m : i/o =  15509/   6917  [1;36mand =   86449[0m  [1;35mlev =  109[0m [1;35m(33.49)[0m  mem = 1.33 MB
+SAT solver statistics:
+CO =     6917  AND =    86449  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4049  ( 58.54 %)   Ave conf =      3.8   Time =     0.14 sec ( 13.01 %)
+Sat   calls   2868  ( 41.46 %)   Ave conf =      1.1   Time =     0.77 sec ( 72.22 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     1.07 sec
+  9 : P =     75. D =   1062. F =     0. M =       0. And =  156251. Time =     1.11 sec
+[1;37msyn     [0m : i/o =  15509/   5942  [1;36mand =   80457[0m  [1;35mlev =  105[0m [1;35m(31.42)[0m  mem = 1.25 MB
+SAT solver statistics:
+CO =     5942  AND =    80457  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4387  ( 73.83 %)   Ave conf =      3.9   Time =     0.13 sec ( 21.23 %)
+Sat   calls   1555  ( 26.17 %)   Ave conf =      1.0   Time =     0.39 sec ( 62.64 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.63 sec
+ 10 : P =     96. D =    394. F =     0. M =       0. And =  156119. Time =     0.65 sec
+[1;37msyn     [0m : i/o =  15509/   6661  [1;36mand =   78985[0m  [1;35mlev =  105[0m [1;35m(29.62)[0m  mem = 1.24 MB
+SAT solver statistics:
+CO =     6661  AND =    78985  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4445  ( 66.73 %)   Ave conf =      3.6   Time =     0.12 sec ( 15.31 %)
+Sat   calls   2216  ( 33.27 %)   Ave conf =      1.0   Time =     0.55 sec ( 70.13 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.78 sec
+ 11 : P =    310. D =    714. F =     0. M =       0. And =  155732. Time =     0.81 sec
+[1;37msyn     [0m : i/o =  15509/   7313  [1;36mand =   81476[0m  [1;35mlev =  108[0m [1;35m(26.52)[0m  mem = 1.28 MB
+SAT solver statistics:
+CO =     7313  AND =    81476  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4949  ( 67.67 %)   Ave conf =      3.5   Time =     0.12 sec ( 17.68 %)
+Sat   calls   2364  ( 32.33 %)   Ave conf =      1.2   Time =     0.43 sec ( 64.94 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.67 sec
+ 12 : P =    363. D =    513. F =     0. M =       0. And =  155363. Time =     0.70 sec
+[1;37msyn     [0m : i/o =  15509/   7112  [1;36mand =   80073[0m  [1;35mlev =  105[0m [1;35m(22.50)[0m  mem = 1.26 MB
+SAT solver statistics:
+CO =     7112  AND =    80073  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   5524  ( 77.67 %)   Ave conf =      3.5   Time =     0.15 sec ( 28.11 %)
+Sat   calls   1588  ( 22.33 %)   Ave conf =      1.0   Time =     0.31 sec ( 56.00 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.55 sec
+ 13 : P =    455. D =    432. F =     0. M =       0. And =  154871. Time =     0.58 sec
+[1;37msyn     [0m : i/o =  15509/   7076  [1;36mand =   77459[0m  [1;35mlev =  120[0m [1;35m(23.18)[0m  mem = 1.23 MB
+SAT solver statistics:
+CO =     7076  AND =    77459  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   5127  ( 72.46 %)   Ave conf =      3.6   Time =     0.16 sec ( 26.36 %)
+Sat   calls   1949  ( 27.54 %)   Ave conf =      0.8   Time =     0.36 sec ( 59.41 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.61 sec
+ 14 : P =    208. D =    287. F =     0. M =       0. And =  154662. Time =     0.64 sec
+[1;37msyn     [0m : i/o =  15509/   7014  [1;36mand =   80136[0m  [1;35mlev =  124[0m [1;35m(24.47)[0m  mem = 1.26 MB
+SAT solver statistics:
+CO =     7014  AND =    80136  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   3950  ( 56.32 %)   Ave conf =      3.0   Time =     0.10 sec ( 14.36 %)
+Sat   calls   3064  ( 43.68 %)   Ave conf =      1.5   Time =     0.51 sec ( 71.77 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.71 sec
+ 15 : P =   1152. D =   1123. F =     0. M =       0. And =  153505. Time =     0.75 sec
+[1;37msyn     [0m : i/o =  15509/   4623  [1;36mand =   68348[0m  [1;35mlev =  125[0m [1;35m(23.84)[0m  mem = 1.09 MB
+SAT solver statistics:
+CO =     4623  AND =    68348  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls   4194  ( 90.72 %)   Ave conf =      3.2   Time =     0.15 sec ( 30.71 %)
+Sat   calls    429  (  9.28 %)   Ave conf =      1.7   Time =     0.27 sec ( 56.51 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.48 sec
+ 16 : P =   3685. D =    150. F =     0. M =       0. And =  149699. Time =     0.50 sec
+[1;37msyn     [0m : i/o =  15509/    822  [1;36mand =   43429[0m  [1;35mlev =  126[0m [1;35m(41.95)[0m  mem = 0.75 MB
+SAT solver statistics:
+CO =      822  AND =    43429  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    531  ( 64.60 %)   Ave conf =      4.1   Time =     0.03 sec (  9.79 %)
+Sat   calls    291  ( 35.40 %)   Ave conf =      1.5   Time =     0.20 sec ( 77.09 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.26 sec
+ 17 : P =    238. D =    101. F =     0. M =       0. And =  149450. Time =     0.29 sec
+[1;37msyn     [0m : i/o =  15509/    517  [1;36mand =   25764[0m  [1;35mlev =  106[0m [1;35m(33.76)[0m  mem = 0.54 MB
+SAT solver statistics:
+CO =      517  AND =    25764  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    284  ( 54.93 %)   Ave conf =      4.0   Time =     0.02 sec ( 15.64 %)
+Sat   calls    233  ( 45.07 %)   Ave conf =      1.9   Time =     0.07 sec ( 65.67 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.11 sec
+ 18 : P =      6. D =     88. F =     0. M =       0. And =  149444. Time =     0.13 sec
+[1;37msyn     [0m : i/o =  15509/    402  [1;36mand =   25086[0m  [1;35mlev =  106[0m [1;35m(39.17)[0m  mem = 0.53 MB
+SAT solver statistics:
+CO =      402  AND =    25086  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    285  ( 70.90 %)   Ave conf =      4.5   Time =     0.02 sec ( 22.19 %)
+Sat   calls    117  ( 29.10 %)   Ave conf =      1.8   Time =     0.05 sec ( 57.18 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.08 sec
+ 19 : P =     50. D =     52. F =     0. M =       0. And =  149379. Time =     0.10 sec
+[1;37msyn     [0m : i/o =  15509/    278  [1;36mand =   24272[0m  [1;35mlev =  106[0m [1;35m(46.22)[0m  mem = 0.52 MB
+SAT solver statistics:
+CO =      278  AND =    24272  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    232  ( 83.45 %)   Ave conf =      4.4   Time =     0.01 sec ( 30.57 %)
+Sat   calls     46  ( 16.55 %)   Ave conf =      2.1   Time =     0.02 sec ( 40.58 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.05 sec
+ 20 : P =     47. D =     31. F =     0. M =       0. And =  149332. Time =     0.07 sec
+[1;37msyn     [0m : i/o =  15509/    204  [1;36mand =   23425[0m  [1;35mlev =  106[0m [1;35m(51.56)[0m  mem = 0.51 MB
+SAT solver statistics:
+CO =      204  AND =    23425  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    184  ( 90.20 %)   Ave conf =      4.6   Time =     0.01 sec ( 37.83 %)
+Sat   calls     20  (  9.80 %)   Ave conf =      2.8   Time =     0.01 sec ( 30.30 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.03 sec
+ 21 : P =     93. D =     17. F =     0. M =       0. And =  149239. Time =     0.06 sec
+[1;37msyn     [0m : i/o =  15509/     98  [1;36mand =   19588[0m  [1;35mlev =  106[0m [1;35m(66.00)[0m  mem = 0.46 MB
+SAT solver statistics:
+CO =       98  AND =    19588  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     91  ( 92.86 %)   Ave conf =      4.5   Time =     0.00 sec ( 36.59 %)
+Sat   calls      7  (  7.14 %)   Ave conf =      0.6   Time =     0.00 sec ( 15.91 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.01 sec
+ 22 : P =     37. D =      6. F =     0. M =       0. And =  149202. Time =     0.04 sec
+[1;37msyn     [0m : i/o =  15509/     56  [1;36mand =   12714[0m  [1;35mlev =  106[0m [1;35m(85.91)[0m  mem = 0.38 MB
+SAT solver statistics:
+CO =       56  AND =    12714  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     54  ( 96.43 %)   Ave conf =      4.6   Time =     0.00 sec ( 46.26 %)
+Sat   calls      2  (  3.57 %)   Ave conf =      0.0   Time =     0.00 sec (  0.82 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.01 sec
+ 23 : P =     10. D =      2. F =     0. M =       0. And =  149192. Time =     0.03 sec
+[1;37msyn     [0m : i/o =  15509/     47  [1;36mand =    7288[0m  [1;35mlev =  106[0m [1;35m(95.06)[0m  mem = 0.32 MB
+SAT solver statistics:
+CO =       47  AND =     7288  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     45  ( 95.74 %)   Ave conf =      5.2   Time =     0.00 sec ( 48.80 %)
+Sat   calls      2  (  4.26 %)   Ave conf =      0.0   Time =     0.00 sec (  1.21 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+ 24 : P =      0. D =      2. F =     0. M =       0. And =  149192. Time =     0.03 sec
+[1;37msyn     [0m : i/o =  15509/     46  [1;36mand =    7285[0m  [1;35mlev =  106[0m [1;35m(96.46)[0m  mem = 0.32 MB
+SAT solver statistics:
+CO =       46  AND =     7285  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     45  ( 97.83 %)   Ave conf =      6.0   Time =     0.00 sec ( 50.43 %)
+Sat   calls      1  (  2.17 %)   Ave conf =      1.0   Time =     0.00 sec (  1.19 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+ 25 : P =      0. D =      1. F =     0. M =       0. And =  149192. Time =     0.03 sec
+[1;37msyn     [0m : i/o =  15509/     45  [1;36mand =    7282[0m  [1;35mlev =  106[0m [1;35m(97.89)[0m  mem = 0.32 MB
+SAT solver statistics:
+CO =       45  AND =     7282  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     44  ( 97.78 %)   Ave conf =      5.0   Time =     0.00 sec ( 48.59 %)
+Sat   calls      1  (  2.22 %)   Ave conf =      3.0   Time =     0.00 sec (  1.39 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+ 26 : P =      0. D =      1. F =     0. M =       0. And =  149192. Time =     0.03 sec
+[1;37msyn     [0m : i/o =  15509/     44  [1;36mand =    7279[0m  [1;35mlev =  106[0m [1;35m(99.11)[0m  mem = 0.32 MB
+SAT solver statistics:
+CO =       44  AND =     7279  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls     44  (100.00 %)   Ave conf =      5.1   Time =     0.00 sec ( 48.77 %)
+Sat   calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.00 sec
+ 27 : P =     44. D =      0. F =     0. M =       0. And =  149145. Time =     0.03 sec
+[1;37msyn     [0m : i/o =  15509/      0  [1;36mand =       0[0m  [1;35mlev =    0[0m [1;35m(-nan)[0m  mem = 0.24 MB
+Considered all available candidate equivalences.
+Performed 28618 SAT calls: P = 16853  D = 11765  F = 0
+NBeg = 166804. NEnd = 149145. (Gain =  10.59 %).  RBeg = 0. REnd = 0. (Gain =   0.00 %).
+Sim  =     0.22 sec (  1.38 %)
+Sat  =    14.22 sec ( 91.31 %)
+Pat  =     0.52 sec (  3.34 %)
+Time =    15.58 sec
+[INFO SYN-0023] abc_roundtrip: after ABC: 149145 ANDs, 15509 CIs, 9521 COs
+[INFO SYN-0020] abc_roundtrip: exported 159692 ANDs, 15435 CIs, 9573 COs
+[1;37msyn     [0m : i/o =  15435/   9573  [1;36mand =  159692[0m  [1;35mlev =  132[0m [1;35m(42.05)[0m  mem = 2.21 MB
+Starting:  syn             : pi = 15435  po =  9573  and =  159692  lev = 132
+Rewrite:   syn             : pi = 15435  po =  9573  and =  148909  lev = 118
+Refactor:  syn             : pi = 15435  po =  9573  and =  146777  lev = 118
+Balance:   syn             : pi = 15435  po =  9573  and =  146134  lev =  83
+Rewrite:   syn             : pi = 15435  po =  9573  and =  144851  lev =  83
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  143305  lev =  83
+Balance:   syn             : pi = 15435  po =  9573  and =  143084  lev =  83
+RefactorZ: syn             : pi = 15435  po =  9573  and =  142705  lev =  83
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  141952  lev =  83
+Balance:   syn             : pi = 15435  po =  9573  and =  141910  lev =  83
+Starting:  syn             : pi = 15435  po =  9573  and =  141910  lev =  83
+Rewrite:   syn             : pi = 15435  po =  9573  and =  141602  lev = 102
+Refactor:  syn             : pi = 15435  po =  9573  and =  141498  lev = 102
+Balance:   syn             : pi = 15435  po =  9573  and =  141480  lev = 102
+Rewrite:   syn             : pi = 15435  po =  9573  and =  141386  lev = 102
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  141200  lev = 102
+Balance:   syn             : pi = 15435  po =  9573  and =  141193  lev = 102
+RefactorZ: syn             : pi = 15435  po =  9573  and =  141089  lev = 102
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140925  lev = 102
+Balance:   syn             : pi = 15435  po =  9573  and =  140920  lev = 102
+Starting:  syn             : pi = 15435  po =  9573  and =  144498  lev =  54
+Rewrite:   syn             : pi = 15435  po =  9573  and =  141956  lev =  83
+Refactor:  syn             : pi = 15435  po =  9573  and =  141726  lev =  83
+Balance:   syn             : pi = 15435  po =  9573  and =  141719  lev =  82
+Rewrite:   syn             : pi = 15435  po =  9573  and =  141516  lev =  82
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  141145  lev =  82
+Balance:   syn             : pi = 15435  po =  9573  and =  141118  lev =  82
+RefactorZ: syn             : pi = 15435  po =  9573  and =  141055  lev =  82
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140880  lev =  82
+Balance:   syn             : pi = 15435  po =  9573  and =  140877  lev =  82
+Starting:  syn             : pi = 15435  po =  9573  and =  140877  lev =  82
+Rewrite:   syn             : pi = 15435  po =  9573  and =  140758  lev =  95
+Refactor:  syn             : pi = 15435  po =  9573  and =  140739  lev =  95
+Balance:   syn             : pi = 15435  po =  9573  and =  140730  lev =  95
+Rewrite:   syn             : pi = 15435  po =  9573  and =  140711  lev =  95
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140653  lev =  95
+Balance:   syn             : pi = 15435  po =  9573  and =  140650  lev =  95
+RefactorZ: syn             : pi = 15435  po =  9573  and =  140638  lev =  95
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140522  lev =  95
+Balance:   syn             : pi = 15435  po =  9573  and =  140517  lev =  95
+Starting:  syn             : pi = 15435  po =  9573  and =  140517  lev =  95
+Rewrite:   syn             : pi = 15435  po =  9573  and =  140465  lev = 100
+Refactor:  syn             : pi = 15435  po =  9573  and =  140462  lev = 100
+Balance:   syn             : pi = 15435  po =  9573  and =  140460  lev =  99
+Rewrite:   syn             : pi = 15435  po =  9573  and =  140451  lev =  99
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140221  lev =  99
+Balance:   syn             : pi = 15435  po =  9573  and =  140219  lev =  99
+RefactorZ: syn             : pi = 15435  po =  9573  and =  140117  lev =  99
+RewriteZ:  syn             : pi = 15435  po =  9573  and =  140031  lev =  99
+Balance:   syn             : pi = 15435  po =  9573  and =  140029  lev =  99
+[1;37msyn     [0m : i/o =  15435/   9573  [1;36mand =  140029[0m  [1;35mlev =   99[0m [1;35m(30.98)[0m  mem = 1.99 MB
+[INFO SYN-0023] abc_roundtrip: after ABC: 140029 ANDs, 15435 CIs, 9573 COs
+[INFO SYN-0017] mapCombinationals: done
+[INFO SYN-0040] gatefusion: 1272 fusions applied, area delta -47.5012
+[INFO SYN-0044]   -AO22x1_ASAP7_75t_R 1
+[INFO SYN-0044]   -AO21x1_ASAP7_75t_R 1772
+[INFO SYN-0044]   -AO32x1_ASAP7_75t_R 4
+[INFO SYN-0044]   -AO221x1_ASAP7_75t_R 5
+[INFO SYN-0044]   -AO33x2_ASAP7_75t_R 10
+[INFO SYN-0044]   -AOI21x1_ASAP7_75t_R 33
+[INFO SYN-0044]   -OA21x2_ASAP7_75t_R 70
+[INFO SYN-0044]   -AND4x1_ASAP7_75t_R 1
+[INFO SYN-0044]   -OAI21x1_ASAP7_75t_R 12
+[INFO SYN-0044]   -OR2x2_ASAP7_75t_R 83
+[INFO SYN-0044]   -OR4x1_ASAP7_75t_R 1
+[INFO SYN-0044]   -AND2x2_ASAP7_75t_R 508
+[INFO SYN-0044]   -AND3x1_ASAP7_75t_R 35
+[INFO SYN-0044]   -OA33x2_ASAP7_75t_R 3
+[INFO SYN-0044]   -OR3x1_ASAP7_75t_R 6
+[INFO SYN-0045]   +AO22x1_ASAP7_75t_R 482
+[INFO SYN-0045]   +AO32x1_ASAP7_75t_R 32
+[INFO SYN-0045]   +AOI221x1_ASAP7_75t_R 14
+[INFO SYN-0045]   +AO221x1_ASAP7_75t_R 618
+[INFO SYN-0045]   +AO331x1_ASAP7_75t_R 3
+[INFO SYN-0045]   +AO33x2_ASAP7_75t_R 4
+[INFO SYN-0045]   +AO222x2_ASAP7_75t_R 3
+[INFO SYN-0045]   +AOI22x1_ASAP7_75t_R 19
+[INFO SYN-0045]   +OR5x1_ASAP7_75t_R 4
+[INFO SYN-0045]   +AO322x2_ASAP7_75t_R 3
+[INFO SYN-0045]   +AND5x1_ASAP7_75t_R 1
+[INFO SYN-0045]   +AO332x1_ASAP7_75t_R 7
+[INFO SYN-0045]   +OA22x2_ASAP7_75t_R 67
+[INFO SYN-0045]   +OA332x1_ASAP7_75t_R 3
+[INFO SYN-0045]   +OAI22x1_ASAP7_75t_R 12
+  input: 76 cells, 534 bits
+  name (tentative): 25449 cells, 0 bits
+  not: 12084 cells, 12084 bits
+  output: 114 cells, 0 bits
+  target: AND2x2_ASAP7_75t_R: 4553 cells, 4553 bits, area 398.316
+  target: AND3x1_ASAP7_75t_R: 1177 cells, 1177 bits, area 102.963
+  target: AND4x1_ASAP7_75t_R: 479 cells, 479 bits, area 48.8865
+  target: AND5x1_ASAP7_75t_R: 405 cells, 405 bits, area 47.239
+  target: AO21x1_ASAP7_75t_R: 5247 cells, 5247 bits, area 459.036
+  target: AO221x1_ASAP7_75t_R: 5011 cells, 5011 bits, area 730.643
+  target: AO222x2_ASAP7_75t_R: 2114 cells, 2114 bits, area 369.861
+  target: AO22x1_ASAP7_75t_R: 3324 cells, 3324 bits, area 436.188
+  target: AO31x2_ASAP7_75t_R: 1 cells, 1 bits, area 0.23328
+  target: AO322x2_ASAP7_75t_R: 3 cells, 3 bits, area 0.6561
+  target: AO32x1_ASAP7_75t_R: 5598 cells, 5598 bits, area 652.941
+  target: AO331x1_ASAP7_75t_R: 3 cells, 3 bits, area 0.4374
+  target: AO332x1_ASAP7_75t_R: 7 cells, 7 bits, area 1.12266
+  target: AO33x2_ASAP7_75t_R: 310 cells, 310 bits, area 45.1981
+  target: AOI211x1_ASAP7_75t_R: 60 cells, 60 bits, area 10.4976
+  target: AOI21x1_ASAP7_75t_R: 1939 cells, 1939 bits, area 226.162
+  target: AOI221x1_ASAP7_75t_R: 253 cells, 253 bits, area 51.6425
+  target: AOI22x1_ASAP7_75t_R: 513 cells, 513 bits, area 74.7955
+  target: DFFASRHQNx1_ASAP7_75t_R: 13960 cells, 13960 bits, area 5291.67
+  target: DFFLQNx1_ASAP7_75t_R: 1 cells, 1 bits, area 0.2916
+  target: INVx1_ASAP7_75t_R: 6825 cells, 6825 bits, area 298.536
+  target: MAJx2_ASAP7_75t_R: 391 cells, 391 bits, area 51.3073
+  target: NAND2x1_ASAP7_75t_R: 3979 cells, 3979 bits, area 348.094
+  target: NAND3x1_ASAP7_75t_R: 83 cells, 83 bits, area 13.3115
+  target: NOR2x1_ASAP7_75t_R: 2710 cells, 2710 bits, area 237.068
+  target: NOR3x1_ASAP7_75t_R: 111 cells, 111 bits, area 17.8022
+  target: OA211x2_ASAP7_75t_R: 1048 cells, 1048 bits, area 122.237
+  target: OA21x2_ASAP7_75t_R: 3368 cells, 3368 bits, area 343.736
+  target: OA222x2_ASAP7_75t_R: 2600 cells, 2600 bits, area 454.89
+  target: OA22x2_ASAP7_75t_R: 502 cells, 502 bits, area 73.1917
+  target: OA332x1_ASAP7_75t_R: 3 cells, 3 bits, area 0.48114
+  target: OA33x2_ASAP7_75t_R: 179 cells, 179 bits, area 26.0982
+  target: OAI21x1_ASAP7_75t_R: 1091 cells, 1091 bits, area 127.253
+  target: OAI22x1_ASAP7_75t_R: 733 cells, 733 bits, area 106.871
+  target: OR2x2_ASAP7_75t_R: 1345 cells, 1345 bits, area 117.659
+  target: OR3x1_ASAP7_75t_R: 1676 cells, 1676 bits, area 146.615
+  target: OR4x1_ASAP7_75t_R: 1215 cells, 1215 bits, area 124.002
+  target: OR5x1_ASAP7_75t_R: 715 cells, 715 bits, area 83.3968
+  target: TIEHIx1_ASAP7_75t_R: 1 cells, 1 bits, area 0.04374
+  target: TIELOx1_ASAP7_75t_R: 1 cells, 1 bits, area 0.04374
+  target: XNOR2x2_ASAP7_75t_R: 1197 cells, 1197 bits, area 191.976
+  target: XOR2x2_ASAP7_75t_R: 3554 cells, 3554 bits, area 569.985
+  target: fakeram7_2048x39: 8 cells, 312 bits, area 26830.9
+  target: fakeram7_256x34: 16 cells, 544 bits, area 5847.74
+  target: fakeram7_64x21: 4 cells, 84 bits, area 225.74
+  total: 116036 cells, 91843 bits, area 45290
+[INFO SYN-0031] Export to ODB: created 78313 instances, 54814 nets, 1416 ports
+Took 51 seconds: synthesize
+read_sdc /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/constraint.sdc
+repair_design -pre_placement
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +4.9% |       0 |    9288 |          9869 |     89047
+    final |     +4.9% |       0 |    9288 |          9869 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0038] Inserted 9288 buffers in 9869 nets.
+[INFO RSZ-0504] Runtime: 30.66s
+Took 31 seconds: repair_design -pre_placement
+Report metrics stage 1, synth...
+
+==========================================================================
+synth report_design_area
+--------------------------------------------------------------------------
+Design area 47979 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/1_synth.sdc
+Elapsed time: 2:13.01[h:]min:sec. CPU time: user 180.90 sys 108.29 (217%). Peak memory: 1043100KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .v            133           1018 e64da01ab013086e3ca5
+1_synth                   .odb                             c626e0d66fc936ebc82e
+1_synth                   .sdc                             36bd82e632c3d34044ee
