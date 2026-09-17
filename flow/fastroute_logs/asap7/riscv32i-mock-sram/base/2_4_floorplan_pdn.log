@@ -1,0 +1,39 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram_fakeram7_256x32/base/fakeram7_256x32_typ.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram/base/2_3_floorplan_tapcell.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram/base/2_1_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+[INFO PDN-0001] Inserting grid: top
+[INFO PDN-0001] Inserting grid: ElementGrid - dmem.dmem0
+[INFO PDN-0001] Inserting grid: ElementGrid - dmem.dmem1
+[INFO PDN-0001] Inserting grid: ElementGrid - dmem.dmem2
+[INFO PDN-0001] Inserting grid: ElementGrid - dmem.dmem3
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (35.2140 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (37.2420 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (39.6120 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (15.5620 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (17.5900 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (19.9600 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (5.7360 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (7.7640 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (10.1340 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (25.3880 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (27.4160 um, 28.6310 um) for VDD
+[WARNING PDN-0195] Removing 8 via(s) between M5 and M6 at (29.7860 um, 28.6310 um) for VDD
+[INFO PDN-0500] Runtime: 0.07s
+Design area 1924 um^2 63% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram/base/2_4_floorplan_pdn.odb
+Elapsed time: 0:01.57[h:]min:sec. CPU time: user 1.47 sys 0.10 (100%). Peak memory: 227980KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_4_floorplan_pdn         .odb            1            222 dbff02b892405a00724a

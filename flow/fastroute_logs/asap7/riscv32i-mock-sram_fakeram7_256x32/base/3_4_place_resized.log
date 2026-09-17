@@ -1,0 +1,89 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram_fakeram7_256x32/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram_fakeram7_256x32/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       530
+       10 |     +0.0% |       0 |       0 |             0 |       520
+       20 |     +0.0% |       0 |       0 |             0 |       510
+       30 |     +0.0% |       0 |       0 |             0 |       500
+       40 |     +0.0% |       0 |       0 |             0 |       490
+       50 |     +0.0% |       0 |       0 |             0 |       480
+       60 |     +0.0% |       0 |       0 |             0 |       470
+       70 |     +0.0% |       0 |       0 |             0 |       460
+       80 |     +0.0% |       0 |       0 |             0 |       450
+       90 |     +0.0% |       0 |       0 |             0 |       440
+      100 |     +0.0% |       0 |       0 |             0 |       430
+      110 |     +0.0% |       0 |       0 |             0 |       420
+      120 |     +0.0% |       0 |       0 |             0 |       410
+      130 |     +0.0% |       0 |       0 |             0 |       400
+      140 |     +0.0% |       0 |       0 |             0 |       390
+      150 |     +0.0% |       0 |       0 |             0 |       380
+      160 |     +0.0% |       0 |       0 |             0 |       370
+      170 |     +0.0% |       0 |       0 |             0 |       360
+      180 |     +0.0% |       0 |       0 |             0 |       350
+      190 |     +0.0% |       0 |       0 |             0 |       340
+      200 |     +0.0% |       0 |       0 |             0 |       330
+      210 |     +0.0% |       0 |       0 |             0 |       320
+      220 |     +0.0% |       0 |       0 |             0 |       310
+      230 |     +0.0% |       0 |       0 |             0 |       300
+      240 |     +0.0% |       0 |       0 |             0 |       290
+      250 |     +0.0% |       0 |       0 |             0 |       280
+      260 |     +0.0% |       0 |       0 |             0 |       270
+      270 |     +0.0% |       0 |       0 |             0 |       260
+      280 |     +0.0% |       0 |       0 |             0 |       250
+      290 |     +0.0% |       0 |       0 |             0 |       240
+      300 |     +0.0% |       0 |       0 |             0 |       230
+      310 |     +0.0% |       0 |       0 |             0 |       220
+      320 |     +0.0% |       0 |       0 |             0 |       210
+      330 |     +0.0% |       0 |       0 |             0 |       200
+      340 |     +0.0% |       0 |       0 |             0 |       190
+      350 |     +0.0% |       0 |       0 |             0 |       180
+      360 |     +0.0% |       0 |       0 |             0 |       170
+      370 |     +0.0% |       0 |       0 |             0 |       160
+      380 |     +0.0% |       0 |       0 |             0 |       150
+      390 |     +0.0% |       0 |       0 |             0 |       140
+      400 |     +0.0% |       0 |       0 |             0 |       130
+      410 |     +0.0% |       0 |       0 |             0 |       120
+      420 |     +0.0% |       0 |       0 |             0 |       110
+      430 |     +0.0% |       0 |       0 |             0 |       100
+      440 |     +0.0% |       0 |       0 |             0 |        90
+      450 |     +0.0% |       0 |       0 |             0 |        80
+      460 |     +0.0% |       0 |       0 |             0 |        70
+      470 |     +0.0% |       0 |       0 |             0 |        60
+      480 |     +0.0% |       0 |       0 |             0 |        50
+      490 |     +0.0% |       0 |       0 |             0 |        40
+      500 |     +0.0% |       0 |       0 |             0 |        30
+      510 |     +0.0% |       0 |       0 |             0 |        20
+      520 |     +0.0% |       0 |       0 |             0 |        10
+      530 |     +0.0% |       0 |       0 |             0 |         0
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.03s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 73 um^2 64% utilization.
+Instance count before 711, after 711
+Pin count before 1470, after 1470
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i-mock-sram_fakeram7_256x32/base/3_4_place_resized.odb
+Elapsed time: 0:01.56[h:]min:sec. CPU time: user 1.55 sys 0.15 (108%). Peak memory: 219768KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            1            214 c4864144bf70b4edbf1c

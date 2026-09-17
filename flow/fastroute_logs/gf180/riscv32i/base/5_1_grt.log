@@ -1,0 +1,401 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/4_cts.sdc
+source ./platforms/gf180/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+
+Units:                2000
+Number of layers:     11
+Number of macros:     229
+Number of vias:       64
+Number of viarulegen: 18
+
+[INFO DRT-0150] Reading design.
+
+Design:                   riscv
+Die area:                 ( 0 0 ) ( 1485150 1485150 )
+Number of track patterns: 10
+Number of DEF vias:       0
+Number of components:     8151
+Number of terminals:      167
+Number of snets:          2
+Number of nets:           7521
+
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_VH
+  Layer Via3
+    default via: Via3_HV
+  Layer Via4
+    default via: Via4_1_VH
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 157.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Poly2.
+[INFO DRT-0024]   Complete CON.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0033] Poly2 shape region query size = 0.
+[INFO DRT-0033] CON shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 238205.
+[INFO DRT-0033] Via1 shape region query size = 24260.
+[INFO DRT-0033] Metal2 shape region query size = 89762.
+[INFO DRT-0033] Via2 shape region query size = 84910.
+[INFO DRT-0033] Metal3 shape region query size = 169985.
+[INFO DRT-0033] Via3 shape region query size = 84910.
+[INFO DRT-0033] Metal4 shape region query size = 85207.
+[INFO DRT-0033] Via4 shape region query size = 4224.
+[INFO DRT-0033] Metal5 shape region query size = 296.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 871 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 153 unique inst patterns.
+[INFO DRT-0084]   Complete 4960 groups.
+#scanned instances     = 8151
+#unique  instances     = 157
+#stdCellGenAp          = 6469
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 3998
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 26074
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:03, elapsed time = 00:00:02, memory = 219.58 (MB), peak = 217.33 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/gf180/riscv32i/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.5600  line-2-Via Pitch: 0.4750
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.9000  line-2-Via Pitch: 0.8200
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 45 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 64
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       102771         74436          27.57%
+Metal3     Horizontal     110603         80278          27.42%
+Metal4     Vertical        92957         67777          27.09%
+Metal5     Horizontal      64206         43674          31.98%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove congestion.
+[INFO GRT-0102] Start extra iteration 1/30
+[INFO GRT-0197] Via related to pin nodes: 48960
+[INFO GRT-0198] Via related Steiner nodes: 1548
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 63333
+[INFO GRT-0112] Final usage 3D: 260244
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2           74436         36968           49.66%             0 /  0 /  0
+Metal3           80278         30660           38.19%             0 /  0 /  0
+Metal4           67777          2136            3.15%             0 /  0 /  0
+Metal5           43674           481            1.10%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           266165         70245           26.39%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 807811 um
+[INFO GRT-0014] Routed nets: 7482
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      7559
+     1000 |     +0.0% |       0 |       0 |             0 |      6559
+     2000 |     +0.0% |       0 |       0 |             0 |      5559
+[WARNING RSZ-0104] Net _00112_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00075_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00063_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00060_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00024_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00012_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00009_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00090_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00078_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00072_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00069_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00066_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00057_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00054_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00051_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00048_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00045_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00042_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00039_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00036_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00033_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00030_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00018_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00015_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00006_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00003_ only has one pin. Check if it is intended to be dangling.
+     3000 |     +0.0% |       0 |       0 |             0 |      4559
+[WARNING RSZ-0104] Net _00087_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00084_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00081_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00027_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00021_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00101_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00097_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00095_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00093_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00099_ only has one pin. Check if it is intended to be dangling.
+     4000 |     +0.0% |       0 |       0 |             0 |      3559
+     5000 |     +0.0% |       0 |       0 |             0 |      2559
+[WARNING RSZ-0104] Net _00109_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00107_ only has one pin. Check if it is intended to be dangling.
+[WARNING RSZ-0104] Net _00105_ only has one pin. Check if it is intended to be dangling.
+     6000 |     +0.0% |       0 |       0 |             0 |      1559
+     7000 |     +0.0% |       0 |       0 |             0 |       559
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 1.14s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 544757.07 um^2
+[INFO DPL-0007] Movable instances area: 374670.78 um^2
+[INFO DPL-0008] Fixed instances area within core: 4572.29 um^2
+[INFO DPL-0009] Utilization: 69.6%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 8151 cells
+[INFO DPL-0500] Runtime: 0.04s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          459567.5 u
+legalized HPWL         459567.5 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/gf180/riscv32i/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0094] Found 28 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 28 out of 28 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.426 |       -4.8 |       -7.5 |     28 | aluout[15]
+      10* |       0 |       1 |        1 |      0 |     7 |    +0.0% |   -0.466 |       -5.4 |       -7.5 |     28 | aluout[0]
+      20* |       0 |       1 |        6 |      0 |    12 |    +0.1% |   -0.441 |       -5.4 |       -7.0 |     28 | aluout[0]
+      27* |       0 |       2 |        6 |      0 |    18 |    +0.1% |   -0.394 |       -4.3 |       -6.6 |     28 | aluout[29]
+      28* |       0 |       2 |        6 |      0 |    18 |    +0.1% |   -0.394 |       -4.3 |       -6.6 |     28 | aluout[29]
+      30* |       0 |       3 |        6 |      0 |    18 |    +0.1% |   -0.394 |       -4.3 |       -6.6 |     28 | aluout[29]
+      40* |       0 |      10 |        6 |      0 |    21 |    +0.2% |   -0.394 |       -4.2 |       -6.5 |     28 | aluout[29]
+      44* |       0 |      11 |        6 |      0 |    24 |    +0.2% |   -0.394 |       -4.2 |       -6.2 |     28 | aluout[29]
+      50* |       0 |      14 |        6 |      0 |    26 |    +0.2% |   -0.371 |       -4.1 |       -6.0 |     28 | aluout[27]
+      60* |       0 |      15 |       11 |      0 |    31 |    +0.2% |   -0.371 |       -4.0 |       -6.3 |     28 | aluout[27]
+      62* |       0 |      16 |       11 |      0 |    32 |    +0.2% |   -0.371 |       -3.9 |       -6.0 |     28 | aluout[27]
+      70* |       0 |      16 |       14 |      0 |    36 |    +0.3% |   -0.371 |       -3.6 |       -6.0 |     28 | aluout[27]
+      78* |       0 |      16 |       15 |      0 |    37 |    +0.3% |   -0.371 |       -3.5 |       -5.9 |     28 | aluout[27]
+      80* |       0 |      16 |       15 |      0 |    38 |    +0.3% |   -0.371 |       -3.5 |       -5.9 |     28 | aluout[27]
+      90* |       0 |      22 |       16 |      0 |    41 |    +0.3% |   -0.402 |       -3.9 |       -5.8 |     28 | aluout[27]
+     100* |       0 |      24 |       20 |      0 |    47 |    +0.4% |   -0.397 |       -3.9 |       -5.8 |     28 | aluout[27]
+     110* |       0 |      31 |       20 |      0 |    50 |    +0.4% |   -0.397 |       -3.8 |       -5.8 |     28 | aluout[27]
+     111* |       0 |      17 |       15 |      0 |    39 |    +0.3% |   -0.371 |       -3.5 |       -5.8 |     28 | aluout[27]
+     120* |       0 |      19 |       18 |      0 |    42 |    +0.3% |   -0.365 |       -3.5 |       -5.9 |     28 | aluout[27]
+     130* |       0 |      21 |       21 |      0 |    47 |    +0.4% |   -0.350 |       -3.5 |       -5.8 |     28 | aluout[14]
+     140* |       0 |      25 |       23 |      0 |    51 |    +0.4% |   -0.407 |       -4.3 |       -5.9 |     28 | aluout[27]
+     148* |       0 |      20 |       19 |      0 |    43 |    +0.3% |   -0.350 |       -3.4 |       -5.9 |     28 | aluout[27]
+     150* |       0 |      20 |       19 |      0 |    44 |    +0.3% |   -0.350 |       -3.4 |       -5.9 |     28 | aluout[27]
+     154* |       0 |      20 |       19 |      0 |    43 |    +0.3% |   -0.350 |       -3.4 |       -5.9 |     28 | aluout[27]
+     160* |       0 |      23 |       19 |      0 |    45 |    +0.4% |   -0.379 |       -3.5 |       -5.8 |     28 | aluout[27]
+     164* |       0 |      20 |       19 |      0 |    43 |    +0.3% |   -0.350 |       -3.4 |       -5.9 |     28 | aluout[27]
+     170* |       0 |      22 |       20 |      0 |    45 |    +0.4% |   -0.428 |       -4.7 |       -6.0 |     28 | aluout[27]
+     180* |       1 |      26 |       25 |      0 |    46 |    +0.4% |   -0.388 |       -4.1 |       -6.0 |     28 | aluout[27]
+     183* |       0 |      20 |       19 |      0 |    43 |    +0.3% |   -0.350 |       -3.4 |       -5.9 |     28 | aluout[27]
+     190* |       0 |      23 |       20 |      0 |    45 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     193* |       0 |      24 |       20 |      0 |    45 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     200* |       0 |      26 |       22 |      0 |    47 |    +0.4% |   -0.351 |       -3.3 |       -5.8 |     28 | aluout[27]
+     206* |       0 |      24 |       20 |      0 |    45 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     210* |       0 |      25 |       21 |      0 |    46 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     214* |       0 |      25 |       20 |      0 |    45 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     220* |       0 |      26 |       22 |      0 |    47 |    +0.4% |   -0.349 |       -3.2 |       -5.8 |     28 | aluout[27]
+     230* |       0 |      33 |       24 |      0 |    48 |    +0.5% |   -0.359 |       -3.3 |       -6.1 |     28 | aluout[17]
+     240* |       0 |      42 |       24 |      0 |    49 |    +0.6% |   -0.356 |       -3.3 |       -5.9 |     28 | aluout[31]
+     250* |       0 |      49 |       26 |      0 |    50 |    +0.7% |   -0.349 |       -3.3 |       -5.8 |     28 | aluout[27]
+     260* |       1 |      54 |       27 |      0 |    53 |    +0.7% |   -0.349 |       -3.3 |       -5.8 |     28 | aluout[27]
+     263* |       1 |      57 |       27 |      0 |    53 |    +0.7% |   -0.347 |       -3.3 |       -5.6 |     28 | aluout[17]
+     270* |       1 |      62 |       27 |      0 |    54 |    +0.7% |   -0.334 |       -3.2 |       -5.3 |     28 | aluout[31]
+     280* |       1 |      67 |       30 |      0 |    57 |    +0.8% |   -0.337 |       -3.3 |       -5.3 |     28 | aluout[27]
+     290* |       1 |      71 |       31 |      0 |    62 |    +0.8% |   -0.337 |       -3.2 |       -5.3 |     28 | aluout[27]
+     300* |       1 |      76 |       32 |      0 |    66 |    +0.8% |   -0.337 |       -3.3 |       -5.3 |     28 | aluout[27]
+     310* |       1 |      81 |       32 |      0 |    71 |    +0.9% |   -0.336 |       -3.2 |       -5.3 |     28 | aluout[27]
+     315* |       1 |      83 |       32 |      0 |    71 |    +0.9% |   -0.326 |       -3.2 |       -5.0 |     28 | aluout[27]
+     320* |       1 |      84 |       34 |      0 |    72 |    +0.9% |   -0.326 |       -3.2 |       -5.0 |     28 | aluout[27]
+     330* |       1 |      87 |       36 |      0 |    77 |    +1.0% |   -0.342 |       -3.3 |       -4.9 |     28 | aluout[27]
+     340* |       1 |      93 |       40 |      0 |    78 |    +1.1% |   -0.426 |       -3.6 |       -5.5 |     28 | aluout[27]
+     345* |       1 |      88 |       36 |      0 |    78 |    +1.0% |   -0.326 |       -3.2 |       -4.8 |     28 | aluout[27]
+     350* |       1 |      90 |       36 |      0 |    80 |    +1.0% |   -0.339 |       -3.3 |       -4.8 |     28 | aluout[27]
+     360* |       1 |      97 |       36 |      0 |    83 |    +1.0% |   -0.343 |       -3.3 |       -4.8 |     28 | aluout[27]
+     370* |       1 |     101 |       38 |      0 |    87 |    +1.1% |   -0.463 |       -3.7 |       -6.7 |     28 | aluout[26]
+     376* |       1 |      88 |       36 |      0 |    80 |    +1.0% |   -0.326 |       -3.2 |       -4.8 |     28 | aluout[27]
+     380* |       1 |      89 |       37 |      0 |    81 |    +1.0% |   -0.326 |       -3.2 |       -4.9 |     28 | aluout[27]
+     390* |       1 |      94 |       37 |      0 |    86 |    +1.0% |   -0.342 |       -3.3 |       -5.3 |     28 | aluout[27]
+     392* |       1 |      93 |       37 |      0 |    85 |    +1.0% |   -0.326 |       -3.2 |       -4.9 |     28 | aluout[27]
+     400* |       1 |      96 |       38 |      0 |    88 |    +1.1% |   -0.326 |       -3.2 |       -4.8 |     28 | aluout[27]
+     402* |       1 |      93 |       37 |      0 |    85 |    +1.0% |   -0.326 |       -3.2 |       -4.9 |     28 | aluout[27]
+     408* |       1 |      94 |       38 |      0 |    88 |    +1.0% |   -0.326 |       -3.2 |       -4.8 |     28 | aluout[27]
+     410* |       1 |      95 |       38 |      0 |    88 |    +1.0% |   -0.326 |       -3.2 |       -4.7 |     28 | aluout[27]
+     419* |       1 |     100 |       39 |      0 |    91 |    +1.1% |   -0.326 |       -3.2 |       -4.6 |     28 | aluout[27]
+     420* |       1 |     100 |       39 |      0 |    91 |    +1.1% |   -0.326 |       -3.2 |       -4.6 |     28 | aluout[27]
+     423* |       2 |     101 |       39 |      0 |    92 |    +1.1% |   -0.326 |       -3.2 |       -4.5 |     28 | aluout[27]
+     430* |       2 |     104 |       40 |      0 |    94 |    +1.1% |   -0.326 |       -3.2 |       -4.4 |     28 | aluout[27]
+     435* |       2 |     108 |       41 |      0 |    94 |    +1.1% |   -0.326 |       -3.2 |       -4.3 |     28 | aluout[27]
+     437* |       2 |     109 |       41 |      0 |    94 |    +1.1% |   -0.326 |       -3.2 |       -4.3 |     28 | aluout[27]
+     440* |       2 |     111 |       41 |      0 |    94 |    +1.1% |   -0.326 |       -3.2 |       -4.2 |     28 | aluout[27]
+     444* |       2 |     112 |       41 |      0 |    97 |    +1.1% |   -0.326 |       -3.2 |       -4.0 |     28 | aluout[27]
+     447* |       2 |     114 |       41 |      0 |    97 |    +1.1% |   -0.326 |       -3.2 |       -4.0 |     28 | aluout[27]
+     450* |       2 |     116 |       41 |      0 |    97 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     28 | aluout[27]
+     450* |       2 |     116 |       41 |      0 |    97 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     28 | aluout[27]
+     454* |       2 |     117 |       41 |      0 |    99 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     28 | aluout[27]
+     454* |       2 |     117 |       41 |      0 |    99 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     28 | aluout[27]
+     455+ |       2 |     117 |       41 |      0 |    99 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     16 | aluout[27]
+     456+ |       2 |     117 |       41 |      0 |    99 |    +1.1% |   -0.326 |       -3.2 |       -3.9 |     16 | aluout[27]
+     457+ |       2 |     118 |       41 |      0 |    99 |    +1.1% |   -0.326 |       -3.2 |       -3.6 |     16 | aluout[27]
+     460+ |       2 |     119 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.5 |     16 | aluout[27]
+     460+ |       2 |     119 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.5 |     16 | aluout[27]
+     461+ |       2 |     119 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.5 |     16 | aluout[27]
+     462+ |       2 |     119 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.5 |     16 | aluout[27]
+     463+ |       2 |     119 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.5 |     16 | aluout[27]
+     464+ |       2 |     120 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     465+ |       2 |     120 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     466+ |       2 |     120 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     468+ |       2 |     121 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     469+ |       2 |     121 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     470+ |       2 |     121 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     470+ |       2 |     121 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     472+ |       2 |     122 |       41 |      0 |   100 |    +1.1% |   -0.326 |       -3.2 |       -3.3 |     16 | aluout[27]
+     475+ |       2 |     124 |       41 |      0 |   100 |    +1.2% |   -0.326 |       -3.2 |       -3.2 |     16 | aluout[27]
+     476+ |       2 |     124 |       41 |      0 |   100 |    +1.2% |   -0.326 |       -3.2 |       -3.2 |     16 | aluout[27]
+    final |       2 |     124 |       41 |      0 |   100 |    +1.2% |   -0.326 |       -3.2 |       -3.2 |     14 | aluout[27]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 2 buffers.
+[INFO RSZ-0045] Inserted 41 buffers, 3 to split loads.
+[INFO RSZ-0051] Resized 124 instances: 124 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 100 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 19.67s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.04s
+Took 19 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 544757.07 um^2
+[INFO DPL-0007] Movable instances area: 379087.83 um^2
+[INFO DPL-0008] Fixed instances area within core: 4572.29 um^2
+[INFO DPL-0009] Utilization: 70.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 8190 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        902 |       109 |       793
+        1 |        675 |        68 |       607
+        2 |        562 |        57 |       505
+        3 |        524 |        50 |       474
+        4 |        370 |        43 |       327
+        5 |        264 |        27 |       237
+        6 |        238 |        21 |       217
+        7 |        192 |        16 |       176
+        8 |        151 |        14 |       137
+        9 |        128 |        13 |       115
+       10 |         68 |         4 |        64
+       11 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 11.
+[INFO DPL-0500] Runtime: 0.19s
+Placement Analysis
+---------------------------------
+total displacement       3701.0 u
+average displacement        0.5 u
+max displacement           61.6 u
+original HPWL          461969.6 u
+legalized HPWL         466129.0 u
+delta HPWL                    1 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/gf180/riscv32i/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/gf180/riscv32i/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 3 antenna violations.
+[INFO GRT-0302] Inserted 3 jumpers for 3 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 383660 um^2 70% utilization.
+[INFO FLW-0007] clock clk period 9.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 1264
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/riscv32i/base/5_1_grt.sdc
+Elapsed time: 0:32.60[h:]min:sec. CPU time: user 291.36 sys 21.03 (958%). Peak memory: 468344KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           32            457 6c82dfe64e09cb13a03d
+5_1_grt                   .sdc                             0d51a393afe26d471626

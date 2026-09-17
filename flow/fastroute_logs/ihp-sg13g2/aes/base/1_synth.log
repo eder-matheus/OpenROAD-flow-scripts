@@ -1,0 +1,173 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_lef ./platforms/ihp-sg13g2/lef/sg13g2_tech.lef
+[INFO ODB-0227] LEF file: ./platforms/ihp-sg13g2/lef/sg13g2_tech.lef, created 19 layers, 70 vias
+read_lef ./platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef
+[INFO ODB-0227] LEF file: ./platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef, created 84 library cells
+set_dont_use "sg13g2_lgcp_1 sg13g2_sighold sg13g2_slgcp_1 sg13g2_dfrbp_2"
+sv_elaborate -D SYNTHESIS --compat=vcs --ignore-assertions --no-implicit-memories --top aes_cipher_top /OpenROAD-flow-scripts/flow/designs/src/aes/aes_cipher_top.v /OpenROAD-flow-scripts/flow/designs/src/aes/aes_inv_cipher_top.v /OpenROAD-flow-scripts/flow/designs/src/aes/aes_inv_sbox.v /OpenROAD-flow-scripts/flow/designs/src/aes/aes_key_expand_128.v /OpenROAD-flow-scripts/flow/designs/src/aes/aes_rcon.v /OpenROAD-flow-scripts/flow/designs/src/aes/aes_sbox.v /OpenROAD-flow-scripts/flow/designs/src/aes/timescale.v --std=1364-2005
+Top level design units:
+    aes_cipher_top
+
+Build succeeded: 0 errors, 0 warnings
+syn::stats
+  adc: 2 cells, 10 bits
+  and: 2 cells, 2 bits
+  dff: 42 cells, 554 bits
+  input: 5 cells, 259 bits
+  mux: 256 cells, 256 bits
+  name (tentative): 159 cells, 0 bits
+  not: 3 cells, 3 bits
+  or: 5 cells, 5 bits
+  output: 2 cells, 0 bits
+  ushr: 27 cells, 41824 bits
+  xor: 1040 cells, 1440 bits
+  total: 1543 cells, 44353 bits
+synthesize
+[INFO SYN-0056] liveness: replaced 24 register bits, 0 combinational bits
+[INFO SYN-0020] abc_roundtrip: exported 21628 ANDs, 813 CIs, 529 COs
+[1;37msyn     [0m : i/o =    813/    529  [1;36mand =   21628[0m  [1;35mlev =   28[0m [1;35m(15.44)[0m  mem = 0.27 MB
+Simulating 4 words for 10 rounds. SAT solving with 1000000 conflicts.
+cst =   21628  cls =      0  lit =   21628  unused =     813  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+cst =       3  cls =    849  lit =     852  unused =   20740  proof =     0
+[1;37msyn     [0m : i/o =    813/    769  [1;36mand =    4481[0m  [1;35mlev =   11[0m [1;35m(5.22)[0m  mem = 0.08 MB
+SAT solver statistics:
+CO =      769  AND =     4481  Conf = 1000000  MinVar =  2000  MinCalls =   200
+Unsat calls    769  (100.00 %)   Ave conf =      4.1   Time =     0.01 sec ( 82.58 %)
+Sat   calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Undef calls      0  (  0.00 %)   Ave conf =      0.0   Time =     0.00 sec (  0.00 %)
+Total time =     0.01 sec
+  1 : P =    769. D =      0. F =     0. M =       0. And =   20776. Time =     0.01 sec
+[1;37msyn     [0m : i/o =    813/      0  [1;36mand =       0[0m  [1;35mlev =    0[0m [1;35m(-nan)[0m  mem = 0.01 MB
+Considered all available candidate equivalences.
+Performed 769 SAT calls: P = 769  D = 0  F = 0
+NBeg = 21628. NEnd = 20776. (Gain =   3.94 %).  RBeg = 0. REnd = 0. (Gain =   0.00 %).
+Sim  =     0.01 sec ( 43.81 %)
+Sat  =     0.01 sec ( 37.67 %)
+Pat  =     0.00 sec (  0.09 %)
+Time =     0.02 sec
+[INFO SYN-0023] abc_roundtrip: after ABC: 20776 ANDs, 813 CIs, 529 COs
+[INFO SYN-0020] abc_roundtrip: exported 20776 ANDs, 789 CIs, 529 COs
+[1;37msyn     [0m : i/o =    789/    529  [1;36mand =   20776[0m  [1;35mlev =   28[0m [1;35m(15.50)[0m  mem = 0.26 MB
+Starting:  syn             : pi =   789  po =   529  and =   20776  lev =  28
+Rewrite:   syn             : pi =   789  po =   529  and =   19245  lev =  28
+Refactor:  syn             : pi =   789  po =   529  and =   19245  lev =  28
+Balance:   syn             : pi =   789  po =   529  and =   19245  lev =  28
+Rewrite:   syn             : pi =   789  po =   529  and =   19064  lev =  28
+RewriteZ:  syn             : pi =   789  po =   529  and =   18426  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   18310  lev =  25
+RefactorZ: syn             : pi =   789  po =   529  and =   18179  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17873  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17826  lev =  25
+Starting:  syn             : pi =   789  po =   529  and =   17826  lev =  25
+Rewrite:   syn             : pi =   789  po =   529  and =   17724  lev =  25
+Refactor:  syn             : pi =   789  po =   529  and =   17724  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17724  lev =  25
+Rewrite:   syn             : pi =   789  po =   529  and =   17723  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17625  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17619  lev =  25
+RefactorZ: syn             : pi =   789  po =   529  and =   17607  lev =  25
+RewriteZ:  syn             : pi =   789  po =   529  and =   17491  lev =  25
+Balance:   syn             : pi =   789  po =   529  and =   17476  lev =  25
+Starting:  syn             : pi =   789  po =   529  and =   18872  lev =  20
+Rewrite:   syn             : pi =   789  po =   529  and =   17824  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17779  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17777  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17761  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17714  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17702  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17697  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17619  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17586  lev =  23
+Starting:  syn             : pi =   789  po =   529  and =   17586  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17552  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17546  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17546  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17546  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17519  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17514  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17510  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17485  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17479  lev =  23
+Starting:  syn             : pi =   789  po =   529  and =   17479  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17469  lev =  23
+Refactor:  syn             : pi =   789  po =   529  and =   17469  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17468  lev =  23
+Rewrite:   syn             : pi =   789  po =   529  and =   17468  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17449  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17446  lev =  23
+RefactorZ: syn             : pi =   789  po =   529  and =   17445  lev =  23
+RewriteZ:  syn             : pi =   789  po =   529  and =   17430  lev =  23
+Balance:   syn             : pi =   789  po =   529  and =   17423  lev =  23
+[1;37msyn     [0m : i/o =    789/    529  [1;36mand =   17423[0m  [1;35mlev =   23[0m [1;35m(13.51)[0m  mem = 0.22 MB
+[INFO SYN-0023] abc_roundtrip: after ABC: 17423 ANDs, 789 CIs, 529 COs
+[INFO SYN-0017] mapCombinationals: done
+[INFO SYN-0040] gatefusion: 0 fusions applied, area delta 0.0000
+  input: 5 cells, 259 bits
+  name (tentative): 74 cells, 0 bits
+  not: 1 cells, 1 bits
+  output: 2 cells, 0 bits
+  target: sg13g2_a21o_1: 78 cells, 78 bits, area 990.663
+  target: sg13g2_a21oi_1: 1207 cells, 1207 bits, area 10949.9
+  target: sg13g2_a221oi_1: 868 cells, 868 bits, area 12599.3
+  target: sg13g2_a22oi_1: 286 cells, 286 bits, area 3102.7
+  target: sg13g2_and2_1: 282 cells, 282 bits, area 2558.31
+  target: sg13g2_and3_1: 14 cells, 14 bits, area 177.811
+  target: sg13g2_and4_1: 8 cells, 8 bits, area 116.122
+  target: sg13g2_dfrbpq_1: 530 cells, 530 bits, area 25964
+  target: sg13g2_inv_1: 168 cells, 168 bits, area 914.456
+  target: sg13g2_mux2_1: 160 cells, 160 bits, area 2903.04
+  target: sg13g2_mux4_1: 1 cells, 1 bits, area 38.1024
+  target: sg13g2_nand2_1: 1619 cells, 1619 bits, area 11750.3
+  target: sg13g2_nand2b_1: 345 cells, 345 bits, area 3129.85
+  target: sg13g2_nand3_1: 312 cells, 312 bits, area 2830.47
+  target: sg13g2_nand3b_1: 29 cells, 29 bits, area 368.323
+  target: sg13g2_nand4_1: 61 cells, 61 bits, area 664.071
+  target: sg13g2_nor2_1: 1655 cells, 1655 bits, area 12011.5
+  target: sg13g2_nor2b_1: 99 cells, 99 bits, area 898.129
+  target: sg13g2_nor3_1: 537 cells, 537 bits, area 4871.65
+  target: sg13g2_nor4_1: 163 cells, 163 bits, area 1774.48
+  target: sg13g2_o21ai_1: 1201 cells, 1201 bits, area 10895.5
+  target: sg13g2_or2_1: 67 cells, 67 bits, area 607.824
+  target: sg13g2_or3_1: 21 cells, 21 bits, area 266.717
+  target: sg13g2_or4_1: 10 cells, 10 bits, area 145.152
+  target: sg13g2_tiehi: 1 cells, 1 bits, area 7.2576
+  target: sg13g2_xnor2_1: 427 cells, 427 bits, area 6197.98
+  target: sg13g2_xor2_1: 420 cells, 420 bits, area 6096.37
+  total: 10651 cells, 10829 bits, area 122826
+[INFO SYN-0031] Export to ODB: created 10569 instances, 10039 nets, 388 ports
+read_sdc /OpenROAD-flow-scripts/flow/designs/ihp-sg13g2/aes/constraint.sdc
+repair_design -pre_placement
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |    +19.6% |       0 |    1497 |          1585 |     12325
+    final |    +19.6% |       0 |    1497 |          1585 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0038] Inserted 1497 buffers in 1585 nets.
+[INFO RSZ-0504] Runtime: 2.66s
+Report metrics stage 1, synth...
+
+==========================================================================
+synth report_design_area
+--------------------------------------------------------------------------
+Design area 146905 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/aes/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/aes/base/1_synth.sdc
+[WARNING STA-0101] object 'bondpad_70*' not found.
+Elapsed time: 0:08.02[h:]min:sec. CPU time: user 10.60 sys 9.20 (246%). Peak memory: 164936KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .v              8            161 dbd868249b626633c79f
+1_synth                   .odb                             aee6d1418b69c5757f74
+1_synth                   .sdc                             471e311369ec4b94edba

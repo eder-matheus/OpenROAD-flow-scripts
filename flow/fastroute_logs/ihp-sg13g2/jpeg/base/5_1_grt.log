@@ -1,0 +1,341 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/jpeg/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/jpeg/base/4_cts.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     15
+Number of macros:     84
+Number of vias:       84
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   jpeg_encoder
+Die area:                 ( 0 0 ) ( 1736345 1736345 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     77259
+Number of terminals:      49
+Number of snets:          2
+Number of nets:           77227
+
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_YX
+  Layer Via3
+    default via: Via3_XY
+  Layer Via4
+    default via: Via4_YX
+  Layer TopVia1
+    default via: TopVia1EWNS
+  Layer TopVia2
+    default via: TopVia2EWNS
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 102.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete GatPoly.
+[INFO DRT-0024]   Complete Cont.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0024]   Complete TopVia1.
+[INFO DRT-0024]   Complete TopMetal1.
+[INFO DRT-0024]   Complete TopVia2.
+[INFO DRT-0024]   Complete TopMetal2.
+[INFO DRT-0033] GatPoly shape region query size = 0.
+[INFO DRT-0033] Cont shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 1592127.
+[INFO DRT-0033] Via1 shape region query size = 61425.
+[INFO DRT-0033] Metal2 shape region query size = 22061.
+[INFO DRT-0033] Via2 shape region query size = 61425.
+[INFO DRT-0033] Metal3 shape region query size = 22086.
+[INFO DRT-0033] Via3 shape region query size = 61425.
+[INFO DRT-0033] Metal4 shape region query size = 22050.
+[INFO DRT-0033] Via4 shape region query size = 61425.
+[INFO DRT-0033] Metal5 shape region query size = 33075.
+[INFO DRT-0033] TopVia1 shape region query size = 24750.
+[INFO DRT-0033] TopMetal1 shape region query size = 12324.
+[INFO DRT-0033] TopVia2 shape region query size = 1405.
+[INFO DRT-0033] TopMetal2 shape region query size = 1299.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 563 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 102 unique inst patterns.
+[INFO DRT-0082]   Complete 10000 groups.
+[INFO DRT-0082]   Complete 20000 groups.
+[INFO DRT-0082]   Complete 30000 groups.
+[INFO DRT-0082]   Complete 40000 groups.
+[INFO DRT-0084]   Complete 48872 groups.
+#scanned instances     = 77259
+#unique  instances     = 102
+#stdCellGenAp          = 4316
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 3263
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 252561
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:12:01, elapsed time = 00:00:25, memory = 444.54 (MB), peak = 481.17 (MB)
+Took 26 seconds: pin_access
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/jpeg/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4200  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 757 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 9
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       816105        758265          7.09%
+Metal3     Horizontal     980867        923027          5.90%
+Metal4     Vertical       816105        758265          7.09%
+Metal5     Horizontal     965095        907255          5.99%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 399952
+[INFO GRT-0198] Via related Steiner nodes: 6282
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 485067
+[INFO GRT-0112] Final usage 3D: 1859449
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2          758265        199949           26.37%             0 /  0 /  0
+Metal3          923027        191690           20.77%             0 /  0 /  0
+Metal4          758265          9349            1.23%             0 /  0 /  0
+Metal5          907255          3260            0.36%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total          3346812        404248           12.08%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 4115188 um
+[INFO GRT-0014] Routed nets: 77227
+[INFO GRT-0303] Global routing runtime = 00:00:04
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     77279
+     1000 |     +0.0% |       0 |       0 |             0 |     76279
+     2000 |     +0.0% |       0 |       0 |             0 |     75279
+     3000 |     +0.0% |       0 |       0 |             0 |     74279
+     4000 |     +0.0% |       0 |       0 |             0 |     73279
+     5000 |     +0.0% |       0 |       0 |             0 |     72279
+     6000 |     +0.0% |       0 |       0 |             0 |     71279
+     7000 |     +0.0% |       0 |       0 |             0 |     70279
+     8000 |     +0.0% |       0 |       0 |             0 |     69279
+     9000 |     +0.0% |       0 |       0 |             0 |     68279
+    10000 |     +0.0% |       0 |       0 |             0 |     67279
+    11000 |     +0.0% |       0 |       0 |             0 |     66279
+    12000 |     +0.0% |       0 |       0 |             0 |     65279
+    13000 |     +0.0% |       0 |       0 |             0 |     64279
+    14000 |     +0.0% |       0 |       0 |             0 |     63279
+    15000 |     +0.0% |       0 |       0 |             0 |     62279
+    16000 |     +0.0% |       0 |       0 |             0 |     61279
+    17000 |     +0.0% |       0 |       0 |             0 |     60279
+    18000 |     +0.0% |       0 |       0 |             0 |     59279
+    19000 |     +0.0% |       0 |       0 |             0 |     58279
+    20000 |     +0.0% |       0 |       0 |             0 |     57279
+    21000 |     +0.0% |       0 |       0 |             0 |     56279
+    22000 |     +0.0% |       0 |       0 |             0 |     55279
+    23000 |     +0.0% |       0 |       0 |             0 |     54279
+    24000 |     +0.0% |       0 |       0 |             0 |     53279
+    25000 |     +0.0% |       0 |       0 |             0 |     52279
+    26000 |     +0.0% |       0 |       0 |             0 |     51279
+    27000 |     +0.0% |       0 |       0 |             0 |     50279
+    28000 |     +0.0% |       0 |       0 |             0 |     49279
+    29000 |     +0.0% |       0 |       0 |             0 |     48279
+    30000 |     +0.0% |       0 |       0 |             0 |     47279
+    31000 |     +0.0% |       0 |       0 |             0 |     46279
+    32000 |     +0.0% |       0 |       0 |             0 |     45279
+    33000 |     +0.0% |       0 |       0 |             0 |     44279
+    34000 |     +0.0% |       0 |       0 |             0 |     43279
+    35000 |     +0.0% |       0 |       0 |             0 |     42279
+    36000 |     +0.0% |       0 |       0 |             0 |     41279
+    37000 |     +0.0% |       0 |       0 |             0 |     40279
+    38000 |     +0.0% |       0 |       0 |             0 |     39279
+    39000 |     +0.0% |       0 |       0 |             0 |     38279
+    40000 |     +0.0% |       0 |       0 |             0 |     37279
+    41000 |     +0.0% |       0 |       0 |             0 |     36279
+    42000 |     +0.0% |       0 |       0 |             0 |     35279
+    43000 |     +0.0% |       0 |       0 |             0 |     34279
+    44000 |     +0.0% |       0 |       0 |             0 |     33279
+    45000 |     +0.0% |       0 |       0 |             0 |     32279
+    46000 |     +0.0% |       0 |       0 |             0 |     31279
+    47000 |     +0.0% |       0 |       0 |             0 |     30279
+    48000 |     +0.0% |       0 |       0 |             0 |     29279
+    49000 |     +0.0% |       0 |       0 |             0 |     28279
+    50000 |     +0.0% |       0 |       0 |             0 |     27279
+    51000 |     +0.0% |       0 |       0 |             0 |     26279
+    52000 |     +0.0% |       0 |       0 |             0 |     25279
+    53000 |     +0.0% |       0 |       0 |             0 |     24279
+    54000 |     +0.0% |       0 |       0 |             0 |     23279
+    55000 |     +0.0% |       0 |       0 |             0 |     22279
+    56000 |     +0.0% |       0 |       0 |             0 |     21279
+    57000 |     +0.0% |       0 |       0 |             0 |     20279
+    58000 |     +0.0% |       0 |       0 |             0 |     19279
+    59000 |     +0.0% |       0 |       0 |             0 |     18279
+    60000 |     +0.0% |       0 |       0 |             0 |     17279
+    61000 |     +0.0% |       0 |       0 |             0 |     16279
+    62000 |     +0.0% |       0 |       0 |             0 |     15279
+    63000 |     +0.0% |       0 |       0 |             0 |     14279
+    64000 |     +0.0% |       0 |       0 |             0 |     13279
+    65000 |     +0.0% |       0 |       0 |             0 |     12279
+    66000 |     +0.0% |       0 |       0 |             0 |     11279
+    67000 |     +0.0% |       0 |       0 |             0 |     10279
+    68000 |     +0.0% |       0 |       0 |             0 |      9279
+    69000 |     +0.0% |       0 |       0 |             0 |      8279
+    70000 |     +0.0% |       0 |       0 |             0 |      7279
+    71000 |     +0.0% |       0 |       0 |             0 |      6279
+    72000 |     +0.0% |       0 |       0 |             0 |      5279
+    73000 |     +0.0% |       0 |       0 |             0 |      4279
+    74000 |     +0.0% |       0 |       0 |             0 |      3279
+    75000 |     +0.0% |       0 |       0 |             0 |      2279
+    76000 |     +0.0% |       0 |       0 |             0 |      1279
+    77000 |     +0.0% |       0 |       0 |             0 |       279
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 6.80s
+Took 6 seconds: repair_design -verbose
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 2886360.22 um^2
+[INFO DPL-0007] Movable instances area: 934472.25 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 32.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 77259 cells
+[INFO DPL-0500] Runtime: 0.50s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         2613135.0 u
+legalized HPWL        2613135.0 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/jpeg/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 2.02s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.54s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 2886360.22 um^2
+[INFO DPL-0007] Movable instances area: 934472.25 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 32.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 77259 cells
+[INFO DPL-0500] Runtime: 0.55s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         2613135.0 u
+legalized HPWL        2613135.0 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/jpeg/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/jpeg/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 173 antenna violations.
+[INFO GRT-0302] Inserted 245 jumpers for 170 nets.
+[INFO GRT-0012] Found 7 antenna violations.
+[INFO DPL-0006] Core area: 2886360.22 um^2
+[INFO DPL-0007] Movable instances area: 934310.76 um^2
+[INFO DPL-0008] Fixed instances area within core: 254.02 um^2
+[INFO DPL-0009] Utilization: 32.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 77276 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.61s
+[INFO GRT-0015] Inserted 17 diodes.
+[INFO GRT-0012] Found 3 antenna violations.
+[INFO GRT-0302] Inserted 5 jumpers for 3 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 934565 um^2 32% utilization.
+[INFO FLW-0007] clock clk period 8.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 4545
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/jpeg/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/jpeg/base/5_1_grt.sdc
+Elapsed time: 1:17.56[h:]min:sec. CPU time: user 964.02 sys 64.69 (1326%). Peak memory: 1497848KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           77           1462 2807fb3d7e67838392c7
+5_1_grt                   .sdc                             10d7410dbea8a048ff0b

@@ -1,0 +1,146 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_2048x39.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_256x34.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_64x21.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+estimate_parasitics -placement
+Took 7 seconds: estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     98279
+     1000 |     +0.0% |       0 |       0 |             0 |     97279
+     2000 |     +0.0% |       0 |       0 |             0 |     96279
+     3000 |     +0.0% |       0 |       0 |             0 |     95279
+     4000 |     +0.0% |       0 |       0 |             0 |     94279
+     5000 |     +0.0% |       0 |       0 |             0 |     93279
+     6000 |     +0.0% |       0 |       0 |             0 |     92279
+     7000 |     +0.0% |       0 |       0 |             0 |     91279
+     8000 |     +0.0% |       0 |       0 |             0 |     90279
+     9000 |     +0.0% |       0 |       0 |             0 |     89279
+    10000 |     +0.0% |       0 |       0 |             0 |     88279
+    11000 |     +0.0% |       0 |       1 |             1 |     87279
+    12000 |     +0.0% |       0 |       1 |             1 |     86279
+    13000 |     +0.0% |       0 |       1 |             1 |     85279
+    14000 |     +0.0% |       0 |       1 |             1 |     84279
+    15000 |     +0.0% |       0 |       6 |             6 |     83279
+    16000 |     +0.0% |       0 |       6 |             6 |     82279
+    17000 |     +0.0% |       0 |      17 |            17 |     81279
+    18000 |     +0.0% |       0 |      22 |            21 |     80279
+    19000 |     +0.0% |       0 |      22 |            21 |     79279
+    20000 |     +0.0% |       0 |      24 |            23 |     78279
+    21000 |     +0.0% |       0 |      28 |            25 |     77279
+    22000 |     +0.0% |       0 |      41 |            34 |     76279
+    23000 |     +0.0% |       0 |      42 |            35 |     75279
+    24000 |     +0.0% |       0 |      53 |            43 |     74279
+    25000 |     +0.0% |       0 |      55 |            45 |     73279
+    26000 |     +0.0% |       0 |      57 |            47 |     72279
+    27000 |     +0.0% |       0 |      59 |            49 |     71279
+    28000 |     +0.0% |       0 |      59 |            49 |     70279
+    29000 |     +0.0% |       0 |      59 |            49 |     69279
+    30000 |     +0.0% |       0 |      59 |            49 |     68279
+    31000 |     +0.0% |       0 |      59 |            49 |     67279
+    32000 |     +0.0% |       0 |      59 |            49 |     66279
+    33000 |     +0.0% |       0 |      59 |            49 |     65279
+    34000 |     +0.0% |       0 |      59 |            49 |     64279
+    35000 |     +0.0% |       0 |      59 |            49 |     63279
+    36000 |     +0.1% |       0 |      82 |            72 |     62279
+    37000 |     +0.1% |       0 |      82 |            72 |     61279
+    38000 |     +0.1% |       0 |      82 |            72 |     60279
+    39000 |     +0.1% |       0 |      86 |            75 |     59279
+    40000 |     +0.1% |       0 |      88 |            76 |     58279
+    41000 |     +0.1% |       0 |      91 |            78 |     57279
+    42000 |     +0.1% |       0 |      91 |            78 |     56279
+    43000 |     +0.1% |       0 |      91 |            78 |     55279
+    44000 |     +0.1% |       0 |      91 |            78 |     54279
+    45000 |     +0.1% |       0 |      93 |            80 |     53279
+    46000 |     +0.1% |       0 |      94 |            81 |     52279
+    47000 |     +0.1% |       0 |      94 |            81 |     51279
+    48000 |     +0.1% |       0 |      94 |            81 |     50279
+    49000 |     +0.1% |       0 |      94 |            81 |     49279
+    50000 |     +0.1% |       0 |      94 |            81 |     48279
+    51000 |     +0.1% |       0 |      94 |            81 |     47279
+    52000 |     +0.1% |       0 |      94 |            81 |     46279
+    53000 |     +0.1% |       0 |      97 |            84 |     45279
+    54000 |     +0.1% |       0 |      97 |            84 |     44279
+    55000 |     +0.1% |       0 |      97 |            84 |     43279
+    56000 |     +0.1% |       0 |      98 |            85 |     42279
+    57000 |     +0.1% |       0 |      98 |            85 |     41279
+    58000 |     +0.1% |       0 |      98 |            85 |     40279
+    59000 |     +0.1% |       0 |     100 |            86 |     39279
+    60000 |     +0.1% |       0 |     101 |            87 |     38279
+    61000 |     +0.1% |       0 |     101 |            87 |     37279
+    62000 |     +0.1% |       0 |     101 |            87 |     36279
+    63000 |     +0.1% |       0 |     101 |            87 |     35279
+    64000 |     +0.1% |       0 |     101 |            87 |     34279
+    65000 |     +0.1% |       0 |     101 |            87 |     33279
+    66000 |     +0.1% |       0 |     101 |            87 |     32279
+    67000 |     +0.1% |       0 |     101 |            87 |     31279
+    68000 |     +0.1% |       0 |     120 |           106 |     30279
+    69000 |     +0.1% |       0 |     127 |           113 |     29279
+    70000 |     +0.1% |       0 |     127 |           113 |     28279
+    71000 |     +0.1% |       0 |     127 |           113 |     27279
+    72000 |     +0.1% |       0 |     127 |           113 |     26279
+    73000 |     +0.1% |       0 |     127 |           113 |     25279
+    74000 |     +0.1% |       0 |     127 |           113 |     24279
+    75000 |     +0.1% |       0 |     127 |           113 |     23279
+    76000 |     +0.1% |       0 |     127 |           113 |     22279
+    77000 |     +0.1% |       0 |     127 |           113 |     21279
+    78000 |     +0.1% |       0 |     127 |           113 |     20279
+    79000 |     +0.1% |       0 |     128 |           114 |     19279
+    80000 |     +0.1% |       0 |     128 |           114 |     18279
+    81000 |     +0.1% |       0 |     128 |           114 |     17279
+    82000 |     +0.1% |       0 |     128 |           114 |     16279
+    83000 |     +0.1% |       0 |     128 |           114 |     15279
+    84000 |     +0.1% |       0 |     128 |           114 |     14279
+    85000 |     +0.1% |       0 |     128 |           114 |     13279
+    86000 |     +0.1% |       0 |     128 |           114 |     12279
+    87000 |     +0.1% |       0 |     128 |           114 |     11279
+    88000 |     +0.1% |       0 |     128 |           114 |     10279
+    89000 |     +0.1% |       0 |     128 |           114 |      9279
+    90000 |     +0.1% |       0 |     128 |           114 |      8279
+    91000 |     +0.1% |       0 |     128 |           114 |      7279
+    92000 |     +0.1% |       0 |     128 |           114 |      6279
+    93000 |     +0.1% |       0 |     128 |           114 |      5279
+    94000 |     +0.1% |       0 |     128 |           114 |      4279
+    95000 |     +0.1% |       0 |     128 |           114 |      3279
+    96000 |     +0.1% |       0 |     128 |           114 |      2279
+    97000 |     +0.1% |       0 |     128 |           114 |      1279
+    98000 |     +0.1% |       0 |     128 |           114 |       279
+    final |     +0.1% |       0 |     128 |           114 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 106 slew violations.
+[INFO RSZ-0036] Found 8 capacitance violations.
+[INFO RSZ-0038] Inserted 128 buffers in 114 nets.
+[INFO RSZ-0504] Runtime: 127.38s
+Took 127 seconds: repair_design -verbose
+Floating nets: 
+[WARNING RSZ-0020] found 10 floating nets.
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 47693 um^2 30% utilization.
+Instance count before 120841, after 120969
+Pin count before 368613, after 368869
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/3_4_place_resized.odb
+Elapsed time: 3:18.89[h:]min:sec. CPU time: user 380.38 sys 42.78 (212%). Peak memory: 1277712KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb          198           1247 5c6fb10e9a9605256169

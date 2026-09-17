@@ -1,0 +1,84 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/jpeg_lvt/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/jpeg_lvt/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     46839
+     1000 |     +0.0% |       0 |       0 |             0 |     45839
+     2000 |     +0.0% |       0 |       0 |             0 |     44839
+     3000 |     +0.0% |       0 |       0 |             0 |     43839
+     4000 |     +0.0% |       0 |       0 |             0 |     42839
+     5000 |     +0.0% |       0 |       0 |             0 |     41839
+     6000 |     +0.0% |       0 |       0 |             0 |     40839
+     7000 |     +0.0% |       0 |       0 |             0 |     39839
+     8000 |     +0.0% |       0 |       0 |             0 |     38839
+     9000 |     +0.0% |       0 |       0 |             0 |     37839
+    10000 |     +0.0% |       0 |       0 |             0 |     36839
+    11000 |     +0.0% |       0 |       0 |             0 |     35839
+    12000 |     +0.0% |       0 |       0 |             0 |     34839
+    13000 |     +0.0% |       0 |       0 |             0 |     33839
+    14000 |     +0.0% |       0 |       0 |             0 |     32839
+    15000 |     +0.0% |       0 |       0 |             0 |     31839
+    16000 |     +0.0% |       0 |       0 |             0 |     30839
+    17000 |     +0.0% |       0 |       0 |             0 |     29839
+    18000 |     +0.0% |       0 |       0 |             0 |     28839
+    19000 |     +0.0% |       0 |       0 |             0 |     27839
+    20000 |     +0.0% |       0 |       0 |             0 |     26839
+    21000 |     +0.0% |       0 |       0 |             0 |     25839
+    22000 |     +0.0% |       0 |       0 |             0 |     24839
+    23000 |     +0.0% |       0 |       0 |             0 |     23839
+    24000 |     +0.0% |       0 |       0 |             0 |     22839
+    25000 |     +0.0% |       0 |       0 |             0 |     21839
+    26000 |     +0.0% |       0 |       0 |             0 |     20839
+    27000 |     +0.0% |       0 |       0 |             0 |     19839
+    28000 |     +0.0% |       0 |       0 |             0 |     18839
+    29000 |     +0.0% |       0 |       0 |             0 |     17839
+    30000 |     +0.0% |       0 |       0 |             0 |     16839
+    31000 |     +0.0% |       0 |       0 |             0 |     15839
+    32000 |     +0.0% |       0 |       0 |             0 |     14839
+    33000 |     +0.0% |       0 |       0 |             0 |     13839
+    34000 |     +0.0% |       0 |       0 |             0 |     12839
+    35000 |     +0.0% |       0 |       1 |             1 |     11839
+    36000 |     +0.0% |       0 |       1 |             1 |     10839
+    37000 |     +0.0% |       0 |       1 |             1 |      9839
+    38000 |     +0.0% |       0 |       1 |             1 |      8839
+    39000 |     +0.0% |       0 |       1 |             1 |      7839
+    40000 |     +0.0% |       0 |       1 |             1 |      6839
+    41000 |     +0.0% |       0 |       1 |             1 |      5839
+    42000 |     +0.0% |       0 |       1 |             1 |      4839
+    43000 |     +0.0% |       0 |       1 |             1 |      3839
+    44000 |     +0.0% |       0 |       1 |             1 |      2839
+    45000 |     +0.0% |       0 |       1 |             1 |      1839
+    46000 |     +0.0% |       0 |       1 |             1 |       839
+    final |     +0.0% |       0 |       1 |             1 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0036] Found 1 capacitance violations.
+[INFO RSZ-0038] Inserted 1 buffers in 1 nets.
+[INFO RSZ-0504] Runtime: 3.18s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 6199 um^2 28% utilization.
+Instance count before 49290, after 49291
+Pin count before 164497, after 164499
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/jpeg_lvt/base/3_4_place_resized.odb
+Elapsed time: 0:15.91[h:]min:sec. CPU time: user 23.47 sys 15.21 (243%). Peak memory: 553776KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb           15            540 0e16566cea251a7fe4c7

@@ -1,0 +1,41 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty ./designs/sky130hd/microwatt/lib/Microwatt_FP_DFFRFile.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM32_1RW1R.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM512.lib
+read_liberty ./designs/sky130hd/microwatt/lib/multiply_add_64x64.lib
+[INFO ODB-0227] LEF file: ./platforms/sky130hd/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: ./platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/microwatt/lef/Microwatt_FP_DFFRFile.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/microwatt/lef/Microwatt_FP_DFFRFile.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/microwatt/lef/RAM32_1RW1R.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/microwatt/lef/RAM32_1RW1R.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/microwatt/lef/RAM512.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/microwatt/lef/RAM512.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/microwatt/lef/multiply_add_64x64.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/microwatt/lef/multiply_add_64x64.lef, created 1 library cells
+link_design -hier microwatt
+[WARNING ORD-0011] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/1_2_yosys.sdc
+source ./platforms/sky130hd/setRC.tcl
+eliminate_dead_logic
+Removed 838 unused instances and 838 unused nets.
+Design area 4514429 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/1_synth.sdc
+Elapsed time: 0:02.21[h:]min:sec. CPU time: user 2.09 sys 0.12 (100%). Peak memory: 331676KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            2            323 a763107fdbf010362fa0
+1_synth                   .sdc                             fbbe2bff094e091374c1

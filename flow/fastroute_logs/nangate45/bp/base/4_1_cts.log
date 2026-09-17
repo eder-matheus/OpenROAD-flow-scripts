@@ -1,0 +1,363 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x95.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/3_place.sdc
+source ./platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk_i" found for clock "CLK".
+[INFO CTS-0011]  Clock net "clk_i" for macros has 24 sinks.
+[INFO CTS-0011]  Clock net "clk_i_regs" for registers has 28695 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 16 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i.
+[INFO CTS-0028]  Total number of sinks: 24.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 4 and clustering diameter of 305.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 10.
+[INFO CTS-0024]  Normalized sink region: [(7.51714, 49.63), (169.46, 183.29)].
+[INFO CTS-0025]     Width:  161.9429.
+[INFO CTS-0026]     Height: 133.6600.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 5
+    Sub-region size: 80.9714 X 133.6600
+[INFO CTS-0034]     Segment length (rounded): 40.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 3
+    Sub-region size: 80.9714 X 66.8300
+[INFO CTS-0034]     Segment length (rounded): 34.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 2
+    Sub-region size: 40.4857 X 66.8300
+[INFO CTS-0034]     Segment length (rounded): 20.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 10.
+[INFO CTS-0201] 16 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i_regs.
+[INFO CTS-0028]  Total number of sinks: 28695.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 8 and max clustering diameter of 89.
+[INFO CTS-0019]  Total number of sinks after clustering: 4765.
+[INFO CTS-0024]  Normalized sink region: [(5.29092, 2.32524), (190.448, 168.467)].
+[INFO CTS-0025]     Width:  185.1570.
+[INFO CTS-0026]     Height: 166.1414.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 2383
+    Sub-region size: 92.5785 X 166.1414
+[INFO CTS-0034]     Segment length (rounded): 46.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 1192
+    Sub-region size: 92.5785 X 83.0707
+[INFO CTS-0034]     Segment length (rounded): 42.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 596
+    Sub-region size: 46.2892 X 83.0707
+[INFO CTS-0034]     Segment length (rounded): 24.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 298
+    Sub-region size: 46.2892 X 41.5354
+[INFO CTS-0034]     Segment length (rounded): 20.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 149
+    Sub-region size: 23.1446 X 41.5354
+[INFO CTS-0034]     Segment length (rounded): 12.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 75
+    Sub-region size: 23.1446 X 20.7677
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 38
+    Sub-region size: 11.5723 X 20.7677
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 19
+    Sub-region size: 11.5723 X 10.3838
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 9
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 5.7862 X 10.3838
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 4765.
+[INFO CTS-0018]     Created 25 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 5.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 5.
+[INFO CTS-0015]     Created 25 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:7, 2:8, 3:1, 4:2..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0018]     Created 5592 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 9.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 9.
+[INFO CTS-0015]     Created 5592 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:1, 2:11, 3:17, 4:101, 5:837, 6:2700, 7:1188, 8:106, 9:68, 10:78, 11:75, 12:45, 13:34, 14:12, 15:1, 16:1, 17:1, 18:1..
+[INFO CTS-0017]     Max level of the clock tree: 9.
+[INFO CTS-0098] Clock net "clk_i"
+[INFO CTS-0099]  Sinks 24
+[INFO CTS-0100]  Leaf buffers 10
+[INFO CTS-0101]  Average sink wire length 2187.40 um
+[INFO CTS-0102]  Path depth 5 - 5
+[INFO CTS-0207]  Dummy loads inserted 3
+[INFO CTS-0098] Clock net "clk_i_regs"
+[INFO CTS-0099]  Sinks 32273
+[INFO CTS-0100]  Leaf buffers 4765
+[INFO CTS-0101]  Average sink wire length 1135.51 um
+[INFO CTS-0102]  Path depth 8 - 9
+[INFO CTS-0207]  Dummy loads inserted 3578
+[INFO RSZ-0047] Found 1 long wires.
+[INFO RSZ-0048] Inserted 2 buffers in 1 nets.
+[INFO CTS-0033] Balancing latency for clock CLK
+[INFO CTS-0036]  inserted 5 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 5
+[INFO CTS-0500] Runtime: 10.02s
+Took 10 seconds: clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 1699763.14 um^2
+[INFO DPL-0007] Movable instances area: 308378.59 um^2
+[INFO DPL-0008] Fixed instances area within core: 330608.21 um^2
+[INFO DPL-0009] Utilization: 37.6%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (6 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 218385 cells
+[INFO DPL-0393]   height 26 row(s): 1 cells
+[INFO DPL-0393]   height 42 row(s): 1 cells
+[INFO DPL-0393]   height 64 row(s): 4 cells
+[INFO DPL-0393]   height 81 row(s): 17 cells
+[INFO DPL-0393]   height 85 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 1.65s
+Placement Analysis
+---------------------------------
+total displacement      79246.1 u
+average displacement        0.4 u
+max displacement            6.4 u
+original HPWL         5108588.1 u
+legalized HPWL        5143296.7 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+Took 5 seconds: estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 1 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1 out of 1 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -4.412 |     -630.0 |       -4.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      10* |       0 |       8 |        1 |      0 |     0 |    +0.0% |   -4.372 |     -623.4 |       -4.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      20* |       0 |      16 |        1 |      0 |     2 |    +0.0% |   -4.340 |     -617.7 |       -4.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      30* |       0 |      26 |        1 |      0 |     2 |    +0.0% |   -4.310 |     -611.9 |       -4.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      40* |       0 |      36 |        1 |      0 |     2 |    +0.0% |   -4.288 |     -606.9 |       -4.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      50* |       0 |      46 |        1 |      0 |     2 |    +0.0% |   -4.268 |     -602.3 |       -4.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      60* |       0 |      56 |        1 |      0 |     2 |    +0.0% |   -4.243 |     -597.8 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      70* |       0 |      66 |        1 |      0 |     2 |    +0.0% |   -4.218 |     -592.8 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      80* |       0 |      74 |        2 |      0 |     3 |    +0.0% |   -4.207 |     -590.4 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+      90* |       0 |      84 |        2 |      0 |     3 |    +0.0% |   -4.194 |     -587.9 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     100* |       0 |      94 |        2 |      0 |     3 |    +0.0% |   -4.180 |     -586.0 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     110* |       0 |     104 |        2 |      0 |     3 |    +0.0% |   -4.164 |     -583.7 |       -4.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     120* |       0 |     114 |        2 |      0 |     3 |    +0.0% |   -4.149 |     -581.1 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     130* |       0 |     124 |        2 |      0 |     3 |    +0.0% |   -4.135 |     -578.4 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     140* |       0 |     134 |        2 |      0 |     3 |    +0.0% |   -4.117 |     -575.2 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     150* |       0 |     142 |        3 |      0 |     4 |    +0.0% |   -4.110 |     -573.5 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     160* |       0 |     152 |        3 |      0 |     4 |    +0.0% |   -4.105 |     -572.6 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     170* |       0 |     162 |        3 |      0 |     4 |    +0.0% |   -4.095 |     -570.5 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     180* |       0 |     172 |        3 |      0 |     4 |    +0.0% |   -4.086 |     -569.1 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     190* |       0 |     182 |        3 |      0 |     4 |    +0.0% |   -4.077 |     -567.5 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     200* |       0 |     192 |        3 |      0 |     4 |    +0.0% |   -4.059 |     -564.0 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     210* |       0 |     202 |        3 |      0 |     4 |    +0.0% |   -4.051 |     -562.3 |       -4.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     220* |       0 |     212 |        3 |      0 |     4 |    +0.0% |   -4.044 |     -560.9 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     230* |       0 |     222 |        3 |      0 |     4 |    +0.0% |   -4.038 |     -560.5 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     240* |       0 |     232 |        3 |      0 |     4 |    +0.0% |   -4.024 |     -558.4 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     250* |       0 |     242 |        3 |      0 |     4 |    +0.0% |   -4.011 |     -555.6 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     260* |       0 |     251 |        3 |      0 |     5 |    +0.0% |   -4.001 |     -553.8 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     270* |       0 |     261 |        3 |      0 |     5 |    +0.0% |   -3.998 |     -553.3 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     280* |       0 |     271 |        3 |      0 |     5 |    +0.0% |   -3.993 |     -552.8 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     290* |       0 |     281 |        3 |      0 |     5 |    +0.0% |   -3.988 |     -552.5 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     300* |       0 |     291 |        3 |      0 |     5 |    +0.0% |   -3.974 |     -550.0 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     310* |       0 |     301 |        3 |      0 |     5 |    +0.0% |   -3.952 |     -546.5 |       -4.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     320* |       0 |     311 |        3 |      0 |     5 |    +0.0% |   -3.936 |     -543.3 |       -3.9 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     330* |       0 |     321 |        3 |      0 |     5 |    +0.0% |   -3.913 |     -538.6 |       -3.9 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     340* |       0 |     331 |        3 |      0 |     5 |    +0.1% |   -3.897 |     -535.2 |       -3.9 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     350* |       0 |     341 |        3 |      0 |     5 |    +0.1% |   -3.877 |     -531.5 |       -3.9 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     360* |       0 |     350 |        3 |      0 |     6 |    +0.1% |   -3.866 |     -529.4 |       -3.9 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     370* |       0 |     360 |        3 |      0 |     6 |    +0.1% |   -3.850 |     -526.2 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     380* |       0 |     369 |        3 |      0 |     7 |    +0.1% |   -3.834 |     -522.9 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     390* |       0 |     379 |        3 |      0 |     7 |    +0.1% |   -3.820 |     -520.2 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     400* |       0 |     388 |        3 |      0 |     8 |    +0.1% |   -3.806 |     -517.5 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     410* |       0 |     397 |        3 |      0 |     9 |    +0.1% |   -3.794 |     -514.8 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     420* |       0 |     406 |        3 |      0 |    10 |    +0.1% |   -3.785 |     -513.1 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     430* |       0 |     416 |        3 |      0 |    10 |    +0.1% |   -3.770 |     -510.5 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     440* |       0 |     425 |        3 |      0 |    11 |    +0.1% |   -3.755 |     -507.0 |       -3.8 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     450* |       0 |     435 |        3 |      0 |    11 |    +0.1% |   -3.741 |     -504.4 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     460* |       0 |     444 |        3 |      0 |    12 |    +0.1% |   -3.734 |     -503.3 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     470* |       0 |     454 |        3 |      0 |    12 |    +0.1% |   -3.719 |     -501.8 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     480* |       0 |     464 |        3 |      0 |    12 |    +0.1% |   -3.707 |     -500.4 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     490* |       0 |     474 |        3 |      0 |    12 |    +0.1% |   -3.697 |     -498.6 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     500* |       0 |     483 |        3 |      0 |    13 |    +0.1% |   -3.686 |     -496.2 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     510* |       0 |     493 |        3 |      0 |    13 |    +0.1% |   -3.671 |     -493.3 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     520* |       0 |     503 |        3 |      0 |    13 |    +0.1% |   -3.655 |     -490.7 |       -3.7 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     530* |       0 |     513 |        3 |      0 |    13 |    +0.1% |   -3.644 |     -489.4 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     540* |       0 |     523 |        3 |      0 |    13 |    +0.1% |   -3.633 |     -488.2 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     550* |       0 |     533 |        3 |      0 |    13 |    +0.1% |   -3.621 |     -486.1 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     560* |       0 |     543 |        3 |      0 |    13 |    +0.1% |   -3.608 |     -483.8 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     570* |       0 |     552 |        3 |      0 |    14 |    +0.1% |   -3.599 |     -482.3 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     580* |       0 |     562 |        3 |      0 |    14 |    +0.1% |   -3.586 |     -479.7 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     590* |       0 |     571 |        3 |      0 |    15 |    +0.1% |   -3.576 |     -477.8 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     600* |       0 |     581 |        3 |      0 |    15 |    +0.1% |   -3.562 |     -474.9 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     610* |       0 |     590 |        3 |      0 |    16 |    +0.1% |   -3.555 |     -473.4 |       -3.6 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     620* |       0 |     599 |        3 |      0 |    17 |    +0.1% |   -3.545 |     -471.4 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     630* |       0 |     608 |        3 |      0 |    18 |    +0.1% |   -3.536 |     -469.4 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     640* |       0 |     617 |        3 |      0 |    19 |    +0.1% |   -3.525 |     -467.2 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     650* |       0 |     626 |        3 |      0 |    20 |    +0.1% |   -3.514 |     -465.2 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     660* |       0 |     636 |        3 |      0 |    20 |    +0.1% |   -3.504 |     -463.1 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     670* |       0 |     646 |        3 |      0 |    20 |    +0.1% |   -3.489 |     -460.1 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     680* |       0 |     655 |        3 |      0 |    21 |    +0.1% |   -3.477 |     -457.7 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     690* |       0 |     665 |        3 |      0 |    21 |    +0.1% |   -3.465 |     -455.3 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     700* |       0 |     674 |        3 |      0 |    22 |    +0.1% |   -3.454 |     -453.3 |       -3.5 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     710* |       0 |     684 |        3 |      0 |    22 |    +0.1% |   -3.442 |     -451.0 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     720* |       0 |     694 |        3 |      0 |    22 |    +0.1% |   -3.432 |     -449.0 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     730* |       0 |     704 |        3 |      0 |    22 |    +0.1% |   -3.422 |     -447.1 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     740* |       0 |     714 |        3 |      0 |    22 |    +0.1% |   -3.413 |     -446.1 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     750* |       0 |     724 |        3 |      0 |    22 |    +0.1% |   -3.403 |     -445.9 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     760* |       0 |     734 |        3 |      0 |    22 |    +0.1% |   -3.394 |     -444.7 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     770* |       0 |     744 |        3 |      0 |    22 |    +0.1% |   -3.385 |     -443.2 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     780* |       0 |     754 |        3 |      0 |    22 |    +0.1% |   -3.377 |     -441.9 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     790* |       0 |     764 |        3 |      0 |    22 |    +0.1% |   -3.369 |     -440.3 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     800* |       0 |     773 |        3 |      0 |    23 |    +0.1% |   -3.363 |     -439.2 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     810* |       0 |     783 |        3 |      0 |    23 |    +0.1% |   -3.354 |     -438.3 |       -3.4 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     820* |       0 |     793 |        3 |      0 |    23 |    +0.1% |   -3.343 |     -436.4 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     830* |       0 |     803 |        3 |      0 |    23 |    +0.1% |   -3.331 |     -434.1 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     840* |       0 |     813 |        3 |      0 |    23 |    +0.1% |   -3.321 |     -432.4 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     850* |       0 |     823 |        3 |      0 |    23 |    +0.1% |   -3.310 |     -430.3 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     860* |       0 |     833 |        3 |      0 |    23 |    +0.1% |   -3.300 |     -428.2 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     870* |       0 |     843 |        3 |      0 |    23 |    +0.1% |   -3.291 |     -426.7 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     880* |       0 |     852 |        3 |      0 |    24 |    +0.1% |   -3.282 |     -425.6 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     890* |       0 |     862 |        3 |      0 |    24 |    +0.1% |   -3.270 |     -423.5 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     900* |       0 |     872 |        3 |      0 |    24 |    +0.1% |   -3.260 |     -421.7 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     910* |       0 |     881 |        3 |      0 |    25 |    +0.1% |   -3.254 |     -421.0 |       -3.3 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     920* |       0 |     891 |        3 |      0 |    25 |    +0.1% |   -3.244 |     -419.1 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     930* |       0 |     901 |        3 |      0 |    25 |    +0.1% |   -3.236 |     -417.5 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     940* |       0 |     911 |        3 |      0 |    25 |    +0.1% |   -3.223 |     -415.0 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     950* |       0 |     921 |        3 |      0 |    25 |    +0.1% |   -3.210 |     -412.4 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     960* |       0 |     931 |        3 |      0 |    25 |    +0.1% |   -3.202 |     -410.8 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     970* |       0 |     941 |        3 |      0 |    25 |    +0.1% |   -3.189 |     -408.6 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     980* |       0 |     951 |        3 |      0 |    25 |    +0.1% |   -3.178 |     -407.9 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+     990* |       0 |     961 |        3 |      0 |    25 |    +0.1% |   -3.168 |     -406.0 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1000* |       0 |     971 |        3 |      0 |    25 |    +0.1% |   -3.155 |     -403.8 |       -3.2 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1010* |       0 |     981 |        3 |      0 |    25 |    +0.1% |   -3.142 |     -401.4 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1020* |       0 |     991 |        3 |      0 |    25 |    +0.1% |   -3.133 |     -399.6 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1030* |       0 |    1001 |        3 |      0 |    25 |    +0.1% |   -3.123 |     -397.8 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1040* |       0 |    1011 |        3 |      0 |    25 |    +0.1% |   -3.112 |     -395.7 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1050* |       0 |    1021 |        3 |      0 |    25 |    +0.1% |   -3.099 |     -393.9 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1060* |       0 |    1031 |        3 |      0 |    25 |    +0.1% |   -3.091 |     -393.5 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1070* |       0 |    1041 |        3 |      0 |    25 |    +0.1% |   -3.083 |     -393.2 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1080* |       0 |    1051 |        3 |      0 |    25 |    +0.1% |   -3.076 |     -392.9 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1090* |       0 |    1061 |        3 |      0 |    25 |    +0.2% |   -3.070 |     -392.9 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1100* |       0 |    1069 |        3 |      0 |    27 |    +0.2% |   -3.063 |     -392.8 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1110* |       0 |    1077 |        3 |      0 |    29 |    +0.2% |   -3.061 |     -391.9 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1120* |       0 |    1087 |        3 |      0 |    29 |    +0.2% |   -3.052 |     -390.3 |       -3.1 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1130* |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1140* |       0 |    1100 |        4 |      0 |    35 |    +0.2% |   -3.049 |     -388.3 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1150* |       0 |    1107 |        4 |      0 |    38 |    +0.2% |   -3.044 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1159* |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1159* |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1160+ |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    1160+ |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+    final |       0 |    1097 |        3 |      0 |    29 |    +0.2% |   -3.039 |     -387.8 |       -3.0 |      1 | multi_top.rof1_0__core/fe.bp_fe_pc_gen_1.genblk1_branch_prediction_1.btb_1.read_valid_o$_DFF_P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 3 buffers.
+[INFO RSZ-0051] Resized 1097 instances: 1097 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 29 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 38.21s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.26s
+Took 39 seconds: repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -verbose
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 1699763.14 um^2
+[INFO DPL-0007] Movable instances area: 309377.68 um^2
+[INFO DPL-0008] Fixed instances area within core: 330608.21 um^2
+[INFO DPL-0009] Utilization: 37.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (6 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 218388 cells
+[INFO DPL-0393]   height 26 row(s): 1 cells
+[INFO DPL-0393]   height 42 row(s): 1 cells
+[INFO DPL-0393]   height 64 row(s): 4 cells
+[INFO DPL-0393]   height 81 row(s): 17 cells
+[INFO DPL-0393]   height 85 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 1.53s
+Placement Analysis
+---------------------------------
+total displacement        445.3 u
+average displacement        0.0 u
+max displacement            8.4 u
+original HPWL         5143456.9 u
+legalized HPWL        5144009.5 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Took 5 seconds: estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 639986 um^2 38% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/4_cts.sdc
+Elapsed time: 2:14.16[h:]min:sec. CPU time: user 219.53 sys 225.61 (331%). Peak memory: 1781224KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb          134           1739 4f82c7263e06641a07f0

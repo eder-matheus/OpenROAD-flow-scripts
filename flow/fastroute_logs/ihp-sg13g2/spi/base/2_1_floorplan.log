@@ -1,0 +1,101 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/spi/base/1_synth.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/spi/base/1_synth.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 113
+[INFO IFP-0107] Defining die area using utilization: 20.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (17.500, 17.500) snapped to (17.760, 18.900).
+[INFO IFP-0001] Added 26 rows of 214 site CoreSite.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 138.200 138.200 ) um
+[INFO IFP-0101] Core BBox: ( 17.760 18.900 ) ( 120.480 117.180 ) um
+[INFO IFP-0102] Core area:                        10095.322 um^2
+[INFO IFP-0103] Total instances area:              2130.106 um^2
+[INFO IFP-0104] Effective utilization:                0.211
+[INFO IFP-0105] Number of instances:                    113
+source ./platforms/ihp-sg13g2/make_tracks.tcl
+source ./platforms/ihp-sg13g2/fastroute.tcl
+Repair tie lo fanout...
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 25 tie sg13g2_tiehi instances.
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 8 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 8 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 8 out of 8 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.245 |       -0.7 |       -2.0 |      8 | dout_q\[0\]$_SDFFE_PP0P_/D
+       4* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+       5* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+       6* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+       7* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+       8* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+       9* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+      10* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+      10* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+      11* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+      11* |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      8 | dout_q\[1\]$_SDFFE_PP0P_/D
+    final |       0 |       2 |        0 |      0 |     1 |    +0.4% |    0.064 |        0.0 |        0.0 |      0 | dout_q\[1\]$_SDFFE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 2 instances: 2 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 1 instances.
+[INFO RSZ-0505] Runtime: 0.04s
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1uA
+ power 1pW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (pF/um)
+------------------------------------------------
+    Metal1 |        8.55e-03 |         1.00e-10
+    Metal2 |        4.40e-04 |         1.69e-04
+    Metal3 |        4.40e-04 |         1.83e-04
+    Metal4 |        4.40e-04 |         1.66e-04
+    Metal5 |        4.40e-04 |         8.57e-05
+ TopMetal1 |        1.28e-05 |         1.11e-04
+ TopMetal2 |        7.25e-06 |         9.01e-05
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      Via1 |       2.00e-03 
+      Via2 |       2.00e-03 
+      Via3 |       2.00e-03 
+      Via4 |       2.00e-03 
+   TopVia1 |       4.00e-04 
+   TopVia2 |       2.20e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 2313 um^2 23% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/spi/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/spi/base/2_1_floorplan.sdc
+Elapsed time: 0:00.23[h:]min:sec. CPU time: user 0.17 sys 0.08 (109%). Peak memory: 126356KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            0            123 f59592cb9624bc8a6db2
+2_1_floorplan             .sdc                             3f758f8e0aa2fd8aed74

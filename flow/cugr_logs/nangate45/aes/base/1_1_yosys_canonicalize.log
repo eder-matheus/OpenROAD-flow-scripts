@@ -1,0 +1,37 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/aes/base/clock_period.txt
+Setting clock period to 0.82
+1. Executing Liberty frontend: ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+2. Executing Liberty frontend: ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+3. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_cipher_top.v
+4. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_inv_cipher_top.v
+5. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_inv_sbox.v
+6. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_key_expand_128.v
+7. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_rcon.v
+8. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/aes_sbox.v
+9. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/src/aes/timescale.v
+10. Executing Verilog-2005 frontend: ./platforms/nangate45/cells_clkgate.v
+11. Executing HIERARCHY pass (managing design hierarchy).
+12. Executing AST frontend in derive mode using pre-parsed AST for module `\aes_cipher_top'.
+12.1. Analyzing design hierarchy..
+12.2. Executing AST frontend in derive mode using pre-parsed AST for module `\aes_sbox'.
+12.3. Executing AST frontend in derive mode using pre-parsed AST for module `\aes_key_expand_128'.
+Warning: Replacing memory \w with list of registers. See /OpenROAD-flow-scripts/flow/designs/src/aes/aes_key_expand_128.v:73
+12.4. Analyzing design hierarchy..
+12.5. Executing AST frontend in derive mode using pre-parsed AST for module `\aes_rcon'.
+12.6. Analyzing design hierarchy..
+12.7. Analyzing design hierarchy..
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module aes_cipher_top because it contains processes (run 'proc' command first).
+Warning: Ignoring module aes_rcon because it contains processes (run 'proc' command first).
+Warning: Ignoring module aes_key_expand_128 because it contains processes (run 'proc' command first).
+Warning: Ignoring module aes_sbox because it contains processes (run 'proc' command first).
+14. Executing RTLIL backend.
+Warnings: 5 unique messages, 5 total
+End of script. Logfile hash: 5988434b05, time: 0.12s, user: 0.08s, system: 0.02s, MEM: 43.24 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 62% 4x read_liberty (0 sec), 13% 1x hierarchy (0 sec), ...
+Elapsed time: 0:00.12[h:]min:sec. CPU time: user 0.10 sys 0.03 (99%). Peak memory: 47096KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             45 bae2653c3faec3cc7e22

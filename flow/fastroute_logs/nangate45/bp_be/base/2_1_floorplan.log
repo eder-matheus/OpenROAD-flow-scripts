@@ -1,0 +1,205 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_be/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_be/base/1_synth.sdc
+source ./platforms/nangate45/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 52578
+[INFO IFP-0001] Added 484 rows of 4104 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 800.000 700.000 ) um
+[INFO IFP-0101] Core BBox: ( 10.070 11.200 ) ( 789.830 688.800 ) um
+[INFO IFP-0102] Core area:                       528365.376 um^2
+[INFO IFP-0103] Total instances area:            238997.542 um^2
+[INFO IFP-0104] Effective utilization:                0.452
+[INFO IFP-0105] Number of instances:                  52578
+source ./platforms/nangate45/make_tracks.tcl
+source /OpenROAD-flow-scripts/flow/designs/nangate45/bp_be_top/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 539 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 10 tie LOGIC1_X1 instances.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 99 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 99 out of 99 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.113 |      -38.5 |       -3.4 |     99 | fe_queue_ready_o
+       7* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+       8* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+       9* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      10* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      10* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      11* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      12* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      13* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      14* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      15* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      16* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      17* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      18* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      19* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      20* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      20* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      21* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      22* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      23* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      24* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      25* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      26* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      27* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      28* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      29* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      30* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      30* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      31* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      32* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      33* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      34* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      35* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      36* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      37* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      38* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      39* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      40* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      40* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      41* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      42* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      43* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      44* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      45* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      46* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      47* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      48* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      49* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      50* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      50* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      51* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      52* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      53* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      54* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      55* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      56* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      57* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      58* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      59* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      60* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      60* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      61* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      62* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      63* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      64* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      65* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      66* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      67* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      68* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      69* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      70* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      70* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      71* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      72* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      73* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      74* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      75* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      76* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      77* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      78* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      79* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      80* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      80* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      81* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      82* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      83* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      84* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      85* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      86* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      87* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      88* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      89* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      90* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      90* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      91* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      92* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      93* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      94* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      95* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      96* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      97* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      98* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+      99* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     100* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     100* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     101* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     102* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     103* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     104* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     105* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+     105* |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |     99 | fe_queue_ready_o
+    final |       0 |       6 |        0 |      0 |     0 |    +0.0% |    0.010 |      -38.4 |        0.0 |      0 | fe_queue_ready_o
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 6 instances: 6 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0505] Runtime: 6.74s
+Took 6 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+    metal1 |        5.43e-03 |         7.42e-02
+    metal2 |        3.57e-03 |         8.34e-02
+    metal3 |        3.57e-03 |         1.04e-01
+    metal4 |        1.50e-03 |         1.19e-01
+    metal5 |        1.50e-03 |         1.09e-01
+    metal6 |        1.50e-03 |         1.14e-01
+    metal7 |        1.88e-04 |         1.17e-01
+    metal8 |        1.88e-04 |         9.45e-02
+    metal9 |        3.75e-05 |         1.06e-01
+   metal10 |        3.75e-05 |         7.37e-01
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      via1 |       5.00e-03 
+      via2 |       5.00e-03 
+      via3 |       5.00e-03 
+      via4 |       3.00e-03 
+      via5 |       3.00e-03 
+      via6 |       3.00e-03 
+      via7 |       1.00e-03 
+      via8 |       1.00e-03 
+      via9 |       5.00e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 239284 um^2 45% utilization.
+source /OpenROAD-flow-scripts/flow/designs/nangate45/bp_be_top/io.tcl
+[WARNING ODB-0011] Region 500-800 on edge west modified to 500-700 to respect the die area limits.
+[WARNING ODB-0011] Region 500-800 on edge east modified to 500-700 to respect the die area limits.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_be/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_be/base/2_1_floorplan.sdc
+Elapsed time: 0:17.98[h:]min:sec. CPU time: user 22.73 sys 11.48 (190%). Peak memory: 353900KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb           17            345 3e45bf96080b68b6fca0
+2_1_floorplan             .sdc                             4fb97600f1aab9028207

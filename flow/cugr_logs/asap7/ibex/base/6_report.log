@@ -1,0 +1,78 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ibex/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ibex/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ibex/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/ibex/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation ibex_core (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 152083 rc segments
+[INFO RCX-0439] Coupling Cap extraction ibex_core ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 26% of 161973 wires extracted
+[INFO RCX-0442] 53% of 161973 wires extracted
+[INFO RCX-0442] 74% of 161973 wires extracted
+[INFO RCX-0442] 100% of 161973 wires extracted
+[INFO RCX-0045] Extract 20657 nets, 172646 rsegs, 172646 caps, 229782 ccs
+[INFO RCX-0443] 20657 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 2.47e-02 W
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.64e-01 V
+Average voltage  : 7.69e-01 V
+Average IR drop  : 8.79e-04 V
+Worstcase IR drop: 5.90e-03 V
+Percentage drop  : 0.77 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 2.47e-02 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 5.82e-03 V
+Average voltage  : 8.74e-04 V
+Average IR drop  : 8.74e-04 V
+Worstcase IR drop: 5.82e-03 V
+Percentage drop  : 0.76 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                             31476    2847.21
+  Tap cell                                806      23.50
+  Tie cell                               1681      73.53
+  Clock buffer                            161      55.89
+  Timing Repair Buffer                   1134     112.92
+  Inverter                               2200      96.51
+  Clock inverter                           34       4.68
+  Sequential cell                        1939     711.26
+  Multi-Input combinational cell        12758    1330.02
+  Total                                 52189    5255.51
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 2408 um^2 46% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:20.67[h:]min:sec. CPU time: user 40.26 sys 10.47 (245%). Peak memory: 829560KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                 20            810                  N/A

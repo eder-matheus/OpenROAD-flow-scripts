@@ -1,0 +1,27 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-block_aes_sbox/base/3_1_place_gp_skip_io.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-block_aes_sbox/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+place_pins -hor_layers M4 -ver_layers M5 -annealing
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 600
+[INFO PPL-0002] Number of I/O             16
+[INFO PPL-0003] Number of I/O w/sink      16
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0012] I/O nets HPWL: 63.78 um.
+Design area 59 um^2 43% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-block_aes_sbox/base/3_2_place_iop.odb
+Elapsed time: 0:00.94[h:]min:sec. CPU time: user 0.91 sys 0.03 (100%). Peak memory: 200252KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_2_place_iop             .odb            0            195 1f9e46efeed21cdfccea

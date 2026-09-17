@@ -1,0 +1,245 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/riscv32i/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/riscv32i/base/4_cts.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     15
+Number of macros:     84
+Number of vias:       84
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   riscv
+Die area:                 ( 0 0 ) ( 621715 621715 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     9469
+Number of terminals:      167
+Number of snets:          2
+Number of nets:           9531
+
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_YX
+  Layer Via3
+    default via: Via3_XY
+  Layer Via4
+    default via: Via4_YX
+  Layer TopVia1
+    default via: TopVia1EWNS
+  Layer TopVia2
+    default via: TopVia2EWNS
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 63.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete GatPoly.
+[INFO DRT-0024]   Complete Cont.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0024]   Complete TopVia1.
+[INFO DRT-0024]   Complete TopMetal1.
+[INFO DRT-0024]   Complete TopVia2.
+[INFO DRT-0024]   Complete TopMetal2.
+[INFO DRT-0033] GatPoly shape region query size = 0.
+[INFO DRT-0033] Cont shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 250596.
+[INFO DRT-0033] Via1 shape region query size = 9920.
+[INFO DRT-0033] Metal2 shape region query size = 3159.
+[INFO DRT-0033] Via2 shape region query size = 9920.
+[INFO DRT-0033] Metal3 shape region query size = 3206.
+[INFO DRT-0033] Via3 shape region query size = 9920.
+[INFO DRT-0033] Metal4 shape region query size = 3100.
+[INFO DRT-0033] Via4 shape region query size = 9920.
+[INFO DRT-0033] Metal5 shape region query size = 4650.
+[INFO DRT-0033] TopVia1 shape region query size = 4030.
+[INFO DRT-0033] TopMetal1 shape region query size = 1790.
+[INFO DRT-0033] TopVia2 shape region query size = 288.
+[INFO DRT-0033] TopMetal2 shape region query size = 240.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 355 pins.
+[INFO DRT-0081]   Complete 63 unique inst patterns.
+[INFO DRT-0084]   Complete 5957 groups.
+#scanned instances     = 9469
+#unique  instances     = 63
+#stdCellGenAp          = 2838
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 2146
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 30925
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:29, elapsed time = 00:00:03, memory = 156.24 (MB), peak = 155.50 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/riscv32i/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4200  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 196 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 34
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       101783         94470          7.18%
+Metal3     Horizontal     124300        116905          5.95%
+Metal4     Vertical       101783         94470          7.18%
+Metal5     Horizontal     122198        114803          6.05%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 51678
+[INFO GRT-0198] Via related Steiner nodes: 1155
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 63664
+[INFO GRT-0112] Final usage 3D: 245414
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2           94470         27886           29.52%             0 /  0 /  0
+Metal3          116905         25174           21.53%             0 /  0 /  0
+Metal4           94470          1190            1.26%             0 /  0 /  0
+Metal5          114803           172            0.15%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           420648         54422           12.94%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 558619 um
+[INFO GRT-0014] Routed nets: 9531
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      9535
+     1000 |     +0.0% |       0 |       0 |             0 |      8535
+     2000 |     +0.0% |       0 |       0 |             0 |      7535
+     3000 |     +0.0% |       0 |       0 |             0 |      6535
+     4000 |     +0.0% |       0 |       0 |             0 |      5535
+     5000 |     +0.0% |       0 |       0 |             0 |      4535
+     6000 |     +0.0% |       0 |       0 |             0 |      3535
+     7000 |     +0.0% |       0 |       0 |             0 |      2535
+     8000 |     +0.0% |       0 |       0 |             0 |      1535
+     9000 |     +0.0% |       0 |       0 |             0 |       535
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.78s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 341168.89 um^2
+[INFO DPL-0007] Movable instances area: 145556.61 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 42.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 9469 cells
+[INFO DPL-0500] Runtime: 0.04s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          344465.9 u
+legalized HPWL         344465.9 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/riscv32i/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.26s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.08s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 341168.89 um^2
+[INFO DPL-0007] Movable instances area: 145556.61 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 42.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 9469 cells
+[INFO DPL-0500] Runtime: 0.04s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          344465.9 u
+legalized HPWL         344465.9 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/riscv32i/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/riscv32i/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 3 antenna violations.
+[INFO GRT-0302] Inserted 3 jumpers for 3 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 145557 um^2 43% utilization.
+[INFO FLW-0007] clock clk period 6.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 1192
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/riscv32i/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/riscv32i/base/5_1_grt.sdc
+Elapsed time: 0:11.23[h:]min:sec. CPU time: user 129.79 sys 6.05 (1209%). Peak memory: 393648KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           11            384 289b9c614fedcf90ed02
+5_1_grt                   .sdc                             5fce02b73a58a48b8ac3

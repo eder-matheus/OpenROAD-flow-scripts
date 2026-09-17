@@ -1,0 +1,25 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hs/lib/sky130_fd_sc_hs__tt_025C_1v80.lib
+[INFO ODB-0227] LEF file: ./platforms/sky130hs/lef/sky130_fd_sc_hs.tlef, created 11 layers, 25 vias
+[WARNING ODB-0220] WARNING (LEFPARS-2007): NAMESCASESENSITIVE statement is obsolete in version 5.6 and later.
+The LEF parser will ignore this statement.
+To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file ./platforms/sky130hs/lef/sky130_fd_sc_hs_merged.lef at line 18.
+
+[INFO ODB-0227] LEF file: ./platforms/sky130hs/lef/sky130_fd_sc_hs_merged.lef, created 390 library cells
+link_design -hier aes_cipher_top
+[WARNING ORD-0011] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/aes/base/1_2_yosys.sdc
+source ./platforms/sky130hs/setRC.tcl
+eliminate_dead_logic
+Removed 0 unused instances and 0 unused nets.
+Design area 104799 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/aes/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hs/aes/base/1_synth.sdc
+Elapsed time: 0:01.50[h:]min:sec. CPU time: user 1.39 sys 0.11 (100%). Peak memory: 179460KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            1            175 6a7ff65e7d8ae753c53a
+1_synth                   .sdc                             9abf4dbeb4e778768e23

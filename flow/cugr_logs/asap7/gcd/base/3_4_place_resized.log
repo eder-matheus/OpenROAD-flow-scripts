@@ -1,0 +1,74 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/2_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       389
+       10 |     +0.0% |       0 |       0 |             0 |       379
+       20 |     +0.0% |       0 |       0 |             0 |       369
+       30 |     +0.0% |       0 |       0 |             0 |       359
+       40 |     +0.0% |       0 |       0 |             0 |       349
+       50 |     +0.0% |       0 |       0 |             0 |       339
+       60 |     +0.0% |       0 |       0 |             0 |       329
+       70 |     +0.0% |       0 |       0 |             0 |       319
+       80 |     +0.0% |       0 |       0 |             0 |       309
+       90 |     +0.0% |       0 |       0 |             0 |       299
+      100 |     +0.0% |       0 |       0 |             0 |       289
+      110 |     +0.0% |       0 |       0 |             0 |       279
+      120 |     +0.0% |       0 |       0 |             0 |       269
+      130 |     +0.0% |       0 |       0 |             0 |       259
+      140 |     +0.0% |       0 |       0 |             0 |       249
+      150 |     +0.0% |       0 |       0 |             0 |       239
+      160 |     +0.0% |       0 |       0 |             0 |       229
+      170 |     +0.0% |       0 |       0 |             0 |       219
+      180 |     +0.0% |       0 |       0 |             0 |       209
+      190 |     +0.0% |       0 |       0 |             0 |       199
+      200 |     +0.0% |       0 |       0 |             0 |       189
+      210 |     +0.0% |       0 |       0 |             0 |       179
+      220 |     +0.0% |       0 |       0 |             0 |       169
+      230 |     +0.0% |       0 |       0 |             0 |       159
+      240 |     +0.0% |       0 |       0 |             0 |       149
+      250 |     +0.0% |       0 |       0 |             0 |       139
+      260 |     +0.0% |       0 |       0 |             0 |       129
+      270 |     +0.0% |       0 |       0 |             0 |       119
+      280 |     +0.0% |       0 |       0 |             0 |       109
+      290 |     +0.0% |       0 |       0 |             0 |        99
+      300 |     +0.0% |       0 |       0 |             0 |        89
+      310 |     +0.0% |       0 |       0 |             0 |        79
+      320 |     +0.0% |       0 |       0 |             0 |        69
+      330 |     +0.0% |       0 |       0 |             0 |        59
+      340 |     +0.0% |       0 |       0 |             0 |        49
+      350 |     +0.0% |       0 |       0 |             0 |        39
+      360 |     +0.0% |       0 |       0 |             0 |        29
+      370 |     +0.0% |       0 |       0 |             0 |        19
+      380 |     +0.0% |       0 |       0 |             0 |         9
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.03s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 44 um^2 72% utilization.
+Instance count before 411, after 411
+Pin count before 1162, after 1162
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/3_4_place_resized.odb
+Elapsed time: 0:01.05[h:]min:sec. CPU time: user 1.06 sys 0.05 (106%). Peak memory: 218576KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            1            213 734947984bd3fee97b5f
