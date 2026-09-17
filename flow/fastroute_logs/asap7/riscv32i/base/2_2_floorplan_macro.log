@@ -1,0 +1,42 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/fakeram7_256x32.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i/base/2_1_floorplan.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i/base/2_1_floorplan.sdc
+source ./platforms/asap7/setRC.tcl
+[INFO GPL-0022] Initialize gpl and calculate uniform density.
+Placement density is 0.6319999849796295, computed from PLACE_DENSITY_LB_ADDON  0.10 and lower bound 0.5799999833106995
+rtl_macro_placer -max_num_level 2 -halo_width 4 -halo_height 4 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/asap7/riscv32i/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.6319999849796295
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+Die Area: (0.00, 0.00) (73.15, 73.15),  Floorplan Area: (5.02, 5.13) (68.09, 68.04)
+	Number of std cell instances: 8783
+	Area of std cell instances: 1079.36
+	Number of macros: 4
+	Macros to be placed: 4
+	Area of macros: 1404.48
+	Base halo (L, B, R, T): (4.00, 4.00, 4.00, 4.00)
+	Area of macros with halos: 2082.89
+	Area of std cell instances + Area of macros: 2483.84
+	Floorplan area: 3967.86
+	Design Utilization: 0.63
+	Floorplan Utilization: 0.42
+	Manufacturing Grid: 1
+
+[WARNING MPL-0055] Couldn't find a solution for the specified utilization. The utilization was adjusted to 0.7749743.
+[INFO MPL-0500] Runtime: 5.07s
+Took 5 seconds: rtl_macro_placer -max_num_level 2 -halo_width 4 -halo_height 4 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/asap7/riscv32i/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.6319999849796295
+Design area 2484 um^2 63% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/riscv32i/base/2_2_floorplan_macro.odb
+Elapsed time: 0:06.08[h:]min:sec. CPU time: user 12.13 sys 9.35 (353%). Peak memory: 265476KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            6            259 ff438e5e2606d1ad92e0

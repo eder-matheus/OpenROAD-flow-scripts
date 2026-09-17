@@ -1,0 +1,122 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w31_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_lvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_hvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_svt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_ulvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_liberty ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib
+[WARNING STA-1171] ./platforms/gt2n/lib/gt2_6t_w13_elvt_tt_0p7v25c.lib line 58, default_fanout_load is 0.0.
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/jpeg/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/jpeg/base/1_synth.sdc
+source ./platforms/gt2n/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 84391
+[INFO IFP-0107] Defining die area using utilization: 40.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (2.000, 2.000) snapped to (2.016, 2.016).
+[INFO IFP-0001] Added 557 rows of 1912 site gt2_6t.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 84.326 84.326 ) um
+[INFO IFP-0101] Core BBox: (  2.016  2.016 ) ( 82.320 82.224 ) um
+[INFO IFP-0102] Core area:                         6441.023 um^2
+[INFO IFP-0103] Total instances area:              2580.899 um^2
+[INFO IFP-0104] Effective utilization:                0.401
+[INFO IFP-0105] Number of instances:                  84391
+source ./platforms/gt2n/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 1 tie gt2_6t_tielow_w31_lvt instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 8702 tie gt2_6t_tiehigh_w31_lvt instances.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.35s
+Default units for flow
+ time 1ps
+ capacitance 1pF
+ resistance 1ohm
+ voltage 1v
+ current 1mA
+ power 1uW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |        (ohm/um) |          (pF/um)
+------------------------------------------------
+      BRDL |        1.00e-02 |         1.01e-04
+       BM4 |        6.40e-01 |         8.67e-05
+       BM3 |        6.40e-01 |         1.20e-04
+       BM2 |        7.48e+00 |         1.05e-04
+       BM1 |        7.48e+00 |         1.53e-04
+       BPR |        2.43e+01 |         7.79e-05
+        M0 |        6.22e+02 |         1.20e-04
+        M1 |        4.38e+02 |         1.02e-04
+        M2 |        6.22e+02 |         9.98e-05
+        M3 |        4.38e+02 |         1.02e-04
+        M4 |        1.67e+02 |         1.09e-04
+        M5 |        1.67e+02 |         1.05e-04
+        M6 |        2.66e+01 |         1.12e-04
+        M7 |        2.66e+01 |         1.05e-04
+        M8 |        2.66e+01 |         1.05e-04
+        M9 |        2.66e+01 |         1.05e-04
+       M10 |        7.48e+00 |         1.09e-04
+       M11 |        7.48e+00 |         1.05e-04
+       M12 |        6.40e-01 |         1.20e-04
+       M13 |        6.40e-01 |         1.20e-04
+       RDL |        1.00e-02 |         3.57e-04
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |          (ohm) 
+----------------------------
+       BV4 |       1.50e-01 
+       BV3 |       9.50e-01 
+       BV2 |       6.08e+00 
+       BV1 |       6.08e+00 
+       BV0 |       2.51e+01 
+        NW |       0.00e+00 
+        V0 |       5.50e+01 
+        V1 |       5.50e+01 
+        V2 |       5.50e+01 
+        V3 |       4.58e+01 
+        V4 |       2.78e+01 
+        V5 |       1.49e+01 
+        V6 |       1.33e+01 
+        V7 |       1.33e+01 
+        V8 |       1.33e+01 
+        V9 |       7.65e+00 
+       V10 |       6.08e+00 
+       V11 |       6.08e+00 
+       V12 |       9.50e-01 
+       V13 |       1.50e-01 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 2686 um^2 42% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/jpeg/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gt2n/jpeg/base/2_1_floorplan.sdc
+Elapsed time: 0:07.48[h:]min:sec. CPU time: user 10.45 sys 9.16 (262%). Peak memory: 454428KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            7            443 cad2119e8779ed2ef69d
+2_1_floorplan             .sdc                             4fd9d39dc8a035d163b3

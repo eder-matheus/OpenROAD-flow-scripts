@@ -1,0 +1,75 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/6_1_fill.sdc
+source ./platforms/gf180/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/ibex/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/gf180/openROAD/rcx/gf180mcu_1p5m_1tm_9k_sp_smim_OPTB_bst.rules ...
+[INFO RCX-0436] RC segment generation ibex_core (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 58235 rc segments
+[INFO RCX-0439] Coupling Cap extraction ibex_core ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 23% of 149483 wires extracted
+[INFO RCX-0442] 50% of 149483 wires extracted
+[INFO RCX-0442] 75% of 149483 wires extracted
+[INFO RCX-0442] 100% of 149483 wires extracted
+[INFO RCX-0045] Extract 13248 nets, 71410 rsegs, 71410 caps, 175753 ccs
+[INFO RCX-0443] 13248 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 6.66e-01 W
+Supply voltage   : 5.50e+00 V
+Worstcase voltage: 5.50e+00 V
+Average voltage  : 5.50e+00 V
+Average IR drop  : 1.42e-04 V
+Worstcase IR drop: 4.16e-04 V
+Percentage drop  : 0.01 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 6.66e-01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 4.74e-04 V
+Average voltage  : 1.32e-04 V
+Average IR drop  : 1.32e-04 V
+Worstcase IR drop: 4.74e-04 V
+Percentage drop  : 0.01 %
+######################################
+Cell type report:                       Count         Area
+  Endcap cell                             450      2540.16
+  Fill cell                             24742    632302.27
+  Tap cell                               1248      7044.71
+  Antenna cell                             13        73.38
+  Tie cell                                 16       180.63
+  Clock buffer                            113     17148.90
+  Timing Repair Buffer                    778     37673.40
+  Inverter                                469      7998.68
+  Clock inverter                           43      1800.69
+  Sequential cell                        1939    183162.47
+  Multi-Input combinational cell         9123    400475.98
+  Total                                 38934   1290401.28
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 658099 um^2 51% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:23.60[h:]min:sec. CPU time: user 43.41 sys 11.41 (232%). Peak memory: 667292KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                 23            651                  N/A

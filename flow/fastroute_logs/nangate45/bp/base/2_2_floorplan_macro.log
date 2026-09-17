@@ -1,0 +1,62 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x95.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/2_1_floorplan.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/2_1_floorplan.sdc
+source ./platforms/nangate45/setRC.tcl
+source /OpenROAD-flow-scripts/flow/designs/nangate45/black_parrot/macro_placement.tcl
+[INFO MPL-0035] Macro multi_top.me.genblk1_0__bp_cce_top.bp_cce/directory.wg_ram/macro_mem0.mem placed. Bounding box (20.070um, 355.915um), (74.600um, 445.315um). Orientation MY
+[INFO MPL-0035] Macro multi_top.me.genblk1_0__bp_cce_top.bp_cce/directory.wg_ram/macro_mem1.mem placed. Bounding box (94.600um, 355.915um), (149.130um, 445.315um). Orientation MY
+[INFO MPL-0035] Macro multi_top.rof1_0__core/fe.icache_1/metadata_mem.macro_mem.mem placed. Bounding box (20.070um, 245.105um), (30.710um, 281.505um). Orientation R180
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_0__data_mem.macro_mem/mem placed. Bounding box (1177.310um, 1165.115um), (1329.880um, 1278.515um). Orientation R0
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_1__data_mem.macro_mem/mem placed. Bounding box (659.600um, 1165.115um), (812.170um, 1278.515um). Orientation MY
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_2__data_mem.macro_mem/mem placed. Bounding box (1177.310um, 1031.625um), (1329.880um, 1145.025um). Orientation MX
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_3__data_mem.macro_mem/mem placed. Bounding box (832.170um, 1165.115um), (984.740um, 1278.515um). Orientation R0
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_4__data_mem.macro_mem/mem placed. Bounding box (1004.740um, 1031.625um), (1157.310um, 1145.025um). Orientation MX
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_5__data_mem.macro_mem/mem placed. Bounding box (832.170um, 1031.625um), (984.740um, 1145.025um). Orientation MX
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_6__data_mem.macro_mem/mem placed. Bounding box (1004.740um, 1165.115um), (1157.310um, 1278.515um). Orientation R0
+[INFO MPL-0035] Macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_7__data_mem.macro_mem/mem placed. Bounding box (659.600um, 1031.625um), (812.170um, 1145.025um). Orientation R180
+[INFO GPL-0022] Initialize gpl and calculate uniform density.
+Placement density is 0.3545000022649765, computed from PLACE_DENSITY_LB_ADDON  0.05 and lower bound 0.3100000023841858
+rtl_macro_placer -max_num_level 2 -halo_width 15 -halo_height 15 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/nangate45/bp/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3545000022649765
+[WARNING MPL-0074] -halo_width/-halo_height are deprecated, use the set_macro_base_halo command instead.
+[INFO MPL-0062] Found fixed macro multi_top.me.genblk1_0__bp_cce_top.bp_cce/directory.wg_ram/macro_mem0.mem.
+[INFO MPL-0062] Found fixed macro multi_top.me.genblk1_0__bp_cce_top.bp_cce/directory.wg_ram/macro_mem1.mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_0__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_1__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_2__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_3__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_4__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_5__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_6__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/be.be_mmu.dcache/data_mem_7__data_mem.macro_mem/mem.
+[INFO MPL-0062] Found fixed macro multi_top.rof1_0__core/fe.icache_1/metadata_mem.macro_mem.mem.
+Die Area: (0.00, 0.00) (1350.00, 1300.00),  Floorplan Area: (10.07, 11.20) (1339.88, 1289.40)
+	Number of std cell instances: 212263
+	Area of std cell instances: 305311.34
+	Number of macros: 24
+	Macros to be placed: 13
+	Area of macros: 328372.48
+	Base halo (L, B, R, T): (15.00, 15.00, 15.00, 15.00)
+	Area of macros with halos: 201180.02
+	Area of std cell instances + Area of macros: 633683.82
+	Floorplan area: 1699763.14
+	Design Utilization: 0.37
+	Floorplan Utilization: 0.22
+	Manufacturing Grid: 10
+
+[INFO MPL-0500] Runtime: 6.97s
+Took 7 seconds: rtl_macro_placer -max_num_level 2 -halo_width 15 -halo_height 15 -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/objects/nangate45/bp/base/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3545000022649765
+Design area 633684 um^2 37% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp/base/2_2_floorplan_macro.odb
+Elapsed time: 0:08.72[h:]min:sec. CPU time: user 55.15 sys 0.27 (635%). Peak memory: 1044964KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            8           1020 6eb6d8e23494fa6b4999

@@ -1,0 +1,92 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_AO_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_INVBUF_RVT_FF_ccs_220122.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_OA_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SIMPLE_RVT_FF_ccs_211120.lib.gz
+read_liberty ./platforms/asap7/lib/CCS/asap7sc7p5t_SEQ_RVT_FF_ccs_220123.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_2048x39.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_256x34.lib
+read_liberty /OpenROAD-flow-scripts/flow/designs/asap7/swerv_wrapper/lib/fakeram7_64x21.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+Using CCS delay calculation
+set_delay_calculator prima
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/asap7/swerv_wrapper/base/6_final.sdc
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation swerv_wrapper (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 1139062 rc segments
+[INFO RCX-0439] Coupling Cap extraction swerv_wrapper ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 7% of 1231026 wires extracted
+[INFO RCX-0442] 18% of 1231026 wires extracted
+[INFO RCX-0442] 28% of 1231026 wires extracted
+[INFO RCX-0442] 38% of 1231026 wires extracted
+[INFO RCX-0442] 46% of 1231026 wires extracted
+[INFO RCX-0442] 52% of 1231026 wires extracted
+[INFO RCX-0442] 59% of 1231026 wires extracted
+[INFO RCX-0442] 67% of 1231026 wires extracted
+[INFO RCX-0442] 73% of 1231026 wires extracted
+[INFO RCX-0442] 80% of 1231026 wires extracted
+[INFO RCX-0442] 89% of 1231026 wires extracted
+[INFO RCX-0442] 96% of 1231026 wires extracted
+[INFO RCX-0442] 100% of 1231026 wires extracted
+[INFO RCX-0045] Extract 99925 nets, 1238923 rsegs, 1238923 caps, 1766570 ccs
+[INFO RCX-0443] 99925 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.02e-01 W
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.66e-01 V
+Average voltage  : 7.70e-01 V
+Average IR drop  : 8.47e-05 V
+Worstcase IR drop: 4.37e-03 V
+Percentage drop  : 0.57 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 1.02e-01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 4.10e-03 V
+Average voltage  : 8.48e-05 V
+Average IR drop  : 8.48e-05 V
+Worstcase IR drop: 4.10e-03 V
+Percentage drop  : 0.53 %
+######################################
+Cell type report:                        Count        Area
+  Macro                                     28    33343.63
+  Fill cell                             453175   102887.65
+  Tap cell                               24008      700.07
+  Tie cell                               14260      623.73
+  Clock buffer                            1812      743.89
+  Timing Repair Buffer                    4412      440.17
+  Inverter                                6825      315.13
+  Clock inverter                            96       12.71
+  Sequential cell                        13961     5292.25
+  Multi-Input combinational cell         57497     6984.33
+  Total                                 576074   151343.57
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 48456 um^2 30% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 6:38.17[h:]min:sec. CPU time: user 653.75 sys 61.65 (179%). Peak memory: 7066476KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                398           6900                  N/A

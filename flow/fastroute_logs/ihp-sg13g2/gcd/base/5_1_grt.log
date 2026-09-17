@@ -1,0 +1,279 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/gcd/base/4_cts.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/gcd/base/4_cts.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     15
+Number of macros:     84
+Number of vias:       84
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   gcd
+Die area:                 ( 0 0 ) ( 185960 185960 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     415
+Number of terminals:      56
+Number of snets:          2
+Number of nets:           445
+
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_YX
+  Layer Via3
+    default via: Via3_XY
+  Layer Via4
+    default via: Via4_YX
+  Layer TopVia1
+    default via: TopVia1EWNS
+  Layer TopVia2
+    default via: TopVia2EWNS
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 51.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete GatPoly.
+[INFO DRT-0024]   Complete Cont.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0024]   Complete TopVia1.
+[INFO DRT-0024]   Complete TopMetal1.
+[INFO DRT-0024]   Complete TopVia2.
+[INFO DRT-0024]   Complete TopMetal2.
+[INFO DRT-0033] GatPoly shape region query size = 0.
+[INFO DRT-0033] Cont shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 9042.
+[INFO DRT-0033] Via1 shape region query size = 1360.
+[INFO DRT-0033] Metal2 shape region query size = 343.
+[INFO DRT-0033] Via2 shape region query size = 1360.
+[INFO DRT-0033] Metal3 shape region query size = 351.
+[INFO DRT-0033] Via3 shape region query size = 1360.
+[INFO DRT-0033] Metal4 shape region query size = 320.
+[INFO DRT-0033] Via4 shape region query size = 1360.
+[INFO DRT-0033] Metal5 shape region query size = 480.
+[INFO DRT-0033] TopVia1 shape region query size = 560.
+[INFO DRT-0033] TopMetal1 shape region query size = 208.
+[INFO DRT-0033] TopVia2 shape region query size = 72.
+[INFO DRT-0033] TopMetal2 shape region query size = 48.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 275 pins.
+[INFO DRT-0081]   Complete 51 unique inst patterns.
+[INFO DRT-0084]   Complete 249 groups.
+#scanned instances     = 415
+#unique  instances     = 51
+#stdCellGenAp          = 2283
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 1758
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 1276
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:11, elapsed time = 00:00:01, memory = 109.33 (MB), peak = 103.54 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/gcd/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4200  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+[INFO GRT-0019] Found 10 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 9
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical         8308          7704          7.27%
+Metal3     Horizontal      10465          9841          5.96%
+Metal4     Vertical         8308          7704          7.27%
+Metal5     Horizontal      10284          9660          6.07%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 2099
+[INFO GRT-0198] Via related Steiner nodes: 24
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 2519
+[INFO GRT-0112] Final usage 3D: 9077
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2            7704           781           10.14%             0 /  0 /  0
+Metal3            9841           739            7.51%             0 /  0 /  0
+Metal4            7704             0            0.00%             0 /  0 /  0
+Metal5            9660             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            34909          1520            4.35%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 166320 um
+[INFO GRT-0014] Routed nets: 445
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       451
+       10 |     +0.0% |       0 |       0 |             0 |       441
+       20 |     +0.0% |       0 |       0 |             0 |       431
+       30 |     +0.0% |       0 |       0 |             0 |       421
+       40 |     +0.0% |       0 |       0 |             0 |       411
+       50 |     +0.0% |       0 |       0 |             0 |       401
+       60 |     +0.0% |       0 |       0 |             0 |       391
+       70 |     +0.0% |       0 |       0 |             0 |       381
+       80 |     +0.0% |       0 |       0 |             0 |       371
+       90 |     +0.0% |       0 |       0 |             0 |       361
+      100 |     +0.0% |       0 |       0 |             0 |       351
+      110 |     +0.0% |       0 |       0 |             0 |       341
+      120 |     +0.0% |       0 |       0 |             0 |       331
+      130 |     +0.0% |       0 |       0 |             0 |       321
+      140 |     +0.0% |       0 |       0 |             0 |       311
+      150 |     +0.0% |       0 |       0 |             0 |       301
+      160 |     +0.0% |       0 |       0 |             0 |       291
+      170 |     +0.0% |       0 |       0 |             0 |       281
+      180 |     +0.0% |       0 |       0 |             0 |       271
+      190 |     +0.0% |       0 |       0 |             0 |       261
+      200 |     +0.0% |       0 |       0 |             0 |       251
+      210 |     +0.0% |       0 |       0 |             0 |       241
+      220 |     +0.0% |       0 |       0 |             0 |       231
+      230 |     +0.0% |       0 |       0 |             0 |       221
+      240 |     +0.0% |       0 |       0 |             0 |       211
+      250 |     +0.0% |       0 |       0 |             0 |       201
+      260 |     +0.0% |       0 |       0 |             0 |       191
+      270 |     +0.0% |       0 |       0 |             0 |       181
+      280 |     +0.0% |       0 |       0 |             0 |       171
+      290 |     +0.0% |       0 |       0 |             0 |       161
+      300 |     +0.0% |       0 |       0 |             0 |       151
+      310 |     +0.0% |       0 |       0 |             0 |       141
+      320 |     +0.0% |       0 |       0 |             0 |       131
+      330 |     +0.0% |       0 |       0 |             0 |       121
+      340 |     +0.0% |       0 |       0 |             0 |       111
+      350 |     +0.0% |       0 |       0 |             0 |       101
+      360 |     +0.0% |       0 |       0 |             0 |        91
+      370 |     +0.0% |       0 |       0 |             0 |        81
+      380 |     +0.0% |       0 |       0 |             0 |        71
+      390 |     +0.0% |       0 |       0 |             0 |        61
+      400 |     +0.0% |       0 |       0 |             0 |        51
+      410 |     +0.0% |       0 |       0 |             0 |        41
+      420 |     +0.0% |       0 |       0 |             0 |        31
+      430 |     +0.0% |       0 |       0 |             0 |        21
+      440 |     +0.0% |       0 |       0 |             0 |        11
+      450 |     +0.0% |       0 |       0 |             0 |         1
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.04s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 22148.38 um^2
+[INFO DPL-0007] Movable instances area: 5189.18 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 23.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 415 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            9671.1 u
+legalized HPWL           9671.1 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/gcd/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.04s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.01s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 22148.38 um^2
+[INFO DPL-0007] Movable instances area: 5189.18 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 23.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 415 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            9671.1 u
+legalized HPWL           9671.1 u
+delta HPWL                    0 %
+
+check_placement -verbose
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/gcd/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/reports/ihp-sg13g2/gcd/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 5189 um^2 23% utilization.
+[INFO FLW-0007] clock core_clock period 2.800000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 58
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/gcd/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/ihp-sg13g2/gcd/base/5_1_grt.sdc
+Elapsed time: 0:01.65[h:]min:sec. CPU time: user 14.28 sys 0.14 (876%). Peak memory: 226524KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb            1            221 c4446fd1aa70b335a12a
+5_1_grt                   .sdc                             cc74995b374541b99b57

@@ -1,0 +1,80 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/2_floorplan.sdc
+source ./platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 127 violating endpoints
+[INFO RSZ-0154] Identified 0 critical arithmetic instances
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: (  2.300  2.720 ) ( 472.880 470.560 ) um
+[INFO GPL-0016] Core area:                  220156.147 um^2
+[INFO GPL-0036] Movable instances area:     115368.147 um^2
+[INFO GPL-0037] Total instances area:       119069.197 um^2
+[INFO GPL-0035] Pin density area adjust:     19698.010 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:             18115
+[INFO GPL-0007] Movable instances:               15157
+[INFO GPL-0008] Fixed instances:                  2958
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                  15420
+[INFO GPL-0011] Number of pins:                  53297
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 475.190 475.190 ) um
+[INFO GPL-0013] Placement BBox: (  2.300  2.720 ) ( 472.880 470.560 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                220156.147 um^2
+[INFO GPL-0017] Fixed instances area:         3701.050 um^2
+[INFO GPL-0018] Movable instances area:     135066.157 um^2
+[INFO GPL-0019] Utilization:                    62.399 %
+[INFO GPL-0020] Standard cells area:        135066.157 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 15157 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     15420
+     1000 |     +0.0% |       0 |       0 |             0 |     14420
+     2000 |     +0.0% |       0 |       0 |             0 |     13420
+     3000 |     +0.0% |       0 |       0 |             0 |     12420
+     4000 |     +0.0% |       0 |       0 |             0 |     11420
+     5000 |     +0.0% |       0 |       0 |             0 |     10420
+     6000 |     +0.0% |       0 |       0 |             0 |      9420
+     7000 |     +0.0% |       0 |       0 |             0 |      8420
+     8000 |     +0.0% |       0 |       0 |             0 |      7420
+     9000 |     +0.0% |       0 |       0 |             0 |      6420
+    10000 |     +0.0% |       0 |       0 |             0 |      5420
+    11000 |     +0.0% |       0 |       0 |             0 |      4420
+    12000 |     +0.0% |       0 |       0 |             0 |      3420
+    13000 |     +0.0% |       0 |       0 |             0 |      2420
+    14000 |     +0.0% |       0 |       0 |             0 |      1420
+    15000 |     +0.0% |       0 |       0 |             0 |       420
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.55s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 119069 um^2 54% utilization.
+Instance count before 18115, after 18115
+Pin count before 52909, after 52909
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/aes/base/3_4_place_resized.odb
+Elapsed time: 0:03.35[h:]min:sec. CPU time: user 4.64 sys 4.03 (258%). Peak memory: 209048KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            3            204 ae8ba39c08568562a853

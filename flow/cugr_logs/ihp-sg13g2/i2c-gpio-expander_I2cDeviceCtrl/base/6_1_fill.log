@@ -1,0 +1,16 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_slow_1p08V_125C.lib
+read_liberty -corner typ ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_fast_1p32V_m40C.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/5_route.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/5_route.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+exec cp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/5_route.odb /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/6_1_fill.odb
+Elapsed time: 0:00.26[h:]min:sec. CPU time: user 0.22 sys 0.04 (100%). Peak memory: 112680KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_1_fill                  .odb            0            110 71dd085ec4032269ec02

@@ -1,0 +1,26 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x32.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x64.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/3_1_place_gp_skip_io.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/2_floorplan.sdc
+source ./platforms/nangate45/setRC.tcl
+place_pins -hor_layers metal5 -ver_layers metal6
+Found 20 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 7842
+[INFO PPL-0002] Number of I/O             1273
+[INFO PPL-0003] Number of I/O w/sink      1238
+[INFO PPL-0004] Number of I/O w/o sink    35
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 387946.09 um.
+Design area 364132 um^2 31% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/mempool_group/base/3_2_place_iop.odb
+Elapsed time: 0:01.32[h:]min:sec. CPU time: user 1.10 sys 0.22 (100%). Peak memory: 388360KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_2_place_iop             .odb            1            379 5f49a4fd7d7c4d4c7895

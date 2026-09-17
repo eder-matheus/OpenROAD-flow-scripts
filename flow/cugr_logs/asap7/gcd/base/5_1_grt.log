@@ -1,0 +1,366 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/4_cts.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/4_cts.sdc
+source ./platforms/asap7/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+
+Design:                   gcd
+Die area:                 ( 0 0 ) ( 8889 8889 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     423
+Number of terminals:      56
+Number of snets:          2
+Number of nets:           398
+
+[INFO DRT-0167] List of default vias:
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 95.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 6599.
+[INFO DRT-0033] V1 shape region query size = 6816.
+[INFO DRT-0033] M2 shape region query size = 222.
+[INFO DRT-0033] V2 shape region query size = 180.
+[INFO DRT-0033] M3 shape region query size = 180.
+[INFO DRT-0033] V3 shape region query size = 120.
+[INFO DRT-0033] M4 shape region query size = 143.
+[INFO DRT-0033] V4 shape region query size = 120.
+[INFO DRT-0033] M5 shape region query size = 103.
+[INFO DRT-0033] V5 shape region query size = 16.
+[INFO DRT-0033] M6 shape region query size = 16.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 515 pins.
+[INFO DRT-0081]   Complete 95 unique inst patterns.
+[INFO DRT-0084]   Complete 222 groups.
+#scanned instances     = 423
+#unique  instances     = 95
+#stdCellGenAp          = 2129
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 1725
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 1183
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:00, memory = 209.79 (MB), peak = 203.72 (MB)
+global_route -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/gcd/base/congestion.rpt -congestion_iterations 10 -congestion_report_iter_step 5 -verbose -resistance_aware -use_cugr
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 102
+[INFO GRT-0019] Found 6 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 26
+Design statistics
+Nets:                398
+Special nets:        2
+Routing layers:      7
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal       2755          2066          25.01%
+M3         Vertical         3404          2553          25.00%
+M4         Horizontal       2538          1903          25.02%
+M5         Vertical         2317          1738          24.99%
+M6         Horizontal       1568          1180          24.74%
+M7         Vertical         1946          1460          24.97%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Stage 2: Resistance-aware re-route of critical nets.
+Routing statistics
+Wire length:           19527
+Total via count:       2383
+Total congestion:      0.35
+Min resource:          -0.18
+Bottleneck:            (5, 8, 11)
+[INFO GRT-0130] CUGR congestion report:
+Layer   Dir     Resource     Wire Dmd      Via Dmd    Total Dmd  Usage (%)   Wire Ovf    Via Ovf  Max Edge Ovf
+--------------------------------------------------------------------------------------------------------------
+M1        V         0.00         0.00         0.00         0.00       0.00       0.00       0.00          0.00
+M2        H      2066.43       374.00       177.58       551.58      26.69       0.00       0.00          0.00
+M3        V      2553.26       534.00       114.43       648.43      25.40       0.00       0.00          0.00
+M4        H      1903.49       201.00        63.40       264.40      13.89       0.00       0.00          0.00
+M5        V      1737.78        61.50        36.14        97.64       5.62       0.00       0.00          0.00
+M6        H      1179.50        87.00        23.08       110.08       9.33       0.00       0.35          0.18
+M7        V      1459.50        76.50        11.09        87.59       6.00       0.00       0.00          0.00
+--------------------------------------------------------------------------------------------------------------
+Total           10899.97      1334.00       425.72      1759.72      16.14       0.00       0.35          0.18
+[INFO GRT-0018] Total wirelength: 12614 um
+[INFO GRT-0014] Routed nets: 398
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       401
+       10 |     +0.0% |       0 |       0 |             0 |       391
+       20 |     +0.0% |       0 |       0 |             0 |       381
+       30 |     +0.0% |       0 |       0 |             0 |       371
+       40 |     +0.0% |       0 |       0 |             0 |       361
+       50 |     +0.0% |       0 |       0 |             0 |       351
+       60 |     +0.0% |       0 |       0 |             0 |       341
+       70 |     +0.0% |       0 |       0 |             0 |       331
+       80 |     +0.0% |       0 |       0 |             0 |       321
+       90 |     +0.0% |       0 |       0 |             0 |       311
+      100 |     +0.0% |       0 |       0 |             0 |       301
+      110 |     +0.0% |       0 |       0 |             0 |       291
+      120 |     +0.0% |       0 |       0 |             0 |       281
+      130 |     +0.0% |       0 |       0 |             0 |       271
+      140 |     +0.0% |       0 |       0 |             0 |       261
+      150 |     +0.0% |       0 |       0 |             0 |       251
+      160 |     +0.0% |       0 |       0 |             0 |       241
+      170 |     +0.0% |       0 |       0 |             0 |       231
+      180 |     +0.0% |       0 |       0 |             0 |       221
+      190 |     +0.0% |       0 |       0 |             0 |       211
+      200 |     +0.0% |       0 |       0 |             0 |       201
+      210 |     +0.0% |       0 |       0 |             0 |       191
+      220 |     +0.0% |       0 |       0 |             0 |       181
+      230 |     +0.0% |       0 |       0 |             0 |       171
+      240 |     +0.0% |       0 |       0 |             0 |       161
+      250 |     +0.0% |       0 |       0 |             0 |       151
+      260 |     +0.0% |       0 |       0 |             0 |       141
+      270 |     +0.0% |       0 |       0 |             0 |       131
+      280 |     +0.0% |       0 |       0 |             0 |       121
+      290 |     +0.0% |       0 |       0 |             0 |       111
+      300 |     +0.0% |       0 |       0 |             0 |       101
+      310 |     +0.0% |       0 |       0 |             0 |        91
+      320 |     +0.0% |       0 |       0 |             0 |        81
+      330 |     +0.0% |       0 |       0 |             0 |        71
+      340 |     +0.0% |       0 |       0 |             0 |        61
+      350 |     +0.0% |       0 |       0 |             0 |        51
+      360 |     +0.0% |       0 |       0 |             0 |        41
+      370 |     +0.0% |       0 |       0 |             0 |        31
+      380 |     +0.0% |       0 |       0 |             0 |        21
+      390 |     +0.0% |       0 |       0 |             0 |        11
+      400 |     +0.0% |       0 |       0 |             0 |         1
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.03s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 61.31 um^2
+[INFO DPL-0007] Movable instances area: 43.51 um^2
+[INFO DPL-0008] Fixed instances area within core: 1.69 um^2
+[INFO DPL-0009] Utilization: 73.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 423 cells
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL             619.9 u
+legalized HPWL            619.9 u
+delta HPWL                    0 %
+
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/gcd/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_last_gasp -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 25 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 25 out of 25 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -51.251 |     -486.8 |     -351.2 |     25 | resp_msg[15]
+      10* |       0 |       0 |        1 |      0 |     8 |    +0.2% |  -54.781 |     -486.0 |     -439.8 |     25 | resp_msg[15]
+      11* |       0 |       0 |        1 |      0 |     2 |    +0.2% |  -47.609 |     -424.2 |     -352.8 |     25 | resp_msg[15]
+      13* |       0 |       0 |        1 |      0 |     3 |    +0.2% |  -47.607 |     -424.1 |     -352.8 |     25 | resp_msg[15]
+      17* |       1 |       0 |        1 |      0 |     5 |    +0.0% |  -47.602 |     -423.2 |     -341.9 |     25 | resp_msg[15]
+      20* |       1 |       1 |        1 |      0 |     6 |    +0.0% |  -47.602 |     -423.2 |     -342.1 |     25 | resp_msg[15]
+      20* |       1 |       0 |        1 |      0 |     5 |    +0.0% |  -47.602 |     -423.2 |     -341.9 |     25 | resp_msg[15]
+      22* |       1 |       0 |        4 |      0 |     5 |    +0.7% |  -47.602 |     -423.2 |     -169.9 |     25 | resp_msg[15]
+      30* |       1 |       1 |        8 |      0 |     8 |    +1.5% |  -47.602 |     -423.2 |     -202.5 |     25 | resp_msg[15]
+      33* |       1 |       1 |        8 |      0 |     8 |    +1.5% |  -47.602 |     -423.2 |     -202.5 |     25 | resp_msg[15]
+      38* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      39* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      40* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      40* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      41* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      42* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      45* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      46* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      47* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      48* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      49* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      50* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      50* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      51* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      52* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      53* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      54* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      55* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      56* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      57* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      58* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+      58* |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |     25 | resp_msg[15]
+    final |       1 |       4 |        8 |      0 |     9 |    +1.9% |  -47.602 |     -423.2 |     -153.9 |      8 | resp_msg[15]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 1 buffers.
+[INFO RSZ-0040] Inserted 8 buffers.
+[INFO RSZ-0051] Resized 4 instances: 4 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 9 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.74s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.00s
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 61.31 um^2
+[INFO DPL-0007] Movable instances area: 44.35 um^2
+[INFO DPL-0008] Fixed instances area within core: 1.69 um^2
+[INFO DPL-0009] Utilization: 75.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 430 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.00s
+Placement Analysis
+---------------------------------
+total displacement          6.3 u
+average displacement        0.0 u
+max displacement            1.3 u
+original HPWL             630.1 u
+legalized HPWL            637.5 u
+delta HPWL                    1 %
+
+check_placement -verbose
+global_route -end_incremental -resistance_aware -congestion_report_file /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/reports/asap7/gcd/base/congestion_post_repair_timing.rpt
+estimate_parasitics -global_routing
+repair_timing -setup -sequence "vt_swap reroute" -skip_last_gasp -repair_tns 0 -verbose
+[INFO RSZ-0100] Repair move sequence: RerouteMove 
+[INFO RSZ-0094] Found 21 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 1 out of 21 (0.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -47.901 |     -426.3 |     -174.1 |     21 | resp_msg[15]
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -47.901 |     -426.3 |     -174.1 |     21 | resp_msg[15]
+       1* |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -47.901 |     -426.3 |     -174.1 |     21 | resp_msg[15]
+    final |       0 |       0 |        0 |      0 |     0 |    +0.0% |  -47.901 |     -426.3 |     -174.1 |     21 | resp_msg[15]
+------------------------------------------------------------------------------------------------------------------------------
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 0.03s
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 46 um^2 75% utilization.
+[INFO FLW-0007] clock core_clock period 310.000000
+[WARNING FLW-0010] more than one clock found. Skipping sdc update.
+[INFO FLW-0011] Path endpoint path count 55
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/5_1_grt.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/gcd/base/5_1_grt.sdc
+Elapsed time: 0:02.51[h:]min:sec. CPU time: user 18.86 sys 0.43 (767%). Peak memory: 244020KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb            2            238 cc3c0c140034d837fa87
+5_1_grt                   .sdc                             dd6b646fe32776851211

@@ -1,0 +1,49 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+read_liberty ./platforms/gf180/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib.gz
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/aes-hybrid/base/3_3_place_gp.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/aes-hybrid/base/2_floorplan.sdc
+source ./platforms/gf180/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     17250
+     1000 |     +0.0% |       0 |       0 |             0 |     16250
+     2000 |     +0.0% |       0 |       0 |             0 |     15250
+     3000 |     +0.0% |       0 |       0 |             0 |     14250
+     4000 |     +0.0% |       0 |       0 |             0 |     13250
+     5000 |     +0.0% |       0 |       0 |             0 |     12250
+     6000 |     +0.0% |       0 |       0 |             0 |     11250
+     7000 |     +0.0% |       0 |       0 |             0 |     10250
+     8000 |     +0.0% |       0 |       0 |             0 |      9250
+     9000 |     +0.0% |       0 |       0 |             0 |      8250
+    10000 |     +0.0% |       0 |       0 |             0 |      7250
+    11000 |     +0.0% |       0 |       0 |             0 |      6250
+    12000 |     +0.0% |       0 |       0 |             0 |      5250
+    13000 |     +0.0% |       0 |       0 |             0 |      4250
+    14000 |     +0.0% |       0 |       0 |             0 |      3250
+    15000 |     +0.0% |       0 |       0 |             0 |      2250
+    16000 |     +0.0% |       0 |       0 |             0 |      1250
+    17000 |     +0.0% |       0 |       0 |             0 |       250
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.91s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 529909 um^2 40% utilization.
+Instance count before 18023, after 18023
+Pin count before 52904, after 52904
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/gf180/aes-hybrid/base/3_4_place_resized.odb
+Elapsed time: 0:04.87[h:]min:sec. CPU time: user 7.09 sys 1.89 (184%). Peak memory: 263092KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            4            256 ce698fd285ca8e07c1ba

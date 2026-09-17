@@ -1,0 +1,33 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_256x96.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_32x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x15.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_512x64.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_256x96.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_32x64.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x7.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x15.lef, created 1 library cells
+[INFO ODB-0227] LEF file: ./platforms/nangate45/lef/fakeram45_64x96.lef, created 1 library cells
+link_design -hier bp_multi_top
+[WARNING ORD-0011] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_multi/base/1_2_yosys.sdc
+source ./platforms/nangate45/setRC.tcl
+eliminate_dead_logic
+Removed 1276 unused instances and 1688 unused nets.
+Design area 490812 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_multi/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_multi/base/1_synth.sdc
+Elapsed time: 0:02.69[h:]min:sec. CPU time: user 2.49 sys 0.20 (100%). Peak memory: 375124KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            2            366 328c5709434c3ce1e496
+1_synth                   .sdc                             0836dcd3276c431e40c6

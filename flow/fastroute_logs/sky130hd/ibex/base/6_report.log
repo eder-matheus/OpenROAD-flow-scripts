@@ -1,0 +1,72 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/ibex/base/6_1_fill.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/ibex/base/6_1_fill.sdc
+source ./platforms/sky130hd/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_core_clock can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/ibex/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/ibex/base/6_final.sdc
+Deleted 0 routing obstructions
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/sky130hd/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation ibex_core (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 73544 rc segments
+[INFO RCX-0439] Coupling Cap extraction ibex_core ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 52% of 155246 wires extracted
+[INFO RCX-0442] 100% of 155246 wires extracted
+[INFO RCX-0045] Extract 15883 nets, 89386 rsegs, 89386 caps, 193468 ccs
+[INFO RCX-0443] 15883 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 4.85e-02 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 3.93e-05 V
+Worstcase IR drop: 4.42e-04 V
+Percentage drop  : 0.02 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 4.85e-02 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 3.77e-04 V
+Average voltage  : 3.61e-05 V
+Average IR drop  : 3.61e-05 V
+Worstcase IR drop: 3.77e-04 V
+Percentage drop  : 0.02 %
+######################################
+Cell type report:                       Count        Area
+  Fill cell                             22715   102484.54
+  Tap cell                               3384     4234.06
+  Antenna cell                             77      192.68
+  Clock buffer                            216     5132.42
+  Timing Repair Buffer                   1319    11619.89
+  Inverter                                222      839.56
+  Clock inverter                          142     2069.48
+  Sequential cell                        1939    49895.35
+  Multi-Input combinational cell        12052    80458.42
+  Total                                 42066   256926.41
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 154442 um^2 60% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:11.57[h:]min:sec. CPU time: user 22.55 sys 9.84 (279%). Peak memory: 554220KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                 11            541                  N/A

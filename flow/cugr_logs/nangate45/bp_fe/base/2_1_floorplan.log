@@ -1,0 +1,132 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_fe/base/1_synth.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_fe/base/1_synth.sdc
+source ./platforms/nangate45/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 32971
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.070, 11.200).
+[INFO IFP-0001] Added 413 rows of 4104 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 800.000 600.000 ) um
+[INFO IFP-0101] Core BBox: ( 10.070 11.200 ) ( 789.830 589.400 ) um
+[INFO IFP-0102] Core area:                       450857.232 um^2
+[INFO IFP-0103] Total instances area:            213935.288 um^2
+[INFO IFP-0104] Effective utilization:                0.475
+[INFO IFP-0105] Number of instances:                  32971
+source ./platforms/nangate45/make_tracks.tcl
+source /OpenROAD-flow-scripts/flow/designs/nangate45/bp_fe_top/fastroute.tcl
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 540 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 525 tie LOGIC1_X1 instances.
+repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 33 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 33 out of 33 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.230 |      -59.3 |       -3.8 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       3* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       4* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       5* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       6* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       7* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       8* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+       9* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      10* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      10* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      11* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      12* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      13* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      14* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      15* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      16* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      17* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      18* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      19* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      20* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      20* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      21* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      22* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      23* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      24* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      25* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      26* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      27* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      28* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      29* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      30* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      30* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      31* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      32* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      33* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      34* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      35* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      35* |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |     33 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+    final |       0 |       2 |        0 |      0 |     0 |    +0.0% |    0.005 |      -45.0 |        0.0 |      0 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 2 instances: 2 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0505] Runtime: 1.65s
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+    metal1 |        5.43e-03 |         7.42e-02
+    metal2 |        3.57e-03 |         8.34e-02
+    metal3 |        3.57e-03 |         1.04e-01
+    metal4 |        1.50e-03 |         1.19e-01
+    metal5 |        1.50e-03 |         1.09e-01
+    metal6 |        1.50e-03 |         1.14e-01
+    metal7 |        1.88e-04 |         1.17e-01
+    metal8 |        1.88e-04 |         9.45e-02
+    metal9 |        3.75e-05 |         1.06e-01
+   metal10 |        3.75e-05 |         7.37e-01
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      via1 |       5.00e-03 
+      via2 |       5.00e-03 
+      via3 |       5.00e-03 
+      via4 |       3.00e-03 
+      via5 |       3.00e-03 
+      via6 |       3.00e-03 
+      via7 |       1.00e-03 
+      via8 |       1.00e-03 
+      via9 |       5.00e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 214496 um^2 48% utilization.
+source /OpenROAD-flow-scripts/flow/designs/nangate45/bp_fe_top/io.tcl
+[WARNING ODB-0011] Region 400-700 on edge west modified to 400-600 to respect the die area limits.
+[WARNING ODB-0011] Region 400-700 on edge east modified to 400-600 to respect the die area limits.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_fe/base/2_1_floorplan.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/bp_fe/base/2_1_floorplan.sdc
+Elapsed time: 0:07.52[h:]min:sec. CPU time: user 10.21 sys 6.88 (227%). Peak memory: 271672KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_1_floorplan             .odb            7            265 a76d972178f1724e4e39
+2_1_floorplan             .sdc                             97009b6b5bd858428bbd

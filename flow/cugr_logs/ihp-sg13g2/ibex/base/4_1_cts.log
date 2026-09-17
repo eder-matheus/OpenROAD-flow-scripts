@@ -1,0 +1,383 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/ibex/base/3_place.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/ibex/base/3_place.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets -distance_between_buffers 60
+[INFO CTS-0050] Root buffer is sg13g2_buf_16.
+[INFO CTS-0051] Sink buffer is sg13g2_buf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sg13g2_buf_16
+[INFO CTS-0049] Characterization buffer is sg13g2_buf_16.
+[INFO CTS-0007] Net "clk_i" found for clock "core_clock".
+[INFO CTS-0011]  Clock net "clk_i" for macros has 1 sinks.
+[INFO CTS-0011]  Clock net "clk_i_regs" for registers has 995 sinks.
+[INFO CTS-0010]  Clock net "_06180_" has 944 sinks.
+[INFO CTS-0008] TritonCTS found 3 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i.
+[INFO CTS-0028]  Total number of sinks: 1.
+[INFO CTS-0060]  Macro  sinks will be clustered in groups of up to 4 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18900  dbu (18 um).
+[INFO CTS-0021]  Distance between buffers: 1 units (60 um).
+[INFO CTS-0023]  Original sink region: [(310282, 308542), (310282, 308542)].
+[INFO CTS-0024]  Normalized sink region: [(16.417, 16.325), (16.417, 16.325)].
+[INFO CTS-0025]     Width:  0.0000.
+[INFO CTS-0026]     Height: 0.0000.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 1
+    Sub-region size: 0.0000 X 0.0000
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1155.915 um) and max number of sinks is 8.
+[INFO CTS-0035]  Number of sinks covered: 1.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i_regs.
+[INFO CTS-0028]  Total number of sinks: 995.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 8 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18900  dbu (18 um).
+[INFO CTS-0021]  Distance between buffers: 1 units (60 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 8 and max clustering diameter of 95.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 125.
+[INFO CTS-0024]  Normalized sink region: [(1.48571, 2.17222), (13.3556, 30.9778)].
+[INFO CTS-0025]     Width:  11.8698.
+[INFO CTS-0026]     Height: 28.8056.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 63
+    Sub-region size: 11.8698 X 14.4028
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 32
+    Sub-region size: 5.9349 X 14.4028
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 16
+    Sub-region size: 5.9349 X 7.2014
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 8
+    Sub-region size: 2.9675 X 7.2014
+[INFO CTS-0034]     Segment length (rounded): 1.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 4
+    Sub-region size: 2.9675 X 3.6007
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1155.915 um) and max number of sinks is 8.
+[INFO CTS-0035]  Number of sinks covered: 125.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net _06180_.
+[INFO CTS-0028]  Total number of sinks: 944.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 8 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18900  dbu (18 um).
+[INFO CTS-0021]  Distance between buffers: 1 units (60 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 8 and max clustering diameter of 228.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 119.
+[INFO CTS-0024]  Normalized sink region: [(1.74921, 1.8), (31.2508, 30.9222)].
+[INFO CTS-0025]     Width:  29.5016.
+[INFO CTS-0026]     Height: 29.1222.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 60
+    Sub-region size: 14.7508 X 29.1222
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 30
+    Sub-region size: 14.7508 X 14.5611
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 15
+    Sub-region size: 7.3754 X 14.5611
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 8
+    Sub-region size: 7.3754 X 7.2806
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 4
+    Sub-region size: 3.6877 X 7.2806
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (1155.915 um) and max number of sinks is 8.
+[INFO CTS-0035]  Number of sinks covered: 119.
+[INFO CTS-0018]     Created 2 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 2 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:1..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0018]     Created 188 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 7.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 7.
+[INFO CTS-0015]     Created 188 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:4, 4:29, 8:124..
+[INFO CTS-0017]     Max level of the clock tree: 5.
+[INFO CTS-0018]     Created 182 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 7.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 7.
+[INFO CTS-0015]     Created 182 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:9, 4:23, 6:3, 7:2, 8:114..
+[INFO CTS-0017]     Max level of the clock tree: 5.
+[INFO CTS-0124] Clock net "clk_i"
+[INFO CTS-0125]  Sinks 1
+[INFO CTS-0098] Clock net "clk_i_regs"
+[INFO CTS-0099]  Sinks 999
+[INFO CTS-0100]  Leaf buffers 125
+[INFO CTS-0101]  Average sink wire length 368.13 um
+[INFO CTS-0102]  Path depth 6 - 7
+[INFO CTS-0207]  Dummy loads inserted 4
+[INFO CTS-0098] Clock net "_06180_"
+[INFO CTS-0099]  Sinks 958
+[INFO CTS-0100]  Leaf buffers 119
+[INFO CTS-0101]  Average sink wire length 524.89 um
+[INFO CTS-0102]  Path depth 6 - 7
+[INFO CTS-0207]  Dummy loads inserted 14
+[INFO CTS-0033] Balancing latency for clock core_clock
+[INFO CTS-0036]  inserted 4 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 4
+[INFO CTS-0500] Runtime: 1.61s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 336732.68 um^2
+[INFO DPL-0007] Movable instances area: 277819.11 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 82.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18445 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       8542 |       966 |      7576
+        1 |       6642 |       720 |      5922
+        2 |       5973 |       553 |      5420
+        3 |       5382 |       480 |      4902
+        4 |       5137 |       417 |      4717
+        5 |       5075 |       412 |      4624
+        6 |       4571 |       403 |      4123
+        7 |       4691 |       394 |      4219
+        8 |       4424 |       382 |      3970
+        9 |       4037 |       368 |      3669
+       10 |       4165 |       353 |      3752
+       20 |       1625 |       149 |      1458
+       30 |        993 |        97 |       896
+       40 |        164 |        30 |       134
+       50 |        181 |        23 |       158
+       60 |        137 |        23 |       114
+       70 |         44 |         8 |        36
+       80 |         12 |         2 |        10
+       90 |         22 |         2 |        20
+      100 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 100.
+[INFO DPL-0500] Runtime: 3.60s
+Placement Analysis
+---------------------------------
+total displacement      78203.1 u
+average displacement        4.2 u
+max displacement           79.0 u
+original HPWL          645707.9 u
+legalized HPWL         729836.6 u
+delta HPWL                   13 %
+
+estimate_parasitics -placement
+[WARNING STA-0101] object 'bondpad_70*' not found.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 79 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 79 out of 79 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.244 |      -20.8 |      -11.2 |     79 | gen_regfile_ff.register_file_i.rf_reg\[283\]$_DFFE_PN0P_/D
+       9* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      10* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      10* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      11* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      12* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      13* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      14* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      15* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      16* |       0 |       2 |        6 |      0 |     3 |    +0.0% |   -0.028 |      -20.1 |       -0.3 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      20* |       0 |       2 |        8 |      0 |     5 |    +0.0% |   -0.013 |      -20.1 |       -0.1 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      21* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      22* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      23* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      24* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      25* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      26* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      27* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      28* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      29* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      30* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      30* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      31* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      32* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      33* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      34* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      35* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      36* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      37* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      38* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      39* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      40* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      40* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      41* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      42* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      43* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      44* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      45* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      46* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      47* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      48* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      49* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      50* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      50* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      51* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      52* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      53* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      54* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      55* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      56* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      57* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      58* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      59* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      60* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      60* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      61* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      62* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      63* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      64* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      65* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      66* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      67* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      68* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      69* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      70* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      70* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      71* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      72* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      73* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      74* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      75* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      76* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      77* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      78* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      79* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      80* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      80* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      81* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      82* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      83* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      84* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      85* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      86* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      87* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      88* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      89* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      90* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      90* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      91* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+      91* |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |     79 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+    final |       0 |       2 |        9 |      0 |     5 |    +0.1% |    0.026 |      -20.0 |        0.0 |      0 | gen_regfile_ff.register_file_i.rf_reg\[415\]$_DFFE_PN0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0040] Inserted 9 buffers.
+[INFO RSZ-0051] Resized 2 instances: 2 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 5 instances.
+[INFO RSZ-0505] Runtime: 2.60s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.03s
+[WARNING STA-0101] object 'bondpad_70*' not found.
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 336732.68 um^2
+[INFO DPL-0007] Movable instances area: 277962.45 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 82.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 18454 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |         57 |        13 |        44
+        1 |         46 |         6 |        40
+        2 |         27 |         6 |        21
+        3 |         32 |         6 |        26
+        4 |         49 |        10 |        39
+        5 |         40 |         4 |        36
+        6 |         16 |         2 |        14
+        7 |         16 |         2 |        14
+        8 |         10 |         2 |         8
+        9 |         16 |         2 |        14
+       10 |          7 |         2 |         5
+       20 |         11 |         3 |         8
+       30 |         30 |         4 |        26
+       40 |         40 |         9 |        31
+       50 |         32 |         7 |        25
+       60 |         22 |         6 |        16
+       70 |         18 |         3 |        15
+       80 |         13 |         3 |        10
+       90 |         19 |         3 |        16
+      100 |         33 |         6 |        27
+      110 |          7 |         3 |         4
+      120 |         33 |         6 |        27
+      130 |         40 |         6 |        34
+      140 |         14 |         2 |        12
+      150 |         45 |         5 |        40
+      160 |         60 |         8 |        52
+      170 |         32 |         6 |        26
+      180 |         30 |         3 |        27
+      190 |         22 |         2 |        20
+      198 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 198.
+[INFO DPL-0500] Runtime: 1.87s
+Placement Analysis
+---------------------------------
+total displacement       1879.2 u
+average displacement        0.1 u
+max displacement           52.9 u
+original HPWL          729996.8 u
+legalized HPWL         731834.4 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 277962 um^2 83% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/ibex/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/ibex/base/4_cts.sdc
+Elapsed time: 0:19.77[h:]min:sec. CPU time: user 48.37 sys 15.83 (324%). Peak memory: 277516KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           19            271 cfd71dc89965139c07e4

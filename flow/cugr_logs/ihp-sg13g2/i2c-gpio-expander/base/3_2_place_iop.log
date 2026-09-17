@@ -1,0 +1,35 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+source ./platforms/ihp-sg13g2/suppress_message.tcl
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_slow_1p08V_125C.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+read_liberty -corner slow /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_slow.lib
+read_liberty -corner slow ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib line 19, library sg13g2_io_slow_1p08V_3p0V_125C already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_stdcell_fast_1p32V_m40C.lib
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+read_liberty -corner fast /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib
+[WARNING STA-1140] /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander_I2cDeviceCtrl/base/I2cDeviceCtrl_fast.lib line 1, library I2cDeviceCtrl already exists.
+read_liberty -corner fast ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+[WARNING STA-1140] ./platforms/ihp-sg13g2/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib line 19, library sg13g2_io_fast_1p32V_3p6V_m40C already exists.
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/3_1_place_gp_skip_io.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/2_floorplan.sdc
+source ./platforms/ihp-sg13g2/setRC.tcl
+place_pins -hor_layers Metal3 -ver_layers Metal2
+Found 1 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 4674
+[INFO PPL-0002] Number of I/O             0
+[INFO PPL-0003] Number of I/O w/sink      0
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 0.00 um.
+Design area 34357 um^2 28% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/ihp-sg13g2/i2c-gpio-expander/base/3_2_place_iop.odb
+Elapsed time: 0:00.25[h:]min:sec. CPU time: user 0.21 sys 0.04 (100%). Peak memory: 112856KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_2_place_iop             .odb            0            110 a614aaffaeaf2f0980e3

@@ -1,0 +1,31 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty ./designs/sky130hd/microwatt/lib/Microwatt_FP_DFFRFile.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM32_1RW1R.lib
+read_liberty ./designs/sky130hd/microwatt/lib/RAM512.lib
+read_liberty ./designs/sky130hd/microwatt/lib/multiply_add_64x64.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/2_3_floorplan_tapcell.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/2_1_floorplan.sdc
+source ./platforms/sky130hd/setRC.tcl
+[WARNING PDN-1051] No instances found for grid (CORE_macro_grid_2).
+[INFO PDN-0001] Inserting grid: grid
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/processor/register_file_0/register_file_0
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/processor/dcache_0/rams:1.way/cache_ram_0
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/processor/icache_0/rams:1.way/cache_ram_0
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/bram.bram0/ram_0/memory_0
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/processor/execute1_0/multiply_0/multiplier
+[INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - soc0/processor/with_fpu.fpu_0/fpu_multiply_0/multiplier
+[WARNING PDN-0110] No via inserted between met4 and met5 at (100.8100, 2517.9200) - (103.9100, 2518.2800) on VSS
+[WARNING PDN-0110] No via inserted between met4 and met5 at (280.8100, 2517.9200) - (283.9100, 2518.2800) on VSS
+[WARNING PDN-0110] No via inserted between met4 and met5 at (460.8100, 2517.9200) - (463.9100, 2518.2800) on VSS
+[INFO PDN-0500] Runtime: 1.91s
+Design area 4588340 um^2 56% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/sky130hd/microwatt/base/2_4_floorplan_pdn.odb
+Elapsed time: 0:05.42[h:]min:sec. CPU time: user 5.13 sys 0.29 (99%). Peak memory: 485700KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_4_floorplan_pdn         .odb            5            474 6a721225dc6694994b57

@@ -1,0 +1,40 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+read_liberty ./platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[INFO ODB-0227] LEF file: ./platforms/sky130hd/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: ./platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/chameleon/lef/apb_sys_0.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/chameleon/lef/apb_sys_0.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/chameleon/lef/DFFRAM_4K.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/chameleon/lef/DFFRAM_4K.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/chameleon/lef/DMC_32x16HC.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/chameleon/lef/DMC_32x16HC.lef, created 1 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file ./designs/sky130hd/chameleon/lef/ibex_wrapper.lef at line 2.
+
+[INFO ODB-0227] LEF file: ./designs/sky130hd/chameleon/lef/ibex_wrapper.lef, created 1 library cells
+link_design soc_core
+[WARNING ORD-2011] LEF master DFFRAM_4K has no liberty cell.
+[WARNING ORD-2011] LEF master DMC_32x16HC has no liberty cell.
+[WARNING ORD-2011] LEF master apb_sys_0 has no liberty cell.
+[WARNING ORD-2011] LEF master ibex_wrapper has no liberty cell.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/chameleon/base/1_2_yosys.sdc
+source ./platforms/sky130hd/setRC.tcl
+eliminate_dead_logic
+Removed 0 unused instances and 0 unused nets.
+Design area 5599001 um^2 100% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/chameleon/base/1_synth.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/sky130hd/chameleon/base/1_synth.sdc
+Elapsed time: 0:00.32[h:]min:sec. CPU time: user 0.30 sys 0.02 (100%). Peak memory: 134000KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_synth                   .odb            0            130 9d4e73c3ca350709d591
+1_synth                   .sdc                             e14ecc3e49fd45f3ec2c

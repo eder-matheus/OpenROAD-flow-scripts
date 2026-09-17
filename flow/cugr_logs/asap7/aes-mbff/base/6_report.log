@@ -1,0 +1,88 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 32 thread(s).
+source ./platforms/asap7/liberty_suppressions.tcl
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_DFFHQNH2V2X_RVT_FF_nldm_FAKE.lib
+read_liberty ./platforms/asap7/lib/NLDM/asap7sc7p5t_DFFHQNV2X_RVT_FF_nldm_FAKE.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-mbff/base/6_1_fill.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-mbff/base/6_1_fill.sdc
+source ./platforms/asap7/setRC.tcl
+[WARNING STA-0450] virtual clock vclk_clk can not be propagated.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-mbff/base/6_final.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/asap7/aes-mbff/base/6_final.sdc
+Deleted 0 routing obstructions
+Warning: master DFFHQNH2V2Xx1_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNH2V2Xx1_ASAP7_75t_SL has signal pins but no liberty cell
+Warning: master DFFHQNH2V2Xx2_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNH2V2Xx2_ASAP7_75t_SL has signal pins but no liberty cell
+Warning: master DFFHQNH2V2Xx3_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNH2V2Xx3_ASAP7_75t_SL has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx1_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx1_ASAP7_75t_SL has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx2_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx2_ASAP7_75t_SL has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx3_ASAP7_75t_L has signal pins but no liberty cell
+Warning: master DFFHQNV2Xx3_ASAP7_75t_SL has signal pins but no liberty cell
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[WARNING RCX-0514] The ext_model_file option is deprecated. Use set_extraction_rules_file command instead.
+[INFO RCX-0435] Reading extraction model file ./platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation aes_cipher_top (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 106563 rc segments
+[INFO RCX-0439] Coupling Cap extraction aes_cipher_top ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 53% of 109917 wires extracted
+[INFO RCX-0442] 100% of 109917 wires extracted
+[INFO RCX-0045] Extract 15292 nets, 121855 rsegs, 121855 caps, 161250 ccs
+[INFO RCX-0443] 15292 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.53e-01 W
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.46e-01 V
+Average voltage  : 7.63e-01 V
+Average IR drop  : 7.44e-03 V
+Worstcase IR drop: 2.41e-02 V
+Percentage drop  : 3.13 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 1.53e-01 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 2.40e-02 V
+Average voltage  : 7.45e-03 V
+Average IR drop  : 7.45e-03 V
+Worstcase IR drop: 2.40e-02 V
+Percentage drop  : 3.12 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                             22584    2177.99
+  Tap cell                                689      20.09
+  Clock buffer                             48      19.35
+  Timing Repair Buffer                   1499     140.99
+  Inverter                                891      40.37
+  Clock inverter                           19       2.71
+  Sequential cell                         521     164.33
+  Multi-Input combinational cell        12042    1277.15
+  Total                                 38293    3842.98
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 1665 um^2 43% utilization.
+[WARNING GUI-0076] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Elapsed time: 0:11.60[h:]min:sec. CPU time: user 13.57 sys 7.53 (181%). Peak memory: 628404KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_report                                 11            613                  N/A

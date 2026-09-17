@@ -1,0 +1,504 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_512x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x7.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x96.lib
+read_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/3_place.odb
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/3_place.sdc
+source ./platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk_i" found for clock "CLK".
+[INFO CTS-0011]  Clock net "clk_i" for macros has 11 sinks.
+[INFO CTS-0011]  Clock net "clk_i_regs" for registers has 4315 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 9 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i.
+[INFO CTS-0028]  Total number of sinks: 11.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 4 and clustering diameter of 305.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 5.
+[INFO CTS-0024]  Normalized sink region: [(13.1114, 15.395), (87.7307, 84.185)].
+[INFO CTS-0025]     Width:  74.6193.
+[INFO CTS-0026]     Height: 68.7900.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 3
+    Sub-region size: 37.3096 X 68.7900
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 2
+    Sub-region size: 37.3096 X 34.3950
+[INFO CTS-0034]     Segment length (rounded): 18.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 5.
+[INFO CTS-0201] 9 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i_regs.
+[INFO CTS-0028]  Total number of sinks: 4315.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 8 and max clustering diameter of 98.
+[INFO CTS-0019]  Total number of sinks after clustering: 695.
+[INFO CTS-0024]  Normalized sink region: [(2.7201, 2.10405), (112.059, 76.1909)].
+[INFO CTS-0025]     Width:  109.3392.
+[INFO CTS-0026]     Height: 74.0869.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 348
+    Sub-region size: 54.6696 X 74.0869
+[INFO CTS-0034]     Segment length (rounded): 28.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 174
+    Sub-region size: 54.6696 X 37.0434
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 87
+    Sub-region size: 27.3348 X 37.0434
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 44
+    Sub-region size: 27.3348 X 18.5217
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 22
+    Sub-region size: 13.6674 X 18.5217
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 11
+    Sub-region size: 13.6674 X 9.2609
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 695.
+[INFO CTS-0018]     Created 10 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 10 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:3, 2:5, 3:1..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0018]     Created 802 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 6.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 6.
+[INFO CTS-0015]     Created 802 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:10, 3:16, 4:33, 5:83, 6:234, 7:281, 8:55, 9:9, 10:6, 11:6, 12:7, 13:5, 14:5, 15:3, 16:1, 18:2, 20:2, 21:1..
+[INFO CTS-0017]     Max level of the clock tree: 6.
+[INFO CTS-0098] Clock net "clk_i"
+[INFO CTS-0099]  Sinks 11
+[INFO CTS-0100]  Leaf buffers 5
+[INFO CTS-0101]  Average sink wire length 901.79 um
+[INFO CTS-0102]  Path depth 3 - 3
+[INFO CTS-0207]  Dummy loads inserted 4
+[INFO CTS-0098] Clock net "clk_i_regs"
+[INFO CTS-0099]  Sinks 4879
+[INFO CTS-0100]  Leaf buffers 695
+[INFO CTS-0101]  Average sink wire length 534.74 um
+[INFO CTS-0102]  Path depth 5 - 6
+[INFO CTS-0207]  Dummy loads inserted 564
+[INFO CTS-0033] Balancing latency for clock CLK
+[INFO CTS-0036]  inserted 3 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 3
+[INFO CTS-0500] Runtime: 3.03s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 450857.23 um^2
+[INFO DPL-0007] Movable instances area: 56237.72 um^2
+[INFO DPL-0008] Fixed instances area within core: 161744.23 um^2
+[INFO DPL-0009] Utilization: 48.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 37484 cells
+[INFO DPL-0393]   height 26 row(s): 1 cells
+[INFO DPL-0393]   height 64 row(s): 1 cells
+[INFO DPL-0393]   height 81 row(s): 9 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.29s
+Placement Analysis
+---------------------------------
+total displacement      16024.2 u
+average displacement        0.4 u
+max displacement           30.8 u
+original HPWL         1431935.4 u
+legalized HPWL        1439779.2 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 239 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 239 out of 239 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   StTNS    |   EnTNS    |  Viol  |  Worst  
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            |            | Endpts | St/EnPt 
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -0.613 |      -98.9 |      -41.7 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -0.589 |      -98.6 |      -40.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      20* |       0 |      10 |        3 |      1 |     5 |    +0.0% |   -0.590 |      -99.1 |      -41.5 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      30* |       0 |      14 |        7 |      1 |     8 |    +0.0% |   -0.438 |      -84.7 |      -33.9 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      40* |       0 |      18 |       12 |      1 |    11 |    +0.0% |   -0.424 |      -83.5 |      -33.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      50* |       0 |      24 |       16 |      2 |    12 |    +0.0% |   -0.400 |      -80.9 |      -32.8 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      60* |       0 |      26 |       33 |      2 |    12 |    +0.0% |   -0.388 |      -80.2 |      -32.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      70* |       0 |      31 |       43 |      2 |    13 |    +0.0% |   -0.378 |      -78.5 |      -31.8 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[35\]$_SDFFCE_PP0P_/D
+      80* |       0 |      38 |       46 |      2 |    14 |    +0.0% |   -0.370 |      -77.7 |      -30.9 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+      90* |       0 |      42 |       49 |      2 |    17 |    +0.0% |   -0.370 |      -77.2 |      -31.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     100* |       0 |      49 |       52 |      2 |    18 |    +0.0% |   -0.348 |      -74.8 |      -30.4 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     110* |       2 |      55 |       55 |      2 |    18 |    +0.0% |   -0.222 |      -61.2 |      -19.5 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     120* |       2 |      61 |       61 |      2 |    19 |    +0.1% |   -0.212 |      -60.6 |      -18.8 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     130* |       2 |      64 |       68 |      3 |    21 |    +0.1% |   -0.201 |      -59.4 |      -13.9 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     140* |       2 |      74 |       68 |      3 |    21 |    +0.1% |   -0.162 |      -55.0 |       -9.3 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     150* |       4 |      78 |       73 |      3 |    21 |    +0.1% |   -0.108 |      -48.6 |       -5.5 |    239 | lce_lce_tr_resp_o[276]
+     160* |       4 |      87 |       73 |      3 |    22 |    +0.1% |   -0.085 |      -46.9 |       -2.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     170* |       5 |      89 |       77 |      4 |    25 |    +0.1% |   -0.049 |      -45.7 |       -1.4 |    239 | lce_lce_tr_resp_o[468]
+     180* |       5 |      95 |       80 |      4 |    27 |    +0.1% |   -0.046 |      -45.6 |       -0.8 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     189* |       5 |     101 |       82 |      4 |    28 |    +0.1% |   -0.038 |      -45.4 |       -0.6 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     190* |       5 |     101 |       82 |      4 |    28 |    +0.1% |   -0.038 |      -45.4 |       -0.6 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     200* |       5 |     106 |       86 |      4 |    30 |    +0.1% |   -0.038 |      -45.3 |       -0.5 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     201* |       5 |     106 |       86 |      4 |    31 |    +0.1% |   -0.038 |      -45.3 |       -0.5 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     207* |       5 |     111 |       86 |      4 |    31 |    +0.1% |   -0.038 |      -45.4 |       -0.5 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     208* |       5 |     111 |       86 |      4 |    31 |    +0.1% |   -0.038 |      -45.4 |       -0.5 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     210* |       5 |     112 |       86 |      4 |    31 |    +0.1% |   -0.038 |      -45.4 |       -0.5 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     220* |       5 |     118 |       88 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     221* |       5 |     119 |       88 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     222* |       5 |     119 |       88 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     223* |       5 |     119 |       88 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     224* |       5 |     119 |       88 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     228* |       5 |     121 |       89 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     230* |       5 |     121 |       92 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     230* |       5 |     121 |       92 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     231* |       5 |     121 |       92 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     232* |       5 |     121 |       92 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     233* |       5 |     121 |       92 |      4 |    33 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     239* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     240* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     240* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     241* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     242* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     243* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     244* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     245* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     246* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     247* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     248* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     249* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     250* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     250* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     251* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     252* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     253* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     254* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     255* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     256* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     257* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     258* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     259* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     260* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     260* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     261* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     262* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     263* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     264* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     265* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     266* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     267* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     268* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     269* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     270* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     270* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     271* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     272* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     273* |       5 |     125 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     275* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     276* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     277* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     278* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     279* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     280* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     280* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     281* |       5 |     126 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.3 |       -0.4 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     283* |       5 |     127 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.2 |       -0.3 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     284* |       5 |     127 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.2 |       -0.3 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     285* |       5 |     127 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.2 |       -0.3 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     286* |       5 |     127 |       92 |      4 |    34 |    +0.1% |   -0.038 |      -45.2 |       -0.3 |    239 | icache_1/data_mem_banks_4__data_mem_bank.macro_mem/mem/addr_in[6]
+     289* |       5 |     129 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     290* |       5 |     129 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     291* |       5 |     130 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     293* |       5 |     131 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     294* |       5 |     131 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     295* |       5 |     131 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.1 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     297* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     298* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     299* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     300* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     300* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     301* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     302* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     303* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     304* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     305* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     306* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     307* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     308* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     309* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     310* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     310* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     311* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     312* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     313* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     314* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     315* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     316* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     317* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     318* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     319* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     320* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     320* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     321* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     322* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     323* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     324* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     325* |       5 |     132 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     327* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     328* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     329* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     330* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     330* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     331* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     332* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     333* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     334* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     335* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     336* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     337* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     338* |       5 |     133 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     340* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     340* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     341* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     342* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     343* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     344* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     345* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     346* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     347* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     348* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     349* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     350* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     350* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     351* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     352* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     353* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     354* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     355* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     356* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     357* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     358* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     359* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     360* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     360* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     361* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     362* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     363* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     364* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     365* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     366* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     367* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     368* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     369* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     370* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     370* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     371* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     372* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     373* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     374* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     375* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     376* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     377* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     378* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     379* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     380* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     380* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     381* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     382* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     383* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     384* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     385* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     386* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     387* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     388* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     389* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     390* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     390* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     391* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     392* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     393* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     394* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     395* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     396* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     397* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     398* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     399* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     400* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     400* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     401* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     402* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     403* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     404* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     405* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     406* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     407* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     408* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     409* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     410* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     410* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     411* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     412* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     413* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     414* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     415* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     416* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     417* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     418* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     419* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     420* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     420* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     421* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     422* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     423* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     424* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     425* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     426* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     427* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     428* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     429* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     430* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     430* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     431* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     432* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     433* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     434* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     435* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     436* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     437* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     438* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     439* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     440* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     440* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     441* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     442* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     443* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     444* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     445* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     446* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     447* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     448* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     449* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     450* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     450* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     451* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     452* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     453* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     454* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     455* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     456* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     457* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     458* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     459* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     460* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     460* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     461* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     462* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     463* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     464* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     465* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     466* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     467* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     468* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     469* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     470* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     470* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     471* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     472* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     473* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     473* |       5 |     134 |       92 |      4 |    34 |    +0.1% |   -0.020 |      -45.2 |       -0.0 |    239 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     475+ |       5 |     135 |       92 |      4 |    34 |    +0.1% |   -0.011 |      -45.1 |       -0.0 |      2 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+     476+ |       5 |     135 |       92 |      4 |    34 |    +0.1% |   -0.011 |      -45.1 |       -0.0 |      2 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+    final |       5 |     135 |       92 |      4 |    34 |    +0.1% |   -0.011 |      -45.1 |       -0.0 |      2 | bp_fe_pc_gen_1.pc_gen_icache_o\[62\]$_SDFFCE_PP0P_/D
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 5 buffers.
+[INFO RSZ-0045] Inserted 92 buffers, 1 to split loads.
+[INFO RSZ-0051] Resized 135 instances: 135 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 34 instances.
+[INFO RSZ-0049] Cloned 4 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 19.05s
+[INFO RSZ-0033] No hold violations found.
+[INFO RSZ-0506] Runtime: 0.06s
+Took 19 seconds: repair_timing -setup_margin 0 -hold_margin 0.03 -repair_tns 100 -verbose
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 450857.23 um^2
+[INFO DPL-0007] Movable instances area: 56462.49 um^2
+[INFO DPL-0008] Fixed instances area within core: 161744.23 um^2
+[INFO DPL-0009] Utilization: 48.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (4 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 37575 cells
+[INFO DPL-0393]   height 26 row(s): 1 cells
+[INFO DPL-0393]   height 64 row(s): 1 cells
+[INFO DPL-0393]   height 81 row(s): 9 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.31s
+Placement Analysis
+---------------------------------
+total displacement        287.4 u
+average displacement        0.0 u
+max displacement            5.8 u
+original HPWL         1442085.1 u
+legalized HPWL        1442304.8 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 218207 um^2 48% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/4_1_cts.odb
+write_sdc -no_timestamp /tmp/workspace/scripts-Private_test-fr_cugr_cmp-1-/results/nangate45/bp_fe/base/4_cts.sdc
+Elapsed time: 0:47.64[h:]min:sec. CPU time: user 87.74 sys 55.21 (300%). Peak memory: 442924KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb           47            432 42c71e551cf8538bfa7e

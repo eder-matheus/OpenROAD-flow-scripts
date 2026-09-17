@@ -1,0 +1,21 @@
+OpenROAD 26Q3-1464-gb22abfea20 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 30 thread(s).
+read_liberty ./platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x256.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_128x64.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x28.lib
+read_liberty ./platforms/nangate45/lib/fakeram45_64x25.lib
+read_db -hier /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/cva6/base/5_2_route.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/cva6/base/5_1_grt.sdc
+source ./platforms/nangate45/setRC.tcl
+filler_placement "FILLCELL_X1 FILLCELL_X2 FILLCELL_X4 FILLCELL_X8 FILLCELL_X16 FILLCELL_X32"
+[INFO DPL-0001] Placed 99493 filler instances.
+Design area 251505 um^2 64% utilization.
+write_db /tmp/workspace/scripts-Private_test-fr_cugr_cmp-2-/results/nangate45/cva6/base/5_3_fillcell.odb
+Elapsed time: 0:03.19[h:]min:sec. CPU time: user 2.87 sys 0.32 (100%). Peak memory: 616280KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_3_fillcell              .odb            3            601 2213755670ada542267d
